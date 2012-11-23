@@ -6,61 +6,911 @@
     <edmx:StorageModels>
       <Schema Namespace="BindedInModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="BindedInModelStoreContainer">
-          <EntitySet Name="Utilisateur" EntityType="BindedInModel.Store.Utilisateur" store:Type="Tables" store:Schema="dbo" store:Name="Utilisateur">
-            <DefiningQuery>SELECT 
-      [Utilisateur].[id] AS [id], 
-      [Utilisateur].[nom] AS [nom], 
-      [Utilisateur].[prenom] AS [prenom], 
-      [Utilisateur].[date_naissance] AS [date_naissance]
-      FROM [dbo].[Utilisateur] AS [Utilisateur]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="company" EntityType="BindedInModel.Store.company" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="competence" EntityType="BindedInModel.Store.competence" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="formation" EntityType="BindedInModel.Store.formation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="message" EntityType="BindedInModel.Store.message" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="professional_experience" EntityType="BindedInModel.Store.professional_experience" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="recommandation" EntityType="BindedInModel.Store.recommandation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="relation_status" EntityType="BindedInModel.Store.relation_status" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="school" EntityType="BindedInModel.Store.school" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="status_name" EntityType="BindedInModel.Store.status_name" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="user" EntityType="BindedInModel.Store.user" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="user_competence" EntityType="BindedInModel.Store.user_competence" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="user_experienceprofessional" EntityType="BindedInModel.Store.user_experienceprofessional" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="user_formation" EntityType="BindedInModel.Store.user_formation" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_formation_ecole" Association="BindedInModel.Store.FK_formation_ecole">
+            <End Role="school" EntitySet="school" />
+            <End Role="formation" EntitySet="formation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_message_message" Association="BindedInModel.Store.FK_message_message">
+            <End Role="user" EntitySet="user" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_message_User" Association="BindedInModel.Store.FK_message_User">
+            <End Role="user" EntitySet="user" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
+          <AssociationSet Name="FK_professional_experience_company" Association="BindedInModel.Store.FK_professional_experience_company">
+            <End Role="company" EntitySet="company" />
+            <End Role="professional_experience" EntitySet="professional_experience" />
+          </AssociationSet>
+          <AssociationSet Name="FK_recommandation_User" Association="BindedInModel.Store.FK_recommandation_User">
+            <End Role="user" EntitySet="user" />
+            <End Role="recommandation" EntitySet="recommandation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_recommandation_User1" Association="BindedInModel.Store.FK_recommandation_User1">
+            <End Role="user" EntitySet="user" />
+            <End Role="recommandation" EntitySet="recommandation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relation_status_asked_user" Association="BindedInModel.Store.FK_relation_status_asked_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="relation_status" EntitySet="relation_status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relation_status_asking_user" Association="BindedInModel.Store.FK_relation_status_asking_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="relation_status" EntitySet="relation_status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relation_status_relation_status" Association="BindedInModel.Store.FK_relation_status_relation_status">
+            <End Role="status_name" EntitySet="status_name" />
+            <End Role="relation_status" EntitySet="relation_status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_competence_User" Association="BindedInModel.Store.FK_user_competence_User">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_competence" EntitySet="user_competence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_competence_user_competence" Association="BindedInModel.Store.FK_user_competence_user_competence">
+            <End Role="competence" EntitySet="competence" />
+            <End Role="user_competence" EntitySet="user_competence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_experienceprofessional_professional_experience" Association="BindedInModel.Store.FK_user_experienceprofessional_professional_experience">
+            <End Role="professional_experience" EntitySet="professional_experience" />
+            <End Role="user_experienceprofessional" EntitySet="user_experienceprofessional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_experienceprofessional_User" Association="BindedInModel.Store.FK_user_experienceprofessional_User">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_experienceprofessional" EntitySet="user_experienceprofessional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_formation_user_formation1" Association="BindedInModel.Store.FK_user_formation_user_formation1">
+            <End Role="formation" EntitySet="formation" />
+            <End Role="user_formation" EntitySet="user_formation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_formation_user1" Association="BindedInModel.Store.FK_user_formation_user1">
+            <End Role="user" EntitySet="user" />
+            <End Role="user_formation" EntitySet="user_formation" />
+          </AssociationSet>
         </EntityContainer>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « BindedIn.dbo.Utilisateur » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
-      -->
-        <EntityType Name="Utilisateur">
+        <EntityType Name="company">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="nom" />
-            <PropertyRef Name="prenom" />
           </Key>
-          <Property Name="id" Type="numeric" Nullable="false" />
-          <Property Name="nom" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="prenom" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="date_naissance" Type="date" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nom" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="adresse" Type="nvarchar" MaxLength="50" />
+          <Property Name="telephone" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="competence">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="level" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="formation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="beginning_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" Nullable="false" />
+          <Property Name="school" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="recipient" Type="int" Nullable="false" />
+          <Property Name="sender" Type="int" Nullable="false" />
+          <Property Name="message" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="professional_experience">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="beginning_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" Nullable="false" />
+          <Property Name="company" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="recommandation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="recipient" Type="int" Nullable="false" />
+          <Property Name="sender" Type="int" Nullable="false" />
+          <Property Name="message" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="relation_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="asking_user" Type="int" Nullable="false" />
+          <Property Name="asked_user" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="asked_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="school">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="status_name">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="status" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="lastname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="firstname" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user_competence">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="user" Type="int" Nullable="false" />
+          <Property Name="competence" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_experienceprofessional">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="user" Type="int" Nullable="false" />
+          <Property Name="experience_professional" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_formation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="user" Type="int" Nullable="false" />
+          <Property Name="formation" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_formation_ecole">
+          <End Role="school" Type="BindedInModel.Store.school" Multiplicity="1" />
+          <End Role="formation" Type="BindedInModel.Store.formation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="school">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="formation">
+              <PropertyRef Name="school" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_message_message">
+          <End Role="user" Type="BindedInModel.Store.user" Multiplicity="1" />
+          <End Role="message" Type="BindedInModel.Store.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="recipient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_message_User">
+          <End Role="user" Type="BindedInModel.Store.user" Multiplicity="1" />
+          <End Role="message" Type="BindedInModel.Store.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_professional_experience_company">
+          <End Role="company" Type="BindedInModel.Store.company" Multiplicity="1" />
+          <End Role="professional_experience" Type="BindedInModel.Store.professional_experience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="professional_experience">
+              <PropertyRef Name="company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_recommandation_User">
+          <End Role="user" Type="BindedInModel.Store.user" Multiplicity="1" />
+          <End Role="recommandation" Type="BindedInModel.Store.recommandation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="recommandation">
+              <PropertyRef Name="recipient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_recommandation_User1">
+          <End Role="user" Type="BindedInModel.Store.user" Multiplicity="1" />
+          <End Role="recommandation" Type="BindedInModel.Store.recommandation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="recommandation">
+              <PropertyRef Name="sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relation_status_asked_user">
+          <End Role="user" Type="BindedInModel.Store.user" Multiplicity="1" />
+          <End Role="relation_status" Type="BindedInModel.Store.relation_status" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="relation_status">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relation_status_asking_user">
+          <End Role="user" Type="BindedInModel.Store.user" Multiplicity="1" />
+          <End Role="relation_status" Type="BindedInModel.Store.relation_status" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="relation_status">
+              <PropertyRef Name="asking_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relation_status_relation_status">
+          <End Role="status_name" Type="BindedInModel.Store.status_name" Multiplicity="1" />
+          <End Role="relation_status" Type="BindedInModel.Store.relation_status" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="status_name">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="relation_status">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_competence_User">
+          <End Role="user" Type="BindedInModel.Store.user" Multiplicity="1" />
+          <End Role="user_competence" Type="BindedInModel.Store.user_competence" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_competence">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_competence_user_competence">
+          <End Role="competence" Type="BindedInModel.Store.competence" Multiplicity="1" />
+          <End Role="user_competence" Type="BindedInModel.Store.user_competence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="competence">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_competence">
+              <PropertyRef Name="competence" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_experienceprofessional_professional_experience">
+          <End Role="professional_experience" Type="BindedInModel.Store.professional_experience" Multiplicity="1" />
+          <End Role="user_experienceprofessional" Type="BindedInModel.Store.user_experienceprofessional" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="professional_experience">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_experienceprofessional">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_experienceprofessional_User">
+          <End Role="user" Type="BindedInModel.Store.user" Multiplicity="1" />
+          <End Role="user_experienceprofessional" Type="BindedInModel.Store.user_experienceprofessional" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_experienceprofessional">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_formation_user_formation1">
+          <End Role="formation" Type="BindedInModel.Store.formation" Multiplicity="1" />
+          <End Role="user_formation" Type="BindedInModel.Store.user_formation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="formation">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_formation">
+              <PropertyRef Name="formation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_formation_user1">
+          <End Role="user" Type="BindedInModel.Store.user" Multiplicity="1" />
+          <End Role="user_formation" Type="BindedInModel.Store.user_formation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_formation">
+              <PropertyRef Name="user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BindedInModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="BindedInEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Utilisateur" EntityType="BindedInModel.Utilisateur" />
+          <EntitySet Name="companies" EntityType="BindedInModel.company" />
+          <EntitySet Name="competences" EntityType="BindedInModel.competence" />
+          <EntitySet Name="formations" EntityType="BindedInModel.formation" />
+          <EntitySet Name="messages" EntityType="BindedInModel.message" />
+          <EntitySet Name="professional_experience" EntityType="BindedInModel.professional_experience" />
+          <EntitySet Name="recommandations" EntityType="BindedInModel.recommandation" />
+          <EntitySet Name="relation_status" EntityType="BindedInModel.relation_status" />
+          <EntitySet Name="schools" EntityType="BindedInModel.school" />
+          <EntitySet Name="status_name" EntityType="BindedInModel.status_name" />
+          <EntitySet Name="users" EntityType="BindedInModel.user" />
+          <EntitySet Name="user_competence" EntityType="BindedInModel.user_competence" />
+          <EntitySet Name="user_experienceprofessional" EntityType="BindedInModel.user_experienceprofessional" />
+          <EntitySet Name="user_formation" EntityType="BindedInModel.user_formation" />
+          <AssociationSet Name="FK_professional_experience_company" Association="BindedInModel.FK_professional_experience_company">
+            <End Role="company" EntitySet="companies" />
+            <End Role="professional_experience" EntitySet="professional_experience" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_competence_user_competence" Association="BindedInModel.FK_user_competence_user_competence">
+            <End Role="competence" EntitySet="competences" />
+            <End Role="user_competence" EntitySet="user_competence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_formation_ecole" Association="BindedInModel.FK_formation_ecole">
+            <End Role="school" EntitySet="schools" />
+            <End Role="formation" EntitySet="formations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_formation_user_formation1" Association="BindedInModel.FK_user_formation_user_formation1">
+            <End Role="formation" EntitySet="formations" />
+            <End Role="user_formation" EntitySet="user_formation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_message_message" Association="BindedInModel.FK_message_message">
+            <End Role="user" EntitySet="users" />
+            <End Role="message" EntitySet="messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_message_User" Association="BindedInModel.FK_message_User">
+            <End Role="user" EntitySet="users" />
+            <End Role="message" EntitySet="messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_experienceprofessional_professional_experience" Association="BindedInModel.FK_user_experienceprofessional_professional_experience">
+            <End Role="professional_experience" EntitySet="professional_experience" />
+            <End Role="user_experienceprofessional" EntitySet="user_experienceprofessional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_recommandation_User" Association="BindedInModel.FK_recommandation_User">
+            <End Role="user" EntitySet="users" />
+            <End Role="recommandation" EntitySet="recommandations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_recommandation_User1" Association="BindedInModel.FK_recommandation_User1">
+            <End Role="user" EntitySet="users" />
+            <End Role="recommandation" EntitySet="recommandations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relation_status_asked_user" Association="BindedInModel.FK_relation_status_asked_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="relation_status" EntitySet="relation_status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relation_status_asking_user" Association="BindedInModel.FK_relation_status_asking_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="relation_status" EntitySet="relation_status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relation_status_relation_status" Association="BindedInModel.FK_relation_status_relation_status">
+            <End Role="status_name" EntitySet="status_name" />
+            <End Role="relation_status" EntitySet="relation_status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_competence_User" Association="BindedInModel.FK_user_competence_User">
+            <End Role="user" EntitySet="users" />
+            <End Role="user_competence" EntitySet="user_competence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_experienceprofessional_User" Association="BindedInModel.FK_user_experienceprofessional_User">
+            <End Role="user" EntitySet="users" />
+            <End Role="user_experienceprofessional" EntitySet="user_experienceprofessional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_formation_user1" Association="BindedInModel.FK_user_formation_user1">
+            <End Role="user" EntitySet="users" />
+            <End Role="user_formation" EntitySet="user_formation" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Utilisateur">
+        <EntityType Name="company">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="nom" />
-            <PropertyRef Name="prenom" />
           </Key>
-          <Property Name="id" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="nom" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="prenom" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="date_naissance" Type="DateTime" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="adresse" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="telephone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="professional_experience" Relationship="BindedInModel.FK_professional_experience_company" FromRole="company" ToRole="professional_experience" />
         </EntityType>
+        <EntityType Name="competence">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="level" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="user_competence" Relationship="BindedInModel.FK_user_competence_user_competence" FromRole="competence" ToRole="user_competence" />
+        </EntityType>
+        <EntityType Name="formation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="beginning_date" Type="DateTime" Nullable="false" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" />
+          <Property Name="school" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="school1" Relationship="BindedInModel.FK_formation_ecole" FromRole="formation" ToRole="school" />
+          <NavigationProperty Name="user_formation" Relationship="BindedInModel.FK_user_formation_user_formation1" FromRole="formation" ToRole="user_formation" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="recipient" Type="Int32" Nullable="false" />
+          <Property Name="sender" Type="Int32" Nullable="false" />
+          <Property Name="message1" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="user" Relationship="BindedInModel.FK_message_message" FromRole="message" ToRole="user" />
+          <NavigationProperty Name="user1" Relationship="BindedInModel.FK_message_User" FromRole="message" ToRole="user" />
+        </EntityType>
+        <EntityType Name="professional_experience">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="beginning_date" Type="DateTime" Nullable="false" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" />
+          <Property Name="company" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="company1" Relationship="BindedInModel.FK_professional_experience_company" FromRole="professional_experience" ToRole="company" />
+          <NavigationProperty Name="user_experienceprofessional" Relationship="BindedInModel.FK_user_experienceprofessional_professional_experience" FromRole="professional_experience" ToRole="user_experienceprofessional" />
+        </EntityType>
+        <EntityType Name="recommandation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="recipient" Type="Int32" Nullable="false" />
+          <Property Name="sender" Type="Int32" Nullable="false" />
+          <Property Name="message" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="user" Relationship="BindedInModel.FK_recommandation_User" FromRole="recommandation" ToRole="user" />
+          <NavigationProperty Name="user1" Relationship="BindedInModel.FK_recommandation_User1" FromRole="recommandation" ToRole="user" />
+        </EntityType>
+        <EntityType Name="relation_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="asking_user" Type="Int32" Nullable="false" />
+          <Property Name="asked_user" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="asked_date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="BindedInModel.FK_relation_status_asked_user" FromRole="relation_status" ToRole="user" />
+          <NavigationProperty Name="user1" Relationship="BindedInModel.FK_relation_status_asking_user" FromRole="relation_status" ToRole="user" />
+          <NavigationProperty Name="status_name" Relationship="BindedInModel.FK_relation_status_relation_status" FromRole="relation_status" ToRole="status_name" />
+        </EntityType>
+        <EntityType Name="school">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="formations" Relationship="BindedInModel.FK_formation_ecole" FromRole="school" ToRole="formation" />
+        </EntityType>
+        <EntityType Name="status_name">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="relation_status" Relationship="BindedInModel.FK_relation_status_relation_status" FromRole="status_name" ToRole="relation_status" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="lastname" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="firstname" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="messages" Relationship="BindedInModel.FK_message_message" FromRole="user" ToRole="message" />
+          <NavigationProperty Name="messages1" Relationship="BindedInModel.FK_message_User" FromRole="user" ToRole="message" />
+          <NavigationProperty Name="recommandations" Relationship="BindedInModel.FK_recommandation_User" FromRole="user" ToRole="recommandation" />
+          <NavigationProperty Name="recommandations1" Relationship="BindedInModel.FK_recommandation_User1" FromRole="user" ToRole="recommandation" />
+          <NavigationProperty Name="relation_status" Relationship="BindedInModel.FK_relation_status_asked_user" FromRole="user" ToRole="relation_status" />
+          <NavigationProperty Name="relation_status1" Relationship="BindedInModel.FK_relation_status_asking_user" FromRole="user" ToRole="relation_status" />
+          <NavigationProperty Name="user_competence" Relationship="BindedInModel.FK_user_competence_User" FromRole="user" ToRole="user_competence" />
+          <NavigationProperty Name="user_experienceprofessional" Relationship="BindedInModel.FK_user_experienceprofessional_User" FromRole="user" ToRole="user_experienceprofessional" />
+          <NavigationProperty Name="user_formation" Relationship="BindedInModel.FK_user_formation_user1" FromRole="user" ToRole="user_formation" />
+        </EntityType>
+        <EntityType Name="user_competence">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="user" Type="Int32" Nullable="false" />
+          <Property Name="competence" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="competence1" Relationship="BindedInModel.FK_user_competence_user_competence" FromRole="user_competence" ToRole="competence" />
+          <NavigationProperty Name="user1" Relationship="BindedInModel.FK_user_competence_User" FromRole="user_competence" ToRole="user" />
+        </EntityType>
+        <EntityType Name="user_experienceprofessional">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="user" Type="Int32" Nullable="false" />
+          <Property Name="experience_professional" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="professional_experience" Relationship="BindedInModel.FK_user_experienceprofessional_professional_experience" FromRole="user_experienceprofessional" ToRole="professional_experience" />
+          <NavigationProperty Name="user1" Relationship="BindedInModel.FK_user_experienceprofessional_User" FromRole="user_experienceprofessional" ToRole="user" />
+        </EntityType>
+        <EntityType Name="user_formation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="user" Type="Int32" Nullable="false" />
+          <Property Name="formation" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="formation1" Relationship="BindedInModel.FK_user_formation_user_formation1" FromRole="user_formation" ToRole="formation" />
+          <NavigationProperty Name="user1" Relationship="BindedInModel.FK_user_formation_user1" FromRole="user_formation" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_professional_experience_company">
+          <End Role="company" Type="BindedInModel.company" Multiplicity="1" />
+          <End Role="professional_experience" Type="BindedInModel.professional_experience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="professional_experience">
+              <PropertyRef Name="company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_competence_user_competence">
+          <End Role="competence" Type="BindedInModel.competence" Multiplicity="1" />
+          <End Role="user_competence" Type="BindedInModel.user_competence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="competence">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_competence">
+              <PropertyRef Name="competence" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_formation_ecole">
+          <End Role="school" Type="BindedInModel.school" Multiplicity="1" />
+          <End Role="formation" Type="BindedInModel.formation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="school">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="formation">
+              <PropertyRef Name="school" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_formation_user_formation1">
+          <End Role="formation" Type="BindedInModel.formation" Multiplicity="1" />
+          <End Role="user_formation" Type="BindedInModel.user_formation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="formation">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_formation">
+              <PropertyRef Name="formation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_message_message">
+          <End Role="user" Type="BindedInModel.user" Multiplicity="1" />
+          <End Role="message" Type="BindedInModel.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="recipient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_message_User">
+          <End Role="user" Type="BindedInModel.user" Multiplicity="1" />
+          <End Role="message" Type="BindedInModel.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_experienceprofessional_professional_experience">
+          <End Role="professional_experience" Type="BindedInModel.professional_experience" Multiplicity="1" />
+          <End Role="user_experienceprofessional" Type="BindedInModel.user_experienceprofessional" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="professional_experience">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_experienceprofessional">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_recommandation_User">
+          <End Role="user" Type="BindedInModel.user" Multiplicity="1" />
+          <End Role="recommandation" Type="BindedInModel.recommandation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="recommandation">
+              <PropertyRef Name="recipient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_recommandation_User1">
+          <End Role="user" Type="BindedInModel.user" Multiplicity="1" />
+          <End Role="recommandation" Type="BindedInModel.recommandation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="recommandation">
+              <PropertyRef Name="sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relation_status_asked_user">
+          <End Role="user" Type="BindedInModel.user" Multiplicity="1" />
+          <End Role="relation_status" Type="BindedInModel.relation_status" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="relation_status">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relation_status_asking_user">
+          <End Role="user" Type="BindedInModel.user" Multiplicity="1" />
+          <End Role="relation_status" Type="BindedInModel.relation_status" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="relation_status">
+              <PropertyRef Name="asking_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relation_status_relation_status">
+          <End Role="status_name" Type="BindedInModel.status_name" Multiplicity="1" />
+          <End Role="relation_status" Type="BindedInModel.relation_status" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="status_name">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="relation_status">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_competence_User">
+          <End Role="user" Type="BindedInModel.user" Multiplicity="1" />
+          <End Role="user_competence" Type="BindedInModel.user_competence" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_competence">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_experienceprofessional_User">
+          <End Role="user" Type="BindedInModel.user" Multiplicity="1" />
+          <End Role="user_experienceprofessional" Type="BindedInModel.user_experienceprofessional" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_experienceprofessional">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_formation_user1">
+          <End Role="user" Type="BindedInModel.user" Multiplicity="1" />
+          <End Role="user_formation" Type="BindedInModel.user_formation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_formation">
+              <PropertyRef Name="user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BindedInModelStoreContainer" CdmEntityContainer="BindedInEntities">
-          <EntitySetMapping Name="Utilisateur">
-            <EntityTypeMapping TypeName="BindedInModel.Utilisateur">
-              <MappingFragment StoreEntitySet="Utilisateur">
+          <EntitySetMapping Name="companies">
+            <EntityTypeMapping TypeName="BindedInModel.company">
+              <MappingFragment StoreEntitySet="company">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nom" ColumnName="nom" />
-                <ScalarProperty Name="prenom" ColumnName="prenom" />
-                <ScalarProperty Name="date_naissance" ColumnName="date_naissance" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="competences">
+            <EntityTypeMapping TypeName="BindedInModel.competence">
+              <MappingFragment StoreEntitySet="competence">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="level" ColumnName="level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="formations">
+            <EntityTypeMapping TypeName="BindedInModel.formation">
+              <MappingFragment StoreEntitySet="formation">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="school" ColumnName="school" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="messages">
+            <EntityTypeMapping TypeName="BindedInModel.message">
+              <MappingFragment StoreEntitySet="message">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="recipient" ColumnName="recipient" />
+                <ScalarProperty Name="sender" ColumnName="sender" />
+                <ScalarProperty Name="message1" ColumnName="message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="professional_experience">
+            <EntityTypeMapping TypeName="BindedInModel.professional_experience">
+              <MappingFragment StoreEntitySet="professional_experience">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="company" ColumnName="company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="recommandations">
+            <EntityTypeMapping TypeName="BindedInModel.recommandation">
+              <MappingFragment StoreEntitySet="recommandation">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="recipient" ColumnName="recipient" />
+                <ScalarProperty Name="sender" ColumnName="sender" />
+                <ScalarProperty Name="message" ColumnName="message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="relation_status">
+            <EntityTypeMapping TypeName="BindedInModel.relation_status">
+              <MappingFragment StoreEntitySet="relation_status">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="asking_user" ColumnName="asking_user" />
+                <ScalarProperty Name="asked_user" ColumnName="asked_user" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="asked_date" ColumnName="asked_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="schools">
+            <EntityTypeMapping TypeName="BindedInModel.school">
+              <MappingFragment StoreEntitySet="school">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="status_name">
+            <EntityTypeMapping TypeName="BindedInModel.status_name">
+              <MappingFragment StoreEntitySet="status_name">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="BindedInModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_competence">
+            <EntityTypeMapping TypeName="BindedInModel.user_competence">
+              <MappingFragment StoreEntitySet="user_competence">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="competence" ColumnName="competence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_experienceprofessional">
+            <EntityTypeMapping TypeName="BindedInModel.user_experienceprofessional">
+              <MappingFragment StoreEntitySet="user_experienceprofessional">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="experience_professional" ColumnName="experience_professional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_formation">
+            <EntityTypeMapping TypeName="BindedInModel.user_formation">
+              <MappingFragment StoreEntitySet="user_formation">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="formation" ColumnName="formation" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -85,7 +935,90 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="Model1">
-        <EntityTypeShape EntityType="BindedInModel.Utilisateur" Width="1.5" PointX="0.75" PointY="0.75" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="BindedInModel.company" Width="1.5" PointX="1.5" PointY="17" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BindedInModel.competence" Width="1.5" PointX="3.75" PointY="1" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="BindedInModel.formation" Width="1.5" PointX="0.75" PointY="3.625" Height="2.5571907552083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="BindedInModel.message" Width="1.5" PointX="3" PointY="7.375" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BindedInModel.professional_experience" Width="1.5" PointX="3.75" PointY="16.625" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BindedInModel.recommandation" Width="1.5" PointX="3" PointY="10.375" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BindedInModel.relation_status" Width="1.5" PointX="6" PointY="8.625" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BindedInModel.school" Width="1.5" PointX="1.5" PointY="1" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="BindedInModel.status_name" Width="1.5" PointX="3.75" PointY="14.125" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BindedInModel.user" Width="1.5" PointX="0.75" PointY="8.25" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="BindedInModel.user_competence" Width="1.5" PointX="6" PointY="6" Height="1.9802864583333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="BindedInModel.user_experienceprofessional" Width="1.5" PointX="6" PointY="12" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="BindedInModel.user_formation" Width="1.5" PointX="3" PointY="4" Height="1.9802864583333388" IsExpanded="true" />
+        <AssociationConnector Association="BindedInModel.FK_professional_experience_company" ManuallyRouted="false">
+          <ConnectorPoint PointX="3" PointY="17.990143229166666" />
+          <ConnectorPoint PointX="3.75" PointY="17.990143229166666" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_user_competence_user_competence" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.90625" PointY="2.9802864583333335" />
+          <ConnectorPoint PointX="4.90625" PointY="6.65625" />
+          <ConnectorPoint PointX="6" PointY="6.65625" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_formation_ecole" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.875" PointY="2.7879850260416674" />
+          <ConnectorPoint PointX="1.875" PointY="3.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_user_formation_user_formation1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.9901432291666694" />
+          <ConnectorPoint PointX="3" PointY="4.9901432291666694" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_message_message" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.8987939453125" />
+          <ConnectorPoint PointX="3" PointY="8.8987939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_message_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.511896972656249" />
+          <ConnectorPoint PointX="3" PointY="8.511896972656249" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_user_experienceprofessional_professional_experience" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="17.903595377604166" />
+          <ConnectorPoint PointX="6.75" PointY="17.903595377604166" />
+          <ConnectorPoint PointX="6.75" PointY="13.980286458333332" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_recommandation_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="10.9756982421875" />
+          <ConnectorPoint PointX="3" PointY="10.9756982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_recommandation_User1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="10.612849121093749" />
+          <ConnectorPoint PointX="3" PointY="10.612849121093749" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_relation_status_asked_user" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.9612939453125" />
+          <ConnectorPoint PointX="6" PointY="9.9612939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_relation_status_asking_user" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.72319091796875" />
+          <ConnectorPoint PointX="6" PointY="9.72319091796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_relation_status_relation_status" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.90625" PointY="14.125" />
+          <ConnectorPoint PointX="4.90625" PointY="10.16814947265625" />
+          <ConnectorPoint PointX="6" PointY="10.16814947265625" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_user_competence_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="8.25" />
+          <ConnectorPoint PointX="1.5" PointY="6.9901432291666676" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="6.9901432291666667" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="6.9901432291666676" />
+          <ConnectorPoint PointX="6" PointY="6.9901432291666676" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_user_experienceprofessional_User" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="11.576396484375" />
+          <ConnectorPoint PointX="1.5" PointY="13.295187174479166" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="13.295187174479166" />
+          <ConnectorPoint PointX="4.989583333333333" PointY="13.295187174479166" />
+          <ConnectorPoint PointX="6" PointY="13.295187174479166" />
+        </AssociationConnector>
+        <AssociationConnector Association="BindedInModel.FK_user_formation_user1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.2511528461538468" />
+          <ConnectorPoint PointX="2.625" PointY="7.8761528461538468" />
+          <ConnectorPoint PointX="2.625" PointY="5.5164668437500044" />
+          <ConnectorPoint PointX="3" PointY="5.5164668437500044" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>
