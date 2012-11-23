@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindedIn", "BindedIn\BindedIn.csproj", "{D3BDF669-1093-4E52-BBAB-82F777641AB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{F2E2E7F3-784D-4687-99B5-0507FA6CCC0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{80D5631D-1283-4182-8BC2-E12C40D7BF59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{D3BDF669-1093-4E52-BBAB-82F777641AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3BDF669-1093-4E52-BBAB-82F777641AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3BDF669-1093-4E52-BBAB-82F777641AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2E2E7F3-784D-4687-99B5-0507FA6CCC0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2E2E7F3-784D-4687-99B5-0507FA6CCC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2E2E7F3-784D-4687-99B5-0507FA6CCC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2E2E7F3-784D-4687-99B5-0507FA6CCC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80D5631D-1283-4182-8BC2-E12C40D7BF59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D5631D-1283-4182-8BC2-E12C40D7BF59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D5631D-1283-4182-8BC2-E12C40D7BF59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D5631D-1283-4182-8BC2-E12C40D7BF59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
