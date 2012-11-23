@@ -14,4 +14,5 @@
         Vous pouvez également trouver de la <a href="http://go.microsoft.com/fwlink/?LinkID=152368"
             title="Documentation ASP.NET sur MSDN">documentation sur ASP.NET sur MSDN</a>.
     </p>
+    <p>Potatoes</p>
 </asp:Content>
