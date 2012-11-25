@@ -14,5 +14,10 @@
     <%#Eval("Nom") %> , <%#Eval("Prenom") %><br />
     </ItemTemplate>
     </asp:Repeater>   --%>
+    <asp:Label ID="Label1" runat="server" Text="Favorite Movie :"></asp:Label>
+&nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+&nbsp;<asp:Button ID="ButUpdate" runat="server" onclick="ButUpdate_Click" 
+        Text="Update" />
+&nbsp;
 
 </asp:Content>

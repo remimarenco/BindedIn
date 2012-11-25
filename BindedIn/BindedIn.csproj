@@ -137,6 +137,10 @@
       <Project>{80D5631D-1283-4182-8BC2-E12C40D7BF59}</Project>
       <Name>Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{F2E2E7F3-784D-4687-99B5-0507FA6CCC0A}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
