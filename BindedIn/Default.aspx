@@ -6,13 +6,13 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
    
 
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
+    <%--<asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
         SelectMethod="GetUtilisateurs" TypeName="Business.UtilisateurService">
     </asp:ObjectDataSource>
     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSource1">
     <ItemTemplate>
     <%#Eval("Nom") %> , <%#Eval("Prenom") %><br />
     </ItemTemplate>
-    </asp:Repeater>   
+    </asp:Repeater>   --%>
 
 </asp:Content>
