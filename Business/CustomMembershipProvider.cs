@@ -9,6 +9,9 @@ namespace Business
 {
     class CustomMembershipProvider : SqlMembershipProvider
     {
-      
+        public override bool ValidateUser(string email, string password)
+        {
+            return base.ValidateUser(Membership.GetUserNameByEmail(email), password);
+        }
     }
 }
