@@ -14,27 +14,25 @@ namespace Business
 
             // On récupère les utilisateurs qui sont en relation 
             var relations = from rel in bie.relation_status
-                            where rel.status == 3 && 
-                            (
-                                id == rel.asking_user
-                                ||
-                                id == rel.asked_user
-                            )
+                            where rel.status == 3
                             select rel;
 
-            List<users> relationsWithout = new List<users>();
+            List<users> userRelations = new List<users>();
             foreach (var relation in relations)
             {
-                if (relation.asked_user == id)
+                if (relation.status == 3)
                 {
-                    relationsWithout.Add(relation.user_asking);
-                }
-                else
-                {
-                    relationsWithout.Add(relation.user_asked);
+                    if (relation.asked_user == id)
+                    {
+                        userRelations.Add(relation.user_asking);
+                    }
+                    else if(relation.asking_user == id)
+                    {
+                        userRelations.Add(relation.user_asked);
+                    }
                 }
             }
-            return relationsWithout;
+            return userRelations;
         }
     }
 }
