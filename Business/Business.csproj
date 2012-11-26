@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="CustomMembershipProvider.cs" />
     <Compile Include="Relations.cs" />
+    <Compile Include="SearchService.cs" />
     <Compile Include="SingletonEntities.cs" />
     <Compile Include="UtilisateurService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
