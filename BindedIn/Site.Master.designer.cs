@@ -22,15 +22,6 @@ namespace BindedIn {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
         
         /// <summary>
-        /// Contrôle HeadLoginView.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView HeadLoginView;
-        
-        /// <summary>
         /// Contrôle NavigationMenu.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace BindedIn {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Menu NavigationMenu;
+        
+        /// <summary>
+        /// Contrôle HeadLoginView.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LoginView HeadLoginView;
         
         /// <summary>
         /// Contrôle MainContent.

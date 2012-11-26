@@ -5,31 +5,38 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />    
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form runat="server">
     <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    BindedIn
-                </h1>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="#">BindedIn</a>
+                    <ul class="nav">
+                        <li><a href="/Default.aspx" title="Home"/>Home</a></li>
+                        <li><a href="/Relations.aspx" title="Home"/>Relations</a></li>
+                        <li><a href="/About.aspx" title="Home"/>About</a></li>           
+                    </ul>
+                    <ul class="nav pull-right">
+                        <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                            <AnonymousTemplate>
+                                <li><a href="/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Se connecter</a></li>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <li><a href="/Account/ChangePassword.aspx">Bienvenue <asp:LoginName ID="HeadLoginName" runat="server" /> !</a></li>
+                                <li><asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter" LogoutPageUrl="~/"/></li>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
+                    </ul>
+                </div>
             </div>
-            <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Se connecter</a> ]
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Bienvenue <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter" LogoutPageUrl="~/"/> ]
-                    </LoggedInTemplate>
-                </asp:LoginView>
-            </div>
-            <div class="clear hideSkiplink">
+        </div>
+            <%--<div class="clear hideSkiplink">
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Accueil"/>
@@ -37,17 +44,17 @@
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="À propos de"/>
                     </Items>
                 </asp:Menu>
-            </div>
-        </div>
-        <div class="main">
+            </div>--%>
+    </div>
+    <div class="container">
+        <div class="row">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         </div>
-        <div class="clear">
-        </div>
     </div>
-    <div class="footer">
-        
+    <div class="footer clear">        
     </div>
     </form>
+    <script type="text/javascript" src="~/Scripts/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="~/Libs/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

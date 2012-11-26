@@ -56,6 +56,14 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="Libs\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="Libs\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Libs\bootstrap\css\bootstrap.css" />
+    <Content Include="Libs\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Libs\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="Libs\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Libs\bootstrap\js\bootstrap.js" />
+    <Content Include="Libs\bootstrap\js\bootstrap.min.js" />
     <Content Include="Relations.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
