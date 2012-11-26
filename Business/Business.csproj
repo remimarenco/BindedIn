@@ -45,10 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomMembershipProvider.cs" />
+    <Compile Include="FormationService.cs" />
     <Compile Include="Relations.cs" />
     <Compile Include="SearchService.cs" />
     <Compile Include="SingletonEntities.cs" />
-    <Compile Include="UtilisateurService.cs" />
+    <Compile Include="UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

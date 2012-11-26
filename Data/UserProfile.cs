@@ -16,8 +16,8 @@ namespace Data
         }
         public static UserProfile GetUserProfile()
         {
-            return Create(Membership.GetUser().UserName) as UserProfile;
-        }
+            return Create(Membership.GetUser().UserName) as UserProfile;           
+        }        
 
         [SettingsAllowAnonymous(false)]
         public string FavoriteMovie
@@ -25,5 +25,6 @@ namespace Data
             get { return base["FavoriteMovie"] as string; }
             set { base["FavoriteMovie"] = value; }
         }
+        
     }
 }
