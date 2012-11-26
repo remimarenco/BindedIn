@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region Métadonnées de relation EDM
@@ -309,6 +310,7 @@ namespace Data
         private ObjectSet<users> _users;
 
         #endregion
+
         #region Méthodes AddTo
     
         /// <summary>
@@ -424,11 +426,11 @@ namespace Data
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entités
     
     /// <summary>
@@ -455,6 +457,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -557,6 +560,7 @@ namespace Data
         partial void OntelephoneChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -583,6 +587,7 @@ namespace Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -613,6 +618,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -715,6 +721,7 @@ namespace Data
         partial void OnlevelChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -741,6 +748,7 @@ namespace Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -775,6 +783,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -925,6 +934,7 @@ namespace Data
         partial void OnschoolChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -989,6 +999,7 @@ namespace Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1019,6 +1030,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -1121,6 +1133,7 @@ namespace Data
         partial void Onmessage1Changed();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -1201,6 +1214,7 @@ namespace Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1235,6 +1249,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -1385,6 +1400,7 @@ namespace Data
         partial void OncompanyChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -1465,6 +1481,7 @@ namespace Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1495,6 +1512,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -1597,6 +1615,7 @@ namespace Data
         partial void OnmessageChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -1677,6 +1696,7 @@ namespace Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1709,6 +1729,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -1835,6 +1856,7 @@ namespace Data
         partial void Onasked_dateChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -1845,7 +1867,7 @@ namespace Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_asked_user", "users")]
-        public users users
+        public users user_asked
         {
             get
             {
@@ -1861,7 +1883,7 @@ namespace Data
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<users> usersReference
+        public EntityReference<users> user_askedReference
         {
             get
             {
@@ -1883,7 +1905,7 @@ namespace Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_asking_user", "users")]
-        public users users1
+        public users user_asking
         {
             get
             {
@@ -1899,7 +1921,7 @@ namespace Data
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<users> users1Reference
+        public EntityReference<users> user_askingReference
         {
             get
             {
@@ -1953,6 +1975,7 @@ namespace Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1981,6 +2004,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -2059,6 +2083,7 @@ namespace Data
         partial void OndescriptionChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -2085,6 +2110,7 @@ namespace Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2111,6 +2137,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -2165,6 +2192,7 @@ namespace Data
         partial void OnstatusChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -2207,6 +2235,7 @@ namespace Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2235,6 +2264,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -2361,6 +2391,7 @@ namespace Data
         partial void OndefinitionChanged();
 
         #endregion
+
     
     }
     
@@ -2390,6 +2421,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -2468,6 +2500,7 @@ namespace Data
         partial void OncompetenceChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -2548,6 +2581,7 @@ namespace Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2576,6 +2610,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -2654,6 +2689,7 @@ namespace Data
         partial void Onexperience_professionalChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -2734,6 +2770,7 @@ namespace Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2762,6 +2799,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -2840,6 +2878,7 @@ namespace Data
         partial void OnformationChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -2920,6 +2959,7 @@ namespace Data
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2948,6 +2988,7 @@ namespace Data
         }
 
         #endregion
+
         #region Propriétés primitives
     
         /// <summary>
@@ -3050,6 +3091,7 @@ namespace Data
         partial void OnFavoriteMovieChanged();
 
         #endregion
+
     
         #region Propriétés de navigation
     
@@ -3300,8 +3342,10 @@ namespace Data
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }

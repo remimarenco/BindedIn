@@ -8,15 +8,20 @@
     <p>
         Voici vos relations
     </p>
+
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
+            SelectMethod="getRelationsOfId" TypeName="Business.Relations">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="id" QueryStringField="userID" Type="String" />
+            </SelectParameters>
+    </asp:ObjectDataSource>
+
     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSource1">
         <ItemTemplate>
-            <a href="<%# String.Format("DetailCustomer.aspx?id={0}", Eval("CustomerID")) %>">
-                <%#Eval("CustomerID") %><%#Eval("ContactName") %></a>
-            <br>
+            <p><%#Eval("lastname") %>, <%#Eval("firstname") %>, Paramètre passé : 
+                
         </ItemTemplate>
     </asp:Repeater>
 
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
-        SelectMethod="getCustomers" TypeName="Business.Customer">
-    </asp:ObjectDataSource>
+    
 </asp:Content>
