@@ -5,7 +5,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link href="~/Libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="~/Libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />    
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
@@ -20,8 +20,17 @@
                     <ul class="nav">
                         <li><a href="/Default.aspx" title="Home"/>Home</a></li>
                         <li><a href="/Relations.aspx" title="Home"/>Relations</a></li>
-                        <li><a href="/About.aspx" title="Home"/>About</a></li>           
+                        <li><a href="/About.aspx" title="Home"/>About</a></li>
+                        <li>
+                            <div class="formSearch">
+                                <asp:TextBox ID="searchField" runat="server" />
+                                <asp:Button ID="searchButton" Text="Rechercher" runat="server" 
+                                    onclick="searchButton_Click" /> 
+                            </div> 
+                        </li>           
                     </ul>
+
+
                     <ul class="nav pull-right">
                         <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                             <AnonymousTemplate>

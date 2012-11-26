@@ -13,5 +13,11 @@ namespace BindedIn
         {
 
         }
+
+        protected void searchButton_Click(object sender, EventArgs e)
+        {
+            string keyWords = searchField.Text;
+            Response.Redirect("~/Search.aspx?se=" + keyWords);
+        }
     }
 }
