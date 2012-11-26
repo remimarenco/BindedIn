@@ -40,6 +40,7 @@
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Accueil"/>
+                        <asp:MenuItem NavigateUrl="~/Profil.aspx" Text="Mon profil"/>
                         <asp:MenuItem NavigateUrl="~/Relations.aspx" Text="Relations"/>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="À propos de"/>
                     </Items>

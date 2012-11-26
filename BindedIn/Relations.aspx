@@ -6,17 +6,20 @@
         Relations
     </h2>
     <p>
-        Voici vos relations
+        Voici vos relations :
     </p>
-    <%--<asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSource1">
-        <ItemTemplate>
-            <a href="<%# String.Format("DetailCustomer.aspx?id={0}", Eval("CustomerID")) %>">
-                <%#Eval("CustomerID") %><%#Eval("ContactName") %></a>
-            <br>
-        </ItemTemplate>
-    </asp:Repeater>
+
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
-        SelectMethod="getCustomers" TypeName="Business.Customer">
+            SelectMethod="getRelationsOfId" TypeName="Business.Relations">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="id" QueryStringField="userID" Type="String" />
+            </SelectParameters>
     </asp:ObjectDataSource>
-    --%>
+    
+    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSource1">
+        <ItemTemplate>
+            <p><a href="Profil.aspx?userID=<%#Eval("id") %>"><%#Eval("lastname") %>, <%#Eval("firstname") %></a></p>
+        </ItemTemplate>
+    </asp:Repeater> 
+       
 </asp:Content>

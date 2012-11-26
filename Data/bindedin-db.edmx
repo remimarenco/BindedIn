@@ -576,8 +576,8 @@
           <Property Name="asked_user" Type="Int32" Nullable="false" />
           <Property Name="status" Type="Int32" Nullable="false" />
           <Property Name="asked_date" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="users" Relationship="bindedinModel.FK_relation_status_asked_user" FromRole="relation_status" ToRole="users" />
-          <NavigationProperty Name="users1" Relationship="bindedinModel.FK_relation_status_asking_user" FromRole="relation_status" ToRole="users" />
+          <NavigationProperty Name="user_asked" Relationship="bindedinModel.FK_relation_status_asked_user" FromRole="relation_status" ToRole="users" />
+          <NavigationProperty Name="user_asking" Relationship="bindedinModel.FK_relation_status_asking_user" FromRole="relation_status" ToRole="users" />
           <NavigationProperty Name="status_name" Relationship="bindedinModel.FK_relation_status_relation_status" FromRole="relation_status" ToRole="status_name" />
         </EntityType>
         <EntityType Name="schools">

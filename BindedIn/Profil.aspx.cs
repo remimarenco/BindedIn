@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace BindedIn
 {
-    public partial class Relations : System.Web.UI.Page
+    public partial class Profil : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
