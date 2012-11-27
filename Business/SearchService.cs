@@ -54,10 +54,53 @@ namespace Business
 
             }
 
+            // on cherche dans les formations
+            /*foreach (string word in listKeyWords)
+            {
+                
+                // On récupère les formations en cherchant dans "name" et "description" 
+                var searchFormations = from f in bie.formations
+                         where  ContainsInStringList(stringToWordArray(f.name),word) || ContainsInStringList(stringToWordArray(f.description),word)
+                         select f;
+
+                if (search != null)
+                {
+
+                    //on parcourt les formation trouvée 
+                    foreach (formations f in searchFormations.ToList())
+                    {
+
+                        //on recupere les user_formations des
+                        var searchUF = from uf in bie.user_formation
+                                       where uf.id.Equals(f.id)
+                                       select uf;
+
+                        //on parcourt les user_formations et on recupere lesuser asosscié et on les ajoutes 
+                        foreach (user_formation uf in searchUF.ToList())
+                        {
+                            foreach (users user in UserService.GetUtilisateurs(uf.user))
+                            {
+                                //on l'ajoute au resultat si il n'est pas deja dans la liste
+                                if (!result.Contains(user))
+                                {
+                                    result.Add(user);
+                                }
+                            }
+
+
+                        }
+
+                    }
+                }
+
+            }*/
+
             return result;
 
         }
 
+
+        //methode qui convertit un string en list utilisé pour parcourir tous les mots de recherche et les different mots des experience et des formations 
         private static List<string> stringToWordArray(string s)
         {
             List<string> words = new List<string>();
@@ -86,6 +129,21 @@ namespace Business
             }
             return words;
         }
+
+        //methode qui verifie si une liste passé en paramtre contient le string passé en parametre
+        private static Boolean ContainsInStringList(List<string> l, string s)
+        {
+            foreach (string item in l)
+            {
+                Console.WriteLine( "item "+item+" string "+s);
+                if (item == s)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
     }
 
