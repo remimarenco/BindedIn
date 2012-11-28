@@ -76,5 +76,28 @@ namespace Business
 
             return search.ToList();
         }
+
+        //envoit un message
+        public void SendMessage()
+        {
+
+        }
+
+        //passe un message à "lu"
+        public void ReadMessage(int idMessage)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+            messages m = GetMessageById(idMessage);
+            if (m != null)
+            {
+                //modele pas encore mise a jour
+                //m.isRead = false;
+                bie.SaveChanges();
+            }
+
+        }
+
+
+
     }
 }
