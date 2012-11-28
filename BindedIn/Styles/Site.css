@@ -236,6 +236,9 @@ div.accountInfo
     width: 42%;
 }
 
+.navbar .btn, .navbar .btn-group {
+ margin-top: 0px;
+}
 /* MISC  
 ----------------------------------------------------------*/
 
@@ -292,3 +295,26 @@ div.accountInfo
     text-align: right;
     padding-right: 10px;
 }
+
+.login-form-dd 
+{
+    padding: 10px;
+    text-align: center;
+}
+
+.login-form-dd .login-field 
+{
+    width: 250px;
+}
+
+.login-form-dd input[type="checkbox"]
+{
+    /*margin-left: 60px;*/
+    float: none;
+}
+
+.login-form-dd button
+{
+    margin: auto;
+}
+

@@ -1,7 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="BindedIn.SiteMaster" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
@@ -22,39 +22,69 @@
                         <li><a href="/Relations.aspx" title="Home"/>Relations</a></li>
                         <li><a href="/About.aspx" title="Home"/>About</a></li>
                         <li>
-                            <div class="formSearch">
-                                <asp:TextBox ID="searchField" runat="server" />
-                                <asp:Button ID="searchButton" Text="Rechercher" runat="server" 
-                                    onclick="searchButton_Click" /> 
-                            </div> 
+                            
                         </li>           
                     </ul>
-
-
-                    <ul class="nav pull-right">
-                        <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                            <AnonymousTemplate>
-                                <li><a href="/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Se connecter</a></li>
+                    <div class="navbar-search pull-right">
+                        <asp:TextBox ID="searchField" CssClass="search-query span2" placeholder="Recherche..." runat="server" />                        
+                        <asp:Button ID="SearchButton" cssClass="btn btn-small btn-inverse" runat="server" Text="OK" OnClick="searchButton_Click" />
+                        <asp:LoginView ID="LoginView1" runat="server" EnableViewState="false">
+                            <AnonymousTemplate>       
+                                <div class="btn-group">
+                                    <asp:Button ID="ButLoginDD" CssClass="btn btn-small btn-primary" 
+                                        Text="Se connecter" runat="server" onclick="ButLoginDD_Click" />
+                                    <%--<asp:Button ID="ButLoginDropdown" CssClass="btn btn-success dropdown-toggle" runat="server" Text="<span class='caret'/>" data-toggle="dropdown" />--%>
+                                    <button class="btn btn-small btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"/></button>  
+                                    <ul class="dropdown-menu">
+                                        <li class="login-form-dd">
+                                            <asp:Login ID="LoginUserTop" runat="server" EnableViewState="false" RenderOuterTable="false">
+                                            <LayoutTemplate>
+                                                <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification" 
+                                                    ValidationGroup="LoginUserValidationGroup"/>
+                                                <asp:TextBox ID="UserName" CssClass="input-block-level login-field" placeholder="Email" runat="server" />
+                                                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
+                                                     CssClass="failureNotification" ErrorMessage="Un nom d'utilisateur est requis." ToolTip="Un nom d'utilisateur est requis." 
+                                                     ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator><br />
+                                                <asp:TextBox ID="Password" CssClass="input-block-level login-field" placeholder="Mot de passe" runat="server" TextMode="Password" AssociatedControlID="Password" />
+                                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" 
+                                                     CssClass="failureNotification" ErrorMessage="Un mot de passe est requis." ToolTip="Un mot de passe est requis." 
+                                                     ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
+                                            
+                                                <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline"><asp:CheckBox ID="RememberMe" runat="server"/> Rester connecté</asp:Label>
+                                                <asp:Button ID="ButLogin" cssClass="btn btn-large btn-primary"
+                                                    runat="server" onclick="ButLogin_Click" CommandName="Login" ValidationGroup="LoginUserValidationGroup" Text="Connexion"/>
+                                                    
+                                       
+                                            </LayoutTemplate>
+                                            </asp:Login>
+                                        </li>
+                                        <%--<li class="divider"/>--%>                                   
+                                    </ul>                           
+                                </div>                                
+                                <asp:Button ID="ButRegister" cssClass="btn btn-small btn-success" runat="server" Text="Inscription" OnClick="ButRegister_Click" />
                             </AnonymousTemplate>
                             <LoggedInTemplate>
-                                <li><a href="/Account/ChangePassword.aspx">Bienvenue <asp:LoginName ID="HeadLoginName" runat="server" /> !</a></li>
-                                <li><asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter" LogoutPageUrl="~/"/></li>
+                                <%--<li><a href="/Account/ChangePassword.aspx">Bienvenue <asp:LoginName ID="HeadLoginName" runat="server" /> !</a></li>--%>
+                                <%--<li><asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter" LogoutPageUrl="~/"/></li>--%>
+                                
+                                   
+                                        <%--<asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LoginText="" LogoutText="" Width=0 Height=0 LogoutPageUrl="~/" />--%>
+                                        <%--<button class="btn btn-small btn-danger" onclick="logout();"></button>--%>
+                                        <asp:Button ID="ButLogoutDD" CssClass="btn btn-small btn-danger" runat="server" 
+                                            OnClick="logout_click" Text="Déconnexion" />
+                                    
+                                
                             </LoggedInTemplate>
-                        </asp:LoginView>
-                    </ul>
+                        </asp:LoginView>                
+                    </div>
+                        
+                    <%--<li><a href="/Account/ChangePassword.aspx">Bienvenue <asp:LoginName ID="HeadLoginName" runat="server" /> !</a></li>--%>
+                    
                 </div>
             </div>
         </div>
-            <%--<div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Accueil"/>
-                        <asp:MenuItem NavigateUrl="~/Profil.aspx" Text="Mon profil"/>
-                        <asp:MenuItem NavigateUrl="~/Relations.aspx" Text="Relations"/>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="À propos de"/>
-                    </Items>
-                </asp:Menu>
-            </div>--%>
+        <%--<li><asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter" LogoutPageUrl="~/"/></li>--%>
+            
     </div>
     <div class="container">
         <div class="row">
@@ -63,8 +93,20 @@
     </div>
     <div class="footer clear">        
     </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="/Libs/bootstrap/js/bootstrap.min.js"></script>
+    <%--<asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LoginText="" LogoutText="" Width=0 Height=0 LogoutPageUrl="~/" />--%>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.dropdown-toggle').dropdown();
+        });
+
+        // Fix input element click problem
+        $('.dropdown-menu input, .dropdown-menu label').click(function (e) {
+            e.stopPropagation();
+        });        
+    </script>
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </form>
-    <script type="text/javascript" src="~/Scripts/jquery-1.4.1.min.js"></script>
-    <script type="text/javascript" src="~/Libs/bootstrap/js/bootstrap.min.js"></script>
-</body>
+    </body>
 </html>
