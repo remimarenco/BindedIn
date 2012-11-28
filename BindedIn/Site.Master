@@ -40,19 +40,19 @@
                                             <asp:Login ID="LoginUserTop" runat="server" EnableViewState="false" RenderOuterTable="false">
                                             <LayoutTemplate>
                                                 <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification" 
-                                                    ValidationGroup="LoginUserValidationGroup"/>
+                                                    ValidationGroup="LoginUserTopValidationGroup"/>
                                                 <asp:TextBox ID="UserName" CssClass="input-block-level login-field" placeholder="Email" runat="server" />
                                                 <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
                                                      CssClass="failureNotification" ErrorMessage="Un nom d'utilisateur est requis." ToolTip="Un nom d'utilisateur est requis." 
-                                                     ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator><br />
+                                                     ValidationGroup="LoginUserTopValidationGroup">*</asp:RequiredFieldValidator><br />
                                                 <asp:TextBox ID="Password" CssClass="input-block-level login-field" placeholder="Mot de passe" runat="server" TextMode="Password" AssociatedControlID="Password" />
                                                 <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" 
                                                      CssClass="failureNotification" ErrorMessage="Un mot de passe est requis." ToolTip="Un mot de passe est requis." 
-                                                     ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
+                                                     ValidationGroup="LoginUserTopValidationGroup">*</asp:RequiredFieldValidator>
                                             
                                                 <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline"><asp:CheckBox ID="RememberMe" runat="server"/> Rester connecté</asp:Label>
                                                 <asp:Button ID="ButLogin" cssClass="btn btn-large btn-primary"
-                                                    runat="server" onclick="ButLogin_Click" CommandName="Login" ValidationGroup="LoginUserValidationGroup" Text="Connexion"/>
+                                                    runat="server" onclick="ButLogin_Click" CommandName="Login" ValidationGroup="LoginUserTopValidationGroup" Text="Connexion"/>
                                                     
                                        
                                             </LayoutTemplate>
