@@ -10,7 +10,7 @@ namespace Business
     {
 
         //renvoit tous les messages
-        public List<messages> GetAllMessages()
+        public List<message> GetAllMessages()
         {
 
             bindedinEntities bie = SingletonEntities.Instance;
@@ -23,18 +23,18 @@ namespace Business
         }
 
         //renvoie le message corespondant à l' id passé en parametre si l'id ne corespond à aucun message on renvoit null
-        public messages GetMessageById(int messageId)
+        public message GetMessageById(int messageId)
         {
 
             bindedinEntities bie = SingletonEntities.Instance;
-            messages messageReturn = new messages();
+            message messageReturn = new message();
 
             // on recupere tous les messages
             var search = from m in bie.messages
                          where m.id.Equals(messageId)
                          select m;
             int i = 0;
-            foreach (messages message in search.ToList())
+            foreach (message message in search.ToList())
 	        {
                 i++;
                 messageReturn = message;
@@ -48,11 +48,11 @@ namespace Business
         }
 
         //renvoit tous les messages envoyés d'un utilisateur 
-        public List<messages> GetMessageBySenderId(int senderId)
+        public List<message> GetMessageBySenderId(int senderId)
         {
 
             bindedinEntities bie = SingletonEntities.Instance;
-            messages messageReturn = new messages();
+            message messageReturn = new message();
 
             // on recupere les messages
             var search = from m in bie.messages
@@ -63,11 +63,11 @@ namespace Business
         }
 
         //renvoit tous les messages recus d'un utilisateur 
-        public List<messages> GetMessageByRecipientId(int recipientId)
+        public List<message> GetMessageByRecipientId(int recipientId)
         {
 
             bindedinEntities bie = SingletonEntities.Instance;
-            messages messageReturn = new messages();
+            message messageReturn = new message();
 
             // on recupere les messages
             var search = from m in bie.messages
@@ -87,7 +87,7 @@ namespace Business
         public void ReadMessage(int idMessage)
         {
             bindedinEntities bie = SingletonEntities.Instance;
-            messages m = GetMessageById(idMessage);
+            message m = GetMessageById(idMessage);
             if (m != null)
             {
                 //modele pas encore mise a jour

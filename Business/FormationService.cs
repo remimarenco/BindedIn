@@ -9,7 +9,7 @@ namespace Business
     public class FormationService
     {
 
-        public static List<Data.formations> GetFormations()
+        public static List<formation> GetFormations()
         {
             bindedinEntities bie = SingletonEntities.Instance;
             var formations = from c in bie.formations
@@ -17,7 +17,7 @@ namespace Business
             return formations.ToList();
         }
 
-        public static List<Data.formations> GetFormations(int userId)
+        public static List<formation> GetFormations(int userId)
         {
             bindedinEntities bie = SingletonEntities.Instance;
             var retour = from uf in bie.user_formation from f in bie.formations

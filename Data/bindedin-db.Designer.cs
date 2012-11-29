@@ -5226,7 +5226,7 @@ namespace Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_asked_user", "users")]
-        public user user
+        public user user_asked
         {
             get
             {
@@ -5242,7 +5242,7 @@ namespace Data
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<user> userReference
+        public EntityReference<user> user_askedReference
         {
             get
             {
@@ -5264,7 +5264,7 @@ namespace Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_asking_user", "users")]
-        public user user1
+        public user user_asking
         {
             get
             {
@@ -5280,7 +5280,7 @@ namespace Data
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<user> user1Reference
+        public EntityReference<user> user_askingReference
         {
             get
             {

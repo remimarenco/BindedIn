@@ -8,14 +8,14 @@ namespace Business
 {
     public class SearchService
     {
-        public static List<Data.users> SearchUser(string keyWords)
+        public static List<user> SearchUser(string keyWords)
         {
 
 
             bindedinEntities bie = SingletonEntities.Instance;
 
             //on creait a liste de retour
-            List<users> result = new List<users>();
+            List<user> result = new List<user>();
 
             //ondécoupe la recherche en mot
             List<string> listKeyWords = stringToWordArray(keyWords);
@@ -29,7 +29,7 @@ namespace Business
             var search = from u in bie.users
                          where (u.firstname + " " + u.lastname == keyWords) || (u.lastname + " " + u.firstname == keyWords)
                          select u;
-            foreach (users user in search.ToList())
+            foreach (user user in search.ToList())
             {
                 //on l'ajoute au resultat si il n'est pas deja dans la liste
                 if (!result.Contains(user))
@@ -48,7 +48,7 @@ namespace Business
                 search = from u in bie.users
                          where u.firstname.Contains(word) || u.lastname.Contains(word)
                          select u;
-                foreach (users user in search.ToList())
+                foreach (user user in search.ToList())
                 {
                     //on l'ajoute au resultat si il n'est pas deja dans la liste
                     if (!result.Contains(user))
@@ -74,13 +74,13 @@ namespace Business
                 if (search != null)
                 {
                     //on parcourt les formations trouvées 
-                    foreach (formations f in searchFormations.ToList())
+                    foreach (formation f in searchFormations.ToList())
                     {
                         //on parcourt les user_formations et on recupere lesuser asossciés et on les ajoutes 
                         foreach (user_formation uf in f.user_formation)
                         {
                             //on recupere l'utilisateur corespondant a l'user_formation
-                            foreach (users user in UserService.GetUtilisateurs(uf.user))
+                            foreach (user user in UserService.GetUtilisateurs(uf.user))
                             {
                                 //on l'ajoute au resultat si il n'est pas deja dans la liste
                                 if (!result.Contains(user))
@@ -109,13 +109,13 @@ namespace Business
                 if (search != null)
                 {
                     //on parcourt les compétences trouvées 
-                    foreach (competences c in searchCompetences.ToList())
+                    foreach (competence c in searchCompetences.ToList())
                     {
                         //on parcourt les user_competence et on recupere les user asossciés et on les ajoutes 
                         foreach (user_competence uc in c.user_competence)
                         {
                             //on recupere l'utilisateur corespondant a l'user_competence
-                            foreach (users user in UserService.GetUtilisateurs(uc.user))
+                            foreach (user user in UserService.GetUtilisateurs(uc.user))
                             {
                                 //on l'ajoute au resultat si il n'est pas deja dans la liste
                                 if (!result.Contains(user))
