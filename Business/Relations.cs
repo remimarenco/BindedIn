@@ -8,7 +8,7 @@ namespace Business
 {
     public class Relations
     {
-        public static List<Data.users> getRelationsOfId(int id)
+        public static List<Data.user> getRelationsOfId(int id)
         {
             bindedinEntities bie = SingletonEntities.Instance;
 
@@ -17,7 +17,7 @@ namespace Business
                             where rel.status == 3
                             select rel;
 
-            List<users> userRelations = new List<users>();
+            List<user> userRelations = new List<user>();
             foreach (var relation in relations)
             {
                 if (relation.status == 3)
