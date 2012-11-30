@@ -63,7 +63,7 @@ namespace Business
         }
 
         //renvoit tous les messages recus d'un utilisateur 
-        public List<message> GetMessageByRecipientId(int recipientId)
+        public static List<message> GetMessageByRecipientId(int recipientId)
         {
 
             bindedinEntities bie = SingletonEntities.Instance;
@@ -71,7 +71,7 @@ namespace Business
 
             // on recupere les messages
             var search = from m in bie.messages
-                         where m.sender.Equals(recipientId)
+                         where m.recipient.Equals(recipientId)
                          select m;
 
             return search.ToList();
@@ -91,10 +91,36 @@ namespace Business
             if (m != null)
             {
                 //modele pas encore mise a jour
-                //m.isRead = false;
+                m.isRead = 1;
                 bie.SaveChanges();
             }
 
+        }
+
+
+        //efface le message correspondant à l'id passé en parametre
+        public void deleteMessage(int messageId)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+
+            //on recupere le messge à effacer
+            var deleteMessages = from m in bie.messages where m.id.Equals(messageId) select m;
+
+            foreach (var me in deleteMessages)
+            {
+                //on efface
+                bie.messages.DeleteObject(me);
+            }
+
+            try
+            {
+                //on sauvergarde les modifs
+                bie.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
 

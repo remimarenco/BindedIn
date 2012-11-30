@@ -65,6 +65,7 @@
     <Content Include="Libs\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="Libs\bootstrap\js\bootstrap.js" />
     <Content Include="Libs\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Message.aspx" />
     <Content Include="Relations.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Styles\Site.css" />
@@ -128,6 +129,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Message.aspx.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Message.aspx.designer.cs">
+      <DependentUpon>Message.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Relations.aspx.cs">
