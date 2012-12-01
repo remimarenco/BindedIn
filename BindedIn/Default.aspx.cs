@@ -23,17 +23,10 @@ namespace BindedIn
                 Profile.FavoriteMovie = "Potatoe";
                 Profile.Save();                            
             }
-            TextBox1.Text = Profile.FavoriteMovie;
+            
 
             //ceci est un example de la reatribution d'un user id pour le data source. Très utile pour lié un user a tout le reste. !!!!
             ObjectDataSourceFormation.SelectParameters["userId"].DefaultValue = "2";
-        }
-
-        protected void ButUpdate_Click(object sender, EventArgs e)
-        {
-            // doesn't work ?
-            Profile.FavoriteMovie = TextBox1.Text;
-            Profile.Save();
         }
     }
 }

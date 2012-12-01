@@ -12,7 +12,6 @@ namespace BindedIn
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = "test";
         }
 
         protected void searchButton_Click(object sender, EventArgs e)
@@ -28,7 +27,6 @@ namespace BindedIn
 
         protected void logout_click(object sender, EventArgs e)
         {
-            Label1.Text = "test36";
             FormsAuthentication.SignOut();
             Response.Redirect(FormsAuthentication.LoginUrl);
         }
