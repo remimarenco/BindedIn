@@ -10,7 +10,7 @@ namespace Business
     {
 
         //renvoit tous les messages
-        public List<message> GetAllMessages()
+        public static List<message> GetAllMessages()
         {
 
             bindedinEntities bie = SingletonEntities.Instance;
@@ -23,7 +23,7 @@ namespace Business
         }
 
         //renvoie le message corespondant à l' id passé en parametre si l'id ne corespond à aucun message on renvoit null
-        public message GetMessageById(int messageId)
+        public static message GetMessageById(int messageId)
         {
 
             bindedinEntities bie = SingletonEntities.Instance;
@@ -48,7 +48,7 @@ namespace Business
         }
 
         //renvoit tous les messages envoyés d'un utilisateur 
-        public List<message> GetMessageBySenderId(int senderId)
+        public static List<message> GetMessageBySenderId(int senderId)
         {
 
             bindedinEntities bie = SingletonEntities.Instance;
@@ -78,13 +78,28 @@ namespace Business
         }
 
         //envoit un message
-        public void SendMessage()
+        public static void SendMessage(int sender, int recipient, string obj, string me)
         {
+            bindedinEntities bie = SingletonEntities.Instance;
+
+            //on creait un nouveau message
+            message m = new message();
+
+            m.sender = sender;
+            m.recipient = recipient;
+            m.@object = obj;
+            m.message1 = me;
+            m.isRead = 0;
+            m.date = DateTime.Now;
+
+            //on sauvegarde le message dans la base
+            bie.messages.AddObject(m);
+            bie.SaveChanges();
 
         }
 
         //passe un message à "lu"
-        public void ReadMessage(int idMessage)
+        public static void ReadMessage(int idMessage)
         {
             bindedinEntities bie = SingletonEntities.Instance;
             message m = GetMessageById(idMessage);
@@ -99,7 +114,7 @@ namespace Business
 
 
         //efface le message correspondant à l'id passé en parametre
-        public void deleteMessage(int messageId)
+        public static void deleteMessage(int messageId)
         {
             bindedinEntities bie = SingletonEntities.Instance;
 

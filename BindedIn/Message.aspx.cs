@@ -17,9 +17,27 @@ namespace BindedIn
             //on vérifie si un utilisteur est connecté
             if(User.Identity.IsAuthenticated)
             {
-                rpt1.DataSource = MessageService.GetMessageByRecipientId(1);
-                rpt1.DataBind();
+                List<message> listM = MessageService.GetMessageByRecipientId(1);
+
+                if (listM.Count > 0)
+                {
+                    rpt1.DataSource = MessageService.GetMessageByRecipientId(1);
+                    rpt1.DataBind();
+                }
+                else
+                {
+                    errorMessage("Aucun message a afficher");
+                }
             }
+        }
+
+        // function qui affichage un message
+        protected void errorMessage(string me)
+        {
+            //on cache les div de detail du message
+            messageList.Visible = false;
+            //on affiche le message
+            not.Text = me;
         }
 
         protected void rpt1_ItemCommand(object source, RepeaterCommandEventArgs e)
