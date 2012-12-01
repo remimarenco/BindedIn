@@ -13,5 +13,10 @@ namespace Business
         {
             return base.ValidateUser(Membership.GetUserNameByEmail(email), password);
         }
+
+        public override MembershipUser CreateUser(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out MembershipCreateStatus status)
+        {
+            return base.CreateUser(username, password, username, passwordQuestion, passwordAnswer, isApproved, providerUserKey, out status);
+        }
     }
 }
