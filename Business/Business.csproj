@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RelationService.cs" />
+    <Compile Include="SkillService.cs" />
+    <Compile Include="ProfessionalExpService.cs" />
     <Compile Include="CustomMembershipProvider.cs" />
     <Compile Include="FormationService.cs" />
     <Compile Include="MessageService.cs" />

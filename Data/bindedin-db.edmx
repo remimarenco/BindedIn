@@ -2601,7 +2601,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="bindedin-db">
+      <Diagram Name="bindedin-db" ZoomLevel="74">
         <EntityTypeShape EntityType="bindedinModel.aspnet_Applications" Width="1.5" PointX="8.75" PointY="7.875" Height="2.5571907552083326" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.aspnet_Membership" Width="1.5" PointX="14" PointY="9.5" Height="5.4417122395833317" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.aspnet_Paths" Width="1.5" PointX="11" PointY="6.375" Height="2.3648893229166665" IsExpanded="true" />
@@ -2623,7 +2623,7 @@
         <EntityTypeShape EntityType="bindedinModel.status_name" Width="1.5" PointX="3.75" PointY="14.5" Height="1.5956835937500014" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" Height="1.9802864583333388" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.user_competence" Width="1.5" PointX="6" PointY="6.25" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.user_experienceprofessional" Width="1.5" PointX="6" PointY="12.25" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.user_experienceprofessional" Width="2.125" PointX="6" PointY="12.25" Height="1.9802864583333388" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.user_formation" Width="1.5" PointX="3" PointY="4.25" Height="1.9802864583333388" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.user" Width="1.5" PointX="0.75" PointY="8.5" Height="3.5186979166666674" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Applications" Width="1.5" PointX="9.75" PointY="3.75" Height="1.7879850260416674" IsExpanded="true" />
@@ -2708,8 +2708,8 @@
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_experienceprofessional_professional_experience" ManuallyRouted="false">
           <ConnectorPoint PointX="5.25" PointY="18.867290039062503" />
-          <ConnectorPoint PointX="7.40625" PointY="18.867290039062503" />
-          <ConnectorPoint PointX="7.40625" PointY="14.230286458333339" />
+          <ConnectorPoint PointX="7.5" PointY="18.867290039062503" />
+          <ConnectorPoint PointX="7.5" PointY="14.230286458333339" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_recommandation_User" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="11.446848958333334" />
