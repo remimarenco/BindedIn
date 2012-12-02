@@ -138,6 +138,25 @@ namespace Business
             }
         }
 
+        //fonction qui renvoit le nombre de message non lu d'un utilisateur
+        public static int CountUnreadMessage(int userId)
+        {
+            int countMessage = 0;
+            bindedinEntities bie = SingletonEntities.Instance;
+
+            // on recupere les messages
+            var search = from m in bie.messages
+                         where m.recipient.Equals(userId) && m.isRead.Equals(0)
+                         select m;
+
+            if (search != null)
+            {
+                countMessage = search.Count();
+            }
+
+            return countMessage;
+        }
+
 
 
     }

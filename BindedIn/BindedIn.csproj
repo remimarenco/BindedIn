@@ -67,6 +67,7 @@
     <Content Include="Libs\bootstrap\js\bootstrap.min.js" />
     <Content Include="Message.aspx" />
     <Content Include="MessageDetail.aspx" />
+    <Content Include="MessageForm.aspx" />
     <Content Include="Relations.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Styles\Site.css" />
@@ -144,6 +145,13 @@
     </Compile>
     <Compile Include="MessageDetail.aspx.designer.cs">
       <DependentUpon>MessageDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MessageForm.aspx.cs">
+      <DependentUpon>MessageForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MessageForm.aspx.designer.cs">
+      <DependentUpon>MessageForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Relations.aspx.cs">

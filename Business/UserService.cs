@@ -27,6 +27,21 @@ namespace Business
             return users.ToList();
         }
 
+        public static user GetUtilisateurById(int id)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+            var users = from c in bie.users
+                        where c.id.Equals(id)
+                        select c;
+
+            user u = new user();
+
+            foreach(user userItem in users.ToList())
+            {
+                u = userItem;
+            }
+            return u;
+        }
 
     }
 }

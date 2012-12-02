@@ -79,15 +79,15 @@ namespace Business
                         //on parcourt les user_formations et on recupere lesuser asossciés et on les ajoutes 
                         foreach (user_formation uf in f.user_formation)
                         {
-                            //on recupere l'utilisateur corespondant a l'user_formation
-                            foreach (user user in UserService.GetUtilisateurs(uf.user))
+  
+                            user u = UserService.GetUtilisateurById(uf.user);
+
+                            //on l'ajoute au resultat si il n'est pas deja dans la liste
+                            if (!result.Contains(u))
                             {
-                                //on l'ajoute au resultat si il n'est pas deja dans la liste
-                                if (!result.Contains(user))
-                                {
-                                    result.Add(user);
-                                }
+                                result.Add(u);
                             }
+                            
                         }
                     }
                 }
