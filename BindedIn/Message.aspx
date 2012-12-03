@@ -12,7 +12,7 @@
                     <div class="messageItem" ID="messageItem" runat="server" > 
                         <br />
                         <asp:Label ID="date" Text='<%# Eval("date") %>' runat="server" />
-                        <a href="MessageDetail.aspx?id=1" id='object' runat="server"><%# Eval("object") %></a>
+                        <a href='MessageDetail.aspx?id=''<%# Eval("id")' %> id='object' runat="server"><%# Eval("object") %></a>
                         <asp:Image ID="supprimer" ImageUrl="supprimer.png" runat="server" />
                     </div>
                 </ItemTemplate>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 using Data;
 using Business;
 
@@ -12,7 +13,7 @@ namespace BindedIn
     public partial class MessageForm : System.Web.UI.Page
     {
 
-        /*int recId;
+        string recId;
         protected void Page_Load(object sender, EventArgs e)
         {
             //on vérifie si un utilisteur est connecté
@@ -29,11 +30,11 @@ namespace BindedIn
                     //si un id est passé on affiche le nom du destinataire
                     if (Request.Params["id"] != null)
                     {
-                        user u = UserService.GetUtilisateurById(Convert.ToInt16(Request.Params["id"]));
-                        recId = u.id;
+                        UserProfile u = UserProfile.GetUserProfile(Request.Params["id"]);
+                        recId = u.UserName;
 
                         //on remplit le champ destinataire
-                        recipientLabel.Text = u.firstname + " " + u.lastname;
+                        recipientLabel.Text = u.FirstName + " " + u.LastName;
                     }
                     // si un id de message à repondre est passé
                     else if (Request.Params["response"] != null)
@@ -41,14 +42,14 @@ namespace BindedIn
                         //on recupere le message auquel il faut répondre
                         message m = MessageService.GetMessageById(Convert.ToInt16(Request.Params["response"]));
                         //on récupere le sender de ce message pour
-                        user u = UserService.GetUtilisateurById(m.sender);
-                        recId = u.id;
+                        UserProfile u = UserProfile.GetUserProfile(m.sender.ToString());
+                        recId = u.UserName;
 
                         //on remplit le champ objet
                         objectTextBox.Text = "RE: " + m.@object;
 
                         //on remplit le champ destinataire
-                        recipientLabel.Text = u.firstname + " " + u.lastname;
+                        recipientLabel.Text = u.FirstName + " " + u.LastName;
 
 
                     }
@@ -67,7 +68,8 @@ namespace BindedIn
 
         protected void envoyerButton_Click(object sender, EventArgs e)
         {
-            MessageService.SendMessage(1,recId,objectTextBox.Text,message.Text);
+
+            MessageService.SendMessage((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey, (Guid)Membership.GetUser(recId, false).ProviderUserKey, objectTextBox.Text, message.Text);
             Response.Redirect("~/MessageForm.aspx?envoye=1");
 
         }
@@ -80,7 +82,7 @@ namespace BindedIn
             //on affiche le message
             not.Text = me;
         }
-        */
+        
 
     }
 }

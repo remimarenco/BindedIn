@@ -12,7 +12,7 @@ namespace BindedIn
     public partial class MessageDetail : System.Web.UI.Page
     {
 
-        /*private message m = new message();
+        private message m = new message();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,11 +28,11 @@ namespace BindedIn
 
                     if (m != null)
                     {
-                        user u= UserService.GetUtilisateurById(m.sender);
+                        UserProfile u= UserProfile.GetUserProfile(m.sender.ToString());
 
 
                         //on remplit le destinataire
-                        destinataireM.Text = u.firstname+ " "+u.lastname;
+                        destinataireM.Text = u.FirstName+ " "+u.LastName;
 
                         //on remplit le champ objet
                         objectM.Text = m.@object;
@@ -78,7 +78,7 @@ namespace BindedIn
         protected void supprimerButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("Message.aspx"); 
-        }*/
+        }
 
 
     }
