@@ -5,6 +5,7 @@
     <h2>
         Relations
     </h2>
+    
     <p>
         Voici vos relations :
     </p>
@@ -22,6 +23,5 @@
                 Nom : <%#Eval("lastname") %>, prenom :  <%#Eval("firstname") %>
             </ItemTemplate>
         </asp:Repeater>
-    </p> 
-       
+    </p>   
 </asp:Content>
