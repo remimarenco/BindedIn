@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Data;
+using System.Web.Security;
 
 namespace Business
 {
@@ -38,5 +39,23 @@ namespace Business
             return userRelations;
         }
 
+        public static List<UserProfile> GetFarFromOneRelations(Guid userId)
+        {
+            // On cherche nos relations. On cherche les relations de nos relations => récursif
+            List<UserProfile> listUserRelations = GetRelations(userId);
+
+            List<UserProfile> listFarFromOneRelations = new List<UserProfile>();
+
+            // We search all the directly connected users to the actual logged user relations
+            foreach (UserProfile userRelation in listUserRelations)
+            {
+                listFarFromOneRelations.AddRange(GetRelations((Guid)(Membership.GetUser(userRelation.UserName, false).ProviderUserKey)));
+            }
+
+            // We delete the actual user
+            listFarFromOneRelations.Remove(UserProfile.GetUserProfile(System.Web.HttpContext.Current.User.Identity.Name));
+
+            return listFarFromOneRelations;
+        }
     }
 }

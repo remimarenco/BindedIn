@@ -22,6 +22,15 @@ namespace BindedIn {
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceRelation;
         
         /// <summary>
+        /// Contrôle ObjectDataSourceFarFromOneRelation.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceFarFromOneRelation;
+        
+        /// <summary>
         /// Contrôle Repeater3.
         /// </summary>
         /// <remarks>
@@ -29,5 +38,14 @@ namespace BindedIn {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater Repeater3;
+        
+        /// <summary>
+        /// Contrôle Repeater2.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater Repeater2;
     }
 }
