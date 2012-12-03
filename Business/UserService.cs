@@ -10,7 +10,7 @@ namespace Business
     public class UserService
     {
 
-        public static List<user> GetUtilisateurs()
+        /*public static List<user> GetUtilisateurs()
         {
             bindedinEntities bie = SingletonEntities.Instance;
             var users = from c in bie.users
@@ -41,7 +41,7 @@ namespace Business
                 u = userItem;
             }
             return u;
-        }
+        }*/
 
     }
 }
