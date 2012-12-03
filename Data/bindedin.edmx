@@ -1635,8 +1635,8 @@
           <Property Name="asked_user" Type="Guid" Nullable="false" />
           <Property Name="status" Type="Int32" Nullable="false" />
           <Property Name="asked_date" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="aspnet_Users" Relationship="bindedinModel.FK_relation_status_aspnet_asked_user" FromRole="relation_status" ToRole="aspnet_Users" />
-          <NavigationProperty Name="aspnet_Users1" Relationship="bindedinModel.FK_relation_status_aspnet_asking_user" FromRole="relation_status" ToRole="aspnet_Users" />
+          <NavigationProperty Name="aspnet_asked_users" Relationship="bindedinModel.FK_relation_status_aspnet_asked_user" FromRole="relation_status" ToRole="aspnet_Users" />
+          <NavigationProperty Name="aspnet_asking_users" Relationship="bindedinModel.FK_relation_status_aspnet_asking_user" FromRole="relation_status" ToRole="aspnet_Users" />
           <NavigationProperty Name="status_name" Relationship="bindedinModel.FK_relation_status_relation_status" FromRole="relation_status" ToRole="status_name" />
         </EntityType>
         <EntityType Name="school">
@@ -2503,7 +2503,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="bindedin" ZoomLevel="55">
+      <Diagram Name="bindedin" ZoomLevel="63">
         <EntityTypeShape EntityType="bindedinModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="12.125" Height="2.5571907552083317" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.aspnet_Membership" Width="1.5" PointX="6" PointY="13.625" Height="5.4417122395833317" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.aspnet_Paths" Width="1.5" PointX="3" PointY="10.625" Height="2.3648893229166674" IsExpanded="true" />

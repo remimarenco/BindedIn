@@ -5290,7 +5290,7 @@ namespace Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_aspnet_asked_user", "aspnet_Users")]
-        public aspnet_Users aspnet_Users
+        public aspnet_Users aspnet_asked_users
         {
             get
             {
@@ -5306,7 +5306,7 @@ namespace Data
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<aspnet_Users> aspnet_UsersReference
+        public EntityReference<aspnet_Users> aspnet_asked_usersReference
         {
             get
             {
@@ -5328,7 +5328,7 @@ namespace Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_aspnet_asking_user", "aspnet_Users")]
-        public aspnet_Users aspnet_Users1
+        public aspnet_Users aspnet_asking_users
         {
             get
             {
@@ -5344,7 +5344,7 @@ namespace Data
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<aspnet_Users> aspnet_Users1Reference
+        public EntityReference<aspnet_Users> aspnet_asking_usersReference
         {
             get
             {
