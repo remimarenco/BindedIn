@@ -12,15 +12,30 @@ namespace Business
         public static List<user> GetRelations(int userId)
         {
             bindedinEntities bie = SingletonEntities.Instance;
-            var retour = from u in bie.users from c in bie.relation_status from s in bie.status_name
 
-                                where c.asked_user.Equals(userId) || c.asking_user.Equals(userId) 
-                                 where u.id.Equals(c.asked_user) || u.id.Equals(c.asking_user)
-                                 where s.id.Equals(c.status)
-                                 //where s.status.Equals("Confirmed")
-                                 select u;
-        
-            return retour.ToList();
+            UserProfile profile = UserProfile.GetUserProfile(System.Web.HttpContext.Current.User.Identity.Name);
+
+            // On récupère les utilisateurs qui sont en relation 
+            var relations = from rel in bie.relation_status
+                            where rel.status == 3
+                            select rel;
+
+            List<user> userRelations = new List<user>();
+            foreach (var relation in relations)
+            {
+                if (relation.status == 3)
+                {
+                    if (relation.asked_user == userId)
+                    {
+                        userRelations.Add(relation.user_asking);
+                    }
+                    else if (relation.asking_user == userId)
+                    {
+                        userRelations.Add(relation.user_asked);
+                    }
+                }
+            }
+            return userRelations;
         }
 
     }
