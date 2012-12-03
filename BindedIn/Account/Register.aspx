@@ -50,7 +50,8 @@
                                     <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
                                      CssClass="failureNotification" ErrorMessage="Adresse email invalide." ToolTip="Adresse email invalide."
-                                     ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
+                                     ValidationGroup="RegisterUserValidationGroup"
+                                     SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*</asp:RequiredFieldValidator>
                                 </div>  
                             </div>     
                             <div class="control-group">
