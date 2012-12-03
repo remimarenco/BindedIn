@@ -25,7 +25,7 @@ namespace BindedIn.Account
                 ((TextBox)RegisterUser.WizardSteps[0].FindControl("CreateUserStepContainer").FindControl("LastName")).Text.Trim();
             newUser.FirstName = 
                 ((TextBox)RegisterUser.WizardSteps[0].FindControl("CreateUserStepContainer").FindControl("FirstName")).Text.Trim();
-            newUser.Save();           
+            newUser.Save();
 
             string continueUrl = RegisterUser.ContinueDestinationPageUrl;
             if (String.IsNullOrEmpty(continueUrl))

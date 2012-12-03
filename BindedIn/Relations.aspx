@@ -12,9 +12,10 @@
 
     <p>
         <asp:ObjectDataSource ID="ObjectDataSourceRelation" runat="server" 
-            SelectMethod="GetRelations" TypeName="Business.RelationService">
+            SelectMethod="GetRelations" TypeName="Business.RelationService" 
+            onselecting="ObjectDataSourceRelation_Selecting">
             <SelectParameters>
-                <asp:Parameter" Name="userId" Type="Int32" />
+                <asp:Parameter DefaultValue="" Name="userId" Type="Int32" />
             </SelectParameters>
         </asp:ObjectDataSource>
         <asp:Repeater ID="Repeater3" runat="server" 
