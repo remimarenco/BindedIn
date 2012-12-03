@@ -74,6 +74,7 @@
     <Content Include="Message.aspx" />
     <Content Include="MessageDetail.aspx" />
     <Content Include="MessageForm.aspx" />
+    <Content Include="MonCompte.aspx" />
     <Content Include="Profil.aspx" />
     <Content Include="Relations.aspx" />
     <Content Include="Search.aspx" />
@@ -160,6 +161,13 @@
     </Compile>
     <Compile Include="MessageForm.aspx.designer.cs">
       <DependentUpon>MessageForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MonCompte.aspx.cs">
+      <DependentUpon>MonCompte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MonCompte.aspx.designer.cs">
+      <DependentUpon>MonCompte.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profil.aspx.cs">
       <DependentUpon>Profil.aspx</DependentUpon>
