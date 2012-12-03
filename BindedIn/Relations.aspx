@@ -9,17 +9,19 @@
         Voici vos relations :
     </p>
 
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" 
-            SelectMethod="getRelationsOfId" TypeName="Business.Relations">
+    <p>
+        <asp:ObjectDataSource ID="ObjectDataSourceRelation" runat="server" 
+            SelectMethod="GetRelations" TypeName="Business.RelationService">
             <SelectParameters>
-                <asp:QueryStringParameter Name="id" QueryStringField="userID" Type="String" />
+                <asp:Parameter" Name="userId" Type="Int32" />
             </SelectParameters>
-    </asp:ObjectDataSource>
-    
-    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSource1">
-        <ItemTemplate>
-            <p><a href="Profil.aspx?userID=<%#Eval("id") %>"><%#Eval("lastname") %>, <%#Eval("firstname") %></a></p>
-        </ItemTemplate>
-    </asp:Repeater> 
+        </asp:ObjectDataSource>
+        <asp:Repeater ID="Repeater3" runat="server" 
+        DataSourceID="ObjectDataSourceRelation">
+            <ItemTemplate>
+                Nom : <%#Eval("lastname") %>, prenom :  <%#Eval("firstname") %>
+            </ItemTemplate>
+        </asp:Repeater>
+    </p> 
        
 </asp:Content>

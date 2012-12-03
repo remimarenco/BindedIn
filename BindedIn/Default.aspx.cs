@@ -26,7 +26,7 @@ namespace BindedIn
             
 
             //ceci est un example de la reatribution d'un user id pour le data source. Très utile pour lié un user a tout le reste. !!!!
-            ObjectDataSourceFormation.SelectParameters["userId"].DefaultValue = "2";
+            //ObjectDataSourceFormation.SelectParameters["userId"].DefaultValue = "2";
         }
     }
 }
