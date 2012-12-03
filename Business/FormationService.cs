@@ -24,7 +24,7 @@ namespace Business
                                  where uf.user.Equals(userId)
                                  where uf.formation.Equals(f.id)
                                  select f;
-        
+            
             return retour.ToList();
         }
 
