@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bindedin-db.Designer.cs">
+    <Compile Include="bindedin.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>bindedin-db.edmx</DependentUpon>
+      <DependentUpon>bindedin.edmx</DependentUpon>
     </Compile>
     <Compile Include="CustomMembershipUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,9 +59,9 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="bindedin-db.edmx">
+    <EntityDeploy Include="bindedin.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>bindedin-db.Designer.cs</LastGenOutput>
+      <LastGenOutput>bindedin.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
