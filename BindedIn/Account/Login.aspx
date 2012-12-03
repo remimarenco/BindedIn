@@ -4,13 +4,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>
-        Se connecter
-    </h2>
-    <p>
-        Entrez un nom d'utilisateur et un mot de passe.
-        <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false">S'inscrire</asp:HyperLink> si vous n'avez pas de compte.
-    </p>
+    
     <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
         <LayoutTemplate>
             <span class="failureNotification">
@@ -20,30 +14,49 @@
                  ValidationGroup="LoginUserValidationGroup"/>
             <div class="accountInfo">
                 <fieldset class="login">
-                    <legend>Informations de compte</legend>
-                    <p>
-                        <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Nom d'utilisateur :</asp:Label>
-                        <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
-                             CssClass="failureNotification" ErrorMessage="Un nom d'utilisateur est requis." ToolTip="Un nom d'utilisateur est requis." 
-                             ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
-                    </p>
-                    <p>
-                        <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Mot de passe :</asp:Label>
-                        <asp:TextBox ID="Password" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" 
-                             CssClass="failureNotification" ErrorMessage="Un mot de passe est requis." ToolTip="Un mot de passe est requis." 
-                             ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
-                    </p>
-                    <p>
-                        <asp:CheckBox ID="RememberMe" runat="server"/>
-                        <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline">Maintenir la connexion</asp:Label>
-                    </p>
+                    <legend>Se connecter</legend>              
+                    <div class="form-horizontal">
+
+                        <div class="control-group">
+                            <asp:Label ID="UserNameLabel"  CssClass="control-label" runat="server" AssociatedControlID="UserName">Adresse email</asp:Label>
+                            <div class="controls">
+                                <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" 
+                                     CssClass="failureNotification" ErrorMessage="Un nom d'utilisateur est requis." ToolTip="Un nom d'utilisateur est requis." 
+                                     ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+         
+                        <div class="control-group">
+                            <asp:Label ID="PasswordLabel" runat="server" CssClass="control-label" AssociatedControlID="Password">Mot de passe</asp:Label>
+                            <div class="controls">
+                                <asp:TextBox ID="Password" runat="server" CssClass="passwordEntry" TextMode="Password"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" 
+                                     CssClass="failureNotification" ErrorMessage="Un mot de passe est requis." ToolTip="Un mot de passe est requis." 
+                                     ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+         
+                        <div class="control-group">
+                            <asp:Label ID="RememberMeLabel" CssClass="control-label"  runat="server" AssociatedControlID="RememberMe">Rester connecté</asp:Label>
+                            <div class="controls">
+                            
+                            <asp:CheckBox ID="RememberMe" runat="server"/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Se connecter" CssClass="btn btn-large btn-info" ValidationGroup="LoginUserValidationGroup"/>
+                            </div>
+                        </div>
+                    </div>
                 </fieldset>
-                <p class="submitButton">
-                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Se connecter" ValidationGroup="LoginUserValidationGroup"/>
-                </p>
+                
             </div>
         </LayoutTemplate>
     </asp:Login>
+    <p>
+        Pas encore de compte ? 
+        <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false">Rejoignez BindedIn</asp:HyperLink> !
+    </p>
 </asp:Content>

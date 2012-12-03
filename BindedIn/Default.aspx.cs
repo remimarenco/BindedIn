@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Data;
+using System.Web.Security;
 
 namespace BindedIn
 {
@@ -23,8 +24,8 @@ namespace BindedIn
                 Profile.FavoriteMovie = "Potatoe";
                 Profile.Save();                            
             }
-            
 
+            //var userId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
             //ceci est un example de la reatribution d'un user id pour le data source. Très utile pour lié un user a tout le reste. !!!!
             //ObjectDataSourceFormation.SelectParameters["userId"].DefaultValue = "2";
         }
