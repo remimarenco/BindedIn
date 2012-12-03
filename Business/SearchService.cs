@@ -8,17 +8,17 @@ namespace Business
 {
     public class SearchService
     {
-        public static List<user> SearchUser(string keyWords)
+        /*public static List<aspnet_Users> SearchUser(string keyWords)
         {
 
 
-            bindedinEntities bie = SingletonEntities.Instance;
+           bindedinEntities bie = SingletonEntities.Instance;
 
             //on creait a liste de retour
-            List<user> result = new List<user>();
+            List<aspnet_Users> result = new List<aspnet_Users>();
 
             //ondécoupe la recherche en mot
-            List<string> listKeyWords = stringToWordArray(keyWords);
+            List<string> listKeyWords = stringToWordArray(keyWords);*/
 
 
             /************************************************************************************
@@ -26,8 +26,8 @@ namespace Business
              * 
              ************************************************************************************/
             // on cherche si la chaine correspond exactement a nom prenom ou prenom nom
-            var search = from u in bie.users
-                         where (u.firstname + " " + u.lastname == keyWords) || (u.lastname + " " + u.firstname == keyWords)
+            /*var search = from u in bie.aspnet_Users
+                         where (UserProfile.GetUserProfile(u.UserName) == keyWords) || (u.lastname + " " + u.firstname == keyWords)
                          select u;
             foreach (user user in search.ToList())
             {
@@ -58,12 +58,12 @@ namespace Business
                 }
 
             }
-
+            */
             /************************************************************************************
              * Recherche par les formations
              * 
              ************************************************************************************/
-            foreach (string word in listKeyWords)
+            /*foreach (string word in listKeyWords)
             {
                 
                 // On récupère les formations en cherchant dans "name" et "description" 
@@ -91,14 +91,14 @@ namespace Business
                         }
                     }
                 }
-            }
+            }*/
 
 
             /************************************************************************************
              * Recherche par les competences
              * 
              ************************************************************************************/
-            foreach (string word in listKeyWords)
+            /*foreach (string word in listKeyWords)
             {
                 
                 // On récupère les competences en cherchant dans "name" et "description" 
@@ -130,11 +130,11 @@ namespace Business
 
             return result;
 
-        }
+        }*/
 
 
         //methode qui convertit un string en list utilisé pour parcourir tous les mots de recherche et les different mots des experience et des formations 
-        private static List<string> stringToWordArray(string s)
+        /*private static List<string> stringToWordArray(string s)
         {
             List<string> words = new List<string>();
             string word;
@@ -175,7 +175,7 @@ namespace Business
                 }
             }
             return false;
-        }
+        }*/
 
 
     }

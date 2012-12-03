@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
+using Data;
+using Business;
 
 namespace BindedIn
 {
@@ -12,6 +14,12 @@ namespace BindedIn
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //si l utilisateur est connecté
+            if (this.Page.User.Identity.IsAuthenticated)
+            {
+                //on affiche le nombre de message non lus
+                //linkMessage.t
+            }
         }
 
         protected void searchButton_Click(object sender, EventArgs e)

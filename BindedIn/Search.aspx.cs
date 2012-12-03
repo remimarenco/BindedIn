@@ -12,7 +12,7 @@ namespace BindedIn
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //on recupere le parametre de recherche
+            /*//on recupere le parametre de recherche
             string keyWords = Request.Params["se"];
 
             //si un parametre est passé on lance la recherche puis on affiche
@@ -20,7 +20,7 @@ namespace BindedIn
             {
                 rpt1.DataSource = SearchService.SearchUser(keyWords);
                 rpt1.DataBind();
-            }
+            }*/
         }
     }
 }

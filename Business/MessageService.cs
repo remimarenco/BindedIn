@@ -8,7 +8,7 @@ namespace Business
 {
     public class MessageService
     {
-
+        /*
         //renvoit tous les messages
         public static List<message> GetAllMessages()
         {
@@ -157,7 +157,7 @@ namespace Business
             return countMessage;
         }
 
-
+        */
 
     }
 }

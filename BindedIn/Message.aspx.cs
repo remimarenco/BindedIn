@@ -11,7 +11,7 @@ namespace BindedIn
 {
     public partial class Message : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        /*protected void Page_Load(object sender, EventArgs e)
         {
 
             //on vérifie si un utilisteur est connecté
@@ -43,6 +43,6 @@ namespace BindedIn
         protected void rpt1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
 
-        }
+        }*/
     }
 }
