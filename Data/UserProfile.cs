@@ -39,6 +39,21 @@ namespace Data
             get { return base["FavoriteMovie"] as string; }
             set { base["FavoriteMovie"] = value; }
         }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is UserProfile))
+            {
+                return false;
+            }
+
+            UserProfile objProfile = (UserProfile)obj;
+            if (this.UserName == objProfile.UserName)
+            {
+                return true;
+            }
+            return false;
+        }
         
     }
 }

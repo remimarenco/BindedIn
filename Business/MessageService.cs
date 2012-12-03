@@ -8,7 +8,7 @@ namespace Business
 {
     public class MessageService
     {
-
+        
         //renvoit tous les messages
         public static List<message> GetAllMessages()
         {
@@ -48,7 +48,7 @@ namespace Business
         }
 
         //renvoit tous les messages envoyés d'un utilisateur 
-        public static List<message> GetMessageBySenderId(int senderId)
+        public static List<message> GetMessageBySenderId(Guid senderId)
         {
 
             bindedinEntities bie = SingletonEntities.Instance;
@@ -56,14 +56,14 @@ namespace Business
 
             // on recupere les messages
             var search = from m in bie.messages
-                         where m.sender.Equals(senderId)
+                         where m.sender==senderId
                          select m;
 
             return search.ToList();
         }
 
         //renvoit tous les messages recus d'un utilisateur 
-        public static List<message> GetMessageByRecipientId(int recipientId)
+        public static List<message> GetMessageByRecipientId(Guid recipientId)
         {
 
             bindedinEntities bie = SingletonEntities.Instance;
@@ -71,14 +71,14 @@ namespace Business
 
             // on recupere les messages
             var search = from m in bie.messages
-                         where m.recipient.Equals(recipientId)
+                         where m.recipient==recipientId
                          select m;
 
             return search.ToList();
         }
 
         //envoit un message
-        public static void SendMessage(int sender, int recipient, string obj, string me)
+        public static void SendMessage(Guid sender, Guid recipient, string obj, string me)
         {
             bindedinEntities bie = SingletonEntities.Instance;
 
@@ -139,14 +139,14 @@ namespace Business
         }
 
         //fonction qui renvoit le nombre de message non lu d'un utilisateur
-        public static int CountUnreadMessage(int userId)
+        public static int CountUnreadMessage(Guid userId)
         {
             int countMessage = 0;
             bindedinEntities bie = SingletonEntities.Instance;
 
             // on recupere les messages
             var search = from m in bie.messages
-                         where m.recipient.Equals(userId) && m.isRead.Equals(0)
+                         where m.recipient==userId && m.isRead.Equals(0)
                          select m;
 
             if (search != null)
@@ -156,8 +156,5 @@ namespace Business
 
             return countMessage;
         }
-
-
-
     }
 }

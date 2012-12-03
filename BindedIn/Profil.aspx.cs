@@ -11,7 +11,20 @@ namespace BindedIn
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //editSkills.Visible = false;
+            //editExp.Visible = false;
+            //editFormation.Visible = false;
+       
+        }
 
+        protected void ButtonEdit_Click(object sender, EventArgs e)
+        {
+            if(sender.Equals(ButtonEditSkills))
+                editSkills.Visible = true;
+            else if (sender.Equals(ButtonEditFormation))
+                editFormation.Visible = true;
+            else if (sender.Equals(ButtonEditExp))
+                editExp.Visible = true;
         }
     }
 }

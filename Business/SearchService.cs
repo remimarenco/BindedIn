@@ -8,120 +8,109 @@ namespace Business
 {
     public class SearchService
     {
-        public static List<user> SearchUser(string keyWords)
+        public static List<UserProfile> SearchUser(string keyWords)
         {
+            UserProfile up;
 
-
-            bindedinEntities bie = SingletonEntities.Instance;
+           bindedinEntities bie = SingletonEntities.Instance;
 
             //on creait a liste de retour
-            List<user> result = new List<user>();
+           List<UserProfile> result = new List<UserProfile>();
 
             //ondécoupe la recherche en mot
             List<string> listKeyWords = stringToWordArray(keyWords);
 
 
-            /************************************************************************************
-             * Recherche par le nom
-             * 
-             ************************************************************************************/
-            // on cherche si la chaine correspond exactement a nom prenom ou prenom nom
-            var search = from u in bie.users
-                         where (u.firstname + " " + u.lastname == keyWords) || (u.lastname + " " + u.firstname == keyWords)
+
+            // on recupere les utilisateurs
+            var search = from u in bie.aspnet_Users
                          select u;
-            foreach (user user in search.ToList())
+
+            //on cherche par le nom
+            foreach (aspnet_Users user in search.ToList())
             {
-                //on l'ajoute au resultat si il n'est pas deja dans la liste
-                if (!result.Contains(user))
+                up = UserProfile.GetUserProfile(user.UserName);
+
+                if (up.FirstName.ToUpper() == keyWords || up.LastName.ToUpper() == keyWords)
                 {
-                    result.Add(user);
+                    //on l'ajoute au resultat si il n'est pas deja dans la liste
+                    if (!result.Contains(up))
+                    {
+                        result.Add(up);
+                    }
                 }
             }
-
-
 
 
             // on cherche si la chaine contient un nom ou un prenom
             foreach (string word in listKeyWords)
             {
-                // On récupère les utilisateurs
-                search = from u in bie.users
-                         where u.firstname.Contains(word) || u.lastname.Contains(word)
-                         select u;
-                foreach (user user in search.ToList())
+                foreach (aspnet_Users user in search.ToList())
                 {
-                    //on l'ajoute au resultat si il n'est pas deja dans la liste
-                    if (!result.Contains(user))
+                    up = UserProfile.GetUserProfile(user.UserName);
+
+                    if ((up.FirstName.ToUpper()).Contains(word) || (up.LastName.ToUpper()).Contains(word))
                     {
-                        result.Add(user);
+                        //on l'ajoute au resultat si il n'est pas deja dans la liste
+                        if (!result.Contains(up))
+                        {
+                            result.Add(up);
+                        }
+
                     }
                 }
-
             }
-
-            /************************************************************************************
-             * Recherche par les formations
-             * 
-             ************************************************************************************/
+            
+            //on recherche par formation
             foreach (string word in listKeyWords)
-            {
-                
+            {           
                 // On récupère les formations en cherchant dans "name" et "description" 
                 var searchFormations = from f in bie.formations
                          where  f.name.Contains(word) || f.description.Contains(word)
                          select f;
-
                 if (search != null)
                 {
                     //on parcourt les formations trouvées 
                     foreach (formation f in searchFormations.ToList())
                     {
+
                         //on parcourt les user_formations et on recupere lesuser asossciés et on les ajoutes 
-                        foreach (user_formation uf in f.user_formation)
+                        foreach (user_formation uf in f.user_formationReference)
                         {
-  
-                            user u = UserService.GetUtilisateurById(uf.user);
+                            up = UserProfile.GetUserProfile(uf.aspnet_Users.UserName);
 
                             //on l'ajoute au resultat si il n'est pas deja dans la liste
-                            if (!result.Contains(u))
+                            if (!result.Contains(up))
                             {
-                                result.Add(u);
-                            }
-                            
+                                result.Add(up);
+                            } 
                         }
                     }
                 }
             }
 
-
-            /************************************************************************************
-             * Recherche par les competences
-             * 
-             ************************************************************************************/
+            //on recherche par compétence
             foreach (string word in listKeyWords)
             {
-                
-                // On récupère les competences en cherchant dans "name" et "description" 
+                // On récupère les compétences en cherchant dans "name" et "description" 
                 var searchCompetences = from c in bie.competences
-                         where  c.name.Contains(word) || c.description.Contains(word)
-                         select c;
-
+                                       where c.name.Contains(word) || c.description.Contains(word)
+                                       select c;
                 if (search != null)
                 {
                     //on parcourt les compétences trouvées 
                     foreach (competence c in searchCompetences.ToList())
                     {
+
                         //on parcourt les user_competence et on recupere les user asossciés et on les ajoutes 
                         foreach (user_competence uc in c.user_competence)
                         {
-                            //on recupere l'utilisateur corespondant a l'user_competence
-                            foreach (user user in UserService.GetUtilisateurs(uc.user))
+                            up = UserProfile.GetUserProfile(uc.aspnet_Users.UserName);
+
+                            //on l'ajoute au resultat si il n'est pas deja dans la liste
+                            if (!result.Contains(up))
                             {
-                                //on l'ajoute au resultat si il n'est pas deja dans la liste
-                                if (!result.Contains(user))
-                                {
-                                    result.Add(user);
-                                }
+                                result.Add(up);
                             }
                         }
                     }

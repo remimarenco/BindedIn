@@ -11,23 +11,29 @@ namespace BindedIn
 {
     public partial class MessageDetail : System.Web.UI.Page
     {
+
+        private message m = new message();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
             //on vérifie si un utilisteur est connecté
             if (User.Identity.IsAuthenticated)
             {
-                //on recupere l'id du message
-                int messageId = Convert.ToInt16(Request.Params["id"]);
-
-                //si un parametre est passé on affiche le message
-                if (messageId != null)
+                //si un id est passé en parametre on affiche le message
+                if (Request.Params["id"] != null)
                 {
                     //on recupere le message
-                    message m = MessageService.GetMessageById(messageId);
+                    m = MessageService.GetMessageById(Convert.ToInt16(Request.Params["id"]));
 
                     if (m != null)
                     {
+                        UserProfile u= UserProfile.GetUserProfile(m.sender.ToString());
+
+
+                        //on remplit le destinataire
+                        destinataireM.Text = u.FirstName+ " "+u.LastName;
+
                         //on remplit le champ objet
                         objectM.Text = m.@object;
 
@@ -59,5 +65,21 @@ namespace BindedIn
             //on affiche le message
             not.Text =me;
         }
+
+
+        //fonction qui redirige vers le formulaire de réponse
+        protected void repondreButton_Click(object sender, EventArgs e)
+        {
+            //on redirige 
+            Response.Redirect("MessageForm.aspx?response=" + m.id); 
+        }
+
+        //fonction qui supprime le message
+        protected void supprimerButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Message.aspx"); 
+        }
+
+
     }
 }

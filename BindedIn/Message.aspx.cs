@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Data;
 using Business;
+using System.Web.Security;
 
 namespace BindedIn
 {
@@ -17,16 +18,16 @@ namespace BindedIn
             //on vérifie si un utilisteur est connecté
             if(User.Identity.IsAuthenticated)
             {
-                List<message> listM = MessageService.GetMessageByRecipientId(1);
+                List<message> listM = MessageService.GetMessageByRecipientId((Guid)Membership.GetUser(User.Identity.Name,false).ProviderUserKey);
 
                 if (listM.Count > 0)
                 {
-                    rpt1.DataSource = MessageService.GetMessageByRecipientId(1);
+                    rpt1.DataSource = listM;
                     rpt1.DataBind();
                 }
                 else
                 {
-                    errorMessage("Aucun message a afficher");
+                    errorMessage("Aucun message à afficher");
                 }
             }
         }

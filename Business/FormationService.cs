@@ -17,14 +17,14 @@ namespace Business
             return formations.ToList();
         }
 
-        public static List<formation> GetFormations(int userId)
+        public static List<formation> GetFormations(Guid userId)
         {
             bindedinEntities bie = SingletonEntities.Instance;
             var retour = from uf in bie.user_formation from f in bie.formations
                                  where uf.user.Equals(userId)
                                  where uf.formation.Equals(f.id)
                                  select f;
-        
+            
             return retour.ToList();
         }
 
