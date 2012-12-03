@@ -10,33 +10,33 @@ namespace Business
     public class UserService
     {
 
-        public static List<user> GetUtilisateurs()
+        public static List<aspnet_Users> GetUtilisateurs()
         {
             bindedinEntities bie = SingletonEntities.Instance;
-            var users = from c in bie.users
+            var users = from c in bie.aspnet_Users
                         select c;
             return users.ToList();
         }
 
-        public static List<user> GetUtilisateurs(int id)
+        public static List<aspnet_Users> GetUtilisateurs(Guid id)
         {
             bindedinEntities bie = SingletonEntities.Instance;
-            var users = from c in bie.users
-                        where c.id.Equals(id)
+            var users = from c in bie.aspnet_Users
+                        where c.UserId.Equals(id)
                         select c;
             return users.ToList();
         }
 
-        public static user GetUtilisateurById(int id)
+        public static aspnet_Users GetUtilisateurById(Guid id)
         {
             bindedinEntities bie = SingletonEntities.Instance;
-            var users = from c in bie.users
-                        where c.id.Equals(id)
+            var users = from c in bie.aspnet_Users
+                        where c.UserId.Equals(id)
                         select c;
 
-            user u = new user();
+            aspnet_Users u = new aspnet_Users();
 
-            foreach(user userItem in users.ToList())
+            foreach (aspnet_Users userItem in users.ToList())
             {
                 u = userItem;
             }

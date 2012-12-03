@@ -17,7 +17,7 @@ namespace Business
             return formations.ToList();
         }
 
-        public static List<formation> GetFormations(int userId)
+        public static List<formation> GetFormations(Guid userId)
         {
             bindedinEntities bie = SingletonEntities.Instance;
             var retour = from uf in bie.user_formation from f in bie.formations

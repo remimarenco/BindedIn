@@ -17,7 +17,7 @@ namespace Business
             return formations.ToList();
         }
 
-        public static List<professional_experience> GetProferssionalExp(int userId)
+        public static List<professional_experience> GetProferssionalExp(Guid userId)
         {
             bindedinEntities bie = SingletonEntities.Instance;
             var retour = from ue in bie.user_experienceprofessional from p in bie.professional_experience

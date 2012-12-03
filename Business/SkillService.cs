@@ -17,7 +17,7 @@ namespace Business
             return formations.ToList();
         }
 
-        public static List<competence> GetSkills(int userId)
+        public static List<competence> GetSkills(Guid userId)
         {
             bindedinEntities bie = SingletonEntities.Instance;
             var retour = from uc in bie.user_competence from c in bie.competences
