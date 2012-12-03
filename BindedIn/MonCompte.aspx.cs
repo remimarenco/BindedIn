@@ -1,0 +1,72 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.Security;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+
+namespace BindedIn
+{
+    public partial class MonCompte : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            string strImageName = Membership.GetUser(User.Identity.Name, false).ProviderUserKey.ToString();
+            if (FileUpload1.PostedFile != null && FileUpload1.PostedFile.FileName != "")
+            {
+                byte[] imageSize = new byte [FileUpload1.PostedFile.ContentLength];
+                HttpPostedFile uploadedImage = FileUpload1.PostedFile;
+                uploadedImage.InputStream.Read
+                   (imageSize, 0, (int)FileUpload1.PostedFile.ContentLength);
+
+                // Create SQL Connection 
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = ConfigurationManager.ConnectionStrings
+                                       ["ASPNETMembership"].ConnectionString;
+
+                // Create SQL Command 
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "INSERT INTO Images(UserId,Image,Date,Current)" +
+                                  " VALUES (@UserId,@Image,@Date,@Current)";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = con;
+
+                SqlParameter UserId = new SqlParameter
+                                    ("@UserId", SqlDbType.UniqueIdentifier);
+                UserId.Value = Membership.GetUser(User.Identity.Name, false).ProviderUserKey;
+                cmd.Parameters.Add(UserId);
+
+                SqlParameter UploadedImage = new SqlParameter
+                              ("@Image", SqlDbType.Image, imageSize.Length);
+                UploadedImage.Value = imageSize;
+                cmd.Parameters.Add(UploadedImage);
+
+                SqlParameter Date = new SqlParameter
+                                    ("@Date", SqlDbType.Date);
+                Date.Value = new DateTime();
+                cmd.Parameters.Add(Date);
+
+                SqlParameter Current = new SqlParameter
+                                    ("@Current", SqlDbType.Bit);
+                Current.Value = true;
+                cmd.Parameters.Add(Current);
+
+                con.Open();
+                int result = cmd.ExecuteNonQuery();
+                con.Close();
+                if (result > 0)
+                    lblMessage.Text = "File Uploaded";
+            }
+        }
+    }
+}
