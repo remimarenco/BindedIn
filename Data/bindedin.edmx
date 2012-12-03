@@ -2503,7 +2503,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="bindedin" ZoomLevel="55">
+      <Diagram Name="bindedin" ZoomLevel="69">
         <EntityTypeShape EntityType="bindedinModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="12.125" Height="2.5571907552083317" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.aspnet_Membership" Width="1.5" PointX="6" PointY="13.625" Height="5.4417122395833317" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.aspnet_Paths" Width="1.5" PointX="3" PointY="10.625" Height="2.3648893229166674" IsExpanded="true" />
@@ -2512,7 +2512,7 @@
         <EntityTypeShape EntityType="bindedinModel.aspnet_Profile" Width="1.5" PointX="10.5" PointY="13.375" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.aspnet_Roles" Width="1.5" PointX="3" PointY="19.875" Height="2.3648893229166674" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="4.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.aspnet_Users" Width="1.5" PointX="8.25" PointY="15" Height="4.2879036458333371" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.aspnet_Users" Width="1.5" PointX="8.25" PointY="15" Height="4.6725065104166674" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.aspnet_WebEvent_Events" Width="1.5" PointX="7.75" PointY="7.75" Height="3.9033007812500031" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.company" Width="1.5" PointX="0.75" PointY="1.25" Height="1.9802864583333353" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.competence" Width="1.5" PointX="7.75" PointY="0.875" Height="1.9802864583333317" IsExpanded="true" />
@@ -2551,8 +2551,8 @@
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK__aspnet_Us__Appli__44FF419A" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="13.307444661458334" />
-          <ConnectorPoint PointX="8.8437475" PointY="13.307444661458334" />
-          <ConnectorPoint PointX="8.8437475" PointY="15" />
+          <ConnectorPoint PointX="8.7812462499999988" PointY="13.307444661458334" />
+          <ConnectorPoint PointX="8.7812462499999988" PointY="15" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK__aspnet_Me__UserI__59FA5E80" ManuallyRouted="false">
           <ConnectorPoint PointX="8.25" PointY="17.033356119791666" />
@@ -2581,16 +2581,16 @@
           <ConnectorPoint PointX="10.5" PointY="15.2737939453125" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_recommandations_aspnet_recipientUser" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.75" PointY="17.639117431640621" />
-          <ConnectorPoint PointX="9.9166666666666661" PointY="17.639117431640621" />
-          <ConnectorPoint PointX="10.083333333333334" PointY="17.639117431640621" />
-          <ConnectorPoint PointX="10.5" PointY="17.639117431640621" />
+          <ConnectorPoint PointX="9.75" PointY="17.842843010846593" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="17.842843010846593" />
+          <ConnectorPoint PointX="10.083333333333334" PointY="17.842843010846593" />
+          <ConnectorPoint PointX="10.5" PointY="17.842843010846593" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_recommandations_aspnet_senderUser" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.75" PointY="16.88205871582031" />
-          <ConnectorPoint PointX="9.9166666666666661" PointY="16.88205871582031" />
-          <ConnectorPoint PointX="10.083333333333334" PointY="16.88205871582031" />
-          <ConnectorPoint PointX="10.5" PointY="16.88205871582031" />
+          <ConnectorPoint PointX="9.75" PointY="16.983921505423297" />
+          <ConnectorPoint PointX="9.9166666666666661" PointY="16.983921505423297" />
+          <ConnectorPoint PointX="10.083333333333334" PointY="16.983921505423297" />
+          <ConnectorPoint PointX="10.5" PointY="16.983921505423297" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_relation_status_aspnet_asked_user" ManuallyRouted="false">
           <ConnectorPoint PointX="9.75" PointY="18.872345877604168" />
@@ -2610,8 +2610,8 @@
           <ConnectorPoint PointX="13.5" PointY="16.117186250000003" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_formation_user_formation" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.17187375" PointY="19.672506510416667" />
-          <ConnectorPoint PointX="9.17187375" PointY="23.490143229166669" />
+          <ConnectorPoint PointX="9.23022310546875" PointY="19.672506510416667" />
+          <ConnectorPoint PointX="9.23022310546875" PointY="23.490143229166669" />
           <ConnectorPoint PointX="10.5" PointY="23.490143229166669" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_professional_experience_company" ManuallyRouted="false">
@@ -2641,8 +2641,8 @@
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.aspnet_UsersInRoles" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="21.057444661458334" />
-          <ConnectorPoint PointX="8.679684375" PointY="21.057444661458334" />
-          <ConnectorPoint PointX="8.679684375" PointY="19.672506510416667" />
+          <ConnectorPoint PointX="8.7088590527343754" PointY="21.057444661458334" />
+          <ConnectorPoint PointX="8.7088590527343754" PointY="19.672506510416667" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_competence_aspnet_Users" >
           <ConnectorPoint PointX="9.6250025" PointY="15" />
@@ -2659,13 +2659,13 @@
           <ConnectorPoint PointX="10.75" PointY="7.25" />
           <ConnectorPoint PointX="9.7083358333333347" PointY="7.2499999999999991" />
           <ConnectorPoint PointX="9.5416691666666669" PointY="7.25" />
-          <ConnectorPoint PointX="9.4375" PointY="7.25" />
-          <ConnectorPoint PointX="9.4375" PointY="14.75" />
+          <ConnectorPoint PointX="9.5" PointY="7.25" />
+          <ConnectorPoint PointX="9.5" PointY="14.75" />
           <ConnectorPoint PointX="9.5416691666666669" PointY="14.75" />
           <ConnectorPoint PointX="9.7083358333333347" PointY="14.75" />
           <ConnectorPoint PointX="10" PointY="14.75" />
-          <ConnectorPoint PointX="10" PointY="22.963819614583336" />
-          <ConnectorPoint PointX="10.5" PointY="22.963819614583336" />
+          <ConnectorPoint PointX="10" PointY="22.963819614583343" />
+          <ConnectorPoint PointX="10.5" PointY="22.963819614583343" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

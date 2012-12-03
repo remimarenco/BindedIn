@@ -12,7 +12,7 @@ namespace BindedIn
     public partial class MessageDetail : System.Web.UI.Page
     {
 
-        private message m = new message();
+        /*private message m = new message();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -78,7 +78,7 @@ namespace BindedIn
         protected void supprimerButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("Message.aspx"); 
-        }
+        }*/
 
 
     }

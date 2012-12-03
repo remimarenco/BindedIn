@@ -12,7 +12,7 @@ namespace BindedIn
     public partial class MessageForm : System.Web.UI.Page
     {
 
-        int recId;
+        /*int recId;
         protected void Page_Load(object sender, EventArgs e)
         {
             //on vérifie si un utilisteur est connecté
@@ -80,7 +80,7 @@ namespace BindedIn
             //on affiche le message
             not.Text = me;
         }
-
+        */
 
     }
 }
