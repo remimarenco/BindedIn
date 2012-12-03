@@ -15,13 +15,13 @@
             SelectMethod="GetRelations" TypeName="Business.RelationService" 
             onselecting="ObjectDataSourceRelation_Selecting">
             <SelectParameters>
-                <asp:Parameter DefaultValue="" Name="userId" Type="Int32" />
+                <asp:Parameter DbType="Guid" Name="userId" />
             </SelectParameters>
         </asp:ObjectDataSource>
         <asp:Repeater ID="Repeater3" runat="server" 
         DataSourceID="ObjectDataSourceRelation">
             <ItemTemplate>
-                Nom : <%#Eval("lastname") %>, prenom :  <%#Eval("firstname") %>
+                <%#Eval("Lastname") %>, <%#Eval("Firstname") %>
             </ItemTemplate>
         </asp:Repeater>
     </p>   

@@ -9,7 +9,7 @@ namespace Business
     public class RelationService
     {      
 
-        public static List<aspnet_Users> GetRelations(Guid userId)
+        public static List<UserProfile> GetRelations(Guid userId)
         {
             bindedinEntities bie = SingletonEntities.Instance;
 
@@ -20,18 +20,18 @@ namespace Business
                             where rel.status == 3
                             select rel;
 
-            List<aspnet_Users> userRelations = new List<aspnet_Users>();
+            List<UserProfile> userRelations = new List<UserProfile>();
             foreach (var relation in relations)
             {
                 if (relation.status == 3)
                 {
                     if (relation.asked_user == userId)
                     {
-                        userRelations.Add(relation.aspnet_asking_users);
+                        userRelations.Add(UserProfile.GetUserProfile(relation.aspnet_asking_users.UserName));
                     }
                     else if (relation.asking_user == userId)
                     {
-                        userRelations.Add(relation.aspnet_asked_users);
+                        userRelations.Add(UserProfile.GetUserProfile(relation.aspnet_asked_users.UserName));
                     }
                 }
             }

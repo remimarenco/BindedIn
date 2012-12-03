@@ -20,13 +20,6 @@ namespace Data
         }
 
         [SettingsAllowAnonymous(false)]
-        public string Id
-        {
-            get { return base["Id"] as string; }
-            set { base["Id"] = value; }
-        }
-
-        [SettingsAllowAnonymous(false)]
         public string FirstName
         {
             get { return base["FirstName"] as string; }
