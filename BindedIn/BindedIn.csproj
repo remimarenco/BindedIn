@@ -50,6 +50,9 @@
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Vortex.Web.UI.WebControls, Version=1.0.1994.14951, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
@@ -68,6 +71,7 @@
     <Content Include="Message.aspx" />
     <Content Include="MessageDetail.aspx" />
     <Content Include="MessageForm.aspx" />
+    <Content Include="Profil.aspx" />
     <Content Include="Relations.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Styles\Site.css" />
@@ -76,6 +80,7 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Vortex.Web.UI.WebControls.dll" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -152,6 +157,13 @@
     </Compile>
     <Compile Include="MessageForm.aspx.designer.cs">
       <DependentUpon>MessageForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profil.aspx.cs">
+      <DependentUpon>Profil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profil.aspx.designer.cs">
+      <DependentUpon>Profil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Relations.aspx.cs">
