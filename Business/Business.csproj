@@ -51,7 +51,6 @@
     <Compile Include="CustomMembershipProvider.cs" />
     <Compile Include="FormationService.cs" />
     <Compile Include="MessageService.cs" />
-    <Compile Include="Relations.cs" />
     <Compile Include="SearchService.cs" />
     <Compile Include="SingletonEntities.cs" />
     <Compile Include="UserService.cs" />
