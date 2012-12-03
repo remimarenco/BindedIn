@@ -16,8 +16,8 @@ namespace BindedIn
         protected void Page_Load(object sender, EventArgs e)
         {
             //Write to a user profile from a textbox value
-            Profile = UserProfile.GetUserProfile(User.Identity.Name);    
-            
+            Profile = UserProfile.GetUserProfile(User.Identity.Name);
+           
             if (Profile.FavoriteMovie == "")
             {
                 Profile.FavoriteMovie = "Potatoe";
