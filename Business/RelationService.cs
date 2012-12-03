@@ -52,8 +52,12 @@ namespace Business
                 listFarFromOneRelations.AddRange(GetRelations((Guid)(Membership.GetUser(userRelation.UserName, false).ProviderUserKey)));
             }
 
-            // We delete the actual user
-            listFarFromOneRelations.Remove(UserProfile.GetUserProfile(System.Web.HttpContext.Current.User.Identity.Name));
+            UserProfile actualUser = UserProfile.GetUserProfile(System.Web.HttpContext.Current.User.Identity.Name);
+            while(listFarFromOneRelations.Contains(actualUser))
+            {
+                // We delete all the occurences of the actual user
+                listFarFromOneRelations.Remove(actualUser);
+            }
 
             return listFarFromOneRelations;
         }
