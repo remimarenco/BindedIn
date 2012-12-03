@@ -4,6 +4,11 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+
+    <div ID="searchHeader" runat="server">
+           <h2><asp:Label ID="sTitle" Text='' runat="server" /></h2>
+           <asp:Label ID="sMessage" Text='' runat="server" />
+    </div>
     <div class="searchResult"> 
         <asp:Repeater ID="rpt1" runat="server" >
                 <ItemTemplate>
