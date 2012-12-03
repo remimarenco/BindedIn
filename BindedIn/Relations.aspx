@@ -28,7 +28,14 @@
                         <asp:Repeater ID="Repeater3" runat="server" 
                         DataSourceID="ObjectDataSourceRelation">
                             <ItemTemplate>
-                                <p><%#Eval("Lastname") %>, <%#Eval("Firstname") %></p>
+                                <div class="row-fluid">
+                                    <div class="span4">
+                                        <img src="Images/140x140.gif" class="img-polaroid" alt="<%#Eval("Lastname") %>, <%#Eval("Firstname") %>" />
+                                    </div>
+                                    <div class="span8">
+                                        <p><%#Eval("Lastname") %>, <%#Eval("Firstname") %></p>
+                                    </div>
+                                </div>
                             </ItemTemplate>
                         </asp:Repeater>
                     </p>
