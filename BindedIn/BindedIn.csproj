@@ -57,6 +57,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="channel.html" />
     <Content Include="Libs\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="Libs\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="Libs\bootstrap\css\bootstrap.css" />
