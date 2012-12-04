@@ -68,6 +68,11 @@ namespace Data
             }
             return false;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
         
     }
 }

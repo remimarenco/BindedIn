@@ -33,10 +33,11 @@
                     <LoggedInTemplate>
                         <%--REGISTERED--%>    
                         <li><a href="/Relations.aspx" title="Home"/>Relations</a></li>
-                        <li><a href="/Profil.aspx" title="Home"/>Profil</a></li>
-                         <li><a ID="linkMessage" href="/Message.aspx"  title="Home" runat="server" >Mes Messages</a></li>
-                        <%--END REGISTERED--%>  
+                        <li><a ID="linkMessage" href="/Message.aspx"  title="Home" runat="server" >Mes Messages</a></li>
+                          <%--END REGISTERED--%>  
                     </LoggedInTemplate> 
+                    
+                       
                     </asp:LoginView>   
                     <%-----------------------------------------------------------
                     --  END LINKS - NAVBAR
@@ -106,17 +107,6 @@
             <p>
                 BindedIn Inc. 2012
             </p>
-            <ul class="footer-links">
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li class="muted">·</li>
-                <li>
-                <a href="/About.aspx">A propos</a>
-                </li>
-                <li class="muted">·</li>
-                
-                </ul>
         </div>    
     </div>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
@@ -130,31 +120,6 @@
         $('.dropdown-menu input, .dropdown-menu label').click(function (e) {
             e.stopPropagation();
         });        
-    </script>
-    <div id="fb-root"></div>
-    <script>
-        // Additional JS functions here
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '139094096241286', // App ID
-                channelUrl: '//localhost:2588/channel.html', // Channel File
-                status: true, // check login status
-                cookie: true, // enable cookies to allow the server to access the session
-                xfbml: true  // parse XFBML
-            });
-
-            // Additional init code here
-
-        };
-
-        // Load the SDK Asynchronously
-        (function (d) {
-            var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement('script'); js.id = id; js.async = true;
-            js.src = "//connect.facebook.net/en_US/all.js";
-            ref.parentNode.insertBefore(js, ref);
-        } (document));
     </script>
     </form>
     </body>

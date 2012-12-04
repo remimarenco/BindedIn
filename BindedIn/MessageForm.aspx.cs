@@ -30,7 +30,9 @@ namespace BindedIn
                     //si un id est passé on affiche le nom du destinataire
                     if (Request.Params["id"] != null)
                     {
+                        //on recupere le userprofile a prtir de l'id
                         UserProfile u = UserProfile.GetUserProfile(Request.Params["id"]);
+
                         recId = u.UserName;
 
                         //on remplit le champ destinataire
@@ -41,8 +43,12 @@ namespace BindedIn
                     {
                         //on recupere le message auquel il faut répondre
                         message m = MessageService.GetMessageById(Convert.ToInt16(Request.Params["response"]));
-                        //on récupere le sender de ce message pour
-                        UserProfile u = UserProfile.GetUserProfile(m.sender.ToString());
+                        
+                        //on recupre le username a partir d'un guid
+                        string username = UserService.GetUtilisateurById(m.sender).UserName;
+
+                        //on recupere le userprofile a partir du username
+                        UserProfile u = UserProfile.GetUserProfile(username);
                         recId = u.UserName;
 
                         //on remplit le champ objet
