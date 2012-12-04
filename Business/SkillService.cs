@@ -28,5 +28,40 @@ namespace Business
             return retour.ToList();
         }
 
+        public static void InsertNewSkill(String name, String description, int level,Guid userId)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+            var existing = from c in bie.competences
+                           where c.description.Equals(description)
+                           where c.name.Equals(name)
+                           select c;
+            if (existing.Count() == 0)
+            {
+                competence comp = new competence
+                {
+                    name=name,
+                    description=description
+                };
+
+                bie.AddTocompetences(comp);
+                bie.SaveChanges();
+            }
+
+            var idComp = from c in bie.competences
+                              where c.name.Equals(name)
+                              where c.description.Equals(description)
+                              select c.id;
+
+            user_competence uc = new user_competence
+            {
+                user=userId,
+                competence=idComp.First(),
+                //level=level,
+            };
+
+            bie.AddTouser_competence(uc);
+            bie.SaveChanges();
+        }
+
     }
 }
