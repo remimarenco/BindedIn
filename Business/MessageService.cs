@@ -156,5 +156,33 @@ namespace Business
 
             return countMessage;
         }
+
+        //fonction créait une liste de MessagePlusa partir d'une liste de Message
+        public static List<MessagePlus> MessageToMessagePlus(List<message> listM,string mode)
+        {
+            List<MessagePlus> listMP = new List<MessagePlus>();
+            MessagePlus mp;
+
+            if (listM != null)
+            {
+                foreach (message m in listM)
+                {
+                    mp = new MessagePlus(m);
+                    
+
+                    if ( mode == "reception" && mp.isRead==0)
+                    {
+                        mp.@object = "<b>" + mp.@object + "</b>";
+                        mp.senderName = "<b>" + mp.senderName + "</b>";
+                        mp.date = "<b>" + mp.date + "</b>";
+
+                    }
+                    listMP.Add(mp);
+                }
+            }
+
+            return listMP;
+        }
+
     }
 }

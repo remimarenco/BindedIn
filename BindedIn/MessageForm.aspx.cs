@@ -75,7 +75,7 @@ namespace BindedIn
         protected void envoyerButton_Click(object sender, EventArgs e)
         {
 
-            MessageService.SendMessage((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey, (Guid)Membership.GetUser(recId, false).ProviderUserKey, objectTextBox.Text, message.Text);
+            MessageService.SendMessage((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey, (Guid)Membership.GetUser(recId, false).ProviderUserKey, objectTextBox.Text, message.InnerText);
             Response.Redirect("~/MessageForm.aspx?envoye=1");
 
         }

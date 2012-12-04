@@ -12,19 +12,19 @@
                 <asp:Button ID="supprimerButton" class="btn" Text="Supprimer" runat="server" 
                     onclick="supprimerButton_Click" />
             </div><br />
-            <div ID="senderMessage" runat="server" >
-                <b>De: </b> <asp:Label ID="destinataireM" runat="server" /><br />
+            <div ID="senderMessage" runat="server" style="border-bottom: 1px solid black; margin-top:5px;" >
+                <b>De: </b> <asp:Label ID="destinataireM"  runat="server" /><br />
             </div>
-            <div ID="objectMessage" runat="server" >
-                <b>Object: </b> <asp:Label ID="objectM" runat="server" />
+            <div ID="objectMessage" runat="server" style="border-bottom: 1px solid black; margin-top:5px;" >
+                <b>Object: </b> <asp:Label ID="objectM"  runat="server" />
             </div>
 
             <br />
-             <div ID="corpsMessage" runat="server" >
+             <div ID="corpsMessage" style="border-bottom: 1px solid black; margin-top:5px;min-height:200px;" runat="server" >
                <asp:Label ID="message" runat="server" />
             </div>
 
-            <div ID="Div1" runat="server" >
+            <div ID="lien2" runat="server" >
                 <asp:Button ID="Button1"  class="btn" Text="Repondre" runat="server" 
                     onclick="repondreButton_Click" />
                 <asp:Button ID="Button2" class="btn" Text="Supprimer" runat="server" 

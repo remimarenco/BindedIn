@@ -117,15 +117,15 @@ body
 /* MessageDetail
 -------------------------------------------------- */
 
-#objectMessage 
+#MainContent_objectMessage 
 {
     border-bottom: 1px solid black;
 }
-#senderMessage 
+#MainContent_senderMessage 
 {
     border-bottom: 1px solid black;
 }
-#corpsMessage 
+#MainContent_corpsMessage 
 {
     border-bottom: 1px solid black;
 }

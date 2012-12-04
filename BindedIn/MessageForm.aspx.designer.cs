@@ -31,13 +31,13 @@ namespace BindedIn {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl messageForm;
         
         /// <summary>
-        /// Contrôle infoMessage.
+        /// Contrôle senderMessage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl infoMessage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl senderMessage;
         
         /// <summary>
         /// Contrôle recipientLabel.
@@ -47,6 +47,15 @@ namespace BindedIn {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label recipientLabel;
+        
+        /// <summary>
+        /// Contrôle objectMessage.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl objectMessage;
         
         /// <summary>
         /// Contrôle objectTextBox.
@@ -73,7 +82,7 @@ namespace BindedIn {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox message;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea message;
         
         /// <summary>
         /// Contrôle envoyerButton.

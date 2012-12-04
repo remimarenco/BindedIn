@@ -19,6 +19,14 @@ namespace BindedIn
             {
                 List<message> listM = new List<message>();
 
+                //on recupere le parametre "del" pour voir si il y a un message à effacer
+                if (Request.Params["del"] != null && Convert.ToInt16(Request.Params["del"])!=0)
+                {
+                    MessageService.deleteMessage(Convert.ToInt16(Request.Params["del"]));
+                    not.Text = "Message effacé";
+                }
+
+
                 //on affiche en fonction du parametres les messages envoyés ou recus
                 if (Request.Params["mode"] != null && Request.Params["mode"] == "env")
                 {
@@ -26,6 +34,15 @@ namespace BindedIn
                     autreMode.InnerText = "Messages reçus";
                     autreMode.HRef = "Message.aspx";
                     listM = MessageService.GetMessageBySenderId((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
+                    if (listM.Count > 0)
+                    {
+                        rptEnv.DataSource = MessageService.MessageToMessagePlus(listM," ");
+                        rptEnv.DataBind();
+                    }
+                    else
+                    {
+                        errorMessage("Aucun message à afficher");
+                    }
                 }
                 else
                 {
@@ -33,19 +50,20 @@ namespace BindedIn
                     autreMode.InnerText = "Messages envoyés";
                     autreMode.HRef = "Message.aspx?mode=env";
                     listM = MessageService.GetMessageByRecipientId((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
+                    if (listM.Count > 0)
+                    {
+                        rptRece.DataSource = MessageService.MessageToMessagePlus(listM,"reception");
+                        rptRece.DataBind();
+                    }
+                    else
+                    {
+                        errorMessage("Aucun message à afficher");
+                    }
                 }
 
                
 
-                if (listM.Count > 0)
-                {
-                    rpt1.DataSource = listM;
-                    rpt1.DataBind();
-                }
-                else
-                {
-                    errorMessage("Aucun message à afficher");
-                }
+
             }
         }
 

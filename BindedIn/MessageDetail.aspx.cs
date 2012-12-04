@@ -28,6 +28,9 @@ namespace BindedIn
 
                     if (m != null)
                     {
+                        //on passe le message a "lu"
+                        MessageService.ReadMessage(m.id);
+
                         //on recupre le username a partir d'un guid
                         string username = UserService.GetUtilisateurById(m.sender).UserName;
 
@@ -81,7 +84,7 @@ namespace BindedIn
         //fonction qui supprime le message
         protected void supprimerButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Message.aspx"); 
+            Response.Redirect("Message.aspx?del=" + m.id); 
         }
 
 
