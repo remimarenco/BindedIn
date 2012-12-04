@@ -30,20 +30,44 @@ namespace Business
         }
 
         public static void InsertNewFormation(String nom,
-            String description, String dateDebut, String dateFin, String etablissement)
+            String description, String dateDebut, String dateFin, String etablissement,Guid userId)
         {
-            bindedinEntities bie = SingletonEntities.Instance;          
+            bindedinEntities bie = SingletonEntities.Instance;
 
-            formation ord = new formation
+            var existingFormation = from f in bie.formations from s in bie.schools
+                                    where f.name.Equals(nom)                                
+                                    where f.school.Equals(s.id)
+                                    where s.name.Equals(etablissement)
+                                    select f;
+
+            if (existingFormation.Count() == 0)
             {
-                name = nom,
-                description = description,
-                beginning_date = DateTime.Parse(dateDebut,CultureInfo.CreateSpecificCulture("en-US")),
-                end_date =  DateTime.Parse(dateFin,CultureInfo.CreateSpecificCulture("en-US")),
-                school= Business.SchoolsService.InsertSchool(etablissement, ""),            
-               
-            };            
-            bie.AddToformations(ord);
+
+                formation ord = new formation
+                {
+                    name = nom,
+                    description = description,                   
+                    school = Business.SchoolsService.InsertSchool(etablissement, ""),
+
+                };
+                bie.AddToformations(ord);
+                bie.SaveChanges();
+
+            }
+
+            var idFormation = from f in bie.formations
+                              where f.name.Equals(nom)
+                              where f.description.Equals(description)
+                              select f.id;
+
+            user_formation uf = new user_formation
+            {
+                user=userId,
+                formation=idFormation.First(),
+                beginning_date = DateTime.Parse(dateDebut, CultureInfo.CreateSpecificCulture("en-US")),
+                end_date = DateTime.Parse(dateFin, CultureInfo.CreateSpecificCulture("en-US")),
+            };
+            bie.AddTouser_formation(uf);
             bie.SaveChanges();
         }
 
