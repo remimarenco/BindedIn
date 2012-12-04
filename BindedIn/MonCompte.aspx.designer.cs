@@ -58,6 +58,33 @@ namespace BindedIn {
         protected global::System.Web.UI.WebControls.Repeater Repeater1;
         
         /// <summary>
+        /// Contrôle idImageSelected.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden idImageSelected;
+        
+        /// <summary>
+        /// Contrôle btnChangeImg.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChangeImg;
+        
+        /// <summary>
+        /// Contrôle btnDeleteImg.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteImg;
+        
+        /// <summary>
         /// Contrôle ChangeUserPassword.
         /// </summary>
         /// <remarks>

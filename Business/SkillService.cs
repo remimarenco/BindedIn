@@ -56,7 +56,7 @@ namespace Business
             {
                 user=userId,
                 competence=idComp.First(),
-                //level=level,
+                level=level,
             };
 
             bie.AddTouser_competence(uc);

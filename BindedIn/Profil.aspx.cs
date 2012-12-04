@@ -16,14 +16,17 @@ namespace BindedIn
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //editSkills.Visible = false;
-            //editExp.Visible = false;
+            editSkills.Visible = false;
+            editExp.Visible = false;
             editFormation.Visible = false;
 
             Profile = UserProfile.GetUserProfile(User.Identity.Name);
             UserId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
 
             ObjectDataSourceUserProfile.SelectParameters["id"].DefaultValue = UserId.ToString();
+            ObjectDataSourceSkillsForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
+            ObjectDataSourceFormationForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
+            ObjectDataSourceEXpForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
             ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + UserId.ToString();
         }
 
@@ -170,6 +173,53 @@ namespace BindedIn
             return tel.ToArray();
         }
 
+
+        protected void ButtonSaveExpPro_Click(object sender, EventArgs e)
+        {
+
+        }
+
         #endregion
+
+        #region Compétences
+
+
+
+        [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+        public static string[] SuggestCompetenceNames(string prefixText, int count, string contextKey)
+        {
+            List<string> names = new List<string>();
+            foreach (var item in Business.SkillService.GetSkills())
+            {
+                if (item.name.ToLower().Contains(prefixText.ToLower()))
+                    names.Add(item.name);
+            }
+
+
+            return names.ToArray();
+        }
+
+        [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+        public static string[] SuggestCompetenceDescription(string prefixText, int count, string contextKey)
+        {
+            List<string> desc = new List<string>();
+            foreach (var item in Business.SkillService.GetSkills())
+            {
+                if (item.description.ToLower().Contains(prefixText.ToLower()))
+                    desc.Add(item.description);
+            }
+
+
+            return desc.ToArray();
+        }
+
+        protected void ButtonSkills_Click(object sender, EventArgs e)
+        {
+            Business.SkillService.InsertNewSkill(TextBoxCompeName.Text, TextBoxCompeDescription.Text, RatingNiveau.CurrentRating,UserId);
+        }
+
+        #endregion
+
+
     }
 }

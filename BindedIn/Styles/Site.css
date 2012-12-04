@@ -110,8 +110,20 @@ body
 
 .profile-list-img 
 {
+    
+}
+
+.profile-img img
+{
     width: 140px;
     height: 140px;
+}
+
+.profile-img .label 
+{
+    position:absolute;
+	margin-top: -23px;
+	margin-left: 5px;
 }
 
 /* MessageDetail
@@ -129,3 +141,5 @@ body
 {
     border-bottom: 1px solid black;
 }
+
+
