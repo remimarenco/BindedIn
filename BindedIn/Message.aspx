@@ -5,6 +5,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2 ID="modeTitle" runat="server" >Mes messages Reçus</h2>
+    <a  ID="autreMode" href="Message.aspx?mode=env" runat="server"">Mes messages Envoyés </a>
     <asp:Label ID="not" runat="server" />
     <div ID="messageList" runat="server" >
         <table class="table table-striped" >
@@ -19,8 +20,11 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <i class="icon- icon-share-alt"></i>
+                                    <a href="<%# String.Format("MessageForm.aspx?response={0}", Eval("id")) %>" >
+                                        <i class="icon-share-alt"></i>
+                                    </a>
                                     <i class="icon-remove"></i>
+                                    <asp:Button Text="text" runat="server" />
                                 </td>
                             </tr>
                         </ItemTemplate>
