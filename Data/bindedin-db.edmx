@@ -359,15 +359,15 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="beginning_date" Type="datetime" Nullable="false" />
           <Property Name="end_date" Type="datetime" Nullable="false" />
           <Property Name="school" Type="int" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.Image » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.Image' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="Image">
           <Key>
@@ -426,7 +426,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
@@ -471,8 +471,8 @@
           <Property Name="user" Type="uniqueidentifier" Nullable="false" />
           <Property Name="formation" Type="int" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_Applications » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_Applications' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_Applications">
           <Key>
@@ -485,8 +485,8 @@
           <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_MembershipUsers » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_MembershipUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_MembershipUsers">
           <Key>
@@ -531,8 +531,8 @@
           <Property Name="IsAnonymous" Type="bit" Nullable="false" />
           <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_Profiles » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_Profiles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_Profiles">
           <Key>
@@ -543,8 +543,8 @@
           <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
           <Property Name="DataSize" Type="int" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_Roles » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_Roles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_Roles">
           <Key>
@@ -559,8 +559,8 @@
           <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_Users » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_Users">
           <Key>
@@ -579,8 +579,8 @@
           <Property Name="IsAnonymous" Type="bit" Nullable="false" />
           <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_UsersInRoles » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_UsersInRoles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_UsersInRoles">
           <Key>
@@ -590,8 +590,8 @@
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_WebPartState_Paths » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_WebPartState_Paths' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_WebPartState_Paths">
           <Key>
@@ -605,8 +605,8 @@
           <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="256" />
           <Property Name="LoweredPath" Type="nvarchar" Nullable="false" MaxLength="256" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_WebPartState_Shared » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_WebPartState_Shared' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_WebPartState_Shared">
           <Key>
@@ -617,8 +617,8 @@
           <Property Name="DataSize" Type="int" />
           <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_WebPartState_User » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_WebPartState_User' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_WebPartState_User">
           <Key>

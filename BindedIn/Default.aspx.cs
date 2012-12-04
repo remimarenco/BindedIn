@@ -19,11 +19,11 @@ namespace BindedIn
             //Write to a user profile from a textbox value
             Profile = UserProfile.GetUserProfile(User.Identity.Name);
            
-            if (Profile.FavoriteMovie == "")
-            {
-                Profile.FavoriteMovie = "Potatoe";
-                Profile.Save();                            
-            }
+            //if (Profile.FavoriteMovie == "")
+            //{
+            //    Profile.FavoriteMovie = "Potatoe";
+            //    Profile.Save();                            
+            //}
 
             //var userId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
             //ceci est un example de la reatribution d'un user id pour le data source. Très utile pour lié un user a tout le reste. !!!!
