@@ -5062,17 +5062,13 @@ namespace Data
         /// <param name="id">Valeur initiale de la propriété id.</param>
         /// <param name="name">Valeur initiale de la propriété name.</param>
         /// <param name="description">Valeur initiale de la propriété description.</param>
-        /// <param name="beginning_date">Valeur initiale de la propriété beginning_date.</param>
-        /// <param name="end_date">Valeur initiale de la propriété end_date.</param>
         /// <param name="company">Valeur initiale de la propriété company.</param>
-        public static professional_experience Createprofessional_experience(global::System.Int32 id, global::System.String name, global::System.String description, global::System.DateTime beginning_date, global::System.DateTime end_date, global::System.Int32 company)
+        public static professional_experience Createprofessional_experience(global::System.Int32 id, global::System.String name, global::System.String description, global::System.Int32 company)
         {
             professional_experience professional_experience = new professional_experience();
             professional_experience.id = id;
             professional_experience.name = name;
             professional_experience.description = description;
-            professional_experience.beginning_date = beginning_date;
-            professional_experience.end_date = end_date;
             professional_experience.company = company;
             return professional_experience;
         }
@@ -5155,54 +5151,6 @@ namespace Data
         private global::System.String _description;
         partial void OndescriptionChanging(global::System.String value);
         partial void OndescriptionChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime beginning_date
-        {
-            get
-            {
-                return _beginning_date;
-            }
-            set
-            {
-                Onbeginning_dateChanging(value);
-                ReportPropertyChanging("beginning_date");
-                _beginning_date = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("beginning_date");
-                Onbeginning_dateChanged();
-            }
-        }
-        private global::System.DateTime _beginning_date;
-        partial void Onbeginning_dateChanging(global::System.DateTime value);
-        partial void Onbeginning_dateChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime end_date
-        {
-            get
-            {
-                return _end_date;
-            }
-            set
-            {
-                Onend_dateChanging(value);
-                ReportPropertyChanging("end_date");
-                _end_date = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("end_date");
-                Onend_dateChanged();
-            }
-        }
-        private global::System.DateTime _end_date;
-        partial void Onend_dateChanging(global::System.DateTime value);
-        partial void Onend_dateChanged();
     
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
@@ -6353,12 +6301,16 @@ namespace Data
         /// <param name="id">Valeur initiale de la propriété id.</param>
         /// <param name="user">Valeur initiale de la propriété user.</param>
         /// <param name="experience_professional">Valeur initiale de la propriété experience_professional.</param>
-        public static user_experienceprofessional Createuser_experienceprofessional(global::System.Int32 id, global::System.Guid user, global::System.Int32 experience_professional)
+        /// <param name="beginning_date">Valeur initiale de la propriété beginning_date.</param>
+        /// <param name="end_date">Valeur initiale de la propriété end_date.</param>
+        public static user_experienceprofessional Createuser_experienceprofessional(global::System.Int32 id, global::System.Guid user, global::System.Int32 experience_professional, global::System.DateTime beginning_date, global::System.DateTime end_date)
         {
             user_experienceprofessional user_experienceprofessional = new user_experienceprofessional();
             user_experienceprofessional.id = id;
             user_experienceprofessional.user = user;
             user_experienceprofessional.experience_professional = experience_professional;
+            user_experienceprofessional.beginning_date = beginning_date;
+            user_experienceprofessional.end_date = end_date;
             return user_experienceprofessional;
         }
 
@@ -6440,6 +6392,54 @@ namespace Data
         private global::System.Int32 _experience_professional;
         partial void Onexperience_professionalChanging(global::System.Int32 value);
         partial void Onexperience_professionalChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime beginning_date
+        {
+            get
+            {
+                return _beginning_date;
+            }
+            set
+            {
+                Onbeginning_dateChanging(value);
+                ReportPropertyChanging("beginning_date");
+                _beginning_date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("beginning_date");
+                Onbeginning_dateChanged();
+            }
+        }
+        private global::System.DateTime _beginning_date;
+        partial void Onbeginning_dateChanging(global::System.DateTime value);
+        partial void Onbeginning_dateChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime end_date
+        {
+            get
+            {
+                return _end_date;
+            }
+            set
+            {
+                Onend_dateChanging(value);
+                ReportPropertyChanging("end_date");
+                _end_date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("end_date");
+                Onend_dateChanged();
+            }
+        }
+        private global::System.DateTime _end_date;
+        partial void Onend_dateChanging(global::System.DateTime value);
+        partial void Onend_dateChanged();
 
         #endregion
 
