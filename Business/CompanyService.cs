@@ -9,7 +9,7 @@ namespace Business
     public class CompanyService
     {
 
-        public static List<company> GetSchools()
+        public static List<company> GetCompanies()
         {
             bindedinEntities bie = SingletonEntities.Instance;
             var formations = from c in bie.companies
@@ -17,7 +17,7 @@ namespace Business
             return formations.ToList();
         }
 
-        public static List<company> GetSchools(Guid userId)
+        public static List<company> GetCompanies(Guid userId)
         {
             bindedinEntities bie = SingletonEntities.Instance;
             var retour = from uep in bie.user_experienceprofessional from pe in bie.professional_experience from c in bie.companies
@@ -60,5 +60,7 @@ namespace Business
             return id.First();
         }
 
+
+        //update
     }
 }
