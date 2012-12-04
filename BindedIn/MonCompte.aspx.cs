@@ -42,6 +42,7 @@ namespace BindedIn
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = "INSERT INTO Image([UserId],[Image],[Current],[Date])" +
+                                  " OUTPUT INSERTED.ID" +
                                   " VALUES (@UserId,@Image,@Cur,@Date)";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = con;
@@ -66,18 +67,51 @@ namespace BindedIn
                 Current.Value = true;
                 cmd.Parameters.Add(Current);
 
-                string query = cmd.CommandText;
-                foreach (SqlParameter p in cmd.Parameters)
-                {
-                    query = query.Replace(p.ParameterName, p.Value.ToString());
-                }
-
-                con.Open();          
-                int result = cmd.ExecuteNonQuery();
+                con.Open();
+                Int32 result = (Int32) cmd.ExecuteScalar();
                 con.Close();
                 if (result > 0)
                     lblMessage.Text = "File Uploaded";
+
+                // Set all other Images to current = 0 for this user
+                SqlCommand cmdUp = new SqlCommand();
+                cmdUp.CommandText = "UPDATE Image" +
+                                  " SET [Current] = @Current" +
+                                  " WHERE id <> @id";
+                cmdUp.CommandType = CommandType.Text;
+                cmdUp.Connection = con;
+
+                SqlParameter CurrentUp = new SqlParameter
+                                    ("@Current", SqlDbType.Bit);
+                CurrentUp.Value = false;
+                cmdUp.Parameters.Add(CurrentUp);
+
+                SqlParameter IdImage = new SqlParameter
+                              ("@id", SqlDbType.Int, 32);
+                IdImage.Value = result;
+                cmdUp.Parameters.Add(IdImage);
+
+                con.Open();
+                int resultup = cmdUp.ExecuteNonQuery();
+                con.Close();
             }
+        }
+
+        public string DisplaySpanCurrent(Object current)
+        {
+            if ( (Boolean) current )
+                return "<span class=\"label label-success\">Actuelle</span>";
+            return "";
+        }
+
+        protected void btnChange_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnDeleteImg_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

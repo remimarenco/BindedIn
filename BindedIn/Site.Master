@@ -6,7 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <link href="/Libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-    <link href="/Styles/Site.css" rel="stylesheet" type="text/css" />    
+    <link href="/Styles/Site.css" rel="stylesheet" type="text/css" />  
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="/Libs/bootstrap/js/bootstrap.min.js"></script>  
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -110,8 +112,6 @@
             </p>
         </div>    
     </div>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-    <script type="text/javascript" src="/Libs/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.dropdown-toggle').dropdown();

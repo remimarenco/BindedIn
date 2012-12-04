@@ -11,6 +11,7 @@ using System.Web;
 using System.IO;
 using System.Data;
 using System.Data.SqlClient;
+using Business;
 
 public class ShowImage : IHttpHandler 
 {
@@ -40,12 +41,12 @@ public class ShowImage : IHttpHandler
 
     public Stream ShowEmpImage(String empno)
     {
-        return Business.ImagesService.getCurrentImageAsStream(empno);
+        return ImagesService.getCurrentImageAsStream(empno);
     }
 
     public Stream ShowEmpImage(int empno)
     {
-        return Business.ImagesService.getImageAsStream(empno);
+        return ImagesService.getImageAsStream(empno);
     }
 
     public bool IsReusable

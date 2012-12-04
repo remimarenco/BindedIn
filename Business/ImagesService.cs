@@ -36,15 +36,21 @@ namespace Business
                          where i.UserId.Equals(userId)
                          where i.Current.Equals(true)
                          select i;
+            
             return retour.ToList();
         }
 
         public static List<Image> GetAllImages(Guid userId)
         {
             bindedinEntities bie = SingletonEntities.Instance;
+
             var retour = from i in bie.Images
+                         orderby i.Current descending, i.Date descending
                          where i.UserId.Equals(userId)
                          select i;
+            //retour.OrderBy(i => i.Current).ThenBy(i => i.Date);
+            
+           
             return retour.ToList();
         }
 
@@ -77,11 +83,10 @@ namespace Business
         {
             string conn = ConfigurationManager.ConnectionStrings["ASPNETMembership"].ConnectionString;
             SqlConnection connection = new SqlConnection(conn);
-            string sql = "SELECT Image FROM Image WHERE id = @id AND [Current] = @Current";
+            string sql = "SELECT Image FROM Image WHERE id = @id";
             SqlCommand cmd = new SqlCommand(sql, connection);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@id", idimg);
-            cmd.Parameters.AddWithValue("@Current", true);
             connection.Open();
             object img = cmd.ExecuteScalar();
             try
