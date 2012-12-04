@@ -16,14 +16,17 @@ public class ShowImage : IHttpHandler
 {
     public void ProcessRequest(HttpContext context)
     {
-       String empno;
-       if (context.Request.QueryString["id"] != null)
-            empno = context.Request.QueryString["id"];
+       String idUser = null;
+       int idImg = -1;
+       if (context.Request.QueryString["iduser"] != null)
+           idUser = context.Request.QueryString["iduser"];
+       else if (context.Request.QueryString["idimg"] != null)
+           idImg = Convert.ToInt32(context.Request.QueryString["idimg"]);
        else
             throw new ArgumentException("No parameter specified");
 
        context.Response.ContentType = "image/jpeg";
-       Stream strm = ShowEmpImage(empno);
+       Stream strm = (idUser == null) ? ShowEmpImage(idImg) : ShowEmpImage(idUser);
        byte[] buffer = new byte[4096];
        int byteSeq = strm.Read(buffer, 0, 4096);
 
@@ -37,27 +40,12 @@ public class ShowImage : IHttpHandler
 
     public Stream ShowEmpImage(String empno)
     {
-        string conn = ConfigurationManager.ConnectionStrings["ASPNETMembership"].ConnectionString;
-        SqlConnection connection = new SqlConnection(conn);
-        string sql = "SELECT Image FROM Image WHERE UserId = @ID AND [Current] = @Current";
-        SqlCommand cmd = new SqlCommand(sql,connection);
-        cmd.CommandType = CommandType.Text;
-        cmd.Parameters.AddWithValue("@ID", empno);
-        cmd.Parameters.AddWithValue("@Current", true);
-        connection.Open();
-        object img = cmd.ExecuteScalar();
-        try
-        {
-            return new MemoryStream((byte[])img);
-        }
-        catch 
-        {
-            return File.OpenRead(System.Web.HttpContext.Current.Server.MapPath("/Images/140x140.gif"));
-        }
-        finally
-        {
-            connection.Close();
-        }
+        return Business.ImagesService.getCurrentImageAsStream(empno);
+    }
+
+    public Stream ShowEmpImage(int empno)
+    {
+        return Business.ImagesService.getImageAsStream(empno);
     }
 
     public bool IsReusable
