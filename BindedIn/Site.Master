@@ -32,9 +32,10 @@
                     </AnonymousTemplate>
                     <LoggedInTemplate>
                         <%--REGISTERED--%>    
-                        <li><a href="/Relations.aspx" title="Home"/>Relations</a></li>
+                        <li><a href="/Relations.aspx" title="Relations"/>Relations</a></li>
+                        <li><a href="/Profil.aspx" title="Profil"/>Profil</a></li>
                         <li><a ID="linkMessage" href="/Message.aspx"  title="Home" runat="server" >Mes Messages</a></li>
-                          <%--END REGISTERED--%>  
+                        <%--END REGISTERED--%>  
                     </LoggedInTemplate> 
                     
                        
