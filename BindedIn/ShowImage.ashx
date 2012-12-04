@@ -52,7 +52,7 @@ public class ShowImage : IHttpHandler
         }
         catch 
         {
-            return null;
+            return File.OpenRead(System.Web.HttpContext.Current.Server.MapPath("/Images/140x140.gif"));
         }
         finally
         {

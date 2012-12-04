@@ -17,7 +17,7 @@
     </asp:ObjectDataSource>
 
     <div class="row">
-        <asp:Image ID="ImageProfile" style="width:200px; height:200px" Runat="server" CssClass="img-polaroid span3" />
+        <asp:Image ID="ImageProfile" style="width:140px; height:140px" Runat="server" CssClass="img-polaroid span3" />
         <asp:Repeater ID="Repeater3" runat="server" DataSourceID="ObjectDataSourceUserProfile">  
             <ItemTemplate>  
                 <h1 class="span9">
