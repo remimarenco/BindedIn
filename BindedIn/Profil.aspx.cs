@@ -38,6 +38,8 @@ namespace BindedIn
         }
 
 
+        #region Formation
+
         [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
         public static string[] SuggestFormationNames(string prefixText, int count, string contextKey)
         {
@@ -87,6 +89,87 @@ namespace BindedIn
                 TextBoxDateDebut.Text,
                 TextBoxDateFin.Text,
                 TextBoxFormationEtablissement.Text,UserId);
-        }  
+        }
+
+        #endregion
+
+        #region Exp_Professionnelle
+
+
+        [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+        public static string[] SuggestExpProNames(string prefixText, int count, string contextKey)
+        {
+            List<string> names = new List<string>();
+            foreach (var item in Business.ProfessionalExpService.GetProferssionalExp())
+            {
+                if (item.name.ToLower().Contains(prefixText.ToLower()))
+                    names.Add(item.name);
+            }
+
+
+            return names.ToArray();
+        }
+
+
+        [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+        public static string[] SuggestExpProDescription(string prefixText, int count, string contextKey)
+        {
+            List<string> desc = new List<string>();
+            foreach (var item in Business.ProfessionalExpService.GetProferssionalExp())
+            {
+                if (item.description.ToLower().Contains(prefixText.ToLower()))
+                    desc.Add(item.description);
+            }
+
+
+            return desc.ToArray();
+        }
+
+
+        [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+        public static string[] SuggestExpProCompanyName(string prefixText, int count, string contextKey)
+        {
+            List<string> names = new List<string>();
+            foreach (var item in Business.CompanyService.GetCompanies())
+            {
+                if (item.nom.ToLower().Contains(prefixText.ToLower()))
+                    names.Add(item.nom);
+            }
+
+
+            return names.ToArray();
+        }
+
+
+        [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+        public static string[] SuggestExpProCompanyAddress(string prefixText, int count, string contextKey)
+        {
+            List<string> adresse = new List<string>();
+            foreach (var item in Business.CompanyService.GetCompanies())
+            {
+                if (item.adresse.ToLower().Contains(prefixText.ToLower()))
+                    adresse.Add(item.adresse);
+            }
+
+
+            return adresse.ToArray();
+        }
+
+
+        [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
+        public static string[] SuggestExpProCompanyTel(string prefixText, int count, string contextKey)
+        {
+            List<string> tel = new List<string>();
+            foreach (var item in Business.CompanyService.GetCompanies())
+            {
+                if (item.telephone.ToLower().Contains(prefixText.ToLower()))
+                    tel.Add(item.telephone);
+            }
+
+
+            return tel.ToArray();
+        }
+
+        #endregion
     }
 }

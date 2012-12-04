@@ -83,7 +83,7 @@
             </asp:CalendarExtender>
 
              <%--Date de fin de la formation--%>
-            <asp:Label ID="Label4" runat="server" Text="Date de début de la formation : "></asp:Label> 
+            <asp:Label ID="Label4" runat="server" Text="Date de fin de la formation : "></asp:Label> 
                <asp:TextBox ID="TextBoxDateFin" runat="server"></asp:TextBox>             
             <asp:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="TextBoxDateFin">
             </asp:CalendarExtender>
@@ -124,7 +124,70 @@
                 </asp:Repeater>
         </div>            
         <div id="editExp" runat="server">
-        LOL
+          <%-- Ajout du toolkitscript manager pour la suggestion--%>
+            <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+            </asp:ToolkitScriptManager>
+
+            <%--NOM--%>
+            <asp:Label ID="Label6" runat="server" Text="Nom : "></asp:Label> 
+            
+            <asp:TextBox ID="TextBoxNomExpPro" runat="server"></asp:TextBox>           
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender2" 
+                        TargetControlID="TextBoxNomExpPro" runat="server" 
+                MinimumPrefixLength="2" UseContextKey="True" 
+                EnableCaching="true" ServiceMethod="SuggestExpProNames"                
+                ></asp:AutoCompleteExtender>
+
+                <br />
+
+            <%--Description--%>
+            <asp:Label ID="Label7" runat="server" Text="Description : "></asp:Label>             
+            <asp:TextBox ID="TextBoxExpProDescription" runat="server"></asp:TextBox>           
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender3" 
+                        TargetControlID="TextBoxExpProDescription" runat="server" 
+                MinimumPrefixLength="2" UseContextKey="True" 
+                EnableCaching="true" ServiceMethod="SuggestExpProDescription"                
+                ></asp:AutoCompleteExtender>
+            <br />
+            <%--Date de début de la formation--%>
+            <asp:Label ID="Label8" runat="server" Text="Date de début de la formation : "></asp:Label> 
+               <asp:TextBox ID="TextBoxDateDebutEXpPro" runat="server"></asp:TextBox>             
+            <asp:CalendarExtender ID="CalendarExtender3" runat="server" TargetControlID="TextBoxDateDebutEXpPro">
+            </asp:CalendarExtender>
+
+             <%--Date de fin de la formation--%>
+            <asp:Label ID="Label9" runat="server" Text="Date de fin de la formation : "></asp:Label> 
+               <asp:TextBox ID="TextBoxDateFinExpPro" runat="server"></asp:TextBox>             
+            <asp:CalendarExtender ID="CalendarExtender4" runat="server" TargetControlID="TextBoxDateFinExpPro">
+            </asp:CalendarExtender>
+             <br />
+
+            <%--Company name--%>
+            <asp:Label ID="Label10" runat="server" Text="Etablissement : "></asp:Label>             
+            <asp:TextBox ID="TextBoxExpProCompanyName" runat="server"></asp:TextBox>           
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender4" 
+                        TargetControlID="TextBoxExpProCompanyName" runat="server" 
+                MinimumPrefixLength="2" UseContextKey="True" 
+                EnableCaching="true" ServiceMethod="SuggestExpProCompanyName"                
+                ></asp:AutoCompleteExtender>
+            <%--Company Address--%>
+            <asp:Label ID="Label11" runat="server" Text="Etablissement : "></asp:Label>             
+            <asp:TextBox ID="TextBoxExpProCompanyAddress" runat="server"></asp:TextBox>           
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender5" 
+                        TargetControlID="TextBoxExpProCompanyAddress" runat="server" 
+                MinimumPrefixLength="2" UseContextKey="True" 
+                EnableCaching="true" ServiceMethod="SuggestExpProCompanyAddress"                
+                ></asp:AutoCompleteExtender>
+            <%--Company tel--%>
+            <asp:Label ID="Label12" runat="server" Text="Etablissement : "></asp:Label>             
+            <asp:TextBox ID="TextBoxExpProCompanyTel" runat="server"></asp:TextBox>           
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender6" 
+                        TargetControlID="TextBoxExpProCompanyTel" runat="server" 
+                MinimumPrefixLength="2" UseContextKey="True" 
+                EnableCaching="true" ServiceMethod="SuggestExpProCompanyTel"                
+                ></asp:AutoCompleteExtender>
+
+            <asp:Button class="btn span1" ID="ButtonSaveExpPro" runat="server" Text="Save" />
         </div>
             
   
