@@ -41,6 +41,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_Image_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "Image", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.Image), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_messages_aspnet_userRecipient", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.message), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_messages_aspnet_userSender", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.message), true)]
+[assembly: EdmRelationshipAttribute("bindedinModel", "FK_recommandations_aspnet_recipientUser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "recommandation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.recommandation), true)]
+[assembly: EdmRelationshipAttribute("bindedinModel", "FK_recommandations_aspnet_senderUser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "recommandation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.recommandation), true)]
 
 #endregion
 
@@ -3393,6 +3395,50 @@ namespace Data
                 }
             }
         }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_recommandations_aspnet_recipientUser", "recommandation")]
+        public EntityCollection<recommandation> recommandations
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<recommandation>("bindedinModel.FK_recommandations_aspnet_recipientUser", "recommandation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<recommandation>("bindedinModel.FK_recommandations_aspnet_recipientUser", "recommandation", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_recommandations_aspnet_senderUser", "recommandation")]
+        public EntityCollection<recommandation> recommandations1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<recommandation>("bindedinModel.FK_recommandations_aspnet_senderUser", "recommandation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<recommandation>("bindedinModel.FK_recommandations_aspnet_senderUser", "recommandation", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -5400,6 +5446,86 @@ namespace Data
         #endregion
 
     
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_recommandations_aspnet_recipientUser", "aspnet_Users")]
+        public aspnet_Users aspnet_Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_recipientUser", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_recipientUser", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Users> aspnet_UsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_recipientUser", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_recipientUser", "aspnet_Users", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_recommandations_aspnet_senderUser", "aspnet_Users")]
+        public aspnet_Users aspnet_Users1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_senderUser", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_senderUser", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Users> aspnet_Users1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_senderUser", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_senderUser", "aspnet_Users", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
