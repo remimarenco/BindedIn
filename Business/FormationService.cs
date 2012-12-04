@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Data;
+using System.Globalization;
 
 namespace Business
 {
@@ -26,6 +27,24 @@ namespace Business
                                  select f;
             
             return retour.ToList();
+        }
+
+        public static void InsertNewFormation(String nom,
+            String description, String dateDebut, String dateFin, String etablissement)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;          
+
+            formation ord = new formation
+            {
+                name = nom,
+                description = description,
+                beginning_date = DateTime.Parse(dateDebut,CultureInfo.CreateSpecificCulture("en-US")),
+                end_date =  DateTime.Parse(dateFin,CultureInfo.CreateSpecificCulture("en-US")),
+                school= Business.SchoolsService.InsertSchool(etablissement, ""),            
+               
+            };            
+            bie.AddToformations(ord);
+            bie.SaveChanges();
         }
 
     }
