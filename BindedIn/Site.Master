@@ -33,9 +33,10 @@
                     <LoggedInTemplate>
                         <%--REGISTERED--%>    
                         <li><a href="/Relations.aspx" title="Home"/>Relations</a></li>
-                         <li><a ID="linkMessage" href="/Message.aspx"  title="Home" runat="server" >Mes Messages</a></li>
-                        <%--END REGISTERED--%>  
+                          <%--END REGISTERED--%>  
                     </LoggedInTemplate> 
+                    <li><a ID="linkMessage" href="/Message.aspx"  title="Home" runat="server" >Mes Messages</a></li>
+                       
                     </asp:LoginView>   
                     <%-----------------------------------------------------------
                     --  END LINKS - NAVBAR

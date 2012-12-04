@@ -28,7 +28,11 @@ namespace BindedIn
 
                     if (m != null)
                     {
-                        UserProfile u= UserProfile.GetUserProfile(m.sender.ToString());
+                        //on recupre le username a partir d'un guid
+                        string username = UserService.GetUtilisateurById(m.sender).UserName;
+
+                        //on recupere le userprofile a partir du username
+                        UserProfile u= UserProfile.GetUserProfile(username);
 
 
                         //on remplit le destinataire

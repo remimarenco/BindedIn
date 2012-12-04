@@ -12,8 +12,13 @@
                     <div class="messageItem" ID="messageItem" runat="server" > 
                         <br />
                         <asp:Label ID="date" Text='<%# Eval("date") %>' runat="server" />
-                        <a href='MessageDetail.aspx?id=''<%# Eval("id")' %> id='object' runat="server"><%# Eval("object") %></a>
-                        <asp:Image ID="supprimer" ImageUrl="supprimer.png" runat="server" />
+                           <a href="<%# String.Format("MessageDetail.aspx?id={0}", Eval("id")) %>">
+                                <%#Eval("object") %>
+                            </a>
+
+                            <asp:Image  ImageUrl="supprimer.png"  runat="server" />
+                            <asp:Image  ImageUrl="repondreIcone.png" runat="server" />
+
                     </div>
                 </ItemTemplate>
         </asp:Repeater>
