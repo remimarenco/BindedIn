@@ -24,7 +24,7 @@ namespace BindedIn
             UserId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
 
             ObjectDataSourceUserProfile.SelectParameters["id"].DefaultValue = UserId.ToString();
-            ImageProfile.ImageUrl = "/ShowImage.ashx?id=" + UserId.ToString();
+            ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + UserId.ToString();
         }
 
         protected void ButtonEdit_Click(object sender, EventArgs e)
