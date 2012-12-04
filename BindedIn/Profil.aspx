@@ -7,8 +7,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>
-        Formation</h1>
+    <asp:ObjectDataSource ID="ObjectDataSourceUserProfile" runat="server" 
+        SelectMethod="GetUtilisateurById" TypeName="Business.UserProfileService">
+        <SelectParameters>
+            <asp:Parameter DbType="Guid" Name="id" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+
+    <div class="row">
+        <asp:Image ID="ImageProfile" style="width:200px; height:200px" Runat="server" CssClass="img-polaroid span3" />
+        <asp:Repeater ID="Repeater3" runat="server" DataSourceID="ObjectDataSourceUserProfile">  
+            <ItemTemplate>  
+                <h1 class="span9">
+                    <%#Eval("FirstName") %> <%#Eval("LastName") %>
+                </h1>
+            </ItemTemplate>
+        </asp:Repeater>
+    </div>
+
+    <h2>Formation</h2>
     <div class="row-fluid">
         <asp:Button class="btn span1 offset11" ID="ButtonEditFormation" runat="server" Text="Edit" 
             onclick="ButtonEdit_Click" /></div>
@@ -37,8 +54,7 @@
             
        
     </div>
-    <h1>
-        Experience professionelle</h1>
+    <h2>Experience professionelle</h2>
     <div class="row-fluid">
         <asp:Button class="btn span1 offset11" ID="ButtonEditExp" runat="server" Text="Edit" 
             onclick="ButtonEdit_Click" /></div>
@@ -63,8 +79,7 @@
             
   
     </div>
-    <h1>
-        Compétences</h1>
+    <h2>Compétences</h2>
     <div class="row-fluid">
         <asp:Button class="btn span1 offset11" ID="ButtonEditSkills" runat="server" Text="Edit" 
             onclick="ButtonEdit_Click" /></div>
