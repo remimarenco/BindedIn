@@ -5,9 +5,15 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-        À propos de
+        BindedIn - À propos
     </h2>
-    <p>
-        Placez le contenu ici.
-    </p>
+    <h3>
+        Projet .NET
+    </h3>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+    </ul>
 </asp:Content>

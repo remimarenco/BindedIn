@@ -14,11 +14,24 @@ namespace BindedIn
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             //on vérifie si un utilisteur est connecté
             if(User.Identity.IsAuthenticated)
             {
-                List<message> listM = MessageService.GetMessageByRecipientId((Guid)Membership.GetUser(User.Identity.Name,false).ProviderUserKey);
+                List<message> listM = new List<message>();
+
+                //on affiche en fonction du parametres les messages envoyés ou recus
+                if (Request.Params["mode"] != null && Request.Params["mode"] == "env")
+                {
+                    modeTitle.InnerText = "Messages envoyés";
+                    listM = MessageService.GetMessageBySenderId((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
+                }
+                else
+                {
+                    modeTitle.InnerText = "Messages reçus";
+                    listM = MessageService.GetMessageByRecipientId((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
+                }
+
+               
 
                 if (listM.Count > 0)
                 {

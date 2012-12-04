@@ -18,7 +18,7 @@ namespace BindedIn
             if (this.Page.User.Identity.IsAuthenticated)
             {
                 //on affiche le nombre de message non lus
-                LoginView2.linkMessage.text=
+                //LoginView2.LoggedInTemplate.
             }
         }
 

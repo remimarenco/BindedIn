@@ -15,12 +15,8 @@ namespace BindedIn
         {
             var userId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
             //ceci est un example de la reatribution d'un user id pour le data source. Très utile pour lié un user a tout le reste. !!!!
-            ObjectDataSourceRelation.SelectParameters["userId"].DefaultValue = userId.ToString(); 
-        }
-
-        protected void ObjectDataSourceRelation_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
-        {
-
+            ObjectDataSourceRelation.SelectParameters["userId"].DefaultValue = userId.ToString();
+            ObjectDataSourceFarFromOneRelation.SelectParameters["userId"].DefaultValue = userId.ToString();
         }
     }
 }

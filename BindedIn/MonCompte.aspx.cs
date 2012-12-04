@@ -36,8 +36,8 @@ namespace BindedIn
                 // Create SQL Command 
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "INSERT INTO Images(UserId,Image,Date,Current)" +
-                                  " VALUES (@UserId,@Image,@Date,@Current)";
+                cmd.CommandText = "INSERT INTO Image([UserId],[Image],[Current],[Date])" +
+                                  " VALUES (@UserId,@Image,@Cur,@Date)";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = con;
 
@@ -52,16 +52,22 @@ namespace BindedIn
                 cmd.Parameters.Add(UploadedImage);
 
                 SqlParameter Date = new SqlParameter
-                                    ("@Date", SqlDbType.Date);
-                Date.Value = new DateTime();
+                                    ("@Date", SqlDbType.DateTime);
+                Date.Value = DateTime.Now;
                 cmd.Parameters.Add(Date);
 
                 SqlParameter Current = new SqlParameter
-                                    ("@Current", SqlDbType.Bit);
+                                    ("@Cur", SqlDbType.Bit);
                 Current.Value = true;
                 cmd.Parameters.Add(Current);
 
-                con.Open();
+                string query = cmd.CommandText;
+                foreach (SqlParameter p in cmd.Parameters)
+                {
+                    query = query.Replace(p.ParameterName, p.Value.ToString());
+                }
+
+                con.Open();          
                 int result = cmd.ExecuteNonQuery();
                 con.Close();
                 if (result > 0)

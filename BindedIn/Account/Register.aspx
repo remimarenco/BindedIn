@@ -15,7 +15,7 @@
                         Rejoignez BindedIn
                     </h2>
                     <p>
-                        Inscrivez vous et intégrez le plus grand réseau professionnel.
+                        Inscrivez-vous et intégrez le plus grand réseau professionnel.
                     </p>                    
                     <span class="failureNotification">
                         <asp:Literal ID="ErrorMessage" runat="server"></asp:Literal>
@@ -24,7 +24,7 @@
                          ValidationGroup="RegisterUserValidationGroup"/>
                     <div class="accountInfo">
                         <fieldset class="register">
-                            <legend>Informations</legend>                             
+                            <legend>Vos informations</legend>                             
                             <div class="form-horizontal">
                             <div class="control-group">
                                 <asp:Label ID="LastNameLabel" CssClass="control-label" runat="server" AssociatedControlID="LastName">Nom</asp:Label>

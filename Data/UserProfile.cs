@@ -34,10 +34,39 @@ namespace Data
         }
 
         [SettingsAllowAnonymous(false)]
-        public string FavoriteMovie
+        public string Town
         {
-            get { return base["FavoriteMovie"] as string; }
-            set { base["FavoriteMovie"] = value; }
+            get { return base["Town"] as string; }
+            set { base["Town"] = value; }
+        }
+
+        [SettingsAllowAnonymous(false)]
+        public string BirthDate
+        {
+            get { return base["BirthDate"] as string; }
+            set { base["BirthDate"] = value; }
+        }
+
+        [SettingsAllowAnonymous(false)]
+        public string TownZIP
+        {
+            get { return base["TownZIP"] as string; }
+            set { base["TownZIP"] = value; }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is UserProfile))
+            {
+                return false;
+            }
+
+            UserProfile objProfile = (UserProfile)obj;
+            if (this.UserName == objProfile.UserName)
+            {
+                return true;
+            }
+            return false;
         }
         
     }

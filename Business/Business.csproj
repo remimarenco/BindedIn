@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImagesService.cs" />
     <Compile Include="RelationService.cs" />
     <Compile Include="SkillService.cs" />
     <Compile Include="ProfessionalExpService.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="MessageService.cs" />
     <Compile Include="SearchService.cs" />
     <Compile Include="SingletonEntities.cs" />
+    <Compile Include="UserProfileService.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,6 +63,9 @@
       <Project>{F2E2E7F3-784D-4687-99B5-0507FA6CCC0A}</Project>
       <Name>Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ShowImage.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
