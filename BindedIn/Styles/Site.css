@@ -108,4 +108,8 @@ body
   padding-left: 0;
 }
 
-
+.profile-list-img 
+{
+    width: 140px;
+    height: 140px;
+}

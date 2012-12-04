@@ -8,14 +8,19 @@ using System.Web.Security;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using Data;
 
 namespace BindedIn
 {
     public partial class MonCompte : System.Web.UI.Page
     {
+        UserProfile Profile;
+        Guid UserId;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Profile = UserProfile.GetUserProfile(User.Identity.Name);
+            UserId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
+            ObjectDataSourceImage.SelectParameters["userId"].DefaultValue = UserId.ToString();
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)

@@ -24,14 +24,11 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK__aspnet_Ro__Appli__7B5B524B", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Applications), "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.aspnet_Roles), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK__aspnet_Us__Appli__44FF419A", "aspnet_Applications", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Applications), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.aspnet_Users), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK__aspnet_Me__UserI__59FA5E80", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Data.aspnet_Membership), true)]
+[assembly: EdmRelationshipAttribute("bindedinModel", "FK_Image_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Membership), "Image", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.Image), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK__aspnet_Pe__PathI__19DFD96B", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Paths), "aspnet_PersonalizationAllUsers", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Data.aspnet_PersonalizationAllUsers), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK__aspnet_Pe__PathI__1F98B2C1", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Data.aspnet_Paths), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.aspnet_PersonalizationPerUser), true)]
-[assembly: EdmRelationshipAttribute("bindedinModel", "FK__aspnet_Pe__UserI__208CD6FA", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Data.aspnet_Users), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.aspnet_PersonalizationPerUser), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK__aspnet_Pr__UserI__6FE99F9F", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "aspnet_Profile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Data.aspnet_Profile), true)]
-[assembly: EdmRelationshipAttribute("bindedinModel", "FK_recommandations_aspnet_recipientUser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "recommandations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.recommandation), true)]
-[assembly: EdmRelationshipAttribute("bindedinModel", "FK_recommandations_aspnet_senderUser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "recommandations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.recommandation), true)]
-[assembly: EdmRelationshipAttribute("bindedinModel", "FK_relation_status_aspnet_asked_user", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "relation_status", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.relation_status), true)]
-[assembly: EdmRelationshipAttribute("bindedinModel", "FK_relation_status_aspnet_asking_user", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "relation_status", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.relation_status), true)]
+[assembly: EdmRelationshipAttribute("bindedinModel", "FK__aspnet_Us__RoleI__02084FDA", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Roles), "aspnet_UsersInRoles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.aspnet_UsersInRoles), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_user_competence_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "user_competence", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.user_competence), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_user_experienceprofessional_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "user_experienceprofessional", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.user_experienceprofessional), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_user_formation_user_formation", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "user_formation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.user_formation), true)]
@@ -41,8 +38,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_user_formation_formations", "formations", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.formation), "user_formation", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Data.user_formation), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_user_experienceprofessional_professional_experience", "professional_experience", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.professional_experience), "user_experienceprofessional", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Data.user_experienceprofessional), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_relation_status_relation_status", "status_name", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.status_name), "relation_status", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Data.relation_status), true)]
-[assembly: EdmRelationshipAttribute("bindedinModel", "aspnet_UsersInRoles", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.aspnet_Roles), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.aspnet_Users))]
-[assembly: EdmRelationshipAttribute("bindedinModel", "FK_Image_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Membership), "Image", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.Image), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_Image_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "Image", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.Image), true)]
 
 #endregion
@@ -242,6 +237,22 @@ namespace Data
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
         /// </summary>
+        public ObjectSet<aspnet_UsersInRoles> aspnet_UsersInRoles
+        {
+            get
+            {
+                if ((_aspnet_UsersInRoles == null))
+                {
+                    _aspnet_UsersInRoles = base.CreateObjectSet<aspnet_UsersInRoles>("aspnet_UsersInRoles");
+                }
+                return _aspnet_UsersInRoles;
+            }
+        }
+        private ObjectSet<aspnet_UsersInRoles> _aspnet_UsersInRoles;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
         public ObjectSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events
         {
             get
@@ -302,6 +313,22 @@ namespace Data
             }
         }
         private ObjectSet<formation> _formations;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<Image> Images
+        {
+            get
+            {
+                if ((_Images == null))
+                {
+                    _Images = base.CreateObjectSet<Image>("Images");
+                }
+                return _Images;
+            }
+        }
+        private ObjectSet<Image> _Images;
     
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
@@ -606,22 +633,6 @@ namespace Data
             }
         }
         private ObjectSet<vw_aspnet_WebPartState_User> _vw_aspnet_WebPartState_User;
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        public ObjectSet<Image> Image
-        {
-            get
-            {
-                if ((_Image == null))
-                {
-                    _Image = base.CreateObjectSet<Image>("Image");
-                }
-                return _Image;
-            }
-        }
-        private ObjectSet<Image> _Image;
 
         #endregion
 
@@ -700,6 +711,14 @@ namespace Data
         }
     
         /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet aspnet_UsersInRoles. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToaspnet_UsersInRoles(aspnet_UsersInRoles aspnet_UsersInRoles)
+        {
+            base.AddObject("aspnet_UsersInRoles", aspnet_UsersInRoles);
+        }
+    
+        /// <summary>
         /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet aspnet_WebEvent_Events. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
         /// </summary>
         public void AddToaspnet_WebEvent_Events(aspnet_WebEvent_Events aspnet_WebEvent_Events)
@@ -729,6 +748,14 @@ namespace Data
         public void AddToformations(formation formation)
         {
             base.AddObject("formations", formation);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Images. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToImages(Image image)
+        {
+            base.AddObject("Images", image);
         }
     
         /// <summary>
@@ -881,14 +908,6 @@ namespace Data
         public void AddTovw_aspnet_WebPartState_User(vw_aspnet_WebPartState_User vw_aspnet_WebPartState_User)
         {
             base.AddObject("vw_aspnet_WebPartState_User", vw_aspnet_WebPartState_User);
-        }
-    
-        /// <summary>
-        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Image. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
-        /// </summary>
-        public void AddToImage(Image image)
-        {
-            base.AddObject("Image", image);
         }
 
         #endregion
@@ -1772,7 +1791,7 @@ namespace Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_Image_aspnet_Membership", "Image")]
-        public EntityCollection<Image> Image
+        public EntityCollection<Image> Images
         {
             get
             {
@@ -2373,44 +2392,6 @@ namespace Data
                 }
             }
         }
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK__aspnet_Pe__UserI__208CD6FA", "aspnet_Users")]
-        public aspnet_Users aspnet_Users
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK__aspnet_Pe__UserI__208CD6FA", "aspnet_Users").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK__aspnet_Pe__UserI__208CD6FA", "aspnet_Users").Value = value;
-            }
-        }
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<aspnet_Users> aspnet_UsersReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK__aspnet_Pe__UserI__208CD6FA", "aspnet_Users");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("bindedinModel.FK__aspnet_Pe__UserI__208CD6FA", "aspnet_Users", value);
-                }
-            }
-        }
 
         #endregion
 
@@ -2822,18 +2803,18 @@ namespace Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "aspnet_UsersInRoles", "aspnet_Users")]
-        public EntityCollection<aspnet_Users> aspnet_Users
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK__aspnet_Us__RoleI__02084FDA", "aspnet_UsersInRoles")]
+        public EntityCollection<aspnet_UsersInRoles> aspnet_UsersInRoles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("bindedinModel.aspnet_UsersInRoles", "aspnet_Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_UsersInRoles>("bindedinModel.FK__aspnet_Us__RoleI__02084FDA", "aspnet_UsersInRoles");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("bindedinModel.aspnet_UsersInRoles", "aspnet_Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_UsersInRoles>("bindedinModel.FK__aspnet_Us__RoleI__02084FDA", "aspnet_UsersInRoles", value);
                 }
             }
         }
@@ -3247,28 +3228,6 @@ namespace Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK__aspnet_Pe__UserI__208CD6FA", "aspnet_PersonalizationPerUser")]
-        public EntityCollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_PersonalizationPerUser>("bindedinModel.FK__aspnet_Pe__UserI__208CD6FA", "aspnet_PersonalizationPerUser");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_PersonalizationPerUser>("bindedinModel.FK__aspnet_Pe__UserI__208CD6FA", "aspnet_PersonalizationPerUser", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK__aspnet_Pr__UserI__6FE99F9F", "aspnet_Profile")]
         public aspnet_Profile aspnet_Profile
         {
@@ -3297,94 +3256,6 @@ namespace Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Profile>("bindedinModel.FK__aspnet_Pr__UserI__6FE99F9F", "aspnet_Profile", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_recommandations_aspnet_recipientUser", "recommandations")]
-        public EntityCollection<recommandation> recommandations
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<recommandation>("bindedinModel.FK_recommandations_aspnet_recipientUser", "recommandations");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<recommandation>("bindedinModel.FK_recommandations_aspnet_recipientUser", "recommandations", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_recommandations_aspnet_senderUser", "recommandations")]
-        public EntityCollection<recommandation> recommandations1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<recommandation>("bindedinModel.FK_recommandations_aspnet_senderUser", "recommandations");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<recommandation>("bindedinModel.FK_recommandations_aspnet_senderUser", "recommandations", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_aspnet_asked_user", "relation_status")]
-        public EntityCollection<relation_status> relation_status
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<relation_status>("bindedinModel.FK_relation_status_aspnet_asked_user", "relation_status");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<relation_status>("bindedinModel.FK_relation_status_aspnet_asked_user", "relation_status", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_aspnet_asking_user", "relation_status")]
-        public EntityCollection<relation_status> relation_status1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<relation_status>("bindedinModel.FK_relation_status_aspnet_asking_user", "relation_status");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<relation_status>("bindedinModel.FK_relation_status_aspnet_asking_user", "relation_status", value);
                 }
             }
         }
@@ -3461,28 +3332,6 @@ namespace Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "aspnet_UsersInRoles", "aspnet_Roles")]
-        public EntityCollection<aspnet_Roles> aspnet_Roles
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Roles>("bindedinModel.aspnet_UsersInRoles", "aspnet_Roles");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Roles>("bindedinModel.aspnet_UsersInRoles", "aspnet_Roles", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_Image_aspnet_Users", "Image")]
         public EntityCollection<Image> Image
         {
@@ -3495,6 +3344,134 @@ namespace Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Image>("bindedinModel.FK_Image_aspnet_Users", "Image", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="bindedinModel", Name="aspnet_UsersInRoles")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class aspnet_UsersInRoles : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet aspnet_UsersInRoles.
+        /// </summary>
+        /// <param name="userId">Valeur initiale de la propriété UserId.</param>
+        /// <param name="roleId">Valeur initiale de la propriété RoleId.</param>
+        public static aspnet_UsersInRoles Createaspnet_UsersInRoles(global::System.Guid userId, global::System.Guid roleId)
+        {
+            aspnet_UsersInRoles aspnet_UsersInRoles = new aspnet_UsersInRoles();
+            aspnet_UsersInRoles.UserId = userId;
+            aspnet_UsersInRoles.RoleId = roleId;
+            return aspnet_UsersInRoles;
+        }
+
+        #endregion
+
+        #region Propriétés primitives
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid RoleId
+        {
+            get
+            {
+                return _RoleId;
+            }
+            set
+            {
+                if (_RoleId != value)
+                {
+                    OnRoleIdChanging(value);
+                    ReportPropertyChanging("RoleId");
+                    _RoleId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("RoleId");
+                    OnRoleIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _RoleId;
+        partial void OnRoleIdChanging(global::System.Guid value);
+        partial void OnRoleIdChanged();
+
+        #endregion
+
+    
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK__aspnet_Us__RoleI__02084FDA", "aspnet_Roles")]
+        public aspnet_Roles aspnet_Roles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Roles>("bindedinModel.FK__aspnet_Us__RoleI__02084FDA", "aspnet_Roles").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Roles>("bindedinModel.FK__aspnet_Us__RoleI__02084FDA", "aspnet_Roles").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Roles> aspnet_RolesReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Roles>("bindedinModel.FK__aspnet_Us__RoleI__02084FDA", "aspnet_Roles");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Roles>("bindedinModel.FK__aspnet_Us__RoleI__02084FDA", "aspnet_Roles", value);
                 }
             }
         }
@@ -4246,13 +4223,17 @@ namespace Data
         /// <param name="id">Valeur initiale de la propriété id.</param>
         /// <param name="name">Valeur initiale de la propriété name.</param>
         /// <param name="description">Valeur initiale de la propriété description.</param>
+        /// <param name="beginning_date">Valeur initiale de la propriété beginning_date.</param>
+        /// <param name="end_date">Valeur initiale de la propriété end_date.</param>
         /// <param name="school">Valeur initiale de la propriété school.</param>
-        public static formation Createformation(global::System.Int32 id, global::System.String name, global::System.String description, global::System.Int32 school)
+        public static formation Createformation(global::System.Int32 id, global::System.String name, global::System.String description, global::System.DateTime beginning_date, global::System.DateTime end_date, global::System.Int32 school)
         {
             formation formation = new formation();
             formation.id = id;
             formation.name = name;
             formation.description = description;
+            formation.beginning_date = beginning_date;
+            formation.end_date = end_date;
             formation.school = school;
             return formation;
         }
@@ -4335,6 +4316,54 @@ namespace Data
         private global::System.String _description;
         partial void OndescriptionChanging(global::System.String value);
         partial void OndescriptionChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime beginning_date
+        {
+            get
+            {
+                return _beginning_date;
+            }
+            set
+            {
+                Onbeginning_dateChanging(value);
+                ReportPropertyChanging("beginning_date");
+                _beginning_date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("beginning_date");
+                Onbeginning_dateChanged();
+            }
+        }
+        private global::System.DateTime _beginning_date;
+        partial void Onbeginning_dateChanging(global::System.DateTime value);
+        partial void Onbeginning_dateChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime end_date
+        {
+            get
+            {
+                return _end_date;
+            }
+            set
+            {
+                Onend_dateChanging(value);
+                ReportPropertyChanging("end_date");
+                _end_date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("end_date");
+                Onend_dateChanged();
+            }
+        }
+        private global::System.DateTime _end_date;
+        partial void Onend_dateChanging(global::System.DateTime value);
+        partial void Onend_dateChanged();
     
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
@@ -4458,17 +4487,17 @@ namespace Data
         /// <summary>
         /// Créez un nouvel objet Image.
         /// </summary>
+        /// <param name="id">Valeur initiale de la propriété id.</param>
         /// <param name="userId">Valeur initiale de la propriété UserId.</param>
         /// <param name="image1">Valeur initiale de la propriété Image1.</param>
         /// <param name="date">Valeur initiale de la propriété Date.</param>
-        /// <param name="id">Valeur initiale de la propriété id.</param>
-        public static Image CreateImage(global::System.Guid userId, global::System.Byte[] image1, global::System.DateTime date, global::System.Int32 id)
+        public static Image CreateImage(global::System.Int32 id, global::System.Guid userId, global::System.Byte[] image1, global::System.DateTime date)
         {
             Image image = new Image();
+            image.id = id;
             image.UserId = userId;
             image.Image1 = image1;
             image.Date = date;
-            image.id = id;
             return image;
         }
 
@@ -4481,6 +4510,33 @@ namespace Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.Guid UserId
         {
             get
@@ -4489,14 +4545,11 @@ namespace Data
             }
             set
             {
-                if (_UserId != value)
-                {
-                    OnUserIdChanging(value);
-                    ReportPropertyChanging("UserId");
-                    _UserId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("UserId");
-                    OnUserIdChanged();
-                }
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
             }
         }
         private global::System.Guid _UserId;
@@ -4506,7 +4559,7 @@ namespace Data
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Byte[] Image1
         {
@@ -4516,14 +4569,11 @@ namespace Data
             }
             set
             {
-                if (!StructuralObject.BinaryEquals(_Image1, value))
-                {
-                    OnImage1Changing(value);
-                    ReportPropertyChanging("Image1");
-                    _Image1 = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("Image1");
-                    OnImage1Changed();
-                }
+                OnImage1Changing(value);
+                ReportPropertyChanging("Image1");
+                _Image1 = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Image1");
+                OnImage1Changed();
             }
         }
         private global::System.Byte[] _Image1;
@@ -4533,7 +4583,7 @@ namespace Data
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -4543,14 +4593,11 @@ namespace Data
             }
             set
             {
-                if (_Date != value)
-                {
-                    OnDateChanging(value);
-                    ReportPropertyChanging("Date");
-                    _Date = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Date");
-                    OnDateChanged();
-                }
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Date");
+                OnDateChanged();
             }
         }
         private global::System.DateTime _Date;
@@ -4580,33 +4627,6 @@ namespace Data
         private Nullable<global::System.Boolean> _Current;
         partial void OnCurrentChanging(Nullable<global::System.Boolean> value);
         partial void OnCurrentChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    OnidChanging(value);
-                    ReportPropertyChanging("id");
-                    _id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("id");
-                    OnidChanged();
-                }
-            }
-        }
-        private global::System.Int32 _id;
-        partial void OnidChanging(global::System.Int32 value);
-        partial void OnidChanged();
 
         #endregion
 
@@ -5306,86 +5326,6 @@ namespace Data
         #endregion
 
     
-        #region Propriétés de navigation
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_recommandations_aspnet_recipientUser", "aspnet_Users")]
-        public aspnet_Users aspnet_Users
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_recipientUser", "aspnet_Users").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_recipientUser", "aspnet_Users").Value = value;
-            }
-        }
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<aspnet_Users> aspnet_UsersReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_recipientUser", "aspnet_Users");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_recipientUser", "aspnet_Users", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_recommandations_aspnet_senderUser", "aspnet_Users")]
-        public aspnet_Users aspnet_Users1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_senderUser", "aspnet_Users").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_senderUser", "aspnet_Users").Value = value;
-            }
-        }
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<aspnet_Users> aspnet_Users1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_senderUser", "aspnet_Users");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("bindedinModel.FK_recommandations_aspnet_senderUser", "aspnet_Users", value);
-                }
-            }
-        }
-
-        #endregion
-
     }
     
     /// <summary>
@@ -5548,82 +5488,6 @@ namespace Data
 
     
         #region Propriétés de navigation
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_aspnet_asked_user", "aspnet_Users")]
-        public aspnet_Users aspnet_asked_users
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_aspnet_asked_user", "aspnet_Users").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_aspnet_asked_user", "aspnet_Users").Value = value;
-            }
-        }
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<aspnet_Users> aspnet_asked_usersReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_aspnet_asked_user", "aspnet_Users");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_aspnet_asked_user", "aspnet_Users", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_aspnet_asking_user", "aspnet_Users")]
-        public aspnet_Users aspnet_asking_users
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_aspnet_asking_user", "aspnet_Users").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_aspnet_asking_user", "aspnet_Users").Value = value;
-            }
-        }
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<aspnet_Users> aspnet_asking_usersReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_aspnet_asking_user", "aspnet_Users");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_aspnet_asking_user", "aspnet_Users", value);
-                }
-            }
-        }
     
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
@@ -6478,16 +6342,12 @@ namespace Data
         /// <param name="id">Valeur initiale de la propriété id.</param>
         /// <param name="user">Valeur initiale de la propriété user.</param>
         /// <param name="formation">Valeur initiale de la propriété formation.</param>
-        /// <param name="beginning_date">Valeur initiale de la propriété beginning_date.</param>
-        /// <param name="end_date">Valeur initiale de la propriété end_date.</param>
-        public static user_formation Createuser_formation(global::System.Int32 id, global::System.Guid user, global::System.Int32 formation, global::System.DateTime beginning_date, global::System.DateTime end_date)
+        public static user_formation Createuser_formation(global::System.Int32 id, global::System.Guid user, global::System.Int32 formation)
         {
             user_formation user_formation = new user_formation();
             user_formation.id = id;
             user_formation.user = user;
             user_formation.formation = formation;
-            user_formation.beginning_date = beginning_date;
-            user_formation.end_date = end_date;
             return user_formation;
         }
 
@@ -6569,54 +6429,6 @@ namespace Data
         private global::System.Int32 _formation;
         partial void OnformationChanging(global::System.Int32 value);
         partial void OnformationChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime beginning_date
-        {
-            get
-            {
-                return _beginning_date;
-            }
-            set
-            {
-                Onbeginning_dateChanging(value);
-                ReportPropertyChanging("beginning_date");
-                _beginning_date = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("beginning_date");
-                Onbeginning_dateChanged();
-            }
-        }
-        private global::System.DateTime _beginning_date;
-        partial void Onbeginning_dateChanging(global::System.DateTime value);
-        partial void Onbeginning_dateChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime end_date
-        {
-            get
-            {
-                return _end_date;
-            }
-            set
-            {
-                Onend_dateChanging(value);
-                ReportPropertyChanging("end_date");
-                _end_date = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("end_date");
-                Onend_dateChanged();
-            }
-        }
-        private global::System.DateTime _end_date;
-        partial void Onend_dateChanging(global::System.DateTime value);
-        partial void Onend_dateChanged();
 
         #endregion
 

@@ -28,11 +28,11 @@ namespace Business
                 {
                     if (relation.asked_user == userId)
                     {
-                        userRelations.Add(UserProfile.GetUserProfile(relation.aspnet_asking_users.UserName));
+                        //userRelations.Add(UserProfile.GetUserProfile(relation.aspnet_asking_users.UserName));
                     }
                     else if (relation.asking_user == userId)
                     {
-                        userRelations.Add(UserProfile.GetUserProfile(relation.aspnet_asked_users.UserName));
+                        //userRelations.Add(UserProfile.GetUserProfile(relation.aspnet_asked_users.UserName));
                     }
                 }
             }
