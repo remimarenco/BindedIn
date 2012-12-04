@@ -113,3 +113,19 @@ body
     width: 140px;
     height: 140px;
 }
+
+/* MessageDetail
+-------------------------------------------------- */
+
+#objectMessage 
+{
+    border-bottom: 1px solid black;
+}
+#senderMessage 
+{
+    border-bottom: 1px solid black;
+}
+#corpsMessage 
+{
+    border-bottom: 1px solid black;
+}
