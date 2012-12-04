@@ -51,7 +51,7 @@
             <asp:ObjectDataSource ID="ObjectDataSourceFormations" runat="server" 
                 SelectMethod="GetFormations" TypeName="Business.FormationService"></asp:ObjectDataSource>
             
-            <%-- Ajout du toolkitscript manager pour la suggestion--%>
+            <%-- Ajout du toolkitscript manager pour la suggestion (1seule instance autorisé par page)--%>
             <asp:ToolkitScriptManager ID="ToolkitScriptManagerFormation" runat="server">
             </asp:ToolkitScriptManager>
 
@@ -110,23 +110,20 @@
             onclick="ButtonEdit_Click" /></div>
     <div class="well">
         <div id="showExp">
-            <asp:ObjectDataSource ID="ObjectDataSourceEXp" runat="server" SelectMethod="GetProferssionalExp"
+            <asp:ObjectDataSource ID="ObjectDataSourceEXpForUser" runat="server" SelectMethod="GetProferssionalExp"
                     TypeName="Business.ProfessionalExpService">
                     <SelectParameters>
-                        <asp:Parameter Name="userId" DbType="Guid" />
+                        <asp:Parameter Name="userId" DbType="Guid" DefaultValue="" />
                     </SelectParameters>
                 </asp:ObjectDataSource>
-                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSourceEXp">
+                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSourceEXpForUser">
                     <ItemTemplate>
                         <%#Eval("name") %>,
                         <%#Eval("description") %>
                     </ItemTemplate>
                 </asp:Repeater>
         </div>            
-        <div id="editExp" runat="server">
-          <%-- Ajout du toolkitscript manager pour la suggestion--%>
-            <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-            </asp:ToolkitScriptManager>
+        <div id="editExp" runat="server">      
 
             <%--NOM--%>
             <asp:Label ID="Label6" runat="server" Text="Nom : "></asp:Label> 
@@ -163,7 +160,7 @@
              <br />
 
             <%--Company name--%>
-            <asp:Label ID="Label10" runat="server" Text="Etablissement : "></asp:Label>             
+            <asp:Label ID="Label10" runat="server" Text="Société : "></asp:Label>             
             <asp:TextBox ID="TextBoxExpProCompanyName" runat="server"></asp:TextBox>           
             <asp:AutoCompleteExtender ID="AutoCompleteExtender4" 
                         TargetControlID="TextBoxExpProCompanyName" runat="server" 
@@ -171,7 +168,7 @@
                 EnableCaching="true" ServiceMethod="SuggestExpProCompanyName"                
                 ></asp:AutoCompleteExtender>
             <%--Company Address--%>
-            <asp:Label ID="Label11" runat="server" Text="Etablissement : "></asp:Label>             
+            <asp:Label ID="Label11" runat="server" Text="Adresse : "></asp:Label>             
             <asp:TextBox ID="TextBoxExpProCompanyAddress" runat="server"></asp:TextBox>           
             <asp:AutoCompleteExtender ID="AutoCompleteExtender5" 
                         TargetControlID="TextBoxExpProCompanyAddress" runat="server" 
@@ -179,7 +176,7 @@
                 EnableCaching="true" ServiceMethod="SuggestExpProCompanyAddress"                
                 ></asp:AutoCompleteExtender>
             <%--Company tel--%>
-            <asp:Label ID="Label12" runat="server" Text="Etablissement : "></asp:Label>             
+            <asp:Label ID="Label12" runat="server" Text="Téléphone : "></asp:Label>             
             <asp:TextBox ID="TextBoxExpProCompanyTel" runat="server"></asp:TextBox>           
             <asp:AutoCompleteExtender ID="AutoCompleteExtender6" 
                         TargetControlID="TextBoxExpProCompanyTel" runat="server" 
@@ -187,7 +184,8 @@
                 EnableCaching="true" ServiceMethod="SuggestExpProCompanyTel"                
                 ></asp:AutoCompleteExtender>
 
-            <asp:Button class="btn span1" ID="ButtonSaveExpPro" runat="server" Text="Save" />
+            <asp:Button class="btn span1" ID="ButtonSaveExpPro" runat="server" Text="Save" 
+                onclick="ButtonSaveExpPro_Click" />
         </div>
             
   
@@ -212,11 +210,91 @@
             </asp:Repeater>
         </div>
         <div id="editSkills" runat="server">
-            <asp:ObjectDataSource ID="ObjectDataSourceSkills" runat="server" SelectMethod="GetSkills"
-                TypeName="Business.SkillService"></asp:ObjectDataSource>
-            <asp:DropDownList ID="DropDownListSkills" runat="server" DataSourceID="ObjectDataSourceSkills"
-                DataTextField="name" DataValueField="id">
-            </asp:DropDownList>
+             <%--NOM--%>
+            <asp:Label ID="Label13" runat="server" Text="Nom : "></asp:Label> 
+            
+            <asp:TextBox ID="TextBoxCompeName" runat="server"></asp:TextBox>           
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender7" 
+                        TargetControlID="TextBoxCompeName" runat="server" 
+                MinimumPrefixLength="2" UseContextKey="True" 
+                EnableCaching="true" ServiceMethod="SuggestCompetenceNames"                
+                ></asp:AutoCompleteExtender>
+
+                <br />
+
+            <%--Description--%>
+            <asp:Label ID="Label14" runat="server" Text="Description : "></asp:Label>             
+            <asp:TextBox ID="TextBoxCompeDescription" runat="server"></asp:TextBox>           
+            <asp:AutoCompleteExtender ID="AutoCompleteExtender8" 
+                        TargetControlID="TextBoxCompeDescription" runat="server" 
+                MinimumPrefixLength="2" UseContextKey="True" 
+                EnableCaching="true" ServiceMethod="SuggestCompetenceDescription"                
+                ></asp:AutoCompleteExtender>
+
+                
+                <br />
+
+            <%--Niveau--%>
+
+              <script type="text/javascript">
+                          function onRated(sender, args) {
+                              $get('log').innerHTML += "Rated: " + sender.get_Rating() + "<br/>";
+                          }
+
+                          Sys.require(Sys.components.rating, function () {
+                              $("#rate1").rating({
+                                  ClientStateFieldID: "state",
+                                  Rating: 2,
+                                  id: "rate1",
+                                  Rated: onRated
+                              });
+                          });  
+             </script>  
+                <style type="text/css">  
+                        .rating_star  
+                        {  
+                            font-size: 0pt;  
+                            width:20px;  
+                            height: 20px;  
+                            margin: 5px;  
+                            padding: 0px;  
+                            cursor: pointer;  
+                            display: block;  
+                            background-repeat: no-repeat;  
+                        }  
+                        .rating_filled   
+                        {  
+                            background-color: Yellow;  
+                        }  
+                        .rating_empty   
+                        {  
+                            background-color: Gray;  
+                        }  
+                    </style>  
+
+            <asp:Label ID="Label15" runat="server" Text="Niveau : "></asp:Label>   
+             
+                <a href="#" id="rate1_A" style="text-decoration:none">  
+                    <span id="rate1_Star_1" class="rating_star" style="float:left;">&nbsp;</span>  
+                    <span id="rate1_Star_2" class="rating_star" style="float:left;">&nbsp;</span>  
+                    <span id="rate1_Star_3" class="rating_star" style="float:left;">&nbsp;</span>  
+                    <span id="rate1_Star_4" class="rating_star" style="float:left;">&nbsp;</span>  
+                    <span id="rate1_Star_5" class="rating_star" style="float:left;">&nbsp;</span>  
+                </a>  
+                  
+             <asp:Rating   
+                ID="RatingNiveau"   
+                CurrentRating="2"  
+                MaxRating="5"  
+                StarCssClass="rating_star"  
+                FilledStarCssClass="rating_filled"  
+                EmptyStarCssClass="rating_empty"  
+                WaitingStarCssClass="rating_empty"  
+                runat="server" >  
+        </asp:Rating>
+        
+            <asp:Button class="btn span1" ID="ButtonSkills" runat="server" Text="Save" 
+                onclick="ButtonSkills_Click" />
         </div>
     </div>
 </asp:Content>

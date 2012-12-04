@@ -247,13 +247,13 @@ namespace BindedIn {
         protected global::System.Web.UI.WebControls.Button ButtonEditExp;
         
         /// <summary>
-        /// Contrôle ObjectDataSourceEXp.
+        /// Contrôle ObjectDataSourceEXpForUser.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceEXp;
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceEXpForUser;
         
         /// <summary>
         /// Contrôle Repeater1.
@@ -272,15 +272,6 @@ namespace BindedIn {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl editExp;
-        
-        /// <summary>
-        /// Contrôle ToolkitScriptManager1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
         
         /// <summary>
         /// Contrôle Label6.
@@ -517,21 +508,84 @@ namespace BindedIn {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl editSkills;
         
         /// <summary>
-        /// Contrôle ObjectDataSourceSkills.
+        /// Contrôle Label13.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceSkills;
+        protected global::System.Web.UI.WebControls.Label Label13;
         
         /// <summary>
-        /// Contrôle DropDownListSkills.
+        /// Contrôle TextBoxCompeName.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListSkills;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxCompeName;
+        
+        /// <summary>
+        /// Contrôle AutoCompleteExtender7.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender7;
+        
+        /// <summary>
+        /// Contrôle Label14.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label14;
+        
+        /// <summary>
+        /// Contrôle TextBoxCompeDescription.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxCompeDescription;
+        
+        /// <summary>
+        /// Contrôle AutoCompleteExtender8.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender8;
+        
+        /// <summary>
+        /// Contrôle Label15.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label15;
+        
+        /// <summary>
+        /// Contrôle RatingNiveau.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.Rating RatingNiveau;
+        
+        /// <summary>
+        /// Contrôle ButtonSkills.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonSkills;
     }
 }
