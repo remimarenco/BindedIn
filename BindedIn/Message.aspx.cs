@@ -23,11 +23,15 @@ namespace BindedIn
                 if (Request.Params["mode"] != null && Request.Params["mode"] == "env")
                 {
                     modeTitle.InnerText = "Messages envoyés";
+                    autreMode.InnerText = "Messages reçus";
+                    autreMode.HRef = "Message.aspx";
                     listM = MessageService.GetMessageBySenderId((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
                 }
                 else
                 {
                     modeTitle.InnerText = "Messages reçus";
+                    autreMode.InnerText = "Messages envoyés";
+                    autreMode.HRef = "Message.aspx?mode=env";
                     listM = MessageService.GetMessageByRecipientId((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
                 }
 

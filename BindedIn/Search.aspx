@@ -17,7 +17,8 @@
                                 <img class="media-object" src="http://placehold.it/64x64">
                               </a>  
                               <div class="media-body">
-                                    <h4 class="media-heading"><%# Eval("firstname") %> <%# Eval("lastname") %></h4>  
+                                    <h4 class="media-heading"><%# Eval("firstname") %> <%# Eval("lastname") %></h4>
+                                    <a href="<%# String.Format("MessageForm.aspx?id={0}", Eval("UserName")) %>" > <i class=" icon-envelope"></i>Envoyer un message</a>
                                </div>
                              </div>       
                         </a>

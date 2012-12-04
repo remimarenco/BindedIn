@@ -68,7 +68,7 @@ namespace Business
                 var searchFormations = from f in bie.formations
                          where  f.name.Contains(word) || f.description.Contains(word)
                          select f;
-                if (search != null)
+                if (searchFormations != null)
                 {
                     //on parcourt les formations trouvées 
                     foreach (formation f in searchFormations.ToList())
