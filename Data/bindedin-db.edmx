@@ -198,6 +198,14 @@
             <End Role="competences" EntitySet="competences" />
             <End Role="user_competence" EntitySet="user_competence" />
           </AssociationSet>
+          <AssociationSet Name="FK_user_experienceprofessional_aspnet_Users" Association="bindedinModel.Store.FK_user_experienceprofessional_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="user_experienceprofessional" EntitySet="user_experienceprofessional" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_experienceprofessional_professional_experience" Association="bindedinModel.Store.FK_user_experienceprofessional_professional_experience">
+            <End Role="professional_experience" EntitySet="professional_experience" />
+            <End Role="user_experienceprofessional" EntitySet="user_experienceprofessional" />
+          </AssociationSet>
           <AssociationSet Name="FK_user_formation_formations" Association="bindedinModel.Store.FK_user_formation_formations">
             <End Role="formations" EntitySet="formations" />
             <End Role="user_formation" EntitySet="user_formation" />
@@ -354,7 +362,6 @@
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="level" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="formations">
           <Key>
@@ -447,6 +454,7 @@
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="user" Type="uniqueidentifier" Nullable="false" />
           <Property Name="competence" Type="int" Nullable="false" />
+          <Property Name="level" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="user_experienceprofessional">
           <Key>
@@ -455,8 +463,8 @@
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="user" Type="uniqueidentifier" Nullable="false" />
           <Property Name="experience_professional" Type="int" Nullable="false" />
-          <Property Name="beginning_date" Type="datetime" Nullable="false" />
-          <Property Name="end_date" Type="datetime" Nullable="false" />
+          <Property Name="beginning_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="user_formation">
           <Key>
@@ -859,6 +867,32 @@
             </Principal>
             <Dependent Role="user_competence">
               <PropertyRef Name="competence" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_experienceprofessional_aspnet_Users">
+          <End Role="aspnet_Users" Type="bindedinModel.Store.aspnet_Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="user_experienceprofessional" Type="bindedinModel.Store.user_experienceprofessional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="user_experienceprofessional">
+              <PropertyRef Name="user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_experienceprofessional_professional_experience">
+          <End Role="professional_experience" Type="bindedinModel.Store.professional_experience" Multiplicity="1" />
+          <End Role="user_experienceprofessional" Type="bindedinModel.Store.user_experienceprofessional" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="professional_experience">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_experienceprofessional">
+              <PropertyRef Name="id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1561,7 +1595,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="level" Type="Int32" Nullable="false" />
           <NavigationProperty Name="user_competence" Relationship="bindedinModel.FK_user_competence_user_competence" FromRole="competences" ToRole="user_competence" />
         </EntityType>
         <EntityType Name="formation">
@@ -1670,6 +1703,7 @@
           <Property Name="competence" Type="Int32" Nullable="false" />
           <NavigationProperty Name="aspnet_Users" Relationship="bindedinModel.FK_user_competence_aspnet_Users" FromRole="user_competence" ToRole="aspnet_Users" />
           <NavigationProperty Name="competence1" Relationship="bindedinModel.FK_user_competence_user_competence" FromRole="user_competence" ToRole="competences" />
+          <Property Type="Int32" Name="level" Nullable="false" />
         </EntityType>
         <EntityType Name="user_experienceprofessional">
           <Key>
@@ -2288,7 +2322,6 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="level" ColumnName="level" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2388,6 +2421,7 @@
           <EntitySetMapping Name="user_competence">
             <EntityTypeMapping TypeName="bindedinModel.user_competence">
               <MappingFragment StoreEntitySet="user_competence">
+                <ScalarProperty Name="level" ColumnName="level" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="user" ColumnName="user" />
                 <ScalarProperty Name="competence" ColumnName="competence" />
@@ -2557,7 +2591,7 @@
         <EntityTypeShape EntityType="bindedinModel.aspnet_Users" Width="1.5" PointX="8.25" PointY="18" Height="4.6725065104166674" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="0.75" Height="3.9033007812500031" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.company" Width="1.5" PointX="8.75" PointY="27.25" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.competence" Width="1.5" PointX="11.25" PointY="11.25" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.competence" Width="1.5" PointX="11.625" PointY="11.25" Height="1.7879850260416657" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.formation" Width="1.5" PointX="8.25" PointY="7" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.message" Width="1.5" PointX="4.75" PointY="0.75" Height="2.3648893229166674" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.professional_experience" Width="1.625" PointX="11.25" PointY="27" Height="2.1725878906249996" IsExpanded="true" />
@@ -2685,8 +2719,9 @@
           <ConnectorPoint PointX="11.25" PointY="28.211293945312498" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_competence_user_competence" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="28.865143229166669" />
-          <ConnectorPoint PointX="5.25" PointY="28.865143229166669" />
+          <ConnectorPoint PointX="12.59375" PointY="13.037985026041666" />
+          <ConnectorPoint PointX="12.59375" PointY="16.898664492187507" />
+          <ConnectorPoint PointX="13.5" PointY="16.898664492187507" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_formation_ecole" ManuallyRouted="false">
           <ConnectorPoint PointX="7.5" PointY="8.2689925130208337" />

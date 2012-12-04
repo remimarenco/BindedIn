@@ -4154,14 +4154,12 @@ namespace Data
         /// <param name="id">Valeur initiale de la propriété id.</param>
         /// <param name="name">Valeur initiale de la propriété name.</param>
         /// <param name="description">Valeur initiale de la propriété description.</param>
-        /// <param name="level">Valeur initiale de la propriété level.</param>
-        public static competence Createcompetence(global::System.Int32 id, global::System.String name, global::System.String description, global::System.Int32 level)
+        public static competence Createcompetence(global::System.Int32 id, global::System.String name, global::System.String description)
         {
             competence competence = new competence();
             competence.id = id;
             competence.name = name;
             competence.description = description;
-            competence.level = level;
             return competence;
         }
 
@@ -4243,30 +4241,6 @@ namespace Data
         private global::System.String _description;
         partial void OndescriptionChanging(global::System.String value);
         partial void OndescriptionChanged();
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 level
-        {
-            get
-            {
-                return _level;
-            }
-            set
-            {
-                OnlevelChanging(value);
-                ReportPropertyChanging("level");
-                _level = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("level");
-                OnlevelChanged();
-            }
-        }
-        private global::System.Int32 _level;
-        partial void OnlevelChanging(global::System.Int32 value);
-        partial void OnlevelChanged();
 
         #endregion
 
@@ -6112,12 +6086,14 @@ namespace Data
         /// <param name="id">Valeur initiale de la propriété id.</param>
         /// <param name="user">Valeur initiale de la propriété user.</param>
         /// <param name="competence">Valeur initiale de la propriété competence.</param>
-        public static user_competence Createuser_competence(global::System.Int32 id, global::System.Guid user, global::System.Int32 competence)
+        /// <param name="level">Valeur initiale de la propriété level.</param>
+        public static user_competence Createuser_competence(global::System.Int32 id, global::System.Guid user, global::System.Int32 competence, global::System.Int32 level)
         {
             user_competence user_competence = new user_competence();
             user_competence.id = id;
             user_competence.user = user;
             user_competence.competence = competence;
+            user_competence.level = level;
             return user_competence;
         }
 
@@ -6199,6 +6175,30 @@ namespace Data
         private global::System.Int32 _competence;
         partial void OncompetenceChanging(global::System.Int32 value);
         partial void OncompetenceChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 level
+        {
+            get
+            {
+                return _level;
+            }
+            set
+            {
+                OnlevelChanging(value);
+                ReportPropertyChanging("level");
+                _level = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("level");
+                OnlevelChanged();
+            }
+        }
+        private global::System.Int32 _level;
+        partial void OnlevelChanging(global::System.Int32 value);
+        partial void OnlevelChanged();
 
         #endregion
 
