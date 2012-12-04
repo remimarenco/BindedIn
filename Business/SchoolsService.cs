@@ -31,14 +31,25 @@ namespace Business
 
         public static int InsertSchool(String name, String description)
         {
-            school sc = new school
-            {
-                name=name,
-                description=description
-            };
-            bindedinEntities bie = SingletonEntities.Instance;
-            bie.AddToschools(sc);           
-            bie.SaveChanges();
+             bindedinEntities bie = SingletonEntities.Instance;
+             var existingSchool = from s in bie.schools
+                                  where s.name.Equals(name)
+                                  where s.description.Equals(description)
+                                  select s;
+
+             if (existingSchool.Count() == 0)
+             {
+
+                 school sc = new school
+                 {
+                     name = name,
+                     description = description
+                 };
+
+                 bie.AddToschools(sc);
+                 bie.SaveChanges();
+
+             }
             var id = from s in bie.schools
                      where s.name.Equals(name)
                      where s.description.Equals(description)
