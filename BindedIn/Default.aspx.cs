@@ -18,7 +18,6 @@ namespace BindedIn
         {
             //Write to a user profile from a textbox value
             Profile = UserProfile.GetUserProfile(User.Identity.Name);
-           
             //var userId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
             //ceci est un example de la reatribution d'un user id pour le data source. Très utile pour lié un user a tout le reste. !!!!
             //ObjectDataSourceFormation.SelectParameters["userId"].DefaultValue = "2";
