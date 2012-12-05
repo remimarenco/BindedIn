@@ -37,6 +37,10 @@ namespace BindedIn
 
                         //on remplit le champ destinataire
                         recipientLabel.Text = u.FirstName + " " + u.LastName;
+
+                        //ImageProfile.Src = "/ShowImage.ashx?iduser=" + u.ToString();
+                        // Fix cache issues
+                        //ImageProfile.Src += "&tmp=" + DateTime.Now;
                     }
                     // si un id de message à repondre est passé
                     else if (Request.Params["response"] != null)

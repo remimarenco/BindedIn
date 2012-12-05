@@ -13,12 +13,19 @@
                 <ItemTemplate>
                         <a href="#" runat="server"> 
                             <div class="media">
-                              <a class="pull-left" href="#">
+                              <a class="pull-left" href="<%# String.Format("Profile.aspx?id={0}", Eval("UserName")) %>">
                                 <img class="media-object" src="http://placehold.it/64x64">
                               </a>  
                               <div class="media-body">
-                                    <h4 class="media-heading"><%# Eval("firstname") %> <%# Eval("lastname") %></h4>
-                                    <a href="<%# String.Format("MessageForm.aspx?id={0}", Eval("UserName")) %>" > <i class=" icon-envelope"></i>Envoyer un message</a>
+                                   
+                                        <h4 class="media-heading">
+                                            <a class="pull-left" href="<%# String.Format("Profil.aspx?id={0}", Eval("UserName")) %>">
+                                                <%# Eval("firstname") %> <%# Eval("lastname") %>
+                                            </a>
+                                        </h4>
+                                   
+                                    <br /><a href="<%# String.Format("MessageForm.aspx?id={0}", Eval("UserName")) %>" > <i class=" icon-envelope"></i>Envoyer un message</a>
+                                    <br /><a href="<%# String.Format("RecommandationForm.aspx?id={0}", Eval("UserName")) %>" > <i class="icon-thumbs-up"></i>Recommander cette personne</a>
                                </div>
                              </div>       
                         </a>

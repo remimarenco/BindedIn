@@ -10,7 +10,7 @@
                <a id="lienProfile" href="#" runat="server"> 
                     <div class="media">
                         <a class="pull-left" ID="lienProfile2" runat="server">
-                            <img class="media-object" src="http://placehold.it/64x64">
+                            <img ID="ImageProfile" class="media-object" src="http://placehold.it/64x64" runat="server">
                         </a>  
                         <div class="media-body">
                             <b>A: </b><asp:Label ID="recipientLabel" runat="server" /> <br />
