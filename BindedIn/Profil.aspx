@@ -192,6 +192,8 @@
         <asp:Button class="btn span1 offset11" ID="ButtonEditSkills" runat="server" Text="Edit" 
             onclick="ButtonEdit_Click" /></div>
     <div class="well">
+
+        <%--Affichage--%>
         <div id="displaySkills">
             <asp:ObjectDataSource ID="ObjectDataSourceSkillsForUser" runat="server" SelectMethod="GetSkills"
                 TypeName="Business.SkillService">
@@ -202,10 +204,14 @@
             <asp:Repeater ID="Repeater2" runat="server" DataSourceID="ObjectDataSourceSkillsForUser">
                 <ItemTemplate>
                     <%#Eval("name") %>,
-                    <%#Eval("description") %>
+                    <%#Eval("description") %>             
+               
+       
                 </ItemTemplate>
             </asp:Repeater>
         </div>
+
+        <%--Edition--%>
         <div id="editSkills" runat="server">
              <%--NOM--%>
             <asp:Label ID="Label13" runat="server" Text="Nom : "></asp:Label> 
