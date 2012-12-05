@@ -16,15 +16,26 @@
         </SelectParameters>
     </asp:ObjectDataSource>
 
-    <div class="row">
-        <asp:Image ID="ImageProfile" style="width:140px; height:140px" Runat="server" CssClass="img-polaroid span3" />
-        <asp:Repeater ID="Repeater3" runat="server" DataSourceID="ObjectDataSourceUserProfile">  
-            <ItemTemplate>  
-                <h1 class="span9">
-                    <%#Eval("FirstName") %> <%#Eval("LastName") %>
-                </h1>
-            </ItemTemplate>
-        </asp:Repeater>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">
+                <asp:Image ID="ImageProfile" style="width:140px; height:140px" Runat="server" CssClass="img-polaroid" />
+            </div>
+            <div class="span9">
+                <div class="row-fluid">
+                    <asp:Repeater ID="Repeater3" runat="server" DataSourceID="ObjectDataSourceUserProfile">  
+                        <ItemTemplate>  
+                            <h1 class="span9">
+                                <%#Eval("FirstName") %> <%#Eval("LastName") %>
+                            </h1>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+                <div class="row-fluid">
+                    <asp:Button Text="Se connecter" runat="server" CssClass="btn btn-primary" />
+                </div>
+            </div>
+        </div>
     </div>
 
     <h2>Formation</h2>
