@@ -15,7 +15,6 @@
             <asp:Parameter DbType="Guid" Name="id" />
         </SelectParameters>
     </asp:ObjectDataSource>
-
     <div class="row">
         <asp:Image ID="ImageProfile" style="width:140px; height:140px" Runat="server" CssClass="img-polaroid span3" />
         <asp:Repeater ID="Repeater3" runat="server" DataSourceID="ObjectDataSourceUserProfile">  
@@ -30,28 +29,163 @@
         </asp:Repeater>
     </div>
 
-    <h2>Formation</h2>
-    
-    <div class="well">
-        <div class="row-fluid">
-            <asp:Button class="btn btn-info span2 offset10" ID="ButtonEditFormation" runat="server" Text="Modifier" 
-                onclick="ButtonEdit_Click" />
-        
-            <div id="displayFormation" class="span11">
-                <asp:ObjectDataSource ID="ObjectDataSourceFormationForUser" runat="server" SelectMethod="GetFormations"
-                        TypeName="Business.FormationService" >
-                        <SelectParameters>
-                            <asp:Parameter Name="userId" DbType="Guid" />
-                        </SelectParameters>
-                    </asp:ObjectDataSource>
-                    <asp:Repeater ID="RepeaterFormation" runat="server" DataSourceID="ObjectDataSourceFormationForUser">
-                        <ItemTemplate>
-                            <%#Eval("name") %>,
-                            <%#Eval("description") %>
-                        </ItemTemplate>
-                    </asp:Repeater>
+        <%-- 
+      -- EXPERIENCE
+      --%>
+    <div class="row-fluid">
+            <h2 class="span10">Experience professionelle</h2>
+        <asp:Button class="btn btn-success span2" ID="ButtonEditExp" runat="server" Text="Ajouter" 
+            onclick="ButtonEdit_Click" />
+    </div>
+
+    <%-- Add new experience --%>
+    <div id="editExp" runat="server">      
+        <div class="form-horizontal">
+
+            <%--Company name--%>
+            <div class="control-group">                    
+                <asp:Label ID="Label10" runat="server" Text="Société" CssClass="control-label" />
+                <div class="controls">  
+                    <asp:TextBox ID="TextBoxExpProCompanyName" runat="server" Width="500px" />
+                    <asp:AutoCompleteExtender ID="AutoCompleteExtender4" 
+                                TargetControlID="TextBoxExpProCompanyName" runat="server" 
+                        MinimumPrefixLength="2" UseContextKey="True" 
+                        EnableCaching="true" ServiceMethod="SuggestExpProCompanyName" />
+                </div>
             </div>
-            <div id="editFormation" runat="server" class="span10">        
+
+            <%--NOM--%>
+            <div class="control-group">                    
+                <asp:Label ID="Label6" runat="server" Text="Intitulé du poste" CssClass="control-label" />
+                <div class="controls">            
+                    <asp:TextBox ID="TextBoxNomExpPro" runat="server" Width="500px" />
+                    <asp:AutoCompleteExtender ID="AutoCompleteExtender2" 
+                                TargetControlID="TextBoxNomExpPro" runat="server" 
+                        MinimumPrefixLength="2" UseContextKey="True" 
+                        EnableCaching="true" ServiceMethod="SuggestExpProNames" />
+                </div>
+            </div>
+
+            <%--Description--%>
+            <div class="control-group">                    
+                <asp:Label ID="Label7" runat="server" Text="Description" CssClass="control-label" />
+                <div class="controls"> 
+                    <asp:TextBox ID="TextBoxExpProDescription" runat="server" Width="500px" />   
+                    <asp:AutoCompleteExtender ID="AutoCompleteExtender3" 
+                                TargetControlID="TextBoxExpProDescription" runat="server" 
+                        MinimumPrefixLength="2" UseContextKey="True" 
+                        EnableCaching="true" ServiceMethod="SuggestExpProDescription" />
+                </div>
+            </div>
+
+            <%--Date de début de l'exp pro--%>
+            <div class="control-group">                    
+                <asp:Label ID="Label8" runat="server" Text="Date de début" CssClass="control-label" />
+                <div class="controls"> 
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-calendar"></i></span>                
+                        <asp:TextBox ID="TextBoxDateDebutEXpPro" runat="server" />          
+                        <asp:CalendarExtender ID="CalendarExtender3" runat="server" TargetControlID="TextBoxDateDebutEXpPro" />
+                    </div>
+                </div>
+            </div>
+
+                <%--Date de fin de l'exp pro--%>
+                <div class="control-group">                    
+                <asp:Label ID="Label9" runat="server" Text="Date de fin" CssClass="control-label" />
+                <div class="controls"> 
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-calendar"></i></span>  
+                        <asp:TextBox ID="TextBoxDateFinExpPro" runat="server" />  
+                        <asp:CalendarExtender ID="CalendarExtender4" runat="server" TargetControlID="TextBoxDateFinExpPro" />
+                    </div>
+                </div>
+            </div>
+           
+            <%--Company Address--%>
+            <div class="control-group">                    
+                <asp:Label ID="Label11" runat="server" Text="Adresse" CssClass="control-label" />
+                <div class="controls"> 
+                    <asp:TextBox ID="TextBoxExpProCompanyAddress" runat="server" Width="500px" />         
+                    <asp:AutoCompleteExtender ID="AutoCompleteExtender5" 
+                        TargetControlID="TextBoxExpProCompanyAddress" runat="server" 
+                        MinimumPrefixLength="2" UseContextKey="True" 
+                        EnableCaching="true" ServiceMethod="SuggestExpProCompanyAddress" />
+                </div>
+            </div>
+
+            <%--Company tel--%>
+            <div class="control-group">                    
+                <asp:Label ID="Label12" runat="server" Text="Téléphone" CssClass="control-label" />
+                <div class="controls">                             
+                    <asp:TextBox ID="TextBoxExpProCompanyTel" runat="server" Width="500px" />         
+                    <asp:AutoCompleteExtender ID="AutoCompleteExtender6" 
+                        TargetControlID="TextBoxExpProCompanyTel" runat="server" 
+                        MinimumPrefixLength="2" UseContextKey="True" 
+                        EnableCaching="true" ServiceMethod="SuggestExpProCompanyTel" />
+                </div>
+            </div>
+
+            <div class="control-group">                    
+                <div class="controls">   
+                    <asp:Button class="btn span1" ID="ButtonSaveExpPro" runat="server" Text="Enregistrer" CssClass="btn btn-large btn-success" 
+                        onclick="ButtonSaveExpPro_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <%--Display experiences--%>
+    <div id="showExp">
+        <asp:ObjectDataSource ID="ObjectDataSourceEXpForUser" runat="server" SelectMethod="GetProferssionalExpCompanies" UpdateMethod="GetProferssionalExpCompanies"
+                    TypeName="Business.ProfessionalExpService">
+                    <SelectParameters>
+                        <asp:Parameter Name="userId" DbType="Guid" DefaultValue="" />
+                    </SelectParameters>
+                </asp:ObjectDataSource>
+                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSourceEXpForUser">
+                    <ItemTemplate>
+                        <div class="well">
+                        <div class="row-fluid">
+                            <div class="span10">
+                                <p>
+                                    <span class="badge">
+                                        <%# Convert.ToDateTime(Eval("beginning_date")).ToString("MMM yyyy") %>
+                                         - 
+                                        <%# Convert.ToDateTime(Eval("end_date")).ToString("MMM yyyy")%>
+                                    </span> 
+                                    <strong><%#Eval("name_xp") %></strong>
+                                </p>
+                                <p>                                    
+                                     <em><%#Eval("name_company") %></em>
+                                </p>
+                                <p class="offset1"><%#Eval("desc_xp") %></p>
+                            </div>
+                            
+                            <div class="span2 btn-group-vertical">
+                                <asp:Button class="btn btn-info" ID="Button1" runat="server" Text="Modifier" onclick="ButtonEdit_Click" />
+                                <asp:Button class="btn btn-danger" ID="Button2" runat="server" Text="Supprimer" onclick="ButtonEdit_Click" />
+                            </div>                            
+                        </div>
+                    </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+        </div>            
+    <%-- 
+    -- END EXPERIENCE
+    --%>
+
+    <%-- 
+      -- FORMATION
+      --%>
+    <div class="row-fluid">
+        <h2 class="span10">Formation</h2>
+        <asp:Button class="btn btn-success span2" ID="ButtonEditFormation" runat="server" Text="Ajouter" 
+                    onclick="ButtonEdit_Click" />
+    </div>
+    
+    <%-- Add new formation--%>
+    <div id="editFormation" runat="server" class="span10">        
             
                 <%-- Ajout du toolkitscript manager pour la suggestion (1seule instance autorisé par page)--%>
                 <asp:ToolkitScriptManager ID="ToolkitScriptManagerFormation" runat="server">
@@ -128,125 +262,48 @@
                     </div>
                 </div>
             </div> 
-        </div>      
-    </div>
 
-    <h2>Experience professionelle</h2>
-    <div class="row-fluid">
-        
-    <div class="well">
-        <asp:Button class="btn btn-info span2 offset10" ID="ButtonEditExp" runat="server" Text="Modifier" 
-            onclick="ButtonEdit_Click" />
-        <div id="showExp">
-            <asp:ObjectDataSource ID="ObjectDataSourceEXpForUser" runat="server" SelectMethod="GetProferssionalExp"
-                    TypeName="Business.ProfessionalExpService">
-                    <SelectParameters>
-                        <asp:Parameter Name="userId" DbType="Guid" DefaultValue="" />
-                    </SelectParameters>
-                </asp:ObjectDataSource>
-                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSourceEXpForUser">
-                    <ItemTemplate>
-                        <%#Eval("name") %>,
-                        <%#Eval("description") %>
-                    </ItemTemplate>
-                </asp:Repeater>
-        </div>            
-        <div id="editExp" runat="server">      
-            <div class="form-horizontal">
-
-                <%--Company name--%>
-                <div class="control-group">                    
-                    <asp:Label ID="Label10" runat="server" Text="Société" CssClass="control-label" />
-                    <div class="controls">  
-                        <asp:TextBox ID="TextBoxExpProCompanyName" runat="server" Width="500px" />
-                        <asp:AutoCompleteExtender ID="AutoCompleteExtender4" 
-                                    TargetControlID="TextBoxExpProCompanyName" runat="server" 
-                            MinimumPrefixLength="2" UseContextKey="True" 
-                            EnableCaching="true" ServiceMethod="SuggestExpProCompanyName" />
-                    </div>
-                </div>
-
-                <%--NOM--%>
-                <div class="control-group">                    
-                    <asp:Label ID="Label6" runat="server" Text="Intitulé du poste" CssClass="control-label" />
-                    <div class="controls">            
-                        <asp:TextBox ID="TextBoxNomExpPro" runat="server" Width="500px" />
-                        <asp:AutoCompleteExtender ID="AutoCompleteExtender2" 
-                                    TargetControlID="TextBoxNomExpPro" runat="server" 
-                            MinimumPrefixLength="2" UseContextKey="True" 
-                            EnableCaching="true" ServiceMethod="SuggestExpProNames" />
-                    </div>
-                </div>
-
-                <%--Description--%>
-                <div class="control-group">                    
-                    <asp:Label ID="Label7" runat="server" Text="Description" CssClass="control-label" />
-                    <div class="controls"> 
-                        <asp:TextBox ID="TextBoxExpProDescription" runat="server" Width="500px" />   
-                        <asp:AutoCompleteExtender ID="AutoCompleteExtender3" 
-                                    TargetControlID="TextBoxExpProDescription" runat="server" 
-                            MinimumPrefixLength="2" UseContextKey="True" 
-                            EnableCaching="true" ServiceMethod="SuggestExpProDescription" />
-                    </div>
-                </div>
-
-                <%--Date de début de l'exp pro--%>
-                <div class="control-group">                    
-                    <asp:Label ID="Label8" runat="server" Text="Date de début" CssClass="control-label" />
-                    <div class="controls"> 
-                        <div class="input-prepend">
-                            <span class="add-on"><i class="icon-calendar"></i></span>                
-                            <asp:TextBox ID="TextBoxDateDebutEXpPro" runat="server" />          
-                            <asp:CalendarExtender ID="CalendarExtender3" runat="server" TargetControlID="TextBoxDateDebutEXpPro" />
+    <%--Display formations--%>
+    <div id="displayFormation">
+        <asp:ObjectDataSource ID="ObjectDataSourceFormationForUser" runat="server" SelectMethod="GetFormationSchools" UpdateMethod="GetFormationSchools"
+                TypeName="Business.FormationService" >
+                <SelectParameters>
+                    <asp:Parameter Name="userId" DbType="Guid" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
+            <asp:Repeater ID="RepeaterFormation" runat="server" DataSourceID="ObjectDataSourceFormationForUser">
+                <ItemTemplate>
+                    <div class="well">
+                        <div class="row-fluid">
+                            <div class="span10">
+                                <p>
+                                    <span class="badge">
+                                        <%# Convert.ToDateTime(Eval("beginning_date")).ToString("MMM yyyy") %>
+                                         - 
+                                        <%# Convert.ToDateTime(Eval("end_date")).ToString("MMM yyyy")%>
+                                    </span> 
+                                    <strong><%#Eval("name_formation") %></strong>
+                                </p>
+                                <p>                                    
+                                     <em><%#Eval("name_school") %></em>
+                                </p>
+                                <p class="offset1"><%#Eval("desc_formation") %></p>
+                            </div>
+                            
+                            <div class="span2 btn-group-vertical">
+                                <asp:Button class="btn btn-info" ID="Button1" runat="server" Text="Modifier" onclick="ButtonEdit_Click" />
+                                <asp:Button class="btn btn-danger" ID="Button2" runat="server" Text="Supprimer" onclick="ButtonEdit_Click" />
+                            </div>                            
                         </div>
                     </div>
-                </div>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>   
+    <%-- 
+      -- END FORMATION
+      --%>
+    
 
-                 <%--Date de fin de l'exp pro--%>
-                 <div class="control-group">                    
-                    <asp:Label ID="Label9" runat="server" Text="Date de fin" CssClass="control-label" />
-                    <div class="controls"> 
-                        <div class="input-prepend">
-                            <span class="add-on"><i class="icon-calendar"></i></span>  
-                            <asp:TextBox ID="TextBoxDateFinExpPro" runat="server" />  
-                            <asp:CalendarExtender ID="CalendarExtender4" runat="server" TargetControlID="TextBoxDateFinExpPro" />
-                        </div>
-                    </div>
-                </div>
-           
-                <%--Company Address--%>
-                <div class="control-group">                    
-                    <asp:Label ID="Label11" runat="server" Text="Adresse" CssClass="control-label" />
-                    <div class="controls"> 
-                        <asp:TextBox ID="TextBoxExpProCompanyAddress" runat="server" Width="500px" />         
-                        <asp:AutoCompleteExtender ID="AutoCompleteExtender5" 
-                            TargetControlID="TextBoxExpProCompanyAddress" runat="server" 
-                            MinimumPrefixLength="2" UseContextKey="True" 
-                            EnableCaching="true" ServiceMethod="SuggestExpProCompanyAddress" />
-                    </div>
-                </div>
-
-                <%--Company tel--%>
-                <div class="control-group">                    
-                    <asp:Label ID="Label12" runat="server" Text="Téléphone" CssClass="control-label" />
-                    <div class="controls">                             
-                        <asp:TextBox ID="TextBoxExpProCompanyTel" runat="server" Width="500px" />         
-                        <asp:AutoCompleteExtender ID="AutoCompleteExtender6" 
-                            TargetControlID="TextBoxExpProCompanyTel" runat="server" 
-                            MinimumPrefixLength="2" UseContextKey="True" 
-                            EnableCaching="true" ServiceMethod="SuggestExpProCompanyTel" />
-                    </div>
-                </div>
-
-                <div class="control-group">                    
-                    <div class="controls">   
-                        <asp:Button class="btn span1" ID="ButtonSaveExpPro" runat="server" Text="Enregistrer" CssClass="btn btn-large btn-success" 
-                            onclick="ButtonSaveExpPro_Click" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <h2>Compétences</h2>
     <div class="row-fluid">
@@ -312,14 +369,14 @@
                             <span id="rate1_Star_5" class="rating_star">&nbsp;</span>  
                         </a>  
                         <asp:Rating   
-                        ID="RatingNiveau"   
-                        CurrentRating="2"  
-                        MaxRating="5"  
-                        StarCssClass="rating_star"  
-                        FilledStarCssClass="rating_filled"  
-                        EmptyStarCssClass="rating_empty"  
-                        WaitingStarCssClass="rating_empty"  
-                        runat="server" />  
+                            ID="RatingNiveau"   
+                            CurrentRating="2"  
+                            MaxRating="5"  
+                            StarCssClass="rating_star"  
+                            FilledStarCssClass="rating_filled"  
+                            EmptyStarCssClass="rating_empty"  
+                            WaitingStarCssClass="rating_empty"  
+                            runat="server" />  
                     </div>
                 </div> 
         
