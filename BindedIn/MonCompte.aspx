@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ObjectDataSource ID="ObjectDataSourceImage" runat="server" 
-        SelectMethod="GetAllImages" TypeName="Business.ImagesService">
+        SelectMethod="GetAllImages" UpdateMethod="GetAllImages" TypeName="Business.ImagesService">
         <SelectParameters>
             <asp:Parameter DbType="Guid" Name="userId" />
         </SelectParameters>
@@ -11,7 +11,10 @@
 
     <h1>Mon Compte</h1>
     <h2>Photo de profil</h2>
-    
+    <div class="alert" id="photoAlert" runat="server">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <span id="photoAlertText" runat="server"></span>
+    </div>
     <div class="well">
         <h3>Ajouter une photo</h3>
 
@@ -34,7 +37,7 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
-        <div class="row">
+        <div style="margin-top:20px;">
             <input id="idImageSelected" type="hidden" class="idImageSelected" runat="server" value="" />
             <asp:Button ID="btnChangeImg" runat="server" CssClass="btn btn-large btn-success" 
                     OnClick="btnChange_Click" Text="Utiliser"/>
@@ -42,17 +45,20 @@
                 OnClick="btnDeleteImg_Click" Text="Supprimer"/>
         </div>
     </div>
-    <h3>Changer le mot de passe</h3>
-    <div class="well">
+    <h2>Changer le mot de passe</h2>
+    
         <asp:ChangePassword ID="ChangeUserPassword" runat="server" CancelDestinationPageUrl="~/" EnableViewState="false" RenderOuterTable="false" 
              SuccessPageUrl="Account/ChangePasswordSuccess.aspx">
             <ChangePasswordTemplate>
-                <span class="failureNotification">
-                    <asp:Literal ID="FailureText" runat="server"></asp:Literal>
-                </span>
-                <asp:ValidationSummary ID="ChangeUserPasswordValidationSummary" runat="server" CssClass="failureNotification" 
-                     ValidationGroup="ChangeUserPasswordValidationGroup"/>
-                <div class="accountInfo">
+                <div class="alert alert-error">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <span><asp:Literal ID="FailureText" runat="server"></asp:Literal></span>
+                </div>
+                <asp:ValidationSummary ID="ChangeUserPasswordValidationSummary" runat="server" CssClass="alert alert-error alert-block" 
+                     ValidationGroup="ChangeUserPasswordValidationGroup" />
+                
+            <div class="well">
+     
                     <fieldset class="changePassword">
                     <div class="form-horizontal">
                         <div class="control-group">
@@ -96,7 +102,7 @@
                     </div>
                     </fieldset>
                 
-                </div>
+             
             </ChangePasswordTemplate>
         </asp:ChangePassword>
     </div>
@@ -104,12 +110,16 @@
         var selected = null;
 
         $(document).ready(function () {
+            $(".alert").alert();
             $(".select-info").hide();
-
+            $(".alert").each(function () {
+                if ($(this).find("span").html() == "")
+                    $(this).hide();
+            });
             $(".profile-list-img").click(function () {
                 var visible = $(this).next(".select-info").is(':visible');
                 $(".select-info").hide();
-                if (!visible) {
+                if (!visible && $(this).next(".current-img").length == 0) {
                     $(this).next(".select-info").show();
                     $(".idImageSelected").val($(this).attr("id"));
                 }

@@ -34,10 +34,12 @@ namespace Business
             bindedinEntities bie = SingletonEntities.Instance;
             var retour = from i in bie.Images
                          where i.UserId.Equals(userId)
-                         where i.Current.Equals(true)
+                         && i.Current == true
                          select i;
-            
-            return retour.ToList();
+
+            if (retour.Count() > 0)
+                return retour.ToList();
+            return null;
         }
 
         public static List<Image> GetAllImages(Guid userId)
@@ -52,6 +54,31 @@ namespace Business
             
            
             return retour.ToList();
+        }
+
+        public static List<Image> GetImage(int imgId)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+            var retour = from i in bie.Images
+                         where i.id.Equals(imgId)
+                         select i;
+            if (retour.Count() > 0)
+                return retour.ToList();
+            return null;
+        }
+
+        public static void setImageAsCurrent(int idImg, Guid userId)
+        {
+            List<Image> l;
+            if ((l = GetCurrentImages(userId)) != null)
+            {
+                Image curImg = l.First();
+                curImg.Current = false;
+            }
+            Image newCurImg = GetImage(idImg).First();
+            newCurImg.Current = true;
+
+            SingletonEntities.Instance.SaveChanges();
         }
 
         public static Stream getCurrentImageAsStream(string userId)
@@ -81,6 +108,7 @@ namespace Business
 
         public static Stream getImageAsStream(int idimg)
         {
+            
             string conn = ConfigurationManager.ConnectionStrings["ASPNETMembership"].ConnectionString;
             SqlConnection connection = new SqlConnection(conn);
             string sql = "SELECT Image FROM Image WHERE id = @id";
@@ -102,5 +130,76 @@ namespace Business
                 connection.Close();
             }
         }
+
+        public static int addNewImage(Guid userId, Byte[] image)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+
+            Image newImg = new Image
+            {
+                UserId = userId,
+                Image1 = image,
+                Date = DateTime.Now,
+            };
+            bie.AddToImages(newImg);
+            bie.SaveChanges();
+
+            setImageAsCurrent(newImg.id, userId);
+            return newImg.id;
+        }
+
+        public static void deleteImage(int idImg, Guid userId)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+
+            var retour = from i in bie.Images
+                         where i.id.Equals(idImg)
+                         && i.UserId.Equals(userId)
+                         select i;
+            foreach (Image img in retour)
+            {
+                bie.Images.DeleteObject(img);
+            }
+            bie.SaveChanges();
+        }
+
+        //    // Create SQL Connection 
+        //    SqlConnection con = new SqlConnection();
+        //    con.ConnectionString = ConfigurationManager.ConnectionStrings
+        //                           ["ASPNETMembership"].ConnectionString;
+
+        //    // Create SQL Command 
+
+        //    SqlCommand cmd = new SqlCommand();
+        //    cmd.CommandText = "INSERT INTO Image([UserId],[Image],[Current],[Date])" +
+        //                      " OUTPUT INSERTED.ID" +
+        //                      " VALUES (@UserId,@Image,@Cur,@Date)";
+        //    cmd.CommandType = CommandType.Text;
+        //    cmd.Connection = con;
+
+        //    SqlParameter UserId = new SqlParameter
+        //                        ("@UserId", SqlDbType.UniqueIdentifier);
+        //    UserId.Value = Membership.GetUser(User.Identity.Name, false).ProviderUserKey;
+        //    cmd.Parameters.Add(UserId);
+
+        //    SqlParameter UploadedImage = new SqlParameter
+        //                  ("@Image", SqlDbType.Image, imageSize.Length);
+        //    UploadedImage.Value = imageSize;
+        //    cmd.Parameters.Add(UploadedImage);
+
+        //    SqlParameter Date = new SqlParameter
+        //                        ("@Date", SqlDbType.DateTime);
+        //    Date.Value = DateTime.Now;
+        //    cmd.Parameters.Add(Date);
+
+        //    SqlParameter Current = new SqlParameter
+        //                        ("@Cur", SqlDbType.Bit);
+        //    Current.Value = true;
+        //    cmd.Parameters.Add(Current);
+
+        //    con.Open();
+        //    Int32 result = (Int32)cmd.ExecuteScalar();
+        //    con.Close();
+        //}
     }
 }

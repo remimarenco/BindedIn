@@ -36,7 +36,8 @@
                         <%--REGISTERED--%>    
                         <li><a href="/Relations.aspx" title="Relations"/>Relations</a></li>
                         <li><a href="/Profil.aspx" title="Profil"/>Profil</a></li>
-                        <li><a ID="linkMessage" href="/Message.aspx"  title="Home" runat="server" >Mes Messages</a></li>
+                        <li><a ID="linkMessage" href="/Message.aspx"  title="Home" runat="server" >Messages</a></li>
+                        <li><a ID="A1" href="/MonCompte.aspx"  title="Home" runat="server" >Mon Compte</a></li>
                         <%--END REGISTERED--%>  
                     </LoggedInTemplate> 
                     
