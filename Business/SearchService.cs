@@ -75,7 +75,7 @@ namespace Business
                     {
 
                         //on parcourt les user_formations et on recupere lesuser asossciés et on les ajoutes 
-                        foreach (user_formation uf in f.user_formationReference)
+                        foreach (user_formation uf in f.user_formation)
                         {
                             up = UserProfile.GetUserProfile(uf.aspnet_Users.UserName);
 

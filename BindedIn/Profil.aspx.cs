@@ -165,7 +165,7 @@ namespace BindedIn
             List<string> tel = new List<string>();
             foreach (var item in Business.CompanyService.GetCompanies())
             {
-                if (item.telephone.ToLower().Contains(prefixText.ToLower()))
+                if (item.telephone!=null && item.telephone.ToLower().Contains(prefixText.ToLower()))
                     tel.Add(item.telephone);
             }
 
@@ -176,7 +176,13 @@ namespace BindedIn
 
         protected void ButtonSaveExpPro_Click(object sender, EventArgs e)
         {
-
+            Business.ProfessionalExpService.InsertNewProfessionalExp(TextBoxNomExpPro.Text,
+                TextBoxExpProDescription.Text,
+                TextBoxDateDebutEXpPro.Text,TextBoxDateFinExpPro.Text,
+                TextBoxExpProCompanyName.Text,
+                TextBoxExpProCompanyAddress.Text,
+                TextBoxExpProCompanyTel.Text,
+                UserId);
         }
 
         #endregion

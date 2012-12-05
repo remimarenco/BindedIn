@@ -47,8 +47,7 @@ namespace Business
                      adresse = adresse,
                      telephone=tel,
                  };
-
-                 bie.AddTocompanies(sc);
+                 bie.companies.AddObject(sc);
                  bie.SaveChanges();
 
              }

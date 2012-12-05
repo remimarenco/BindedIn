@@ -76,15 +76,6 @@ namespace BindedIn {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl editFormation;
         
         /// <summary>
-        /// Contrôle ObjectDataSourceFormations.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceFormations;
-        
-        /// <summary>
         /// Contrôle ToolkitScriptManagerFormation.
         /// </summary>
         /// <remarks>
