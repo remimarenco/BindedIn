@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="bindedinModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="bindedinModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="bindedinModelStoreContainer">
           <EntitySet Name="aspnet_Applications" EntityType="bindedinModel.Store.aspnet_Applications" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="aspnet_Membership" EntityType="bindedinModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
@@ -31,6 +31,39 @@
           <EntitySet Name="user_competence" EntityType="bindedinModel.Store.user_competence" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="user_experienceprofessional" EntityType="bindedinModel.Store.user_experienceprofessional" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="user_formation" EntityType="bindedinModel.Store.user_formation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="v_formation_schools" EntityType="bindedinModel.Store.v_formation_schools" store:Type="Views" store:Schema="dbo" store:Name="v_formation_schools">
+            <DefiningQuery>SELECT 
+      [v_formation_schools].[id] AS [id], 
+      [v_formation_schools].[name] AS [name], 
+      [v_formation_schools].[description] AS [description], 
+      [v_formation_schools].[Expr1] AS [Expr1]
+      FROM [dbo].[v_formation_schools] AS [v_formation_schools]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_formation_schools1" EntityType="bindedinModel.Store.v_formation_schools1" store:Type="Views" store:Schema="dbo" store:Name="v_formation_schools1">
+            <DefiningQuery>SELECT 
+      [v_formation_schools1].[id] AS [id], 
+      [v_formation_schools1].[name_formation] AS [name_formation], 
+      [v_formation_schools1].[desc_formation] AS [desc_formation], 
+      [v_formation_schools1].[name_school] AS [name_school], 
+      [v_formation_schools1].[desc_school] AS [desc_school], 
+      [v_formation_schools1].[user] AS [user], 
+      [v_formation_schools1].[beginning_date] AS [beginning_date], 
+      [v_formation_schools1].[end_date] AS [end_date]
+      FROM [dbo].[v_formation_schools1] AS [v_formation_schools1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_xp_companies" EntityType="bindedinModel.Store.v_xp_companies" store:Type="Views" store:Schema="dbo" store:Name="v_xp_companies">
+            <DefiningQuery>SELECT 
+      [v_xp_companies].[id] AS [id], 
+      [v_xp_companies].[name_xp] AS [name_xp], 
+      [v_xp_companies].[desc_xp] AS [desc_xp], 
+      [v_xp_companies].[name_company] AS [name_company], 
+      [v_xp_companies].[adresse] AS [adresse], 
+      [v_xp_companies].[telephone] AS [telephone], 
+      [v_xp_companies].[user] AS [user], 
+      [v_xp_companies].[beginning_date] AS [beginning_date], 
+      [v_xp_companies].[end_date] AS [end_date]
+      FROM [dbo].[v_xp_companies] AS [v_xp_companies]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_aspnet_Applications" EntityType="bindedinModel.Store.vw_aspnet_Applications" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_Applications">
             <DefiningQuery>SELECT 
       [vw_aspnet_Applications].[ApplicationName] AS [ApplicationName], 
@@ -475,6 +508,67 @@
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="user" Type="uniqueidentifier" Nullable="false" />
           <Property Name="formation" Type="int" Nullable="false" />
+          <Property Name="beginning_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+      Avertissement 6002: La table/vue « bindedin.dbo.v_formation_schools » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+      -->
+        <EntityType Name="v_formation_schools">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="description" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Expr1" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+      Avertissement 6002: La table/vue « bindedin.dbo.v_formation_schools1 » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+      -->
+        <EntityType Name="v_formation_schools1">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name_formation" />
+            <PropertyRef Name="desc_formation" />
+            <PropertyRef Name="name_school" />
+            <PropertyRef Name="desc_school" />
+            <PropertyRef Name="user" />
+            <PropertyRef Name="beginning_date" />
+            <PropertyRef Name="end_date" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name_formation" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="desc_formation" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="name_school" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="desc_school" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="user" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="beginning_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+      Avertissement 6002: La table/vue « bindedin.dbo.v_xp_companies » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+      -->
+        <EntityType Name="v_xp_companies">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name_xp" />
+            <PropertyRef Name="desc_xp" />
+            <PropertyRef Name="name_company" />
+            <PropertyRef Name="user" />
+            <PropertyRef Name="beginning_date" />
+            <PropertyRef Name="end_date" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name_xp" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="desc_xp" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="name_company" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="adresse" Type="nvarchar" MaxLength="50" />
+          <Property Name="telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="user" Type="uniqueidentifier" Nullable="false" />
           <Property Name="beginning_date" Type="date" Nullable="false" />
           <Property Name="end_date" Type="date" Nullable="false" />
         </EntityType>
@@ -1286,8 +1380,7 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="bindedinModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -1317,6 +1410,8 @@
           <EntitySet Name="user_competence" EntityType="bindedinModel.user_competence" />
           <EntitySet Name="user_experienceprofessional" EntityType="bindedinModel.user_experienceprofessional" />
           <EntitySet Name="user_formation" EntityType="bindedinModel.user_formation" />
+          <EntitySet Name="v_formation_schools" EntityType="bindedinModel.v_formation_schools" />
+          <EntitySet Name="v_formation_schools1" EntityType="bindedinModel.v_formation_schools1" />
           <EntitySet Name="vw_aspnet_Applications" EntityType="bindedinModel.vw_aspnet_Applications" />
           <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="bindedinModel.vw_aspnet_MembershipUsers" />
           <EntitySet Name="vw_aspnet_Profiles" EntityType="bindedinModel.vw_aspnet_Profiles" />
@@ -1418,6 +1513,7 @@
             <End Role="status_name" EntitySet="status_name" />
             <End Role="relation_status" EntitySet="relation_status" />
           </AssociationSet>
+          <EntitySet Name="v_xp_companies" EntityType="bindedinModel.v_xp_companies" />
         </EntityContainer>
         <EntityType Name="aspnet_Applications">
           <Key>
@@ -1727,6 +1823,38 @@
           <Property Name="end_date" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="aspnet_Users" Relationship="bindedinModel.FK_user_formation_aspuser" FromRole="user_formation" ToRole="aspnet_Users" />
           <NavigationProperty Name="formation1" Relationship="bindedinModel.FK_user_formation_formation" FromRole="user_formation" ToRole="formations" />
+        </EntityType>
+        <EntityType Name="v_formation_schools">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="description" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Expr1" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="v_formation_schools1">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name_formation" />
+            <PropertyRef Name="desc_formation" />
+            <PropertyRef Name="name_school" />
+            <PropertyRef Name="desc_school" />
+            <PropertyRef Name="user" />
+            <PropertyRef Name="beginning_date" />
+            <PropertyRef Name="end_date" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name_formation" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="desc_formation" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="name_school" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="desc_school" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="user" Type="Guid" Nullable="false" />
+          <Property Name="beginning_date" Type="DateTime" Nullable="false" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" />
         </EntityType>
         <EntityType Name="vw_aspnet_Applications">
           <Key>
@@ -2147,6 +2275,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="v_xp_companies">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name_xp" />
+            <PropertyRef Name="desc_xp" />
+            <PropertyRef Name="name_company" />
+            <PropertyRef Name="user" />
+            <PropertyRef Name="beginning_date" />
+            <PropertyRef Name="end_date" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name_xp" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="desc_xp" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name_company" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="adresse" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="telephone" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="user" Nullable="false" />
+          <Property Type="DateTime" Name="beginning_date" Nullable="false" />
+          <Property Type="DateTime" Name="end_date" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2439,6 +2587,30 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_formation_schools">
+            <EntityTypeMapping TypeName="bindedinModel.v_formation_schools">
+              <MappingFragment StoreEntitySet="v_formation_schools">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_formation_schools1">
+            <EntityTypeMapping TypeName="bindedinModel.v_formation_schools1">
+              <MappingFragment StoreEntitySet="v_formation_schools1">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_formation" ColumnName="name_formation" />
+                <ScalarProperty Name="desc_formation" ColumnName="desc_formation" />
+                <ScalarProperty Name="name_school" ColumnName="name_school" />
+                <ScalarProperty Name="desc_school" ColumnName="desc_school" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vw_aspnet_Applications">
             <EntityTypeMapping TypeName="bindedinModel.vw_aspnet_Applications">
               <MappingFragment StoreEntitySet="vw_aspnet_Applications">
@@ -2548,6 +2720,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_xp_companies">
+            <EntityTypeMapping TypeName="bindedinModel.v_xp_companies">
+              <MappingFragment StoreEntitySet="v_xp_companies">
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="name_company" ColumnName="name_company" />
+                <ScalarProperty Name="desc_xp" ColumnName="desc_xp" />
+                <ScalarProperty Name="name_xp" ColumnName="name_xp" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2562,7 +2749,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
@@ -2594,15 +2781,17 @@
         <EntityTypeShape EntityType="bindedinModel.user_competence" Width="1.5" PointX="8.25" PointY="29.875" Height="2.1725878906250102" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.user_experienceprofessional" Width="1.5" PointX="8.25" PointY="32.875" Height="2.3648893229166674" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.user_formation" Width="1.5" PointX="11.25" PointY="29.875" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Applications" Width="1.5" PointX="5.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="6.75" PointY="3.75" Height="5.4417122395833246" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Profiles" Width="1.5" PointX="7.75" PointY="0.75" Height="1.5956835937500102" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.v_formation_schools" Width="1.5" PointX="5.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.v_formation_schools1" Width="1.5" PointX="6.75" PointY="3.75" Height="2.5571907552083246" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Applications" Width="1.5" PointX="7.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="7.75" PointY="7.75" Height="5.4417122395833246" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Profiles" Width="1.5" PointX="4.75" PointY="7.75" Height="1.5956835937500102" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Roles" Width="1.5" PointX="8.75" PointY="3.75" Height="1.9802864583333246" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Users" Width="1.5" PointX="8.75" PointY="6.75" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Users" Width="1.5" PointX="9.75" PointY="6.75" Height="2.3648893229166674" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.vw_aspnet_UsersInRoles" Width="1.5" PointX="9.75" PointY="0.75" Height="1.4033821614583246" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="10.75" PointY="3.75" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="10.75" PointY="6.75" Height="1.5956835937500102" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="7.75" PointY="10.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="9.75" PointY="10.75" Height="1.5956835937500102" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="11.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
         <AssociationConnector Association="bindedinModel.FK__aspnet_Me__Appli__59063A47" ManuallyRouted="false">
           <ConnectorPoint PointX="1.5" PointY="21.807190755208332" />
           <ConnectorPoint PointX="1.5" PointY="27.586293945312498" />
@@ -2752,6 +2941,7 @@
           <ConnectorPoint PointX="2.25" PointY="2.0478417968750016" />
           <ConnectorPoint PointX="3" PointY="2.0478417968750016" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="bindedinModel.v_xp_companies" Width="1.5" PointX="12.375" PointY="6.75" Height="2.7494921875000102" />
       </Diagram>
     </Diagrams>
   </Designer>

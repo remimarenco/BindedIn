@@ -496,6 +496,38 @@ namespace Data
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
         /// </summary>
+        public ObjectSet<v_formation_schools> v_formation_schools
+        {
+            get
+            {
+                if ((_v_formation_schools == null))
+                {
+                    _v_formation_schools = base.CreateObjectSet<v_formation_schools>("v_formation_schools");
+                }
+                return _v_formation_schools;
+            }
+        }
+        private ObjectSet<v_formation_schools> _v_formation_schools;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<v_formation_schools1> v_formation_schools1
+        {
+            get
+            {
+                if ((_v_formation_schools1 == null))
+                {
+                    _v_formation_schools1 = base.CreateObjectSet<v_formation_schools1>("v_formation_schools1");
+                }
+                return _v_formation_schools1;
+            }
+        }
+        private ObjectSet<v_formation_schools1> _v_formation_schools1;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
         public ObjectSet<vw_aspnet_Applications> vw_aspnet_Applications
         {
             get
@@ -636,6 +668,22 @@ namespace Data
             }
         }
         private ObjectSet<vw_aspnet_WebPartState_User> _vw_aspnet_WebPartState_User;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<v_xp_companies> v_xp_companies
+        {
+            get
+            {
+                if ((_v_xp_companies == null))
+                {
+                    _v_xp_companies = base.CreateObjectSet<v_xp_companies>("v_xp_companies");
+                }
+                return _v_xp_companies;
+            }
+        }
+        private ObjectSet<v_xp_companies> _v_xp_companies;
 
         #endregion
 
@@ -842,6 +890,22 @@ namespace Data
         }
     
         /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet v_formation_schools. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddTov_formation_schools(v_formation_schools v_formation_schools)
+        {
+            base.AddObject("v_formation_schools", v_formation_schools);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet v_formation_schools1. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddTov_formation_schools1(v_formation_schools1 v_formation_schools1)
+        {
+            base.AddObject("v_formation_schools1", v_formation_schools1);
+        }
+    
+        /// <summary>
         /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet vw_aspnet_Applications. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
         /// </summary>
         public void AddTovw_aspnet_Applications(vw_aspnet_Applications vw_aspnet_Applications)
@@ -911,6 +975,14 @@ namespace Data
         public void AddTovw_aspnet_WebPartState_User(vw_aspnet_WebPartState_User vw_aspnet_WebPartState_User)
         {
             base.AddObject("vw_aspnet_WebPartState_User", vw_aspnet_WebPartState_User);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet v_xp_companies. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddTov_xp_companies(v_xp_companies v_xp_companies)
+        {
+            base.AddObject("v_xp_companies", v_xp_companies);
         }
 
         #endregion
@@ -6724,6 +6796,689 @@ namespace Data
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="bindedinModel", Name="v_formation_schools")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class v_formation_schools : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet v_formation_schools.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété id.</param>
+        /// <param name="name">Valeur initiale de la propriété name.</param>
+        /// <param name="description">Valeur initiale de la propriété description.</param>
+        /// <param name="expr1">Valeur initiale de la propriété Expr1.</param>
+        public static v_formation_schools Createv_formation_schools(global::System.Int32 id, global::System.String name, global::System.String description, global::System.String expr1)
+        {
+            v_formation_schools v_formation_schools = new v_formation_schools();
+            v_formation_schools.id = id;
+            v_formation_schools.name = name;
+            v_formation_schools.description = description;
+            v_formation_schools.Expr1 = expr1;
+            return v_formation_schools;
+        }
+
+        #endregion
+
+        #region Propriétés primitives
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if (_name != value)
+                {
+                    OnnameChanging(value);
+                    ReportPropertyChanging("name");
+                    _name = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("name");
+                    OnnameChanged();
+                }
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String description
+        {
+            get
+            {
+                return _description;
+            }
+            set
+            {
+                if (_description != value)
+                {
+                    OndescriptionChanging(value);
+                    ReportPropertyChanging("description");
+                    _description = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("description");
+                    OndescriptionChanged();
+                }
+            }
+        }
+        private global::System.String _description;
+        partial void OndescriptionChanging(global::System.String value);
+        partial void OndescriptionChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Expr1
+        {
+            get
+            {
+                return _Expr1;
+            }
+            set
+            {
+                if (_Expr1 != value)
+                {
+                    OnExpr1Changing(value);
+                    ReportPropertyChanging("Expr1");
+                    _Expr1 = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Expr1");
+                    OnExpr1Changed();
+                }
+            }
+        }
+        private global::System.String _Expr1;
+        partial void OnExpr1Changing(global::System.String value);
+        partial void OnExpr1Changed();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="bindedinModel", Name="v_formation_schools1")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class v_formation_schools1 : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet v_formation_schools1.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété id.</param>
+        /// <param name="name_formation">Valeur initiale de la propriété name_formation.</param>
+        /// <param name="desc_formation">Valeur initiale de la propriété desc_formation.</param>
+        /// <param name="name_school">Valeur initiale de la propriété name_school.</param>
+        /// <param name="desc_school">Valeur initiale de la propriété desc_school.</param>
+        /// <param name="user">Valeur initiale de la propriété user.</param>
+        /// <param name="beginning_date">Valeur initiale de la propriété beginning_date.</param>
+        /// <param name="end_date">Valeur initiale de la propriété end_date.</param>
+        public static v_formation_schools1 Createv_formation_schools1(global::System.Int32 id, global::System.String name_formation, global::System.String desc_formation, global::System.String name_school, global::System.String desc_school, global::System.Guid user, global::System.DateTime beginning_date, global::System.DateTime end_date)
+        {
+            v_formation_schools1 v_formation_schools1 = new v_formation_schools1();
+            v_formation_schools1.id = id;
+            v_formation_schools1.name_formation = name_formation;
+            v_formation_schools1.desc_formation = desc_formation;
+            v_formation_schools1.name_school = name_school;
+            v_formation_schools1.desc_school = desc_school;
+            v_formation_schools1.user = user;
+            v_formation_schools1.beginning_date = beginning_date;
+            v_formation_schools1.end_date = end_date;
+            return v_formation_schools1;
+        }
+
+        #endregion
+
+        #region Propriétés primitives
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name_formation
+        {
+            get
+            {
+                return _name_formation;
+            }
+            set
+            {
+                if (_name_formation != value)
+                {
+                    Onname_formationChanging(value);
+                    ReportPropertyChanging("name_formation");
+                    _name_formation = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("name_formation");
+                    Onname_formationChanged();
+                }
+            }
+        }
+        private global::System.String _name_formation;
+        partial void Onname_formationChanging(global::System.String value);
+        partial void Onname_formationChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String desc_formation
+        {
+            get
+            {
+                return _desc_formation;
+            }
+            set
+            {
+                if (_desc_formation != value)
+                {
+                    Ondesc_formationChanging(value);
+                    ReportPropertyChanging("desc_formation");
+                    _desc_formation = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("desc_formation");
+                    Ondesc_formationChanged();
+                }
+            }
+        }
+        private global::System.String _desc_formation;
+        partial void Ondesc_formationChanging(global::System.String value);
+        partial void Ondesc_formationChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name_school
+        {
+            get
+            {
+                return _name_school;
+            }
+            set
+            {
+                if (_name_school != value)
+                {
+                    Onname_schoolChanging(value);
+                    ReportPropertyChanging("name_school");
+                    _name_school = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("name_school");
+                    Onname_schoolChanged();
+                }
+            }
+        }
+        private global::System.String _name_school;
+        partial void Onname_schoolChanging(global::System.String value);
+        partial void Onname_schoolChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String desc_school
+        {
+            get
+            {
+                return _desc_school;
+            }
+            set
+            {
+                if (_desc_school != value)
+                {
+                    Ondesc_schoolChanging(value);
+                    ReportPropertyChanging("desc_school");
+                    _desc_school = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("desc_school");
+                    Ondesc_schoolChanged();
+                }
+            }
+        }
+        private global::System.String _desc_school;
+        partial void Ondesc_schoolChanging(global::System.String value);
+        partial void Ondesc_schoolChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid user
+        {
+            get
+            {
+                return _user;
+            }
+            set
+            {
+                if (_user != value)
+                {
+                    OnuserChanging(value);
+                    ReportPropertyChanging("user");
+                    _user = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("user");
+                    OnuserChanged();
+                }
+            }
+        }
+        private global::System.Guid _user;
+        partial void OnuserChanging(global::System.Guid value);
+        partial void OnuserChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime beginning_date
+        {
+            get
+            {
+                return _beginning_date;
+            }
+            set
+            {
+                if (_beginning_date != value)
+                {
+                    Onbeginning_dateChanging(value);
+                    ReportPropertyChanging("beginning_date");
+                    _beginning_date = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("beginning_date");
+                    Onbeginning_dateChanged();
+                }
+            }
+        }
+        private global::System.DateTime _beginning_date;
+        partial void Onbeginning_dateChanging(global::System.DateTime value);
+        partial void Onbeginning_dateChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime end_date
+        {
+            get
+            {
+                return _end_date;
+            }
+            set
+            {
+                if (_end_date != value)
+                {
+                    Onend_dateChanging(value);
+                    ReportPropertyChanging("end_date");
+                    _end_date = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("end_date");
+                    Onend_dateChanged();
+                }
+            }
+        }
+        private global::System.DateTime _end_date;
+        partial void Onend_dateChanging(global::System.DateTime value);
+        partial void Onend_dateChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="bindedinModel", Name="v_xp_companies")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class v_xp_companies : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet v_xp_companies.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété id.</param>
+        /// <param name="name_xp">Valeur initiale de la propriété name_xp.</param>
+        /// <param name="desc_xp">Valeur initiale de la propriété desc_xp.</param>
+        /// <param name="name_company">Valeur initiale de la propriété name_company.</param>
+        /// <param name="user">Valeur initiale de la propriété user.</param>
+        /// <param name="beginning_date">Valeur initiale de la propriété beginning_date.</param>
+        /// <param name="end_date">Valeur initiale de la propriété end_date.</param>
+        public static v_xp_companies Createv_xp_companies(global::System.Int32 id, global::System.String name_xp, global::System.String desc_xp, global::System.String name_company, global::System.Guid user, global::System.DateTime beginning_date, global::System.DateTime end_date)
+        {
+            v_xp_companies v_xp_companies = new v_xp_companies();
+            v_xp_companies.id = id;
+            v_xp_companies.name_xp = name_xp;
+            v_xp_companies.desc_xp = desc_xp;
+            v_xp_companies.name_company = name_company;
+            v_xp_companies.user = user;
+            v_xp_companies.beginning_date = beginning_date;
+            v_xp_companies.end_date = end_date;
+            return v_xp_companies;
+        }
+
+        #endregion
+
+        #region Propriétés primitives
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name_xp
+        {
+            get
+            {
+                return _name_xp;
+            }
+            set
+            {
+                if (_name_xp != value)
+                {
+                    Onname_xpChanging(value);
+                    ReportPropertyChanging("name_xp");
+                    _name_xp = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("name_xp");
+                    Onname_xpChanged();
+                }
+            }
+        }
+        private global::System.String _name_xp;
+        partial void Onname_xpChanging(global::System.String value);
+        partial void Onname_xpChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String desc_xp
+        {
+            get
+            {
+                return _desc_xp;
+            }
+            set
+            {
+                if (_desc_xp != value)
+                {
+                    Ondesc_xpChanging(value);
+                    ReportPropertyChanging("desc_xp");
+                    _desc_xp = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("desc_xp");
+                    Ondesc_xpChanged();
+                }
+            }
+        }
+        private global::System.String _desc_xp;
+        partial void Ondesc_xpChanging(global::System.String value);
+        partial void Ondesc_xpChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name_company
+        {
+            get
+            {
+                return _name_company;
+            }
+            set
+            {
+                if (_name_company != value)
+                {
+                    Onname_companyChanging(value);
+                    ReportPropertyChanging("name_company");
+                    _name_company = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("name_company");
+                    Onname_companyChanged();
+                }
+            }
+        }
+        private global::System.String _name_company;
+        partial void Onname_companyChanging(global::System.String value);
+        partial void Onname_companyChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String adresse
+        {
+            get
+            {
+                return _adresse;
+            }
+            set
+            {
+                OnadresseChanging(value);
+                ReportPropertyChanging("adresse");
+                _adresse = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("adresse");
+                OnadresseChanged();
+            }
+        }
+        private global::System.String _adresse;
+        partial void OnadresseChanging(global::System.String value);
+        partial void OnadresseChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String telephone
+        {
+            get
+            {
+                return _telephone;
+            }
+            set
+            {
+                OntelephoneChanging(value);
+                ReportPropertyChanging("telephone");
+                _telephone = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("telephone");
+                OntelephoneChanged();
+            }
+        }
+        private global::System.String _telephone;
+        partial void OntelephoneChanging(global::System.String value);
+        partial void OntelephoneChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid user
+        {
+            get
+            {
+                return _user;
+            }
+            set
+            {
+                if (_user != value)
+                {
+                    OnuserChanging(value);
+                    ReportPropertyChanging("user");
+                    _user = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("user");
+                    OnuserChanged();
+                }
+            }
+        }
+        private global::System.Guid _user;
+        partial void OnuserChanging(global::System.Guid value);
+        partial void OnuserChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime beginning_date
+        {
+            get
+            {
+                return _beginning_date;
+            }
+            set
+            {
+                if (_beginning_date != value)
+                {
+                    Onbeginning_dateChanging(value);
+                    ReportPropertyChanging("beginning_date");
+                    _beginning_date = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("beginning_date");
+                    Onbeginning_dateChanged();
+                }
+            }
+        }
+        private global::System.DateTime _beginning_date;
+        partial void Onbeginning_dateChanging(global::System.DateTime value);
+        partial void Onbeginning_dateChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime end_date
+        {
+            get
+            {
+                return _end_date;
+            }
+            set
+            {
+                if (_end_date != value)
+                {
+                    Onend_dateChanging(value);
+                    ReportPropertyChanging("end_date");
+                    _end_date = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("end_date");
+                    Onend_dateChanged();
+                }
+            }
+        }
+        private global::System.DateTime _end_date;
+        partial void Onend_dateChanging(global::System.DateTime value);
+        partial void Onend_dateChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>

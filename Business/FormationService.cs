@@ -30,6 +30,18 @@ namespace Business
             return retour.ToList();
         }
 
+        public static List<v_formation_schools1> GetFormationSchools(Guid userId)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+            var retour = from uf in bie.user_formation
+                         from f in bie.v_formation_schools1
+                         where uf.user.Equals(userId)
+                         where uf.formation.Equals(f.id)
+                         select f;
+
+            return retour.ToList();
+        }
+        
         public static void InsertNewFormation(String nom,
             String description, String dateDebut, String dateFin, String etablissement,Guid userId)
         {

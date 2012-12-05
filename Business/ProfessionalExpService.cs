@@ -30,6 +30,18 @@ namespace Business
             return retour.ToList();
         }
 
+        public static List<v_xp_companies> GetProferssionalExpCompanies(Guid userId)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+            var retour = from ue in bie.user_experienceprofessional
+                         from p in bie.v_xp_companies
+                         where ue.user.Equals(userId)
+                         where ue.experience_professional.Equals(p.id)
+                         select p;
+
+            return retour.ToList();
+        }
+
         public static void InsertNewProfessionalExp(String name, String description, String dateDebut, String dateFin, 
             String companyName, String companyAdresse,String companyTel,Guid userId)
         {
