@@ -62,5 +62,11 @@ namespace Business
 
             return listFarFromOneRelations;
         }
+
+        public static Boolean SendInvitation()
+        {
+
+            return false;
+        }
     }
 }
