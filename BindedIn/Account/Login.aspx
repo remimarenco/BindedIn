@@ -62,7 +62,7 @@
   
     <div> <fieldset class="login">
                     <legend>Avec Facebook</legend>
-        <div class="fb-login-button" data-show-faces="true" data-width="400" data-max-rows="1" data-size="xlarge"></div>
+        <div class="fb-login-button" data-show-faces="true" data-width="400" data-max-rows="1" data-size="xlarge" perms="email"></div>
     </div>
     
     <script>

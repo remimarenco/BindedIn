@@ -93,7 +93,7 @@
 
     <div> <fieldset class="login">
                     <legend>Plus rapide, utilisez Facebook</legend>
-        <div class="fb-login-button" data-show-faces="true" data-width="400" data-max-rows="1" data-size="xlarge"></div>
+        <div class="fb-login-button" data-show-faces="true" data-width="400" perms="email" data-max-rows="1" data-size="xlarge"></div>
     </div>
     
     <script>
