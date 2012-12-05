@@ -17,6 +17,7 @@ namespace Business
 
             // on recupere touts les messages
             var search = from m in bie.messages
+                         orderby m.date descending
                          select m;
 
             return search.ToList();
@@ -56,7 +57,8 @@ namespace Business
 
             // on recupere les messages
             var search = from m in bie.messages
-                         where m.sender==senderId
+                         where m.sender==senderId && m.isRemovedSender.Equals(0)
+                         orderby m.date descending
                          select m;
 
             return search.ToList();
@@ -71,7 +73,8 @@ namespace Business
 
             // on recupere les messages
             var search = from m in bie.messages
-                         where m.recipient==recipientId
+                         where m.recipient==recipientId && m.isRemovedRecipient.Equals(0)
+                         orderby m.date descending
                          select m;
 
             return search.ToList();
@@ -90,6 +93,8 @@ namespace Business
             m.@object = obj;
             m.message1 = me;
             m.isRead = 0;
+            m.isRemovedSender = 0;
+            m.isRemovedRecipient = 0;
             m.date = DateTime.Now;
 
             //on sauvegarde le message dans la base
@@ -114,18 +119,30 @@ namespace Business
 
 
         //efface le message correspondant à l'id passé en parametre
-        public static void deleteMessage(int messageId)
+        //mode=1 ->reception
+        //mode=2 ->envoie
+        public static void deleteMessage(int messageId, int mode)
         {
             bindedinEntities bie = SingletonEntities.Instance;
 
             //on recupere le messge à effacer
             var deleteMessages = from m in bie.messages where m.id.Equals(messageId) select m;
 
-            foreach (var me in deleteMessages)
+            if (mode == 1)
             {
-                //on efface
-                bie.messages.DeleteObject(me);
+                foreach (var me in deleteMessages)
+                {
+                    me.isRemovedRecipient = 1;
+                }
             }
+            else 
+            {
+                foreach (var me in deleteMessages)
+                {
+                    me.isRemovedSender = 1;
+                }
+            }
+
 
             try
             {

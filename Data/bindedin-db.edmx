@@ -393,6 +393,8 @@
           <Property Name="message1" Type="nvarchar(max)" Nullable="false" />
           <Property Name="date" Type="date" Nullable="false" />
           <Property Name="isRead" Type="int" Nullable="false" />
+          <Property Name="isRemovedRecipient" Type="int" Nullable="false" />
+          <Property Name="isRemovedSender" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="professional_experience">
           <Key>
@@ -1633,6 +1635,8 @@
           <Property Name="isRead" Type="Int32" Nullable="false" />
           <NavigationProperty Name="aspnet_Users" Relationship="bindedinModel.FK_messages_aspnet_userRecipient" FromRole="message" ToRole="aspnet_Users" />
           <NavigationProperty Name="aspnet_Users1" Relationship="bindedinModel.FK_messages_aspnet_userSender" FromRole="message" ToRole="aspnet_Users" />
+          <Property Type="Int32" Name="isRemovedRecipient" Nullable="false" />
+          <Property Type="Int32" Name="isRemovedSender" Nullable="false" />
         </EntityType>
         <EntityType Name="professional_experience">
           <Key>
@@ -2349,6 +2353,8 @@
           <EntitySetMapping Name="messages">
             <EntityTypeMapping TypeName="bindedinModel.message">
               <MappingFragment StoreEntitySet="messages">
+                <ScalarProperty Name="isRemovedSender" ColumnName="isRemovedSender" />
+                <ScalarProperty Name="isRemovedRecipient" ColumnName="isRemovedRecipient" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="recipient" ColumnName="recipient" />
                 <ScalarProperty Name="sender" ColumnName="sender" />

@@ -4747,7 +4747,9 @@ namespace Data
         /// <param name="message1">Valeur initiale de la propriété message1.</param>
         /// <param name="date">Valeur initiale de la propriété date.</param>
         /// <param name="isRead">Valeur initiale de la propriété isRead.</param>
-        public static message Createmessage(global::System.Int32 id, global::System.Guid recipient, global::System.Guid sender, global::System.String @object, global::System.String message1, global::System.DateTime date, global::System.Int32 isRead)
+        /// <param name="isRemovedRecipient">Valeur initiale de la propriété isRemovedRecipient.</param>
+        /// <param name="isRemovedSender">Valeur initiale de la propriété isRemovedSender.</param>
+        public static message Createmessage(global::System.Int32 id, global::System.Guid recipient, global::System.Guid sender, global::System.String @object, global::System.String message1, global::System.DateTime date, global::System.Int32 isRead, global::System.Int32 isRemovedRecipient, global::System.Int32 isRemovedSender)
         {
             message message = new message();
             message.id = id;
@@ -4757,6 +4759,8 @@ namespace Data
             message.message1 = message1;
             message.date = date;
             message.isRead = isRead;
+            message.isRemovedRecipient = isRemovedRecipient;
+            message.isRemovedSender = isRemovedSender;
             return message;
         }
 
@@ -4934,6 +4938,54 @@ namespace Data
         private global::System.Int32 _isRead;
         partial void OnisReadChanging(global::System.Int32 value);
         partial void OnisReadChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 isRemovedRecipient
+        {
+            get
+            {
+                return _isRemovedRecipient;
+            }
+            set
+            {
+                OnisRemovedRecipientChanging(value);
+                ReportPropertyChanging("isRemovedRecipient");
+                _isRemovedRecipient = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("isRemovedRecipient");
+                OnisRemovedRecipientChanged();
+            }
+        }
+        private global::System.Int32 _isRemovedRecipient;
+        partial void OnisRemovedRecipientChanging(global::System.Int32 value);
+        partial void OnisRemovedRecipientChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 isRemovedSender
+        {
+            get
+            {
+                return _isRemovedSender;
+            }
+            set
+            {
+                OnisRemovedSenderChanging(value);
+                ReportPropertyChanging("isRemovedSender");
+                _isRemovedSender = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("isRemovedSender");
+                OnisRemovedSenderChanged();
+            }
+        }
+        private global::System.Int32 _isRemovedSender;
+        partial void OnisRemovedSenderChanging(global::System.Int32 value);
+        partial void OnisRemovedSenderChanged();
 
         #endregion
 

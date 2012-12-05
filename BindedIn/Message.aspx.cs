@@ -19,23 +19,23 @@ namespace BindedIn
             {
                 List<message> listM = new List<message>();
 
-                //on recupere le parametre "del" pour voir si il y a un message à effacer
-                if (Request.Params["del"] != null && Convert.ToInt16(Request.Params["del"])!=0)
-                {
-                    MessageService.deleteMessage(Convert.ToInt16(Request.Params["del"]));
-                    not.Text = "Message effacé";
-                }
-
-
                 //on affiche en fonction du parametres les messages envoyés ou recus
-                if (Request.Params["mode"] != null && Request.Params["mode"] == "env")
+                if (Request.Params["mode"] != null && Request.Params["mode"] == "env")// si on est en mode "messages envoyés"
                 {
+                    //on recupere le parametre "del" pour voir si il y a un message à effacer
+                    if (Request.Params["del"] != null && Convert.ToInt16(Request.Params["del"]) != 0)
+                    {
+                        MessageService.deleteMessage(Convert.ToInt16(Request.Params["del"]),2);
+                        not.Text = "Message effacé";
+                    }
+
                     modeTitle.InnerText = "Messages envoyés";
                     autreMode.InnerText = "Messages reçus";
                     autreMode.HRef = "Message.aspx";
                     listM = MessageService.GetMessageBySenderId((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
                     if (listM.Count > 0)
                     {
+                        //o utilise le template pour les messages envoyés
                         rptEnv.DataSource = MessageService.MessageToMessagePlus(listM," ");
                         rptEnv.DataBind();
                     }
@@ -44,14 +44,23 @@ namespace BindedIn
                         errorMessage("Aucun message à afficher");
                     }
                 }
-                else
+                else // si on est en mode "messages recus"
                 {
+                    //on recupere le parametre "del" pour voir si il y a un message à effacer
+                    if (Request.Params["del"] != null && Convert.ToInt16(Request.Params["del"]) != 0)
+                    {
+                        MessageService.deleteMessage(Convert.ToInt16(Request.Params["del"]), 1);
+                        not.Text = "Message effacé";
+                    }
+
+                    //on modifie le titre de la page
                     modeTitle.InnerText = "Messages reçus";
                     autreMode.InnerText = "Messages envoyés";
                     autreMode.HRef = "Message.aspx?mode=env";
                     listM = MessageService.GetMessageByRecipientId((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
                     if (listM.Count > 0)
                     {
+                        //o utilise le template pour les messages recus
                         rptRece.DataSource = MessageService.MessageToMessagePlus(listM,"reception");
                         rptRece.DataBind();
                     }
