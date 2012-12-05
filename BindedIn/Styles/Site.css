@@ -192,3 +192,25 @@ body
     .carousel-caption .btn {
       margin-top: 10px;
     }
+    
+    /* CV */
+    .rating_star  
+    {  
+        font-size: 0pt;  
+        width:20px;  
+        height: 20px;  
+        margin: 5px;  
+        padding: 0px;  
+        cursor: pointer;  
+        display: block;  
+        background-repeat: no-repeat;  
+        float:left;
+    }  
+    .rating_filled   
+    {  
+        background-color: Yellow;  
+    }  
+    .rating_empty   
+    {  
+        background-color: Gray;  
+    }  

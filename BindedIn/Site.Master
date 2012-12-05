@@ -59,9 +59,10 @@
                         -----------------------------------------------------------%>
                     <asp:LoginView ID="LoginView1" runat="server" EnableViewState="false">
                         <AnonymousTemplate>       
-                            <div class="btn-group">
-                                <asp:Button ID="ButLoginDD" CssClass="btn btn-small btn-primary" 
-                                    Text="Se connecter" runat="server" onclick="ButLoginDD_Click" />
+                            <div class="btn-group">                       
+                                <a id="ButLoginDD" class="btn btn-small btn-primary" 
+                                    runat="server" onServerClick="ButLoginDD_Click" href="#"><i class="icon-user icon-white"></i> Se connecter</a>
+                                
                                 <button class="btn btn-small btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"/></button>  
                                 <ul class="dropdown-menu">
                                     <li class="login-form-dd">
