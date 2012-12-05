@@ -11,7 +11,11 @@ namespace BindedIn
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            String idAskedUser = Request.Params["id_asked"];
+
+            String idAskingUser = Request.Params["id_asking"];
+
+
         }
     }
 }
