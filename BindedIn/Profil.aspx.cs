@@ -20,8 +20,15 @@ namespace BindedIn
             editExp.Visible = false;
             editFormation.Visible = false;
 
+            if(false)
+            {
+
+            }
+            else
+            {
             Profile = UserProfile.GetUserProfile(User.Identity.Name);
             UserId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
+            }
 
             ObjectDataSourceUserProfile.SelectParameters["id"].DefaultValue = UserId.ToString();
             ObjectDataSourceSkillsForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
