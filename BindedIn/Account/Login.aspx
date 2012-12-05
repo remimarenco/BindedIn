@@ -51,12 +51,54 @@
                         </div>
                     </div>
                 </fieldset>
-                
+               
             </div>
         </LayoutTemplate>
-    </asp:Login>
-    <p>
+          </asp:Login>
+         <p>
         Pas encore de compte ? 
         <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false">Rejoignez BindedIn</asp:HyperLink> !
     </p>
+  
+    <div> <fieldset class="login">
+                    <legend>Avec Facebook</legend>
+        <div class="fb-login-button" data-show-faces="true" data-width="400" data-max-rows="1" data-size="xlarge"></div>
+    </div>
+    
+    <script>
+        FB.init();
+        FB.Event.subscribe('auth.authResponseChange', function (response) {
+            if (response.status === 'connected') {
+                // the user is logged in and has authenticated your
+                // app, and response.authResponse supplies
+                // the user's ID, a valid access token, a signed
+                // request, and the time the access token 
+                // and signed request each expire
+                var uid = response.authResponse.userID;
+                var accessToken = response.authResponse.accessToken;
+
+                // TODO: Handle the access token
+                // Do a post to the server to finish the logon
+                // This is a form post since we don't want to use AJAX
+                var form = document.createElement("form");
+                form.setAttribute("method", 'post');
+                form.setAttribute("action", '/FacebookLogin.ashx');
+
+                var field = document.createElement("input");
+                field.setAttribute("type", "hidden");
+                field.setAttribute("name", 'accessToken');
+                field.setAttribute("value", accessToken);
+                form.appendChild(field);
+
+                document.body.appendChild(form);
+                form.submit();
+
+            } else if (response.status === 'not_authorized') {
+                // the user is logged in to Facebook, 
+                // but has not authenticated your app
+            } else {
+                // the user isn't logged in to Facebook.
+            }
+        });
+    </script>
 </asp:Content>

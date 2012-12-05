@@ -36,7 +36,7 @@ namespace BindedIn
             ObjectDataSourceEXpForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
             ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + UserId.ToString();
             // Fix cache issues
-            ImageProfile.ImageUrl += "tmp=" + DateTime.Now;
+            ImageProfile.ImageUrl += "&tmp=" + DateTime.Now;
         }
 
         protected void ButtonEdit_Click(object sender, EventArgs e)
