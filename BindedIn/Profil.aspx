@@ -26,7 +26,7 @@
         </asp:Repeater>
     </div>
 
-        <%-- 
+    <%-- 
       -- EXPERIENCE
       --%>
     <div class="row-fluid">
@@ -36,7 +36,7 @@
     </div>
 
     <%-- Add new experience --%>
-    <div id="editExp" runat="server">      
+    <div id="editExp" class="well" runat="server">      
         <div class="form-horizontal">
 
             <%--Company name--%>
@@ -134,40 +134,43 @@
     
     <%--Display experiences--%>
     <div id="showExp">
-        <asp:ObjectDataSource ID="ObjectDataSourceEXpForUser" runat="server" SelectMethod="GetProferssionalExpCompanies" UpdateMethod="GetProferssionalExpCompanies"
-                    TypeName="Business.ProfessionalExpService">
-                    <SelectParameters>
-                        <asp:Parameter Name="userId" DbType="Guid" DefaultValue="" />
-                    </SelectParameters>
-                </asp:ObjectDataSource>
-                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSourceEXpForUser">
-                    <ItemTemplate>
-                        <div class="well">
-                        <div class="row-fluid">
-                            <div class="span10">
-                                <p>
-                                    <span class="badge">
-                                        <%# Convert.ToDateTime(Eval("beginning_date")).ToString("MMM yyyy") %>
-                                         - 
-                                        <%# Convert.ToDateTime(Eval("end_date")).ToString("MMM yyyy")%>
-                                    </span> 
-                                    <strong><%#Eval("name_xp") %></strong>
-                                </p>
-                                <p>                                    
-                                     <em><%#Eval("name_company") %></em>
-                                </p>
-                                <p class="offset1"><%#Eval("desc_xp") %></p>
-                            </div>
-                            
-                            <div class="span2 btn-group-vertical">
-                                <asp:Button class="btn btn-info" ID="Button1" runat="server" Text="Modifier" onclick="ButtonEdit_Click" />
-                                <asp:Button class="btn btn-danger" ID="Button2" runat="server" Text="Supprimer" onclick="ButtonEdit_Click" />
-                            </div>                            
-                        </div>
+        <asp:ObjectDataSource ID="ObjectDataSourceProferssionalExpCompanies" runat="server" 
+            SelectMethod="GetProferssionalExpCompanies" UpdateMethod="GetProferssionalExpCompanies"
+            TypeName="Business.ProfessionalExpService" 
+            DataObjectTypeName="System.Guid">
+            <SelectParameters>
+                <asp:Parameter DbType="Guid" Name="userId" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
+        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSourceProferssionalExpCompanies">
+            <ItemTemplate>
+                <div class="well">
+                <div class="row-fluid">
+                    <div class="span10">
+                        <p>
+                            <span class="badge">
+                                <%# Convert.ToDateTime(Eval("beginning_date")).ToString("MMM yyyy") %>
+                                    - 
+                                <%# Convert.ToDateTime(Eval("end_date")).ToString("MMM yyyy")%>
+                            </span> 
+                            <strong><%#Eval("name_xp") %></strong>
+                        </p>
+                        <p>                                    
+                                <em><%#Eval("name_company") %></em>
+                        </p>
+                        <p class="offset1"><%#Eval("desc_xp") %></p>
                     </div>
-                    </ItemTemplate>
-                </asp:Repeater>
-        </div>            
+                            
+                    <div class="span2 btn-group-vertical">
+                        <asp:Button class="btn btn-info" ID="ButtonEditXP" runat="server" Text="Modifier" CommandArgument='<%#Eval("id") %>' onclick="ButtonEdit_Click" />
+                        <asp:Button class="btn btn-danger" ID="ButtonDeleteXP" runat="server" Text="Supprimer" CommandArgument='<%#Eval("id") %>' onclick="ButtonDeleteExpPro_Click" />
+                    </div>                            
+                </div>
+            </div>
+            </ItemTemplate>
+        </asp:Repeater>
+    </div>   
+             
     <%-- 
     -- END EXPERIENCE
     --%>
@@ -182,7 +185,7 @@
     </div>
     
     <%-- Add new formation--%>
-    <div id="editFormation" runat="server" class="span10">        
+    <div id="editFormation" runat="server" class="well">        
             
                 <%-- Ajout du toolkitscript manager pour la suggestion (1seule instance autorisé par page)--%>
                 <asp:ToolkitScriptManager ID="ToolkitScriptManagerFormation" runat="server">
@@ -301,17 +304,79 @@
       --%>
     
 
-
-    <h2>Compétences</h2>
+    <%-- 
+      -- SKILLS
+      --%>
     <div class="row-fluid">
-        
-    <div class="well">
-        <asp:Button class="btn btn-info span2 offset10" ID="ButtonEditSkills" runat="server" Text="Modifier" 
+        <h2 class="span10">Compétences</h2>
+        <asp:Button class="btn btn-success span2 offset10" ID="ButtonEditSkills" runat="server" Text="Ajouter" 
             onclick="ButtonEdit_Click" />
+    </div>
+    
+    <%-- Add new skill--%>
+    <div id="editSkills" class="well" runat="server">
+        <div class="form-horizontal">
+            <%--NOM--%>
+            <div class="control-group">                    
+                <asp:Label ID="Label13" runat="server" Text="Nom" CssClass="control-label" />
+                <div class="controls">
+                    <asp:TextBox ID="TextBoxCompeName" runat="server" Width="500px" />             
+                    <asp:AutoCompleteExtender ID="AutoCompleteExtender7" 
+                        TargetControlID="TextBoxCompeName" runat="server" 
+                        MinimumPrefixLength="2" UseContextKey="True" 
+                        EnableCaching="true" ServiceMethod="SuggestCompetenceNames" />
+                </div>
+            </div>
 
-        <%--Affichage--%>
-        <div id="displaySkills">
-            <asp:ObjectDataSource ID="ObjectDataSourceSkillsForUser" runat="server" SelectMethod="GetSkills"
+            <%--Description--%>
+            <div class="control-group">                    
+                <asp:Label ID="Label14" runat="server" Text="Description" CssClass="control-label" />
+                <div class="controls">                        
+                    <asp:TextBox ID="TextBoxCompeDescription" runat="server" Width="500px" />         
+                    <asp:AutoCompleteExtender ID="AutoCompleteExtender8" 
+                        TargetControlID="TextBoxCompeDescription" runat="server" 
+                        MinimumPrefixLength="2" UseContextKey="True" 
+                        EnableCaching="true" ServiceMethod="SuggestCompetenceDescription" />
+                </div>
+            </div>                
+
+            <%--Niveau--%>
+            <div class="control-group">                    
+                <asp:Label ID="Label15" runat="server" Text="Niveau" CssClass="control-label" />
+                <div class="controls"> 
+                    <a href="#" id="rate1_A" style="text-decoration:none">  
+                        <span id="rate1_Star_1" class="rating_star">&nbsp;</span>  
+                        <span id="rate1_Star_2" class="rating_star">&nbsp;</span>  
+                        <span id="rate1_Star_3" class="rating_star">&nbsp;</span>  
+                        <span id="rate1_Star_4" class="rating_star">&nbsp;</span>  
+                        <span id="rate1_Star_5" class="rating_star">&nbsp;</span>  
+                    </a>  
+                    <asp:Rating   
+                        ID="RatingNiveau"   
+                        CurrentRating="2"  
+                        MaxRating="5"  
+                        StarCssClass="rating_star"  
+                        FilledStarCssClass="rating_filled"  
+                        EmptyStarCssClass="rating_empty"  
+                        WaitingStarCssClass="rating_empty"  
+                        runat="server" />  
+                </div>
+            </div> 
+        
+            <div class="control-group">                    
+                <div class="controls">   
+                    <asp:Button CssClass="btn btn-large btn-success" ID="ButtonSkills" runat="server" Text="Enregistrer" 
+                        onclick="ButtonSkills_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        
+    <%--Display skills--%>
+    <div id="displaySkills">
+        <div class="well">
+            <asp:ObjectDataSource ID="ObjectDataSourceSkillsForUser" runat="server" SelectMethod="GetSkillsUser" UpdateMethod="GetSkillsUser"
                 TypeName="Business.SkillService">
                 <SelectParameters>
                     <asp:Parameter Name="userId" DbType="Guid" />
@@ -319,87 +384,33 @@
             </asp:ObjectDataSource>
             <asp:Repeater ID="Repeater2" runat="server" DataSourceID="ObjectDataSourceSkillsForUser">
                 <ItemTemplate>
-                    <%#Eval("name") %>,
-                    <%#Eval("description") %>             
-               
-       
+                    <div class="row-fluid">
+                    <div class="span11"><span class="badge badge-success"><%# Eval("level") %>/5</span> <%# Eval("name") %></div>
+                    <div class="btn-toolbar span1" style="margin:0px;">
+                        <div class="btn-group">
+                            <a href="" class="btn btn-mini btn-info" ID="Button1" runat="server" onServerClick="ButtonEdit_Click"><i class="icon-pencil"></i></a>
+                            <a href="" class="btn btn-mini btn-danger" ID="Button2" runat="server" onServerClick="ButtonEdit_Click"><i class="icon-remove"></i></a>
+                        </div>
+                    </div>
+                    </div>
                 </ItemTemplate>
             </asp:Repeater>
         </div>
+    </div>     
+   
 
-        <%--Edition--%>
-        <div id="editSkills" runat="server">
-            <div class="form-horizontal">
-                <%--NOM--%>
-                <div class="control-group">                    
-                    <asp:Label ID="Label13" runat="server" Text="Nom" CssClass="control-label" />
-                    <div class="controls">
-                        <asp:TextBox ID="TextBoxCompeName" runat="server" Width="500px" />             
-                        <asp:AutoCompleteExtender ID="AutoCompleteExtender7" 
-                            TargetControlID="TextBoxCompeName" runat="server" 
-                            MinimumPrefixLength="2" UseContextKey="True" 
-                            EnableCaching="true" ServiceMethod="SuggestCompetenceNames" />
-                    </div>
-                </div>
+    <script type="text/javascript">
+        function onRated(sender, args) {
+            $get('log').innerHTML += "Rated: " + sender.get_Rating() + "<br/>";
+        }
 
-                <%--Description--%>
-                <div class="control-group">                    
-                    <asp:Label ID="Label14" runat="server" Text="Description" CssClass="control-label" />
-                    <div class="controls">                        
-                        <asp:TextBox ID="TextBoxCompeDescription" runat="server" Width="500px" />         
-                        <asp:AutoCompleteExtender ID="AutoCompleteExtender8" 
-                            TargetControlID="TextBoxCompeDescription" runat="server" 
-                            MinimumPrefixLength="2" UseContextKey="True" 
-                            EnableCaching="true" ServiceMethod="SuggestCompetenceDescription" />
-                    </div>
-                </div>                
-
-                <%--Niveau--%>
-                <div class="control-group">                    
-                    <asp:Label ID="Label15" runat="server" Text="Niveau" CssClass="control-label" />
-                    <div class="controls"> 
-                        <a href="#" id="rate1_A" style="text-decoration:none">  
-                            <span id="rate1_Star_1" class="rating_star">&nbsp;</span>  
-                            <span id="rate1_Star_2" class="rating_star">&nbsp;</span>  
-                            <span id="rate1_Star_3" class="rating_star">&nbsp;</span>  
-                            <span id="rate1_Star_4" class="rating_star">&nbsp;</span>  
-                            <span id="rate1_Star_5" class="rating_star">&nbsp;</span>  
-                        </a>  
-                        <asp:Rating   
-                            ID="RatingNiveau"   
-                            CurrentRating="2"  
-                            MaxRating="5"  
-                            StarCssClass="rating_star"  
-                            FilledStarCssClass="rating_filled"  
-                            EmptyStarCssClass="rating_empty"  
-                            WaitingStarCssClass="rating_empty"  
-                            runat="server" />  
-                    </div>
-                </div> 
-        
-                <div class="control-group">                    
-                    <div class="controls">   
-                        <asp:Button CssClass="btn btn-large btn-success" ID="ButtonSkills" runat="server" Text="Enregistrer" 
-                            onclick="ButtonSkills_Click" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript">
-    function onRated(sender, args) {
-        $get('log').innerHTML += "Rated: " + sender.get_Rating() + "<br/>";
-    }
-
-    Sys.require(Sys.components.rating, function () {
-        $("#rate1").rating({
-            ClientStateFieldID: "state",
-            Rating: 2,
-            id: "rate1",
-            Rated: onRated
-        });
-    });  
-</script>           
+        Sys.require(Sys.components.rating, function () {
+            $("#rate1").rating({
+                ClientStateFieldID: "state",
+                Rating: 2,
+                id: "rate1",
+                Rated: onRated
+            });
+        });  
+    </script>           
 </asp:Content>

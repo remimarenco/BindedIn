@@ -162,44 +162,5 @@ namespace Business
             }
             bie.SaveChanges();
         }
-
-        //    // Create SQL Connection 
-        //    SqlConnection con = new SqlConnection();
-        //    con.ConnectionString = ConfigurationManager.ConnectionStrings
-        //                           ["ASPNETMembership"].ConnectionString;
-
-        //    // Create SQL Command 
-
-        //    SqlCommand cmd = new SqlCommand();
-        //    cmd.CommandText = "INSERT INTO Image([UserId],[Image],[Current],[Date])" +
-        //                      " OUTPUT INSERTED.ID" +
-        //                      " VALUES (@UserId,@Image,@Cur,@Date)";
-        //    cmd.CommandType = CommandType.Text;
-        //    cmd.Connection = con;
-
-        //    SqlParameter UserId = new SqlParameter
-        //                        ("@UserId", SqlDbType.UniqueIdentifier);
-        //    UserId.Value = Membership.GetUser(User.Identity.Name, false).ProviderUserKey;
-        //    cmd.Parameters.Add(UserId);
-
-        //    SqlParameter UploadedImage = new SqlParameter
-        //                  ("@Image", SqlDbType.Image, imageSize.Length);
-        //    UploadedImage.Value = imageSize;
-        //    cmd.Parameters.Add(UploadedImage);
-
-        //    SqlParameter Date = new SqlParameter
-        //                        ("@Date", SqlDbType.DateTime);
-        //    Date.Value = DateTime.Now;
-        //    cmd.Parameters.Add(Date);
-
-        //    SqlParameter Current = new SqlParameter
-        //                        ("@Cur", SqlDbType.Bit);
-        //    Current.Value = true;
-        //    cmd.Parameters.Add(Current);
-
-        //    con.Open();
-        //    Int32 result = (Int32)cmd.ExecuteScalar();
-        //    con.Close();
-        //}
     }
 }

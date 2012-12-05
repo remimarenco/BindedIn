@@ -51,6 +51,15 @@
       [v_formation_schools1].[end_date] AS [end_date]
       FROM [dbo].[v_formation_schools1] AS [v_formation_schools1]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_user_competences" EntityType="bindedinModel.Store.v_user_competences" store:Type="Views" store:Schema="dbo" store:Name="v_user_competences">
+            <DefiningQuery>SELECT 
+      [v_user_competences].[level] AS [level], 
+      [v_user_competences].[user] AS [user], 
+      [v_user_competences].[id] AS [id], 
+      [v_user_competences].[name] AS [name], 
+      [v_user_competences].[description] AS [description]
+      FROM [dbo].[v_user_competences] AS [v_user_competences]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_xp_companies" EntityType="bindedinModel.Store.v_xp_companies" store:Type="Views" store:Schema="dbo" store:Name="v_xp_companies">
             <DefiningQuery>SELECT 
       [v_xp_companies].[id] AS [id], 
@@ -548,6 +557,23 @@
           <Property Name="user" Type="uniqueidentifier" Nullable="false" />
           <Property Name="beginning_date" Type="date" Nullable="false" />
           <Property Name="end_date" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+      Avertissement 6002: La table/vue « bindedin.dbo.v_user_competences » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+      -->
+        <EntityType Name="v_user_competences">
+          <Key>
+            <PropertyRef Name="level" />
+            <PropertyRef Name="user" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="description" />
+          </Key>
+          <Property Name="level" Type="int" Nullable="false" />
+          <Property Name="user" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <!--Erreurs détectées durant la génération :
       Avertissement 6002: La table/vue « bindedin.dbo.v_xp_companies » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
@@ -1514,6 +1540,7 @@
             <End Role="relation_status" EntitySet="relation_status" />
           </AssociationSet>
           <EntitySet Name="v_xp_companies" EntityType="bindedinModel.v_xp_companies" />
+          <EntitySet Name="v_user_competences" EntityType="bindedinModel.v_user_competences" />
         </EntityContainer>
         <EntityType Name="aspnet_Applications">
           <Key>
@@ -2295,6 +2322,20 @@
           <Property Type="DateTime" Name="beginning_date" Nullable="false" />
           <Property Type="DateTime" Name="end_date" Nullable="false" />
         </EntityType>
+        <EntityType Name="v_user_competences">
+          <Key>
+            <PropertyRef Name="level" />
+            <PropertyRef Name="user" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="description" />
+          </Key>
+          <Property Type="Int32" Name="level" Nullable="false" />
+          <Property Type="Guid" Name="user" Nullable="false" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2735,6 +2776,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_user_competences">
+            <EntityTypeMapping TypeName="bindedinModel.v_user_competences">
+              <MappingFragment StoreEntitySet="v_user_competences">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="level" ColumnName="level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2942,6 +2994,7 @@
           <ConnectorPoint PointX="3" PointY="2.0478417968750016" />
         </AssociationConnector>
         <EntityTypeShape EntityType="bindedinModel.v_xp_companies" Width="1.5" PointX="12.375" PointY="6.75" Height="2.7494921875000102" />
+        <EntityTypeShape EntityType="bindedinModel.v_user_competences" Width="1.5" PointX="12.375" PointY="10.75" Height="1.9802864583333246" />
       </Diagram>
     </Diagrams>
   </Designer>
