@@ -43,6 +43,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_messages_aspnet_userSender", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.message), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_recommandations_aspnet_recipientUser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "recommandation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.recommandation), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_recommandations_aspnet_senderUser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "recommandation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.recommandation), true)]
+[assembly: EdmRelationshipAttribute("bindedinModel", "FK_user_formation_formations1", "formation", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.formation), "user_formation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.user_formation), true)]
+[assembly: EdmRelationshipAttribute("bindedinModel", "FK_user_experienceprofessional_professional_experience1", "professional_experience", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.professional_experience), "user_experienceprofessional", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.user_experienceprofessional), true)]
 
 #endregion
 
@@ -4483,6 +4485,28 @@ namespace Data
                 }
             }
         }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_user_formation_formations1", "user_formation")]
+        public EntityCollection<user_formation> user_formation_1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<user_formation>("bindedinModel.FK_user_formation_formations1", "user_formation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<user_formation>("bindedinModel.FK_user_formation_formations1", "user_formation", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -5279,6 +5303,28 @@ namespace Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<user_experienceprofessional>("bindedinModel.FK_user_experienceprofessional_professional_experience", "user_experienceprofessional", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_user_experienceprofessional_professional_experience1", "user_experienceprofessional")]
+        public EntityCollection<user_experienceprofessional> user_experienceprofessional_1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<user_experienceprofessional>("bindedinModel.FK_user_experienceprofessional_professional_experience1", "user_experienceprofessional");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<user_experienceprofessional>("bindedinModel.FK_user_experienceprofessional_professional_experience1", "user_experienceprofessional", value);
                 }
             }
         }
@@ -6573,6 +6619,44 @@ namespace Data
                 }
             }
         }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_user_experienceprofessional_professional_experience1", "professional_experience")]
+        public professional_experience professional_experience_1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<professional_experience>("bindedinModel.FK_user_experienceprofessional_professional_experience1", "professional_experience").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<professional_experience>("bindedinModel.FK_user_experienceprofessional_professional_experience1", "professional_experience").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<professional_experience> professional_experience_1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<professional_experience>("bindedinModel.FK_user_experienceprofessional_professional_experience1", "professional_experience");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<professional_experience>("bindedinModel.FK_user_experienceprofessional_professional_experience1", "professional_experience", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -6811,6 +6895,44 @@ namespace Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<formation>("bindedinModel.FK_user_formation_formations", "formations", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_user_formation_formations1", "formation")]
+        public formation formations
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<formation>("bindedinModel.FK_user_formation_formations1", "formation").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<formation>("bindedinModel.FK_user_formation_formations1", "formation").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<formation> formationsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<formation>("bindedinModel.FK_user_formation_formations1", "formation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<formation>("bindedinModel.FK_user_formation_formations1", "formation", value);
                 }
             }
         }

@@ -888,25 +888,25 @@
         </Association>
         <Association Name="FK_user_experienceprofessional_professional_experience">
           <End Role="professional_experience" Type="bindedinModel.Store.professional_experience" Multiplicity="1" />
-          <End Role="user_experienceprofessional" Type="bindedinModel.Store.user_experienceprofessional" Multiplicity="0..1" />
+          <End Role="user_experienceprofessional" Type="bindedinModel.Store.user_experienceprofessional" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="professional_experience">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="user_experienceprofessional">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="experience_professional" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_user_formation_formations">
           <End Role="formations" Type="bindedinModel.Store.formations" Multiplicity="1" />
-          <End Role="user_formation" Type="bindedinModel.Store.user_formation" Multiplicity="0..1" />
+          <End Role="user_formation" Type="bindedinModel.Store.user_formation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="formations">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="user_formation">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="formation" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1421,6 +1421,14 @@
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="recommandation" EntitySet="recommandations" />
           </AssociationSet>
+          <AssociationSet Name="FK_user_formation_formations1" Association="bindedinModel.FK_user_formation_formations1">
+            <End Role="formation" EntitySet="formations" />
+            <End Role="user_formation" EntitySet="user_formation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_experienceprofessional_professional_experience1" Association="bindedinModel.FK_user_experienceprofessional_professional_experience1">
+            <End Role="professional_experience" EntitySet="professional_experience" />
+            <End Role="user_experienceprofessional" EntitySet="user_experienceprofessional" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="aspnet_Applications">
           <Key>
@@ -1609,6 +1617,7 @@
           <Property Name="school" Type="Int32" Nullable="false" />
           <NavigationProperty Name="school1" Relationship="bindedinModel.FK_formation_ecole" FromRole="formations" ToRole="schools" />
           <NavigationProperty Name="user_formation" Relationship="bindedinModel.FK_user_formation_formations" FromRole="formations" ToRole="user_formation" />
+          <NavigationProperty Name="user_formation_1" Relationship="bindedinModel.FK_user_formation_formations1" FromRole="formation" ToRole="user_formation" />
         </EntityType>
         <EntityType Name="Image">
           <Key>
@@ -1648,6 +1657,7 @@
           <Property Name="company" Type="Int32" Nullable="false" />
           <NavigationProperty Name="company1" Relationship="bindedinModel.FK_professional_experience_company" FromRole="professional_experience" ToRole="companies" />
           <NavigationProperty Name="user_experienceprofessional" Relationship="bindedinModel.FK_user_experienceprofessional_professional_experience" FromRole="professional_experience" ToRole="user_experienceprofessional" />
+          <NavigationProperty Name="user_experienceprofessional_1" Relationship="bindedinModel.FK_user_experienceprofessional_professional_experience1" FromRole="professional_experience" ToRole="user_experienceprofessional" />
         </EntityType>
         <EntityType Name="recommandation">
           <Key>
@@ -1720,6 +1730,7 @@
           <NavigationProperty Name="professional_experience" Relationship="bindedinModel.FK_user_experienceprofessional_professional_experience" FromRole="user_experienceprofessional" ToRole="professional_experience" />
           <Property Type="DateTime" Name="beginning_date" Nullable="false" />
           <Property Type="DateTime" Name="end_date" Nullable="false" />
+          <NavigationProperty Name="professional_experience_1" Relationship="bindedinModel.FK_user_experienceprofessional_professional_experience1" FromRole="user_experienceprofessional" ToRole="professional_experience" />
         </EntityType>
         <EntityType Name="user_formation">
           <Key>
@@ -1732,6 +1743,7 @@
           <NavigationProperty Name="formation1" Relationship="bindedinModel.FK_user_formation_formations" FromRole="user_formation" ToRole="formations" />
           <Property Type="DateTime" Name="beginning_date" Nullable="false" />
           <Property Type="DateTime" Name="end_date" Nullable="false" />
+          <NavigationProperty Name="formations" Relationship="bindedinModel.FK_user_formation_formations1" FromRole="user_formation" ToRole="formation" />
         </EntityType>
         <EntityType Name="vw_aspnet_Applications">
           <Key>
@@ -2161,6 +2173,30 @@
             </Principal>
             <Dependent Role="recommandation">
               <PropertyRef Name="sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_formation_formations1">
+          <End Type="bindedinModel.formation" Role="formation" Multiplicity="1" />
+          <End Type="bindedinModel.user_formation" Role="user_formation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="formation">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_formation">
+              <PropertyRef Name="formation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_experienceprofessional_professional_experience1">
+          <End Type="bindedinModel.professional_experience" Role="professional_experience" Multiplicity="1" />
+          <End Type="bindedinModel.user_experienceprofessional" Role="user_experienceprofessional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="professional_experience">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_experienceprofessional">
+              <PropertyRef Name="experience_professional" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2607,7 +2643,7 @@
         <EntityTypeShape EntityType="bindedinModel.status_name" Width="1.5" PointX="11.25" PointY="24.5" Height="1.5956835937500031" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.sysdiagram" Width="1.5" PointX="0.75" PointY="5.75" Height="1.9802864583333388" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.user_competence" Width="1.5" PointX="13.5" PointY="16.25" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.user_experienceprofessional" Width="2.375" PointX="13.5" PointY="22.25" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.user_experienceprofessional" Width="2.375" PointX="13.75" PointY="22.625" Height="2.5571907552083353" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.user_formation" Width="1.5" PointX="10.5" PointY="14.25" Height="1.9802864583333388" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Applications" Width="1.5" PointX="4.75" PointY="4.75" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="bindedinModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="6.75" PointY="0.75" Height="5.4417122395833246" IsExpanded="true" />
@@ -2634,17 +2670,13 @@
           <ConnectorPoint PointX="3" PointY="21.682444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK__aspnet_Us__Appli__44FF419A" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="16.603788194173177" />
-          <ConnectorPoint PointX="6.666666666666667" PointY="16.603788194173177" />
-          <ConnectorPoint PointX="6.833333333333333" PointY="16.603788194173177" />
-          <ConnectorPoint PointX="8.4166666666666661" PointY="16.603788194173177" />
-          <ConnectorPoint PointX="8.5833333333333339" PointY="16.603788194173177" />
-          <ConnectorPoint PointX="8.8252821820131917" PointY="16.603788194173177" />
-          <ConnectorPoint PointX="8.99194884867986" PointY="16.603788194173177" />
-          <ConnectorPoint PointX="9.0079776104704514" PointY="16.603788194173177" />
-          <ConnectorPoint PointX="9.17464427713712" PointY="16.603788194173177" />
-          <ConnectorPoint PointX="9.2740063722610451" PointY="16.603788194173177" />
-          <ConnectorPoint PointX="9.2740063722610451" PointY="18" />
+          <ConnectorPoint PointX="2.25" PointY="16.639422141927081" />
+          <ConnectorPoint PointX="8.4166666666666661" PointY="16.639422141927081" />
+          <ConnectorPoint PointX="8.5833333333333339" PointY="16.639422141927081" />
+          <ConnectorPoint PointX="9.0387947411615031" PointY="16.639422141927081" />
+          <ConnectorPoint PointX="9.2054614078281709" PointY="16.639422141927081" />
+          <ConnectorPoint PointX="9.2923506770877822" PointY="16.639422141927081" />
+          <ConnectorPoint PointX="9.2923506770877822" PointY="18" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK__aspnet_Me__UserI__59FA5E80" ManuallyRouted="false">
           <ConnectorPoint PointX="8.25" PointY="20.1920068359375" />
@@ -2706,23 +2738,27 @@
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_experienceprofessional_aspnet_Users" ManuallyRouted="false">
           <ConnectorPoint PointX="9" PointY="22.480205078125" />
-          <ConnectorPoint PointX="9" PointY="23.235676647135421" />
-          <ConnectorPoint PointX="12.447916666666666" PointY="23.235676647135421" />
-          <ConnectorPoint PointX="12.614583333333334" PointY="23.235676647135421" />
-          <ConnectorPoint PointX="13.5" PointY="23.235676647135421" />
+          <ConnectorPoint PointX="9" PointY="23.648793945312498" />
+          <ConnectorPoint PointX="12.447916666666666" PointY="23.648793945312498" />
+          <ConnectorPoint PointX="12.614583333333334" PointY="23.648793945312498" />
+          <ConnectorPoint PointX="12.776041666666666" PointY="23.648793945312498" />
+          <ConnectorPoint PointX="12.942708333333334" PointY="23.648793945312498" />
+          <ConnectorPoint PointX="13.75" PointY="23.648793945312498" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_formation_user_formation" ManuallyRouted="false">
-          <ConnectorPoint PointX="8.9086155153465256" PointY="18" />
-          <ConnectorPoint PointX="8.9086155153465256" PointY="16.520076388346354" />
-          <ConnectorPoint PointX="9.0079776104704514" PointY="16.520076388346354" />
-          <ConnectorPoint PointX="9.17464427713712" PointY="16.520076388346354" />
-          <ConnectorPoint PointX="9.5696138718525567" PointY="16.520076388346354" />
-          <ConnectorPoint PointX="9.7362805385192246" PointY="16.520076388346354" />
-          <ConnectorPoint PointX="10.5" PointY="16.520076388346354" />
+          <ConnectorPoint PointX="8.9360615372474186" PointY="18" />
+          <ConnectorPoint PointX="8.9360615372474186" PointY="16.723306448567708" />
+          <ConnectorPoint PointX="9.0387947411615031" PointY="16.723306448567708" />
+          <ConnectorPoint PointX="9.2054614078281709" PointY="16.723306448567708" />
+          <ConnectorPoint PointX="9.2090173437544482" PointY="16.723306448567708" />
+          <ConnectorPoint PointX="9.3756840104211161" PointY="16.723306448567708" />
+          <ConnectorPoint PointX="9.5748693872350845" PointY="16.723306448567708" />
+          <ConnectorPoint PointX="9.7415360539017524" PointY="16.723306448567708" />
+          <ConnectorPoint PointX="10.5" PointY="16.723306448567708" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_professional_experience_company" ManuallyRouted="false">
-          <ConnectorPoint PointX="10.25" PointY="28.211293945312498" />
-          <ConnectorPoint PointX="11.25" PointY="28.211293945312498" />
+          <ConnectorPoint PointX="10.25" PointY="28.240143229166669" />
+          <ConnectorPoint PointX="11.25" PointY="28.240143229166669" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_competence_user_competence" ManuallyRouted="false">
           <ConnectorPoint PointX="12.59375" PointY="13.037985026041666" />
@@ -2736,16 +2772,16 @@
           <ConnectorPoint PointX="8.25" PointY="8.2689925130208337" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_formation_formations" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.41827171382904" PointY="9.172587890625" />
-          <ConnectorPoint PointX="9.41827171382904" PointY="16.48882388834636" />
-          <ConnectorPoint PointX="9.5696138718525567" PointY="16.48882388834636" />
-          <ConnectorPoint PointX="9.7362805385192246" PointY="16.48882388834636" />
-          <ConnectorPoint PointX="10.5" PointY="16.48882388834636" />
+          <ConnectorPoint PointX="9.4752766988281" PointY="9.3648893229166656" />
+          <ConnectorPoint PointX="9.4752766988281" PointY="16.533405732421876" />
+          <ConnectorPoint PointX="9.5748693872350845" PointY="16.533405732421876" />
+          <ConnectorPoint PointX="9.7415360539017524" PointY="16.533405732421876" />
+          <ConnectorPoint PointX="10.5" PointY="16.533405732421876" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_experienceprofessional_professional_experience" ManuallyRouted="false">
           <ConnectorPoint PointX="12.84375" PointY="27" />
-          <ConnectorPoint PointX="12.84375" PointY="23.867840823567704" />
-          <ConnectorPoint PointX="13.5" PointY="23.867840823567704" />
+          <ConnectorPoint PointX="12.84375" PointY="24.074399472656243" />
+          <ConnectorPoint PointX="13.75" PointY="24.074399472656243" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_relation_status_relation_status" ManuallyRouted="false">
           <ConnectorPoint PointX="12.53125" PointY="24.5" />
@@ -2770,24 +2806,24 @@
           <ConnectorPoint PointX="8.5" PointY="16.364889322916667" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_messages_aspnet_userRecipient" >
-          <ConnectorPoint PointX="9.0913109438037853" PointY="18" />
-          <ConnectorPoint PointX="9.0913109438037853" PointY="9.422587890625" />
-          <ConnectorPoint PointX="8" PointY="9.422587890625" />
+          <ConnectorPoint PointX="9.122128074494837" PointY="18" />
+          <ConnectorPoint PointX="9.122128074494837" PointY="9.297587890625" />
+          <ConnectorPoint PointX="8" PointY="9.297587890625" />
           <ConnectorPoint PointX="8" PointY="6.4417122395833246" />
           <ConnectorPoint PointX="6.5" PointY="6.4417122395833246" />
-          <ConnectorPoint PointX="6.5" PointY="1.683418564453127" />
-          <ConnectorPoint PointX="6.25" PointY="1.683418564453127" />
+          <ConnectorPoint PointX="6.5" PointY="1.6863541879882784" />
+          <ConnectorPoint PointX="6.25" PointY="1.6863541879882784" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_messages_aspnet_userSender" >
-          <ConnectorPoint PointX="9.65294720518589" PointY="18" />
-          <ConnectorPoint PointX="9.65294720518589" PointY="9.438212890625" />
-          <ConnectorPoint PointX="9.5016050471623732" PointY="9.438212890625" />
-          <ConnectorPoint PointX="9.3349383804957053" PointY="9.438212890625" />
-          <ConnectorPoint PointX="7.9375" PointY="9.438212890625" />
+          <ConnectorPoint PointX="9.6582027205684184" PointY="18" />
+          <ConnectorPoint PointX="9.6582027205684184" PointY="9.422587890625" />
+          <ConnectorPoint PointX="9.2054614078281709" PointY="9.422587890625" />
+          <ConnectorPoint PointX="9.0387947411615031" PointY="9.422587890625" />
+          <ConnectorPoint PointX="7.9375" PointY="9.422587890625" />
           <ConnectorPoint PointX="7.9375" PointY="6.6917122395833246" />
           <ConnectorPoint PointX="6.5625" PointY="6.6917122395833246" />
-          <ConnectorPoint PointX="6.5625" PointY="2.6227073759765567" />
-          <ConnectorPoint PointX="6.25" PointY="2.6227073759765567" />
+          <ConnectorPoint PointX="6.5625" PointY="2.8164766200357993" />
+          <ConnectorPoint PointX="6.25" PointY="2.8164766200357993" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_recommandations_aspnet_recipientUser" >
           <ConnectorPoint PointX="9.75" PointY="21.552602539062498" />
@@ -2796,6 +2832,20 @@
         <AssociationConnector Association="bindedinModel.FK_recommandations_aspnet_senderUser" >
           <ConnectorPoint PointX="9.75" PointY="21.026301269531249" />
           <ConnectorPoint PointX="10.75" PointY="21.026301269531249" />
+        </AssociationConnector>
+        <AssociationConnector Association="bindedinModel.FK_user_formation_formations1" >
+          <ConnectorPoint PointX="9.0290948058711287" PointY="9.3648893229166656" />
+          <ConnectorPoint PointX="9.0290948058711287" PointY="16.502153232421882" />
+          <ConnectorPoint PointX="9.0387947411615031" PointY="16.502153232421882" />
+          <ConnectorPoint PointX="9.2054614078281709" PointY="16.502153232421882" />
+          <ConnectorPoint PointX="9.5748693872350845" PointY="16.502153232421882" />
+          <ConnectorPoint PointX="9.7415360539017524" PointY="16.502153232421882" />
+          <ConnectorPoint PointX="10.5" PointY="16.502153232421882" />
+        </AssociationConnector>
+        <AssociationConnector Association="bindedinModel.FK_user_experienceprofessional_professional_experience1" >
+          <ConnectorPoint PointX="12.859375" PointY="27" />
+          <ConnectorPoint PointX="12.859375" PointY="23.223188417968753" />
+          <ConnectorPoint PointX="13.75" PointY="23.223188417968753" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
