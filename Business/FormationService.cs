@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Data;
 using System.Globalization;
+using System.Data;
 
 namespace Business
 {
@@ -50,7 +51,7 @@ namespace Business
                     school = Business.SchoolsService.InsertSchool(etablissement, ""),
 
                 };
-                bie.AddToformations(ord);
+                bie.formations.AddObject(ord);
                 bie.SaveChanges();
 
             }
@@ -67,8 +68,9 @@ namespace Business
                 beginning_date = DateTime.Parse(dateDebut, CultureInfo.CreateSpecificCulture("en-US")),
                 end_date = DateTime.Parse(dateFin, CultureInfo.CreateSpecificCulture("en-US")),
             };
-            bie.AddTouser_formation(uf);
+            bie.user_formation.AddObject(uf);          
             bie.SaveChanges();
+           
         }
 
     }

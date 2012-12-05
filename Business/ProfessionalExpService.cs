@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Data;
 using System.Globalization;
+using System.Data;
 
 namespace Business
 {
@@ -49,7 +50,7 @@ namespace Business
                     company=Business.CompanyService.InsertCompany(companyName,companyAdresse,companyTel)
                 };
 
-                bie.AddToprofessional_experience(profExp);
+                bie.professional_experience.AddObject(profExp);
                 bie.SaveChanges();
             }
             var idExpPro = from pe in bie.professional_experience from c in bie.companies
@@ -60,15 +61,16 @@ namespace Business
 
                
 
-            user_formation uf = new user_formation
+            user_experienceprofessional uf = new user_experienceprofessional
             {
                 user = userId,
-                formation = idExpPro.First(),
+                experience_professional = idExpPro.First(),
                 beginning_date = DateTime.Parse(dateDebut, CultureInfo.CreateSpecificCulture("en-US")),
                 end_date = DateTime.Parse(dateFin, CultureInfo.CreateSpecificCulture("en-US")),
             };
-            bie.AddTouser_formation(uf);
+            bie.user_experienceprofessional.AddObject(uf);             
             bie.SaveChanges();
+            
         }
 
     }

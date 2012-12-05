@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Data;
+using System.Data;
 
 namespace Business
 {
@@ -43,7 +44,7 @@ namespace Business
                     description=description
                 };
 
-                bie.AddTocompetences(comp);
+                bie.competences.AddObject(comp);
                 bie.SaveChanges();
             }
 
@@ -59,8 +60,9 @@ namespace Business
                 level=level,
             };
 
-            bie.AddTouser_competence(uc);
+            bie.user_competence.AddObject(uc);          
             bie.SaveChanges();
+     
         }
 
     }

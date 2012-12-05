@@ -34,7 +34,7 @@
     <div class="well">
         <div id="displayFormation">
             <asp:ObjectDataSource ID="ObjectDataSourceFormationForUser" runat="server" SelectMethod="GetFormations"
-                    TypeName="Business.FormationService">
+                    TypeName="Business.FormationService" >
                     <SelectParameters>
                         <asp:Parameter Name="userId" DbType="Guid" />
                     </SelectParameters>
@@ -46,10 +46,7 @@
                     </ItemTemplate>
                 </asp:Repeater>
         </div>
-        <div id="editFormation" runat="server">
-
-            <asp:ObjectDataSource ID="ObjectDataSourceFormations" runat="server" 
-                SelectMethod="GetFormations" TypeName="Business.FormationService"></asp:ObjectDataSource>
+        <div id="editFormation" runat="server">        
             
             <%-- Ajout du toolkitscript manager pour la suggestion (1seule instance autorisé par page)--%>
             <asp:ToolkitScriptManager ID="ToolkitScriptManagerFormation" runat="server">
@@ -146,13 +143,13 @@
                 EnableCaching="true" ServiceMethod="SuggestExpProDescription"                
                 ></asp:AutoCompleteExtender>
             <br />
-            <%--Date de début de la formation--%>
+            <%--Date de début de l'exp pro--%>
             <asp:Label ID="Label8" runat="server" Text="Date de début de la formation : "></asp:Label> 
                <asp:TextBox ID="TextBoxDateDebutEXpPro" runat="server"></asp:TextBox>             
             <asp:CalendarExtender ID="CalendarExtender3" runat="server" TargetControlID="TextBoxDateDebutEXpPro">
             </asp:CalendarExtender>
 
-             <%--Date de fin de la formation--%>
+             <%--Date de fin de l'exp pro--%>
             <asp:Label ID="Label9" runat="server" Text="Date de fin de la formation : "></asp:Label> 
                <asp:TextBox ID="TextBoxDateFinExpPro" runat="server"></asp:TextBox>             
             <asp:CalendarExtender ID="CalendarExtender4" runat="server" TargetControlID="TextBoxDateFinExpPro">
@@ -250,27 +247,7 @@
                               });
                           });  
              </script>  
-                <style type="text/css">  
-                        .rating_star  
-                        {  
-                            font-size: 0pt;  
-                            width:20px;  
-                            height: 20px;  
-                            margin: 5px;  
-                            padding: 0px;  
-                            cursor: pointer;  
-                            display: block;  
-                            background-repeat: no-repeat;  
-                        }  
-                        .rating_filled   
-                        {  
-                            background-color: Yellow;  
-                        }  
-                        .rating_empty   
-                        {  
-                            background-color: Gray;  
-                        }  
-                    </style>  
+  
 
             <asp:Label ID="Label15" runat="server" Text="Niveau : "></asp:Label>   
              
@@ -297,4 +274,25 @@
                 onclick="ButtonSkills_Click" />
         </div>
     </div>
+                  <style type="text/css">  
+                        .rating_star  
+                        {  
+                            font-size: 0pt;  
+                            width:20px;  
+                            height: 20px;  
+                            margin: 5px;  
+                            padding: 0px;  
+                            cursor: pointer;  
+                            display: block;  
+                            background-repeat: no-repeat;  
+                        }  
+                        .rating_filled   
+                        {  
+                            background-color: Yellow;  
+                        }  
+                        .rating_empty   
+                        {  
+                            background-color: Gray;  
+                        }  
+                    </style>  
 </asp:Content>
