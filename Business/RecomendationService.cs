@@ -67,6 +67,18 @@ namespace Business
             return listRP;
         }
 
+        public static List<RecommandationPlus> GetRecommandationsPlus(Guid userId)
+        {
+            return RecommandationToRecommandationPlus(getRecommandations(userId));
+        }
+
+        public static string getNFirstCharacteres(int n, string s)
+        {
+            return s.Substring(0, n);
+        }
+
+
+
         
     }
 }

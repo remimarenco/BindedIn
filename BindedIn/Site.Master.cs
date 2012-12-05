@@ -8,6 +8,7 @@ using System.Web.Security;
 using Data;
 using Business;
 
+
 namespace BindedIn
 {
     public partial class SiteMaster : System.Web.UI.MasterPage
@@ -18,7 +19,7 @@ namespace BindedIn
             if (this.Page.User.Identity.IsAuthenticated)
             {
                 //on affiche le nombre de message non lus
-                //LoginView2.LoggedInTemplate.
+                //linkMessage.InnerHtml += MessageService.GetStringCountUnreadMessage((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
             }
         }
 
