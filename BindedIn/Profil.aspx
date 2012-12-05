@@ -32,7 +32,8 @@
                     </asp:Repeater>
                 </div>
                 <div class="row-fluid">
-                    <asp:Button Text="Se connecter" runat="server" CssClass="btn btn-primary" />
+                    <asp:Button Text="Se connecter" runat="server" CssClass="btn btn-primary" 
+                        onclick="createRelation_Click"  />
                 </div>
             </div>
         </div>

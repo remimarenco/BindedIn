@@ -20,6 +20,16 @@ namespace BindedIn
                 //on affiche le nombre de message non lus
                 //LoginView2.LoggedInTemplate.
             }
+            
+            // On ne montre pas la div d'alerte si elle est vide
+            if (String.IsNullOrWhiteSpace(this.AlertSuccess.Text))
+            {
+                this.DivAlertSuccess.Visible = false;
+            }
+            else
+            {
+                this.DivAlertSuccess.Visible = true;
+            }
         }
 
         protected void searchButton_Click(object sender, EventArgs e)

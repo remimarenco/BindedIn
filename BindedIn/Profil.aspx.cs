@@ -20,6 +20,7 @@ namespace BindedIn
             editExp.Visible = false;
             editFormation.Visible = false;
             string idParam = Request.Params["id"];
+            
             if (idParam != null && Membership.GetUser(Request.Params["id"], false) != null)
             {
                 Profile = UserProfile.GetUserProfile(Request.Params["id"]);
@@ -236,6 +237,9 @@ namespace BindedIn
 
         #endregion
 
-
+        protected void createRelation_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(String.Format("Invitation.aspx?id={0}", Request.Params["id"]));
+        }
     }
 }
