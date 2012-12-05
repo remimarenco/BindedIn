@@ -19,15 +19,16 @@ namespace BindedIn
             editSkills.Visible = false;
             editExp.Visible = false;
             editFormation.Visible = false;
-
-            if(false)
+            string idParam = Request.Params["id"];
+            if (idParam != null && Membership.GetUser(Request.Params["id"], false) != null)
             {
-
+                Profile = UserProfile.GetUserProfile(Request.Params["id"]);
+                UserId = (Guid)(Membership.GetUser(Request.Params["id"], false).ProviderUserKey);
             }
             else
             {
-            Profile = UserProfile.GetUserProfile(User.Identity.Name);
-            UserId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
+                Profile = UserProfile.GetUserProfile(User.Identity.Name);
+                UserId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
             }
 
             ObjectDataSourceUserProfile.SelectParameters["id"].DefaultValue = UserId.ToString();
