@@ -85,6 +85,9 @@
     <Content Include="MessageForm.aspx" />
     <Content Include="MonCompte.aspx" />
     <Content Include="Profil.aspx" />
+    <Content Include="Recommandation.aspx" />
+    <Content Include="RecommandationDetail.aspx" />
+    <Content Include="RecommandationForm.aspx" />
     <Content Include="Relations.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Styles\Site.css" />
@@ -186,6 +189,27 @@
       <DependentUpon>Profil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recommandation.aspx.cs">
+      <DependentUpon>Recommandation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recommandation.aspx.designer.cs">
+      <DependentUpon>Recommandation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecommandationDetail.aspx.cs">
+      <DependentUpon>RecommandationDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecommandationDetail.aspx.designer.cs">
+      <DependentUpon>RecommandationDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecommandationForm.aspx.cs">
+      <DependentUpon>RecommandationForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecommandationForm.aspx.designer.cs">
+      <DependentUpon>RecommandationForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Relations.aspx.cs">
       <DependentUpon>Relations.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

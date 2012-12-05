@@ -51,7 +51,7 @@
                         --    SEARCHFORM - NAVBAR
                         -----------------------------------------------------------%>
                     <asp:TextBox ID="searchField" CssClass="search-query span2" placeholder="Recherche..." runat="server" />                        
-                    <asp:Button ID="SearchButton" cssClass="btn btn-small btn-inverse" runat="server" Text="OK" OnClick="searchButton_Click" />
+                    <asp:button  ID="SearchButton" cssClass="btn btn-small btn-inverse" type="button" runat="server" Text="OK" OnClick="searchButton_Click" />
                     <%-----------------------------------------------------------
                         --    END SEARCHFORM - NAVBAR
                         -----------------------------------------------------------%>

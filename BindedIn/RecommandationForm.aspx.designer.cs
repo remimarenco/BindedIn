@@ -10,7 +10,7 @@
 namespace BindedIn {
     
     
-    public partial class MessageDetail {
+    public partial class RecommandationForm {
         
         /// <summary>
         /// Contrôle not.
@@ -22,40 +22,13 @@ namespace BindedIn {
         protected global::System.Web.UI.WebControls.Label not;
         
         /// <summary>
-        /// Contrôle messageD.
+        /// Contrôle recommandationForm.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl messageD;
-        
-        /// <summary>
-        /// Contrôle lien.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lien;
-        
-        /// <summary>
-        /// Contrôle repondreButton.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button repondreButton;
-        
-        /// <summary>
-        /// Contrôle supprimerButton.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button supprimerButton;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl recommandationForm;
         
         /// <summary>
         /// Contrôle senderMessage.
@@ -76,31 +49,22 @@ namespace BindedIn {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lienProfile;
         
         /// <summary>
-        /// Contrôle destinataireM.
+        /// Contrôle lienProfile2.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label destinataireM;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lienProfile2;
         
         /// <summary>
-        /// Contrôle objectMessage.
+        /// Contrôle recipientLabel.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl objectMessage;
-        
-        /// <summary>
-        /// Contrôle objectM.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label objectM;
+        protected global::System.Web.UI.WebControls.Label recipientLabel;
         
         /// <summary>
         /// Contrôle corpsMessage.
@@ -118,33 +82,15 @@ namespace BindedIn {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label message;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea message;
         
         /// <summary>
-        /// Contrôle lien2.
+        /// Contrôle envoyerButton.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lien2;
-        
-        /// <summary>
-        /// Contrôle Button1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
-        /// Contrôle Button2.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button envoyerButton;
     }
 }

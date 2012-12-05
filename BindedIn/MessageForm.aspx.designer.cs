@@ -40,6 +40,24 @@ namespace BindedIn {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl senderMessage;
         
         /// <summary>
+        /// Contrôle lienProfile.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lienProfile;
+        
+        /// <summary>
+        /// Contrôle lienProfile2.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lienProfile2;
+        
+        /// <summary>
         /// Contrôle recipientLabel.
         /// </summary>
         /// <remarks>
