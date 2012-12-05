@@ -74,6 +74,11 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="channel.html" />
     <Content Include="Images\140x140.gif" />
+    <Content Include="Images\buildings-riot-sized-flou.jpg" />
+    <Content Include="Images\network.png" />
+    <Content Include="Images\office-flou.jpg" />
+    <Content Include="Images\resume.png" />
+    <Content Include="Images\search.png" />
     <Content Include="Invitation.aspx" />
     <Content Include="Libs\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="Libs\bootstrap\css\bootstrap-responsive.min.css" />

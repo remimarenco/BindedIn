@@ -36,7 +36,7 @@ namespace BindedIn
         protected void logout_click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
-            Response.Redirect(FormsAuthentication.LoginUrl);
+            Response.Redirect("/Default.aspx");
         }
 
         protected void ButLoginDD_Click(object sender, EventArgs e)
