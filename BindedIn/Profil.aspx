@@ -22,13 +22,16 @@
             </div>
             <div class="span9">
                 <div class="row-fluid">
-                    <asp:Repeater ID="Repeater3" runat="server" DataSourceID="ObjectDataSourceUserProfile">  
+                    <asp:Repeater ID="Repeater3" runat="server" 
+                        DataSourceID="ObjectDataSourceUserProfile">  
                         <ItemTemplate>  
-                            <span class="span9">
-                                <h1> <%#Eval("FirstName") %> <%#Eval("LastName") %> </h1>
-                                 <br /><a href="<%# String.Format("MessageForm.aspx?id={0}", Eval("UserName")) %>" > <i class=" icon-envelope"></i>Envoyer un message</a>
-                            <br /><a href="<%# String.Format("RecommandationForm.aspx?id={0}", Eval("UserName")) %>" > <i class="icon-thumbs-up"></i>Recommander cette personne</a>
-                            </span>
+                            <div class="span9">
+                                <h1><%#Eval("FirstName") %> <%#Eval("LastName") %></h1>
+                                 <div id="messages_links">
+                                    <a href='<%# String.Format("MessageForm.aspx?id={0}", Eval("UserName")) %>' runat="server"> <i class=" icon-envelope"></i>Envoyer un message</a><br />
+                                    <a href='<%# String.Format("RecommandationForm.aspx?id={0}", Eval("UserName")) %>' runat="server"> <i class="icon-thumbs-up"></i>Recommander cette personne</a>
+                                </div>
+                            </div>
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
@@ -40,9 +43,10 @@
                     <asp:Button ID="waitingButton" Text="En cours" runat="server" CssClass="btn btn-success disabled" />
                 </div>
             </div>
-    </div>
-        
-        
+    </div>  
+    
+    
+
     <%-- 
       -- EXPERIENCE
       --%>
@@ -435,10 +439,8 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
-        </div>            
-        </div>
-        </div>
-
+        </div>      
+       
     <script type="text/javascript">
         function onRated(sender, args) {
             $get('log').innerHTML += "Rated: " + sender.get_Rating() + "<br/>";

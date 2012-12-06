@@ -85,24 +85,6 @@ namespace BindedIn {
         protected global::System.Web.UI.WebControls.TextBox objectTextBox;
         
         /// <summary>
-        /// Contrôle objectMessage.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl objectMessage;
-        
-        /// <summary>
-        /// Contrôle corpsMessage.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl corpsMessage;
-        
-        /// <summary>
         /// Contrôle message.
         /// </summary>
         /// <remarks>
