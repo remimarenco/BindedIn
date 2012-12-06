@@ -562,36 +562,39 @@ namespace BindedIn {
         protected global::System.Web.UI.WebControls.Button ButtonSkills;
         
         /// <summary>
-<<<<<<< HEAD
         /// Contrôle ObjectDataSourceSkillsForUser.
-=======
-        /// Contrôle ObjectDataSourceForRecommandations.
->>>>>>> 2e6301913f78b7387c769b5eb96557518a509976
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceSkillsForUser;
         
         /// <summary>
         /// Contrôle Repeater2.
-=======
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceForRecommandations;
-        
-        /// <summary>
-        /// Contrôle Repeater4.
->>>>>>> 2e6301913f78b7387c769b5eb96557518a509976
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Repeater Repeater2;
-=======
+        
+        /// <summary>
+        /// Contrôle ObjectDataSourceEXpForUser.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceEXpForUser;
+        
+        /// <summary>
+        /// Contrôle Repeater4.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater Repeater4;
->>>>>>> 2e6301913f78b7387c769b5eb96557518a509976
     }
 }

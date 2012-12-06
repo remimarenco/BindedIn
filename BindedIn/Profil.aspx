@@ -24,11 +24,13 @@
                      <br /><a href="<%# String.Format("MessageForm.aspx?id={0}", Eval("UserName")) %>" > <i class=" icon-envelope"></i>Envoyer un message</a>
                 <br /><a href="<%# String.Format("RecommandationForm.aspx?id={0}", Eval("UserName")) %>" > <i class="icon-thumbs-up"></i>Recommander cette personne</a>
                 </span>
-               
             </ItemTemplate>
         </asp:Repeater>
     </div>
 
+    <div class="row-fluid">
+        
+        
     <%-- 
       -- EXPERIENCE
       --%>
@@ -401,38 +403,29 @@
         </div>
     </div>     
    
+   <h2>Recommandations</h2>
+    <div class="well">
+        <div id="Div1">
+            <asp:ObjectDataSource ID="ObjectDataSourceEXpForUser" runat="server" SelectMethod="GetProferssionalExp"
+                    TypeName="Business.ProfessionalExpService">
+                    <SelectParameters>
+                        <asp:Parameter Name="userId" DbType="Guid" DefaultValue="" />
+                    </SelectParameters>
+                </asp:ObjectDataSource>
+                <asp:Repeater ID="Repeater4" runat="server" DataSourceID="ObjectDataSourceEXpForUser">
+                    <ItemTemplate>
+                        <%#Eval("name") %>,
+                        <%#Eval("description") %>
+                    </ItemTemplate>
+                </asp:Repeater>
+        </div>            
+        </div>
+        </div>
 
-<<<<<<< HEAD
     <script type="text/javascript">
         function onRated(sender, args) {
             $get('log').innerHTML += "Rated: " + sender.get_Rating() + "<br/>";
         }
-=======
-    <h2>Experience professionelle</h2>
-    <div class="row-fluid">   
-        <div class="well">
-            <div id="showReco">
-                <asp:ObjectDataSource ID="ObjectDataSourceForRecommandations" runat="server" SelectMethod="GetRecommandationsPlus"
-                        TypeName="Business.RecomendationService">
-                        <SelectParameters>
-                            <asp:Parameter Name="userId" DbType="Guid" DefaultValue="" />
-                        </SelectParameters>
-                    </asp:ObjectDataSource>
-                    <asp:Repeater ID="Repeater4" runat="server" DataSourceID="ObjectDataSourceForRecommandations">
-                        <ItemTemplate>
-                            <br /><u>Recommandé par:</u> <b><%#Eval("senderName") %></b>
-                            <br /><%#Eval("message")%><br />
-                        </ItemTemplate>
-                    </asp:Repeater>
-            </div>
-         </div>
-     </div> 
-
-<script type="text/javascript">
-    function onRated(sender, args) {
-        $get('log').innerHTML += "Rated: " + sender.get_Rating() + "<br/>";
-    }
->>>>>>> 2e6301913f78b7387c769b5eb96557518a509976
 
         Sys.require(Sys.components.rating, function () {
             $("#rate1").rating({

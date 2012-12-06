@@ -35,7 +35,6 @@ namespace Business
             bindedinEntities bie = SingletonEntities.Instance;
             var retour = from ue in bie.user_experienceprofessional
                          from p in bie.v_xp_companies
-                         orderby p.end_date ascending
                          where ue.user.Equals(userId)
                          where ue.experience_professional.Equals(p.id)
                          select p;
@@ -85,7 +84,6 @@ namespace Business
             bie.SaveChanges();
             
         }
-
 
         public static void Remove(string p, Guid userid)
         {
