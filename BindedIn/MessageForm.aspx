@@ -9,7 +9,7 @@
             <div ID="senderMessage" runat="server" style="border-bottom: 1px solid black; margin-top:5px;" > 
                 <div class="media" runat="server">
                     <a class="pull-left" ID="lienProfile" runat="server">
-                        <asp:Image ID="ImageProfile" class="media-object"  ImageUrl="http://placehold.it/64x64" runat="server" />
+                        <asp:Image ID="ImageProfile" class="media-object"  ImageUrl="http://placehold.it/64x64" style="width:64px; height:64px"  CssClass="img-polaroid span3" runat="server" />
                     </a>  
                     <div class="media-body">
                         <b>A: </b><asp:Label ID="recipientLabel" runat="server" /> <br />

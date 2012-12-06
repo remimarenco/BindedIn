@@ -58,13 +58,31 @@ namespace BindedIn {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl senderMessage;
         
         /// <summary>
-        /// Contrôle lienProfile.
+        /// Contrôle lienDestinataire1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lienProfile;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lienDestinataire1;
+        
+        /// <summary>
+        /// Contrôle ImageProfile.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImageProfile;
+        
+        /// <summary>
+        /// Contrôle lienDestinataire2.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lienDestinataire2;
         
         /// <summary>
         /// Contrôle destinataireM.

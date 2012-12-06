@@ -279,12 +279,13 @@
 
     <%--Display formations--%>
     <div id="displayFormation">
-        <asp:ObjectDataSource ID="ObjectDataSourceFormationForUser" runat="server" SelectMethod="GetFormationSchools" UpdateMethod="GetFormationSchools"
-                TypeName="Business.FormationService" >
-                <SelectParameters>
-                    <asp:Parameter Name="userId" DbType="Guid" />
-                </SelectParameters>
-            </asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="ObjectDataSourceFormationForUser" runat="server" 
+            DataObjectTypeName="System.Guid" SelectMethod="GetFormationSchools" 
+            TypeName="Business.FormationService" UpdateMethod="GetFormationSchools">
+            <SelectParameters>
+                <asp:Parameter DbType="Guid" Name="userId" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
             <asp:Repeater ID="RepeaterFormation" runat="server" DataSourceID="ObjectDataSourceFormationForUser">
                 <ItemTemplate>
                     <div class="well">
@@ -413,20 +414,24 @@
     </div>     
    
    <h2>Recommandations</h2>
-    <div class="well">
-        <div id="Div1">
-            <asp:ObjectDataSource ID="ObjectDataSourceEXpForUser" runat="server" SelectMethod="GetProferssionalExp"
-                    TypeName="Business.ProfessionalExpService">
-                    <SelectParameters>
-                        <asp:Parameter Name="userId" DbType="Guid" DefaultValue="" />
-                    </SelectParameters>
-                </asp:ObjectDataSource>
-                <asp:Repeater ID="Repeater4" runat="server" DataSourceID="ObjectDataSourceEXpForUser">
-                    <ItemTemplate>
-                        <%#Eval("name") %>,
-                        <%#Eval("description") %>
-                    </ItemTemplate>
-                </asp:Repeater>
+    
+            <asp:ObjectDataSource ID="ObjectDataSourceRecommandation" runat="server" SelectMethod="GetRecommandationsPlus"
+                    TypeName="Business.RecomendationService" 
+                DataObjectTypeName="System.Guid" UpdateMethod="GetRecommandationsPlus">
+                <SelectParameters>
+                    <asp:Parameter Name="userId" DbType="Guid" DefaultValue="" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
+            <asp:Repeater ID="Repeater4" runat="server" DataSourceID="ObjectDataSourceRecommandation">
+                <ItemTemplate>
+                    <div class="well">
+                        <div id="Div1">
+                            <div><span class="badge badge-info"><%#Eval("senderName")%></span></div>
+                            <div class="offset1" style="margin-top:10px;"><%#Eval("message")%></div>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>            
         </div>
         </div>

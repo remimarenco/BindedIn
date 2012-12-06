@@ -13,11 +13,9 @@
             <div ID="senderMessage" runat="server" style="border-bottom: 1px solid black; margin-top:5px;" >
 
                     <div class="media">
-                        <a class="pull-left" ID="lienProfile" runat="server">
-                            <img class="media-object" src="http://placehold.it/64x64">
-                        </a>  
+                        <a  class="pull-left" id="lienDestinataire1" runat="server" ><asp:Image ID="ImageProfile" class="media-object"  ImageUrl="http://placehold.it/64x64" style="width:64px; height:64px"  CssClass="img-polaroid span3" runat="server" />   
                         <div class="media-body">
-                            <b>Recommandation de: </b> <br /><asp:Label ID="destinataireM"  runat="server" /><br />
+                            <b>Recommandation de: </b> <br /><a  class="pull-left" id="lienDestinataire2" runat="server" ><asp:Label ID="destinataireM"  runat="server" /></a><br />
                         </div>
                     </div> 
             </div>

@@ -32,15 +32,18 @@ namespace BindedIn
                     {
                         //on recupere le userprofile a prtir de l'id
                         UserProfile u = UserProfile.GetUserProfile(Request.Params["id"]);
+                        
 
                         recId = u.UserName;
 
                         //on remplit le champ destinataire
                         recipientLabel.Text = u.FirstName + " " + u.LastName;
-                        string uId = u.ToString();
-                        //ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + uId;
+
+                        Guid userGuid = (Guid)Membership.GetUser(recId, false).ProviderUserKey;
+                        string uId = userGuid.ToString();
+                        ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + uId;
                         // Fix cache issues
-                        //ImageProfile.ImageUrl += "&tmp=" + DateTime.Now;
+                        ImageProfile.ImageUrl += "&tmp=" + DateTime.Now;
                     }
                     // si un id de message à repondre est passé
                     else if (Request.Params["response"] != null)
@@ -60,6 +63,11 @@ namespace BindedIn
 
                         //on remplit le champ destinataire
                         recipientLabel.Text = u.FirstName + " " + u.LastName;
+
+                        string uId = m.sender.ToString();
+                        ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + uId;
+                        // Fix cache issues
+                        ImageProfile.ImageUrl += "&tmp=" + DateTime.Now;
 
 
                     }
