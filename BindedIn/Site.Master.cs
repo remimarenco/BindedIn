@@ -19,18 +19,11 @@ namespace BindedIn
             if (this.Page.User.Identity.IsAuthenticated)
             {
                 //on affiche le nombre de message non lus
-                //linkMessage.InnerHtml += MessageService.GetStringCountUnreadMessage((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
+                string nb = MessageService.GetStringCountUnreadMessage((Guid)Membership.GetUser(this.Page.User.Identity.Name, false).ProviderUserKey);
+                if( nb != "" )
+                    linkMessage.InnerHtml += " <span class=\"badge badge-important\">" + nb + "</span>";
             }
-            
-            // On ne montre pas la div d'alerte si elle est vide
-            if (String.IsNullOrWhiteSpace(this.AlertSuccess.Text))
-            {
-                this.DivAlertSuccess.Visible = false;
-            }
-            else
-            {
-                this.DivAlertSuccess.Visible = true;
-            }
+            else linkMessage.Visible = false;
         }
 
         protected void searchButton_Click(object sender, EventArgs e)
