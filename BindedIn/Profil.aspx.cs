@@ -16,19 +16,22 @@ namespace BindedIn
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            editSkills.Visible = false;
             editExp.Visible = false;
             editFormation.Visible = false;
+            editSkills.Visible = false;
             string idParam = Request.Params["id"];
+            
             if (idParam != null && Membership.GetUser(Request.Params["id"], false) != null)
             {
                 Profile = UserProfile.GetUserProfile(Request.Params["id"]);
                 UserId = (Guid)(Membership.GetUser(Request.Params["id"], false).ProviderUserKey);
+                ShowEditButtons(false);               
             }
             else
             {
                 Profile = UserProfile.GetUserProfile(User.Identity.Name);
                 UserId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
+                ShowEditButtons(true);
             }
 
             ObjectDataSourceUserProfile.SelectParameters["id"].DefaultValue = UserId.ToString();
@@ -38,6 +41,53 @@ namespace BindedIn
             ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + UserId.ToString();
             // Fix cache issues
             ImageProfile.ImageUrl += "&tmp=" + DateTime.Now;
+            Repeater1.ItemDataBound += new RepeaterItemEventHandler(Repeater1_ItemDataBound);
+            RepeaterFormation.ItemDataBound += new RepeaterItemEventHandler(RepeaterFormation_ItemDataBound);
+            Repeater2.ItemDataBound += new RepeaterItemEventHandler(Repeater2_ItemDataBound);
+        }
+
+        void Repeater2_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            ShowEditionControls(e);
+        }
+
+        void RepeaterFormation_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            ShowEditionControls(e);
+        }
+
+        void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            ShowEditionControls(e);
+        }
+
+      
+
+        private void ShowEditButtons(bool b)
+        {
+            ButtonEditExp.Visible = b;
+            ButtonEditFormation.Visible = b;
+            ButtonEditSkills.Visible = b;            
+        }
+
+        private void ShowEditionControls(RepeaterItemEventArgs e)
+        {
+            string idParam = Request.Params["id"];
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                foreach (Control c in e.Item.Controls)
+                {
+                    if (c is Button)
+                    {
+                        // Grab label
+                        Button btn = c as Button;
+                        if (idParam != null && Membership.GetUser(Request.Params["id"], false) != null)
+                            btn.Visible = false;
+                        else
+                            btn.Visible = true;
+                    }
+                }
+            }    
         }
 
         protected void ButtonEdit_Click(object sender, EventArgs e)
