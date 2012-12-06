@@ -86,5 +86,21 @@ namespace Business
            
         }
 
+        public static void Remove(string p, Guid userid)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+            int id = Int32.Parse(p);
+
+            var retour = from i in bie.user_formation
+                         where i.formation.Equals(id)
+                         && i.user.Equals(userid)
+                         select i;
+            foreach (user_formation exp in retour)
+            {
+                bie.user_formation.DeleteObject(exp);
+            }
+            bie.SaveChanges();
+        }
+
     }
 }
