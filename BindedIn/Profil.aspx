@@ -279,12 +279,13 @@
 
     <%--Display formations--%>
     <div id="displayFormation">
-        <asp:ObjectDataSource ID="ObjectDataSourceFormationForUser" runat="server" SelectMethod="GetFormationSchools" UpdateMethod="GetFormationSchools"
-                TypeName="Business.FormationService" >
-                <SelectParameters>
-                    <asp:Parameter Name="userId" DbType="Guid" />
-                </SelectParameters>
-            </asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="ObjectDataSourceFormationForUser" runat="server" 
+            DataObjectTypeName="System.Guid" SelectMethod="GetFormationSchools" 
+            TypeName="Business.FormationService" UpdateMethod="GetFormationSchools">
+            <SelectParameters>
+                <asp:Parameter DbType="Guid" Name="userId" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
             <asp:Repeater ID="RepeaterFormation" runat="server" DataSourceID="ObjectDataSourceFormationForUser">
                 <ItemTemplate>
                     <div class="well">
@@ -425,8 +426,8 @@
                 <ItemTemplate>
                     <div class="well">
                         <div id="Div1">
-                            <%#Eval("senderName")%>,
-                            <%#Eval("message")%>
+                            <div><span class="badge badge-info"><%#Eval("senderName")%></span></div>
+                            <div class="offset1" style="margin-top:10px;"><%#Eval("message")%></div>
                         </div>
                     </div>
                 </ItemTemplate>
