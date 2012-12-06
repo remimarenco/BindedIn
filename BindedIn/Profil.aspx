@@ -40,9 +40,10 @@
                         onclick="createRelation_Click"  />
                 </div>
             </div>
-    </div>
-        
-        
+    </div>  
+    
+    
+
     <%-- 
       -- EXPERIENCE
       --%>
@@ -435,10 +436,8 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
-        </div>            
-        </div>
-        </div>
-
+        </div>      
+       
     <script type="text/javascript">
         function onRated(sender, args) {
             $get('log').innerHTML += "Rated: " + sender.get_Rating() + "<br/>";
