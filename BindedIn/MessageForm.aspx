@@ -29,10 +29,13 @@
                 </div>       
             </div>
             
-            <textarea class="field span12" rows="10"  ID="message" runat="server" placeholder="Ecrivez votre message..."></textarea>
+            <textarea name="fieldname" class="field span12" rows="10"  ID="message" runat="server" placeholder="Ecrivez votre message..."></textarea>
           
 
             <asp:Button ID="envoyerButton" Text="Envoyer" runat="server" CssClass="btn btn-large btn-success pull-right"
                 onclick="envoyerButton_Click" />
         </div> 
+  <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
+       bkLib.onDomLoaded(function () { nicEditors.allTextAreas() });
+  </script>
 </asp:Content>
