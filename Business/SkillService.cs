@@ -77,6 +77,23 @@ namespace Business
             bie.SaveChanges();
      
         }
+        public static void Remove(string p, Guid userid)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+            int id = Int32.Parse(p);
+
+            var retour = from i in bie.user_competence
+                         where i.competence.Equals(id)
+                         && i.user.Equals(userid)
+                         select i;
+            foreach (user_competence exp in retour)
+            {
+                bie.user_competence.DeleteObject(exp);
+            }
+            bie.SaveChanges();
+        }
+
+
 
     }
 }

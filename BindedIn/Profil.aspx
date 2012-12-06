@@ -175,8 +175,7 @@
                         <p class="offset1"><%#Eval("desc_xp") %></p>
                     </div>
                             
-                    <div class="span2 btn-group-vertical">
-                        <asp:Button class="btn btn-info" ID="ButtonEditXP" runat="server" Text="Modifier" CommandArgument='<%#Eval("id") %>' onclick="ButtonEdit_Click" />
+                    <div class="span2 btn-group-vertical">                        
                         <asp:Button class="btn btn-danger" ID="ButtonDeleteXP" runat="server" Text="Supprimer" CommandArgument='<%#Eval("id") %>' onclick="ButtonDeleteExpPro_Click" />
                     </div>                            
                 </div>
@@ -279,8 +278,9 @@
 
     <%--Display formations--%>
     <div id="displayFormation">
-        <asp:ObjectDataSource ID="ObjectDataSourceFormationForUser" runat="server" SelectMethod="GetFormationSchools" UpdateMethod="GetFormationSchools"
-                TypeName="Business.FormationService" >
+        <asp:ObjectDataSource ID="ObjectDataSourceFormationForUser" runat="server" 
+            SelectMethod="GetFormationSchools" UpdateMethod="GetFormationSchools"
+                TypeName="Business.FormationService" DataObjectTypeName="System.Guid" >
                 <SelectParameters>
                     <asp:Parameter Name="userId" DbType="Guid" />
                 </SelectParameters>
@@ -304,9 +304,8 @@
                                 <p class="offset1"><%#Eval("desc_formation") %></p>
                             </div>
                             
-                            <div class="span2 btn-group-vertical">
-                                <asp:Button class="btn btn-info" ID="Button1" runat="server" Text="Modifier" onclick="ButtonEdit_Click" />
-                                <asp:Button class="btn btn-danger" ID="Button2" runat="server" Text="Supprimer" onclick="ButtonEdit_Click" />
+                            <div class="span2 btn-group-vertical">                                
+                                <asp:Button class="btn btn-danger" ID="Button2" runat="server" Text="Supprimer" CommandArgument='<%#Eval("id") %>' onclick="ButtonDeleteFormation_Click" />
                             </div>                            
                         </div>
                     </div>
@@ -390,8 +389,9 @@
     <%--Display skills--%>
     <div id="displaySkills">
         <div class="well">
-            <asp:ObjectDataSource ID="ObjectDataSourceSkillsForUser" runat="server" SelectMethod="GetSkillsUser" UpdateMethod="GetSkillsUser"
-                TypeName="Business.SkillService">
+            <asp:ObjectDataSource ID="ObjectDataSourceSkillsForUser" runat="server" 
+                SelectMethod="GetSkillsUser" UpdateMethod="GetSkillsUser"
+                TypeName="Business.SkillService" DataObjectTypeName="System.Guid">
                 <SelectParameters>
                     <asp:Parameter Name="userId" DbType="Guid" />
                 </SelectParameters>
@@ -401,9 +401,10 @@
                     <div class="row-fluid">
                     <div class="span11"><span class="badge badge-success"><%# Eval("level") %>/5</span> <%# Eval("name") %></div>
                     <div class="btn-toolbar span1" style="margin:0px;">
-                        <div class="btn-group">
-                            <a href="" class="btn btn-mini btn-info" ID="Button1" runat="server" onServerClick="ButtonEdit_Click"><i class="icon-pencil"></i></a>
-                            <a href="" class="btn btn-mini btn-danger" ID="Button2" runat="server" onServerClick="ButtonEdit_Click"><i class="icon-remove"></i></a>
+                        <div class="btn-group"> 
+                           <%-- <asp:HyperLink ID="HyperLink1" runat="server" class="btn btn-mini btn-danger" Text='<%#Eval("id") %>' onServerClick="ButtonDeleteSkills_Click"><i class="icon-remove"></i></asp:HyperLink> --%>                      
+                            <%--<a href="" class="btn btn-mini btn-danger" ID="Button2" runat="server" onServerClick="ButtonDeleteSkills_Click"><i class="icon-remove"></i></a>--%>
+                            <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-mini btn-danger" CommandArgument='<%#Eval("id") %>' OnClick="ButtonDeleteSkills_Click"><i class="icon-remove"></i></asp:LinkButton>
                         </div>
                     </div>
                     </div>
