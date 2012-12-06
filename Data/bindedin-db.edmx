@@ -528,8 +528,8 @@
           <Property Name="beginning_date" Type="date" Nullable="false" />
           <Property Name="end_date" Type="date" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.v_formation_schools » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.v_formation_schools' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="v_formation_schools">
           <Key>
@@ -543,8 +543,8 @@
           <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Expr1" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.v_formation_schools1 » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.v_formation_schools1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="v_formation_schools1">
           <Key>
@@ -566,8 +566,8 @@
           <Property Name="beginning_date" Type="date" Nullable="false" />
           <Property Name="end_date" Type="date" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.v_user_competences » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.v_user_competences' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="v_user_competences">
           <Key>
@@ -583,8 +583,8 @@
           <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.v_xp_companies » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.v_xp_companies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="v_xp_companies">
           <Key>
@@ -606,8 +606,8 @@
           <Property Name="beginning_date" Type="date" Nullable="false" />
           <Property Name="end_date" Type="date" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_Applications » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_Applications' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_Applications">
           <Key>
@@ -620,8 +620,8 @@
           <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_MembershipUsers » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_MembershipUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_MembershipUsers">
           <Key>
@@ -666,8 +666,8 @@
           <Property Name="IsAnonymous" Type="bit" Nullable="false" />
           <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_Profiles » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_Profiles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_Profiles">
           <Key>
@@ -678,8 +678,8 @@
           <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
           <Property Name="DataSize" Type="int" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_Roles » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_Roles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_Roles">
           <Key>
@@ -694,8 +694,8 @@
           <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_Users » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_Users">
           <Key>
@@ -714,8 +714,8 @@
           <Property Name="IsAnonymous" Type="bit" Nullable="false" />
           <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_UsersInRoles » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_UsersInRoles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_UsersInRoles">
           <Key>
@@ -725,8 +725,8 @@
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_WebPartState_Paths » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_WebPartState_Paths' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_WebPartState_Paths">
           <Key>
@@ -740,8 +740,8 @@
           <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="256" />
           <Property Name="LoweredPath" Type="nvarchar" Nullable="false" MaxLength="256" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_WebPartState_Shared » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_WebPartState_Shared' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_WebPartState_Shared">
           <Key>
@@ -752,8 +752,8 @@
           <Property Name="DataSize" Type="int" />
           <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-      Avertissement 6002: La table/vue « bindedin.dbo.vw_aspnet_WebPartState_User » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'bindedin.dbo.vw_aspnet_WebPartState_User' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="vw_aspnet_WebPartState_User">
           <Key>
@@ -2411,451 +2411,299 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="bindedinModelStoreContainer" CdmEntityContainer="bindedinEntities">
-          <EntitySetMapping Name="aspnet_Applications">
-            <EntityTypeMapping TypeName="bindedinModel.aspnet_Applications">
-              <MappingFragment StoreEntitySet="aspnet_Applications">
-                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
-                <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Membership">
-            <EntityTypeMapping TypeName="bindedinModel.aspnet_Membership">
-              <MappingFragment StoreEntitySet="aspnet_Membership">
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
-                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
-                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
-                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
-                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
-                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
-                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
-                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
-                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
-                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
-                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
-                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
-                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Paths">
-            <EntityTypeMapping TypeName="bindedinModel.aspnet_Paths">
-              <MappingFragment StoreEntitySet="aspnet_Paths">
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-                <ScalarProperty Name="PathId" ColumnName="PathId" />
-                <ScalarProperty Name="Path" ColumnName="Path" />
-                <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
-            <EntityTypeMapping TypeName="bindedinModel.aspnet_PersonalizationAllUsers">
-              <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
-                <ScalarProperty Name="PathId" ColumnName="PathId" />
-                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_PersonalizationPerUser">
-            <EntityTypeMapping TypeName="bindedinModel.aspnet_PersonalizationPerUser">
-              <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="PathId" ColumnName="PathId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Profile">
-            <EntityTypeMapping TypeName="bindedinModel.aspnet_Profile">
-              <MappingFragment StoreEntitySet="aspnet_Profile">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
-                <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
-                <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Roles">
-            <EntityTypeMapping TypeName="bindedinModel.aspnet_Roles">
-              <MappingFragment StoreEntitySet="aspnet_Roles">
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_SchemaVersions">
-            <EntityTypeMapping TypeName="bindedinModel.aspnet_SchemaVersions">
-              <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
-                <ScalarProperty Name="Feature" ColumnName="Feature" />
-                <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
-                <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Users">
-            <EntityTypeMapping TypeName="bindedinModel.aspnet_Users">
-              <MappingFragment StoreEntitySet="aspnet_Users">
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
-                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
-                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
-                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_UsersInRoles">
-            <EntityTypeMapping TypeName="bindedinModel.aspnet_UsersInRoles">
-              <MappingFragment StoreEntitySet="aspnet_UsersInRoles">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_WebEvent_Events">
-            <EntityTypeMapping TypeName="bindedinModel.aspnet_WebEvent_Events">
-              <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
-                <ScalarProperty Name="EventId" ColumnName="EventId" />
-                <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
-                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
-                <ScalarProperty Name="EventType" ColumnName="EventType" />
-                <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
-                <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
-                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
-                <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
-                <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
-                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
-                <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
-                <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="companies">
-            <EntityTypeMapping TypeName="bindedinModel.company">
-              <MappingFragment StoreEntitySet="companies">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nom" ColumnName="nom" />
-                <ScalarProperty Name="adresse" ColumnName="adresse" />
-                <ScalarProperty Name="telephone" ColumnName="telephone" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="competences">
-            <EntityTypeMapping TypeName="bindedinModel.competence">
-              <MappingFragment StoreEntitySet="competences">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="description" ColumnName="description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="formations">
-            <EntityTypeMapping TypeName="bindedinModel.formation">
-              <MappingFragment StoreEntitySet="formations">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="school" ColumnName="school" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Images">
-            <EntityTypeMapping TypeName="bindedinModel.Image">
-              <MappingFragment StoreEntitySet="Image">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Image1" ColumnName="Image" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Current" ColumnName="Current" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="messages">
-            <EntityTypeMapping TypeName="bindedinModel.message">
-              <MappingFragment StoreEntitySet="messages">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="recipient" ColumnName="recipient" />
-                <ScalarProperty Name="sender" ColumnName="sender" />
-                <ScalarProperty Name="object" ColumnName="object" />
-                <ScalarProperty Name="message1" ColumnName="message1" />
-                <ScalarProperty Name="date" ColumnName="date" />
-                <ScalarProperty Name="isRead" ColumnName="isRead" />
-                <ScalarProperty Name="isRemovedRecipient" ColumnName="isRemovedRecipient" />
-                <ScalarProperty Name="isRemovedSender" ColumnName="isRemovedSender" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="professional_experience">
-            <EntityTypeMapping TypeName="bindedinModel.professional_experience">
-              <MappingFragment StoreEntitySet="professional_experience">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="company" ColumnName="company" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="recommandations">
-            <EntityTypeMapping TypeName="bindedinModel.recommandation">
-              <MappingFragment StoreEntitySet="recommandations">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="recipient" ColumnName="recipient" />
-                <ScalarProperty Name="sender" ColumnName="sender" />
-                <ScalarProperty Name="message" ColumnName="message" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="relation_status">
-            <EntityTypeMapping TypeName="bindedinModel.relation_status">
-              <MappingFragment StoreEntitySet="relation_status">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="asking_user" ColumnName="asking_user" />
-                <ScalarProperty Name="asked_user" ColumnName="asked_user" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="asked_date" ColumnName="asked_date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="schools">
-            <EntityTypeMapping TypeName="bindedinModel.school">
-              <MappingFragment StoreEntitySet="schools">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="description" ColumnName="description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="status_name">
-            <EntityTypeMapping TypeName="bindedinModel.status_name">
-              <MappingFragment StoreEntitySet="status_name">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="status" ColumnName="status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="bindedinModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="user_competence">
-            <EntityTypeMapping TypeName="bindedinModel.user_competence">
-              <MappingFragment StoreEntitySet="user_competence">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="user" ColumnName="user" />
-                <ScalarProperty Name="competence" ColumnName="competence" />
-                <ScalarProperty Name="level" ColumnName="level" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="user_experienceprofessional">
-            <EntityTypeMapping TypeName="bindedinModel.user_experienceprofessional">
-              <MappingFragment StoreEntitySet="user_experienceprofessional">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="user" ColumnName="user" />
-                <ScalarProperty Name="experience_professional" ColumnName="experience_professional" />
-                <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="user_formation">
-            <EntityTypeMapping TypeName="bindedinModel.user_formation">
-              <MappingFragment StoreEntitySet="user_formation">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="user" ColumnName="user" />
-                <ScalarProperty Name="formation" ColumnName="formation" />
-                <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_formation_schools">
-            <EntityTypeMapping TypeName="bindedinModel.v_formation_schools">
-              <MappingFragment StoreEntitySet="v_formation_schools">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_formation_schools1">
-            <EntityTypeMapping TypeName="bindedinModel.v_formation_schools1">
-              <MappingFragment StoreEntitySet="v_formation_schools1">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name_formation" ColumnName="name_formation" />
-                <ScalarProperty Name="desc_formation" ColumnName="desc_formation" />
-                <ScalarProperty Name="name_school" ColumnName="name_school" />
-                <ScalarProperty Name="desc_school" ColumnName="desc_school" />
-                <ScalarProperty Name="user" ColumnName="user" />
-                <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_user_competences">
-            <EntityTypeMapping TypeName="bindedinModel.v_user_competences">
-              <MappingFragment StoreEntitySet="v_user_competences">
-                <ScalarProperty Name="level" ColumnName="level" />
-                <ScalarProperty Name="user" ColumnName="user" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="description" ColumnName="description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_xp_companies">
-            <EntityTypeMapping TypeName="bindedinModel.v_xp_companies">
-              <MappingFragment StoreEntitySet="v_xp_companies">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name_xp" ColumnName="name_xp" />
-                <ScalarProperty Name="desc_xp" ColumnName="desc_xp" />
-                <ScalarProperty Name="name_company" ColumnName="name_company" />
-                <ScalarProperty Name="adresse" ColumnName="adresse" />
-                <ScalarProperty Name="telephone" ColumnName="telephone" />
-                <ScalarProperty Name="user" ColumnName="user" />
-                <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
-                <ScalarProperty Name="end_date" ColumnName="end_date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_aspnet_Applications">
-            <EntityTypeMapping TypeName="bindedinModel.vw_aspnet_Applications">
-              <MappingFragment StoreEntitySet="vw_aspnet_Applications">
-                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
-                <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_aspnet_MembershipUsers">
-            <EntityTypeMapping TypeName="bindedinModel.vw_aspnet_MembershipUsers">
-              <MappingFragment StoreEntitySet="vw_aspnet_MembershipUsers">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
-                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
-                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
-                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
-                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
-                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
-                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
-                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
-                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
-                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
-                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
-                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
-                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
-                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_aspnet_Profiles">
-            <EntityTypeMapping TypeName="bindedinModel.vw_aspnet_Profiles">
-              <MappingFragment StoreEntitySet="vw_aspnet_Profiles">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="DataSize" ColumnName="DataSize" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_aspnet_Roles">
-            <EntityTypeMapping TypeName="bindedinModel.vw_aspnet_Roles">
-              <MappingFragment StoreEntitySet="vw_aspnet_Roles">
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_aspnet_Users">
-            <EntityTypeMapping TypeName="bindedinModel.vw_aspnet_Users">
-              <MappingFragment StoreEntitySet="vw_aspnet_Users">
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
-                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
-                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
-                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_aspnet_UsersInRoles">
-            <EntityTypeMapping TypeName="bindedinModel.vw_aspnet_UsersInRoles">
-              <MappingFragment StoreEntitySet="vw_aspnet_UsersInRoles">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_aspnet_WebPartState_Paths">
-            <EntityTypeMapping TypeName="bindedinModel.vw_aspnet_WebPartState_Paths">
-              <MappingFragment StoreEntitySet="vw_aspnet_WebPartState_Paths">
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-                <ScalarProperty Name="PathId" ColumnName="PathId" />
-                <ScalarProperty Name="Path" ColumnName="Path" />
-                <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_aspnet_WebPartState_Shared">
-            <EntityTypeMapping TypeName="bindedinModel.vw_aspnet_WebPartState_Shared">
-              <MappingFragment StoreEntitySet="vw_aspnet_WebPartState_Shared">
-                <ScalarProperty Name="PathId" ColumnName="PathId" />
-                <ScalarProperty Name="DataSize" ColumnName="DataSize" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vw_aspnet_WebPartState_User">
-            <EntityTypeMapping TypeName="bindedinModel.vw_aspnet_WebPartState_User">
-              <MappingFragment StoreEntitySet="vw_aspnet_WebPartState_User">
-                <ScalarProperty Name="PathId" ColumnName="PathId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="DataSize" ColumnName="DataSize" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Applications"><EntityTypeMapping TypeName="bindedinModel.aspnet_Applications"><MappingFragment StoreEntitySet="aspnet_Applications">
+            <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+            <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Membership"><EntityTypeMapping TypeName="bindedinModel.aspnet_Membership"><MappingFragment StoreEntitySet="aspnet_Membership">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+            <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+            <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+            <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+            <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+            <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+            <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+            <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+            <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+            <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+            <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+            <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+            <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+            <ScalarProperty Name="Comment" ColumnName="Comment" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Paths"><EntityTypeMapping TypeName="bindedinModel.aspnet_Paths"><MappingFragment StoreEntitySet="aspnet_Paths">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="PathId" ColumnName="PathId" />
+            <ScalarProperty Name="Path" ColumnName="Path" />
+            <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationAllUsers"><EntityTypeMapping TypeName="bindedinModel.aspnet_PersonalizationAllUsers"><MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
+            <ScalarProperty Name="PathId" ColumnName="PathId" />
+            <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+            <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_PersonalizationPerUser"><EntityTypeMapping TypeName="bindedinModel.aspnet_PersonalizationPerUser"><MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="PathId" ColumnName="PathId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+            <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Profile"><EntityTypeMapping TypeName="bindedinModel.aspnet_Profile"><MappingFragment StoreEntitySet="aspnet_Profile">
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+            <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+            <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+            <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Roles"><EntityTypeMapping TypeName="bindedinModel.aspnet_Roles"><MappingFragment StoreEntitySet="aspnet_Roles">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+            <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_SchemaVersions"><EntityTypeMapping TypeName="bindedinModel.aspnet_SchemaVersions"><MappingFragment StoreEntitySet="aspnet_SchemaVersions">
+            <ScalarProperty Name="Feature" ColumnName="Feature" />
+            <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
+            <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users"><EntityTypeMapping TypeName="bindedinModel.aspnet_Users"><MappingFragment StoreEntitySet="aspnet_Users">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+            <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+            <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+            <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_UsersInRoles"><EntityTypeMapping TypeName="bindedinModel.aspnet_UsersInRoles"><MappingFragment StoreEntitySet="aspnet_UsersInRoles">
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_WebEvent_Events"><EntityTypeMapping TypeName="bindedinModel.aspnet_WebEvent_Events"><MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
+            <ScalarProperty Name="EventId" ColumnName="EventId" />
+            <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
+            <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+            <ScalarProperty Name="EventType" ColumnName="EventType" />
+            <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
+            <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
+            <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+            <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
+            <ScalarProperty Name="Message" ColumnName="Message" />
+            <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
+            <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
+            <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+            <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+            <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+            <ScalarProperty Name="Details" ColumnName="Details" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="companies"><EntityTypeMapping TypeName="bindedinModel.company"><MappingFragment StoreEntitySet="companies">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="nom" ColumnName="nom" />
+            <ScalarProperty Name="adresse" ColumnName="adresse" />
+            <ScalarProperty Name="telephone" ColumnName="telephone" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="competences"><EntityTypeMapping TypeName="bindedinModel.competence"><MappingFragment StoreEntitySet="competences">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="description" ColumnName="description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="formations"><EntityTypeMapping TypeName="bindedinModel.formation"><MappingFragment StoreEntitySet="formations">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="description" ColumnName="description" />
+            <ScalarProperty Name="school" ColumnName="school" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Images"><EntityTypeMapping TypeName="bindedinModel.Image"><MappingFragment StoreEntitySet="Image">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="Image1" ColumnName="Image" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="Current" ColumnName="Current" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="messages"><EntityTypeMapping TypeName="bindedinModel.message"><MappingFragment StoreEntitySet="messages">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="recipient" ColumnName="recipient" />
+            <ScalarProperty Name="sender" ColumnName="sender" />
+            <ScalarProperty Name="object" ColumnName="object" />
+            <ScalarProperty Name="message1" ColumnName="message1" />
+            <ScalarProperty Name="date" ColumnName="date" />
+            <ScalarProperty Name="isRead" ColumnName="isRead" />
+            <ScalarProperty Name="isRemovedRecipient" ColumnName="isRemovedRecipient" />
+            <ScalarProperty Name="isRemovedSender" ColumnName="isRemovedSender" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="professional_experience"><EntityTypeMapping TypeName="bindedinModel.professional_experience"><MappingFragment StoreEntitySet="professional_experience">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="description" ColumnName="description" />
+            <ScalarProperty Name="company" ColumnName="company" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="recommandations"><EntityTypeMapping TypeName="bindedinModel.recommandation"><MappingFragment StoreEntitySet="recommandations">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="recipient" ColumnName="recipient" />
+            <ScalarProperty Name="sender" ColumnName="sender" />
+            <ScalarProperty Name="message" ColumnName="message" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="relation_status"><EntityTypeMapping TypeName="bindedinModel.relation_status"><MappingFragment StoreEntitySet="relation_status">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="asking_user" ColumnName="asking_user" />
+            <ScalarProperty Name="asked_user" ColumnName="asked_user" />
+            <ScalarProperty Name="status" ColumnName="status" />
+            <ScalarProperty Name="asked_date" ColumnName="asked_date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="schools"><EntityTypeMapping TypeName="bindedinModel.school"><MappingFragment StoreEntitySet="schools">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="description" ColumnName="description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="status_name"><EntityTypeMapping TypeName="bindedinModel.status_name"><MappingFragment StoreEntitySet="status_name">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="status" ColumnName="status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="bindedinModel.sysdiagram"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="user_competence"><EntityTypeMapping TypeName="bindedinModel.user_competence"><MappingFragment StoreEntitySet="user_competence">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="user" ColumnName="user" />
+            <ScalarProperty Name="competence" ColumnName="competence" />
+            <ScalarProperty Name="level" ColumnName="level" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="user_experienceprofessional"><EntityTypeMapping TypeName="bindedinModel.user_experienceprofessional"><MappingFragment StoreEntitySet="user_experienceprofessional">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="user" ColumnName="user" />
+            <ScalarProperty Name="experience_professional" ColumnName="experience_professional" />
+            <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
+            <ScalarProperty Name="end_date" ColumnName="end_date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="user_formation"><EntityTypeMapping TypeName="bindedinModel.user_formation"><MappingFragment StoreEntitySet="user_formation">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="user" ColumnName="user" />
+            <ScalarProperty Name="formation" ColumnName="formation" />
+            <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
+            <ScalarProperty Name="end_date" ColumnName="end_date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="v_formation_schools"><EntityTypeMapping TypeName="bindedinModel.v_formation_schools"><MappingFragment StoreEntitySet="v_formation_schools">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="description" ColumnName="description" />
+            <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="v_formation_schools1"><EntityTypeMapping TypeName="bindedinModel.v_formation_schools1"><MappingFragment StoreEntitySet="v_formation_schools1">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name_formation" ColumnName="name_formation" />
+            <ScalarProperty Name="desc_formation" ColumnName="desc_formation" />
+            <ScalarProperty Name="name_school" ColumnName="name_school" />
+            <ScalarProperty Name="desc_school" ColumnName="desc_school" />
+            <ScalarProperty Name="user" ColumnName="user" />
+            <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
+            <ScalarProperty Name="end_date" ColumnName="end_date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="v_user_competences"><EntityTypeMapping TypeName="bindedinModel.v_user_competences"><MappingFragment StoreEntitySet="v_user_competences">
+            <ScalarProperty Name="level" ColumnName="level" />
+            <ScalarProperty Name="user" ColumnName="user" />
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="description" ColumnName="description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="v_xp_companies"><EntityTypeMapping TypeName="bindedinModel.v_xp_companies"><MappingFragment StoreEntitySet="v_xp_companies">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name_xp" ColumnName="name_xp" />
+            <ScalarProperty Name="desc_xp" ColumnName="desc_xp" />
+            <ScalarProperty Name="name_company" ColumnName="name_company" />
+            <ScalarProperty Name="adresse" ColumnName="adresse" />
+            <ScalarProperty Name="telephone" ColumnName="telephone" />
+            <ScalarProperty Name="user" ColumnName="user" />
+            <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
+            <ScalarProperty Name="end_date" ColumnName="end_date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="vw_aspnet_Applications"><EntityTypeMapping TypeName="bindedinModel.vw_aspnet_Applications"><MappingFragment StoreEntitySet="vw_aspnet_Applications">
+            <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+            <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="vw_aspnet_MembershipUsers"><EntityTypeMapping TypeName="bindedinModel.vw_aspnet_MembershipUsers"><MappingFragment StoreEntitySet="vw_aspnet_MembershipUsers">
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+            <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+            <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+            <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+            <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+            <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+            <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+            <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+            <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+            <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+            <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+            <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+            <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+            <ScalarProperty Name="Comment" ColumnName="Comment" />
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+            <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+            <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="vw_aspnet_Profiles"><EntityTypeMapping TypeName="bindedinModel.vw_aspnet_Profiles"><MappingFragment StoreEntitySet="vw_aspnet_Profiles">
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+            <ScalarProperty Name="DataSize" ColumnName="DataSize" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="vw_aspnet_Roles"><EntityTypeMapping TypeName="bindedinModel.vw_aspnet_Roles"><MappingFragment StoreEntitySet="vw_aspnet_Roles">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+            <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="vw_aspnet_Users"><EntityTypeMapping TypeName="bindedinModel.vw_aspnet_Users"><MappingFragment StoreEntitySet="vw_aspnet_Users">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+            <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+            <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+            <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="vw_aspnet_UsersInRoles"><EntityTypeMapping TypeName="bindedinModel.vw_aspnet_UsersInRoles"><MappingFragment StoreEntitySet="vw_aspnet_UsersInRoles">
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="vw_aspnet_WebPartState_Paths"><EntityTypeMapping TypeName="bindedinModel.vw_aspnet_WebPartState_Paths"><MappingFragment StoreEntitySet="vw_aspnet_WebPartState_Paths">
+            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            <ScalarProperty Name="PathId" ColumnName="PathId" />
+            <ScalarProperty Name="Path" ColumnName="Path" />
+            <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="vw_aspnet_WebPartState_Shared"><EntityTypeMapping TypeName="bindedinModel.vw_aspnet_WebPartState_Shared"><MappingFragment StoreEntitySet="vw_aspnet_WebPartState_Shared">
+            <ScalarProperty Name="PathId" ColumnName="PathId" />
+            <ScalarProperty Name="DataSize" ColumnName="DataSize" />
+            <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="vw_aspnet_WebPartState_User"><EntityTypeMapping TypeName="bindedinModel.vw_aspnet_WebPartState_User"><MappingFragment StoreEntitySet="vw_aspnet_WebPartState_User">
+            <ScalarProperty Name="PathId" ColumnName="PathId" />
+            <ScalarProperty Name="UserId" ColumnName="UserId" />
+            <ScalarProperty Name="DataSize" ColumnName="DataSize" />
+            <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

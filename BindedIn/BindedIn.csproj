@@ -89,6 +89,7 @@
     <Content Include="Libs\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="Libs\bootstrap\js\bootstrap.js" />
     <Content Include="Libs\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Libs\jquery-lastest.js" />
     <Content Include="Message.aspx" />
     <Content Include="MessageDetail.aspx" />
     <Content Include="MessageForm.aspx" />

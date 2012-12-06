@@ -20,10 +20,10 @@
 
             <br />
              <div ID="corpsMessage" style=" margin-top:5px;min-height:200px;" runat="server" >
-               <textarea rows="10" cols="120"   ID="message" runat="server"> </textarea>
+               <textarea rows="10" class="field span12"  ID="message" runat="server" placeholder="Donner votre avis..."> </textarea>
             </div>
 
-            <asp:Button ID="envoyerButton" Text="Envoyer" runat="server" 
+            <asp:Button ID="envoyerButton" Text="Envoyer" runat="server" class="btn btn-large btn-success" 
                 onclick="envoyerButton_Click" />
             </div>
         </div> 

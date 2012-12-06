@@ -7,7 +7,7 @@
     <title></title>
     <link href="/Libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
     <link href="/Styles/Site.css" rel="stylesheet" type="text/css" />  
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="/Libs/jquery-lastest.js"></script>
     <script type="text/javascript" src="/Libs/bootstrap/js/bootstrap.min.js"></script>  
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
