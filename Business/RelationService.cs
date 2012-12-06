@@ -16,6 +16,7 @@ namespace Business
             bindedinEntities bie = SingletonEntities.Instance;
 
             UserProfile profile = UserProfile.GetUserProfile(System.Web.HttpContext.Current.User.Identity.Name);
+            bie.Refresh(System.Data.Objects.RefreshMode.StoreWins, bie.relation_status);
             
             // On récupère les utilisateurs qui sont en relation 
             var relations = from rel in bie.relation_status
@@ -120,6 +121,7 @@ namespace Business
         public static Boolean updateRelation(Guid askedUser, Guid askingUser)
         {
             bindedinEntities bie = SingletonEntities.Instance;
+            bie.Refresh(System.Data.Objects.RefreshMode.StoreWins, bie.relation_status);
 
             var relation = from r in bie.relation_status
                            where r.asking_user == askingUser
@@ -138,10 +140,11 @@ namespace Business
         public static Boolean deleteRelation(Guid user1, Guid user2)
         {
             bindedinEntities bie = SingletonEntities.Instance;
+            bie.Refresh(System.Data.Objects.RefreshMode.StoreWins, bie.relation_status);
 
             var relation = from r in bie.relation_status
                            where (r.asked_user == user1 && r.asking_user == user2)
-                            || (r.asked_user == user2 && r.asked_user == user1)
+                            || (r.asked_user == user2 && r.asking_user == user1)
                            select r;
 
             relation_status relationTrouve = relation.First();
@@ -160,6 +163,7 @@ namespace Business
             Guid loggedRelation = (Guid)Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name, false).ProviderUserKey;
 
             bindedinEntities bie = SingletonEntities.Instance;
+            bie.Refresh(System.Data.Objects.RefreshMode.StoreWins, bie.relation_status);
 
             var listRelation = from r in bie.relation_status
                                where (r.asked_user == loggedRelation && r.asking_user == askingRelation)
