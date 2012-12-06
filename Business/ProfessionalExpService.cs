@@ -33,11 +33,10 @@ namespace Business
         public static List<v_xp_companies> GetProferssionalExpCompanies(Guid userId)
         {
             bindedinEntities bie = SingletonEntities.Instance;
-            var retour = from ue in bie.user_experienceprofessional
+            var retour = 
                          from p in bie.v_xp_companies
-                         orderby p.end_date ascending
-                         where ue.user.Equals(userId)
-                         where ue.experience_professional.Equals(p.id)
+                         orderby p.end_date descending
+                         where p.user.Equals(userId)                         
                          select p;
 
             return retour.ToList();
