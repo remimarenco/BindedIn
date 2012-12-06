@@ -35,6 +35,7 @@ namespace Business
             bindedinEntities bie = SingletonEntities.Instance;
             var retour = from uf in bie.user_formation
                          from f in bie.v_formation_schools1
+                         orderby f.end_date descending
                          where uf.user.Equals(userId)
                          where uf.formation.Equals(f.id)
                          select f;
@@ -83,6 +84,22 @@ namespace Business
             bie.user_formation.AddObject(uf);          
             bie.SaveChanges();
            
+        }
+
+        public static void Remove(string p, Guid userid)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+            int id = Int32.Parse(p);
+
+            var retour = from i in bie.user_formation
+                         where i.formation.Equals(id)
+                         && i.user.Equals(userid)
+                         select i;
+            foreach (user_formation exp in retour)
+            {
+                bie.user_formation.DeleteObject(exp);
+            }
+            bie.SaveChanges();
         }
 
     }

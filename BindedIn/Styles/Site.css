@@ -129,19 +129,6 @@ body
 /* MessageDetail
 -------------------------------------------------- */
 
-#MainContent_objectMessage 
-{
-    border-bottom: 1px solid black;
-}
-#MainContent_senderMessage 
-{
-    border-bottom: 1px solid black;
-}
-#MainContent_corpsMessage 
-{
-    border-bottom: 1px solid black;
-}
-
 
 /* CUSTOMIZE THE NAVBAR
     -------------------------------------------------- */

@@ -20,6 +20,7 @@ namespace BindedIn
             editFormation.Visible = false;
             editSkills.Visible = false;
             string idParam = Request.Params["id"];
+            string userIdParam = Request.Params["userId"];
             
             if (idParam != null && Membership.GetUser(Request.Params["id"], false) != null)
             {
@@ -35,6 +36,12 @@ namespace BindedIn
                 {
                     connectionButton.Visible = true;
                 }
+            }
+            else if (userIdParam != null && Membership.GetUser(Request.Params["userId"], false) != null)
+            {
+                Profile = UserProfile.GetUserProfile(Business.UserService.GetUtilisateurById(Guid.Parse(Request.Params["userId"])).UserName);
+                UserId = Guid.Parse(Request.Params["userId"]);
+                ShowEditButtons(false); 
             }
             else
             {
@@ -156,6 +163,15 @@ namespace BindedIn
             return schools.ToArray();
         }
 
+        private void RazFormationFormFields()
+        {
+            TextBoxFormationDescription.Text = string.Empty;
+            TextBoxFormationEtablissement.Text = string.Empty;
+            TextBoxFormationName.Text = string.Empty;
+            TextBoxDateDebut.Text = string.Empty;
+            TextBoxDateFin.Text = string.Empty;
+        }
+
         protected void ButtonSaveFormation_Click(object sender, EventArgs e)
         {
             Business.FormationService
@@ -165,7 +181,17 @@ namespace BindedIn
                 TextBoxDateFin.Text,
                 TextBoxFormationEtablissement.Text,UserId);
             ObjectDataSourceFormationForUser.Update();
+            RazFormationFormFields();
         }
+
+        protected void ButtonDeleteFormation_Click(object sender, EventArgs e)
+        {
+            Button but = (Button)sender;
+            Business.FormationService.Remove(but.CommandArgument, UserId);
+
+            ObjectDataSourceFormationForUser.Update();
+        }
+
 
         #endregion
 
@@ -245,7 +271,16 @@ namespace BindedIn
 
             return tel.ToArray();
         }
-
+        private void RazExpProFormFields()
+        {
+            TextBoxExpProCompanyAddress.Text = string.Empty;
+            TextBoxExpProCompanyName.Text = string.Empty;
+            TextBoxExpProCompanyTel.Text = string.Empty;
+            TextBoxExpProDescription.Text = string.Empty;
+            TextBoxDateFinExpPro.Text = string.Empty;
+            TextBoxDateDebutEXpPro.Text = string.Empty;
+            TextBoxNomExpPro.Text = string.Empty;
+        }
 
         protected void ButtonSaveExpPro_Click(object sender, EventArgs e)
         {
@@ -258,6 +293,7 @@ namespace BindedIn
                 UserId);
            
             ObjectDataSourceProferssionalExpCompanies.Update();
+            RazExpProFormFields();
         }
 
         protected void ButtonDeleteExpPro_Click(object sender, EventArgs e)
@@ -302,17 +338,36 @@ namespace BindedIn
             return desc.ToArray();
         }
 
+        private void RazSkillsFormFields()
+        {
+            TextBoxCompeDescription.Text = string.Empty;
+            TextBoxCompeName.Text = string.Empty;          
+        }
+
         protected void ButtonSkills_Click(object sender, EventArgs e)
         {
             Business.SkillService.InsertNewSkill(TextBoxCompeName.Text, TextBoxCompeDescription.Text, RatingNiveau.CurrentRating,UserId);
+            ObjectDataSourceSkillsForUser.Update();
+            RazSkillsFormFields();
+        }
+
+        protected void ButtonDeleteSkills_Click(object sender, EventArgs e)
+        {
+            LinkButton but = (LinkButton)sender;
+            Business.SkillService.Remove(but.CommandArgument, UserId);
+
             ObjectDataSourceSkillsForUser.Update();
         }
 
         #endregion
 
+        #region relation
+
         protected void createRelation_Click(object sender, EventArgs e)
         {
             Response.Redirect(String.Format("Invitation.aspx?id={0}", Request.Params["id"]));
         }
+
+        #endregion
     }
 }

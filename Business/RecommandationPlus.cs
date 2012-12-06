@@ -14,6 +14,8 @@ namespace Business
         public string message { get; set; }
         public string senderName { get; set; }
         public string recipientName { get; set; }
+        public string imageUrl { get; set; }
+        public string profilLink { get; set; }
 
         public RecommandationPlus(recommandation r)
         {
@@ -27,6 +29,8 @@ namespace Business
 
             up = UserProfile.GetUserProfile(UserService.GetUtilisateurById(this.recipient).UserName);
             this.recipientName = up.FirstName + " " + up.LastName;
+
+            this.profilLink = "Profil.aspx?id=" + up.UserName;
         }
     }
 }

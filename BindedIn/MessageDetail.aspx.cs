@@ -53,6 +53,9 @@ namespace BindedIn
                             //on remplit le corps du message
                             message.Text = m.message1;
 
+                            // Date
+                            dateMessage.InnerText = String.Format("{0:dd MMMM yyyy}", m.date);
+
                             //affichage de l'image
                             string uId = m.sender.ToString();
                             ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + uId;
