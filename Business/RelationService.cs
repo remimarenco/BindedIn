@@ -52,6 +52,8 @@ namespace Business
             // On cherche nos relations. On cherche les relations de nos relations => récursif
             List<UserProfile> listUserRelations = GetRelations(userId);
 
+            List<UserProfile> listLoggedUserRelation = GetRelations((Guid)(Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name, false).ProviderUserKey));
+
             List<UserProfile> listFarFromOneRelations = new List<UserProfile>();
 
             // We search all the directly connected users to the actual logged user relations
@@ -65,6 +67,15 @@ namespace Business
             {
                 // We delete all the occurences of the actual user
                 listFarFromOneRelations.Remove(actualUser);
+            }
+
+            // On supprime les utilisateurs qui sont déjà directement connectés avec l'utilisateur
+            foreach (UserProfile user in listLoggedUserRelation)
+            {
+                if (listFarFromOneRelations.Contains(user))
+                {
+                    listFarFromOneRelations.Remove(user);
+                }
             }
 
             return listFarFromOneRelations;
@@ -124,7 +135,25 @@ namespace Business
             return true;
         }
 
-        public static Boolean isInRelationWith(String username)
+        public static Boolean deleteRelation(Guid user1, Guid user2)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+
+            var relation = from r in bie.relation_status
+                           where (r.asked_user == user1 && r.asking_user == user2)
+                            || (r.asked_user == user2 && r.asked_user == user1)
+                           select r;
+
+            relation_status relationTrouve = relation.First();
+
+            relationTrouve.status = 4;
+
+            bie.SaveChanges();
+
+            return true;
+        }
+
+        public static int isInRelationWith(String username)
         {
             Guid askingRelation = (Guid)Membership.GetUser(username, false).ProviderUserKey;
 
@@ -134,10 +163,18 @@ namespace Business
 
             var listRelation = from r in bie.relation_status
                                where (r.asked_user == loggedRelation && r.asking_user == askingRelation)
-                                || (r.asked_user == askingRelation && r.asked_user == loggedRelation)
+                                || (r.asked_user == askingRelation && r.asking_user == loggedRelation)
                                select r;
 
-            return (listRelation.Count() > 0);
+            if (listRelation.Count() > 0)
+            {
+                return (listRelation.First().status);
+            }
+            else
+            {
+                return -1;
+            }
+            
         }
     }
 }

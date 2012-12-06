@@ -38,6 +38,9 @@
                 <div class="row-fluid">
                     <asp:Button ID="connectionButton" Text="Se connecter" runat="server" CssClass="btn btn-primary" 
                         onclick="createRelation_Click"  />
+                    <asp:Button ID="deconnectionButton" Text="Se déconnecter" runat="server" CssClass="btn btn-primary" 
+                        onclick="deleteRelation_Click"  />
+                    <asp:Button ID="waitingButton" Text="En cours" runat="server" CssClass="btn btn-success disabled" />
                 </div>
             </div>
     </div>  
