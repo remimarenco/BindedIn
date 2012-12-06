@@ -27,7 +27,7 @@
                         <ItemTemplate>  
                             <div class="span9">
                                 <h1><%#Eval("FirstName") %> <%#Eval("LastName") %></h1>
-                                 <div id="messages_links">
+                                 <div id="messages_links" runat="server">
                                     <a href='<%# String.Format("MessageForm.aspx?id={0}", Eval("UserName")) %>' runat="server"> <i class=" icon-envelope"></i>Envoyer un message</a><br />
                                     <a href='<%# String.Format("RecommandationForm.aspx?id={0}", Eval("UserName")) %>' runat="server"> <i class="icon-thumbs-up"></i>Recommander cette personne</a>
                                 </div>

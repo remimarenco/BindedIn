@@ -116,21 +116,7 @@ namespace BindedIn
 
         void Repeater3_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                foreach (Control c in e.Item.Controls)
-                {
-                    if (c is HyperLink)
-                    {
-                        // Grab label
-                        HyperLink btn = c as HyperLink;
-                        if (self)
-                            btn.Visible = false;
-                        else
-                            btn.Visible = true;
-                    }
-                }
-            }    
+            e.Item.FindControl("messages_links").Visible = (!self);
         }      
 
         private void ShowEditButtons(bool b)
