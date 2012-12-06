@@ -22,13 +22,16 @@
             </div>
             <div class="span9">
                 <div class="row-fluid">
-                    <asp:Repeater ID="Repeater3" runat="server" DataSourceID="ObjectDataSourceUserProfile">  
+                    <asp:Repeater ID="Repeater3" runat="server" 
+                        DataSourceID="ObjectDataSourceUserProfile">  
                         <ItemTemplate>  
-                            <span class="span9">
-                                <h1> <%#Eval("FirstName") %> <%#Eval("LastName") %> </h1>
-                                 <br /><a href="<%# String.Format("MessageForm.aspx?id={0}", Eval("UserName")) %>" > <i class=" icon-envelope"></i>Envoyer un message</a>
-                            <br /><a href="<%# String.Format("RecommandationForm.aspx?id={0}", Eval("UserName")) %>" > <i class="icon-thumbs-up"></i>Recommander cette personne</a>
-                            </span>
+                            <div class="span9">
+                                <h1><%#Eval("FirstName") %> <%#Eval("LastName") %></h1>
+                                 <div id="messages_links">
+                                    <a href='<%# String.Format("MessageForm.aspx?id={0}", Eval("UserName")) %>' runat="server"> <i class=" icon-envelope"></i>Envoyer un message</a><br />
+                                    <a href='<%# String.Format("RecommandationForm.aspx?id={0}", Eval("UserName")) %>' runat="server"> <i class="icon-thumbs-up"></i>Recommander cette personne</a>
+                                </div>
+                            </div>
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>

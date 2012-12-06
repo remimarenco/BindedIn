@@ -13,6 +13,7 @@ namespace BindedIn
     {
         UserProfile Profile;
         Guid UserId;
+        Boolean self;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,12 +37,14 @@ namespace BindedIn
                 {
                     connectionButton.Visible = true;
                 }
+                self = false;
             }
             else if (userIdParam != null && Membership.GetUser(Request.Params["userId"], false) != null)
             {
                 Profile = UserProfile.GetUserProfile(Business.UserService.GetUtilisateurById(Guid.Parse(Request.Params["userId"])).UserName);
                 UserId = Guid.Parse(Request.Params["userId"]);
-                ShowEditButtons(false); 
+                ShowEditButtons(false);
+                self = false;
             }
             else
             {
@@ -49,6 +52,7 @@ namespace BindedIn
                 UserId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
                 ShowEditButtons(true);
                 connectionButton.Visible = false;
+                self = true;
             }
 
             ObjectDataSourceUserProfile.SelectParameters["id"].DefaultValue = UserId.ToString();
@@ -62,6 +66,7 @@ namespace BindedIn
             Repeater1.ItemDataBound += new RepeaterItemEventHandler(Repeater1_ItemDataBound);
             RepeaterFormation.ItemDataBound += new RepeaterItemEventHandler(RepeaterFormation_ItemDataBound);
             Repeater2.ItemDataBound += new RepeaterItemEventHandler(Repeater2_ItemDataBound);
+            Repeater3.ItemDataBound += new RepeaterItemEventHandler(Repeater3_ItemDataBound);
         }
 
         void Repeater2_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -79,7 +84,24 @@ namespace BindedIn
             ShowEditionControls(e);
         }
 
-      
+        void Repeater3_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                foreach (Control c in e.Item.Controls)
+                {
+                    if (c is HyperLink)
+                    {
+                        // Grab label
+                        HyperLink btn = c as HyperLink;
+                        if (self)
+                            btn.Visible = false;
+                        else
+                            btn.Visible = true;
+                    }
+                }
+            }    
+        }      
 
         private void ShowEditButtons(bool b)
         {
@@ -90,7 +112,7 @@ namespace BindedIn
 
         private void ShowEditionControls(RepeaterItemEventArgs e)
         {
-            string idParam = Request.Params["id"];
+           // string idParam = Request.Params["id"];
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 foreach (Control c in e.Item.Controls)
@@ -99,7 +121,7 @@ namespace BindedIn
                     {
                         // Grab label
                         Button btn = c as Button;
-                        if (idParam != null && Membership.GetUser(Request.Params["id"], false) != null)
+                        if (!self)
                             btn.Visible = false;
                         else
                             btn.Visible = true;
@@ -369,5 +391,7 @@ namespace BindedIn
         }
 
         #endregion
+
+        
     }
 }

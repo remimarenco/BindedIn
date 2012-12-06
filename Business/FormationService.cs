@@ -33,11 +33,9 @@ namespace Business
         public static List<v_formation_schools1> GetFormationSchools(Guid userId)
         {
             bindedinEntities bie = SingletonEntities.Instance;
-            var retour = from uf in bie.user_formation
-                         from f in bie.v_formation_schools1
+            var retour = from f in bie.v_formation_schools1
                          orderby f.end_date descending
-                         where uf.user.Equals(userId)
-                         where uf.formation.Equals(f.id)
+                         where f.user.Equals(userId)
                          select f;
 
             return retour.ToList();
