@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <div ID="lien2" runat="server" >
+            <div ID="lien2" class="pull-right" runat="server" >
                 <asp:Button ID="Button1"  class="btn btn-success" Text="Repondre" runat="server" 
                     onclick="repondreButton_Click" />
                 <asp:Button ID="Button2" class="btn btn-danger" Text="Supprimer" runat="server" 

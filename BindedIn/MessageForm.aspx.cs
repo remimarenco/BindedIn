@@ -33,11 +33,13 @@ namespace BindedIn
                         //on recupere le userprofile a prtir de l'id
                         UserProfile u = UserProfile.GetUserProfile(Request.Params["id"]);
                         
-
                         recId = u.UserName;
 
                         //on remplit le champ destinataire
                         recipientLabel.Text = u.FirstName + " " + u.LastName;
+                        //on remplit les liens
+                        lienDestinataire2.HRef = "Profil.aspx?id=" + u.UserName;
+                        lienProfile.HRef = "Profil.aspx?id=" + u.UserName; 
 
                         Guid userGuid = (Guid)Membership.GetUser(recId, false).ProviderUserKey;
                         string uId = userGuid.ToString();
@@ -63,6 +65,9 @@ namespace BindedIn
 
                         //on remplit le champ destinataire
                         recipientLabel.Text = u.FirstName + " " + u.LastName;
+                        //on remplit les liens
+                        lienDestinataire2.HRef = "Profil.aspx?id=" + u.UserName;
+                        lienProfile.HRef = "Profil.aspx?id=" + u.UserName; 
 
                         string uId = m.sender.ToString();
                         ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + uId;
