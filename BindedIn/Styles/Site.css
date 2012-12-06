@@ -214,3 +214,11 @@ body
     {  
         background-color: Gray;  
     }  
+
+/* Relation
+    -------------------------------------------------- */
+    .bigImageRelation
+    {
+        width:140px; 
+        height:140px
+    }

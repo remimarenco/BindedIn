@@ -25,13 +25,23 @@ namespace BindedIn
             {
                 Profile = UserProfile.GetUserProfile(Request.Params["id"]);
                 UserId = (Guid)(Membership.GetUser(Request.Params["id"], false).ProviderUserKey);
-                ShowEditButtons(false);               
+                ShowEditButtons(false);
+                if(Business.RelationService.isInRelationWith(Request.Params["id"]))
+                {
+                    // TODO : Faire la suppression de relation
+                    connectionButton.Visible = false;
+                }
+                else
+                {
+                    connectionButton.Visible = true;
+                }
             }
             else
             {
                 Profile = UserProfile.GetUserProfile(User.Identity.Name);
                 UserId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
                 ShowEditButtons(true);
+                connectionButton.Visible = false;
             }
 
             ObjectDataSourceUserProfile.SelectParameters["id"].DefaultValue = UserId.ToString();

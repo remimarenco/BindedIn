@@ -30,7 +30,7 @@
                             <ItemTemplate>
                                 <div class="row-fluid">
                                     <div class="span4">
-                                        <img src="Images/140x140.gif" class="img-polaroid" alt="<%#Eval("Lastname") %>, <%#Eval("Firstname") %>" />
+                                        <asp:Image ImageUrl='<%#Eval("imageUrl") %>' CssClass="img-polaroid" Width="140px" Height="140px" runat="server" />
                                     </div>
                                     <div class="span8">
                                         <p><%#Eval("Lastname") %>, <%#Eval("Firstname") %></p>
@@ -51,7 +51,7 @@
                                 <li>
                                     <div class="row-fluid">
                                         <div class="span4">
-                                            <img src="Images/140x140.gif" height="28px" width="28px" class="img-polaroid" alt="<%#Eval("Lastname") %>, <%#Eval("Firstname") %>" />
+                                            <asp:Image ID="Image1" ImageUrl='<%#Eval("imageUrl") %>' CssClass="img-polaroid" Width="28px" Height="28px" runat="server" />
                                         </div>
                                         <div class="span8">
                                             <p><%#Eval("Lastname") %>, <%#Eval("Firstname") %></p>
