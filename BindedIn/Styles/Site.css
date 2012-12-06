@@ -129,19 +129,6 @@ body
 /* MessageDetail
 -------------------------------------------------- */
 
-#MainContent_objectMessage 
-{
-    border-bottom: 1px solid black;
-}
-#MainContent_senderMessage 
-{
-    border-bottom: 1px solid black;
-}
-#MainContent_corpsMessage 
-{
-    border-bottom: 1px solid black;
-}
-
 
 /* CUSTOMIZE THE NAVBAR
     -------------------------------------------------- */
@@ -214,3 +201,11 @@ body
     {  
         background-color: Gray;  
     }  
+
+/* Relation
+    -------------------------------------------------- */
+    .bigImageRelation
+    {
+        width:140px; 
+        height:140px
+    }

@@ -5,22 +5,24 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2 ID="modeTitle" runat="server" >Mes messages Reçus</h2>
-    <a  href="Message.aspx?mode=env" ID="autreMode"  runat="server">Mes messages Envoyés </a>
-    <br />
+    <div style="margin-bottom: 10px;">
+        <a  href="Message.aspx?mode=env" ID="autreMode"  runat="server" class="btn btn-success">Mes messages Envoyés </a>
+    </div>
+    
     <asp:Label ID="not" runat="server"/>
     <div ID="messageList" runat="server" >
         <table class="table table-striped" >
 
             <tbody>
                 <asp:Repeater ID="rptRece" runat="server" onitemcommand="rpt1_ItemCommand" >
-                        <ItemTemplate>
+                    <ItemTemplate>
                             <tr>
                                 <td><%#Eval("date") %></td>
                                 <td><a href="<%# String.Format("MessageDetail.aspx?id={0}", Eval("id")) %>" >
                                         <%#Eval("object") %>
                                     </a>
                                 </td>
-                                <td>De: <a href="<%# String.Format("MessageDetail.aspx?id={0}", Eval("id")) %>" >
+                                <td>De: <a href="<%# String.Format("MessageDetail.aspx?iduser={0}", Eval("sender")) %>" >
                                         <%#Eval("senderName") %>
                                     </a>
                                 </td>
@@ -44,7 +46,7 @@
                                         <%#Eval("object") %>
                                     </a>
                                 </td>
-                                <td>A: <a href="<%# String.Format("MessageDetail.aspx?id={0}", Eval("id")) %>" >
+                                <td>A: <a href="<%# String.Format("Profil.aspx?iduser={0}", Eval("recipient")) %>" >
                                         <%#Eval("recipientName") %>
                                     </a>
                                 </td>

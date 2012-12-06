@@ -16,25 +16,31 @@ namespace Business
             bindedinEntities bie = SingletonEntities.Instance;
 
             UserProfile profile = UserProfile.GetUserProfile(System.Web.HttpContext.Current.User.Identity.Name);
-
+            
             // On récupère les utilisateurs qui sont en relation 
             var relations = from rel in bie.relation_status
                             where rel.status == 3
                             select rel;
 
             List<UserProfile> userRelations = new List<UserProfile>();
+            UserProfile profil;
             foreach (var relation in relations)
             {
                 if (relation.status == 3)
                 {
                     if (relation.asked_user == userId)
                     {
-                        userRelations.Add(UserProfile.GetUserProfile(Membership.GetUser(relation.asking_user).UserName));
+                        profil = UserProfile.GetUserProfile(Membership.GetUser(relation.asking_user).UserName);
+                        Guid userGuid = (Guid)Membership.GetUser(profil.UserName, false).ProviderUserKey;
+                        profil.imageUrl = "/ShowImage.ashx?iduser=" + userGuid.ToString();
+                        userRelations.Add(profil);
                     }
                     else if (relation.asking_user == userId)
                     {
-                        
-                        userRelations.Add(UserProfile.GetUserProfile(Membership.GetUser(relation.asked_user).UserName));
+                        profil = UserProfile.GetUserProfile(Membership.GetUser(relation.asked_user).UserName);
+                        Guid userGuid = (Guid)Membership.GetUser(profil.UserName, false).ProviderUserKey;
+                        profil.imageUrl = "/ShowImage.ashx?iduser=" + userGuid.ToString();
+                        userRelations.Add(profil);
                     }
                 }
             }
@@ -116,6 +122,22 @@ namespace Business
             bie.SaveChanges();
 
             return true;
+        }
+
+        public static Boolean isInRelationWith(String username)
+        {
+            Guid askingRelation = (Guid)Membership.GetUser(username, false).ProviderUserKey;
+
+            Guid loggedRelation = (Guid)Membership.GetUser(System.Web.HttpContext.Current.User.Identity.Name, false).ProviderUserKey;
+
+            bindedinEntities bie = SingletonEntities.Instance;
+
+            var listRelation = from r in bie.relation_status
+                               where (r.asked_user == loggedRelation && r.asking_user == askingRelation)
+                                || (r.asked_user == askingRelation && r.asked_user == loggedRelation)
+                               select r;
+
+            return (listRelation.Count() > 0);
         }
     }
 }
