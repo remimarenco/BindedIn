@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bindedin-db.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bindedin-db.edmx</DependentUpon>
+    </Compile>
     <Compile Include="CustomMembershipUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserProfile.cs" />
@@ -54,6 +59,10 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
+    <EntityDeploy Include="bindedin-db.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>bindedin-db.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
