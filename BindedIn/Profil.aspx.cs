@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Business;
 using Data;
 using System.Web.Security;
 
@@ -17,29 +16,78 @@ namespace BindedIn
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            editSkills.Visible = false;
             editExp.Visible = false;
             editFormation.Visible = false;
+            editSkills.Visible = false;
             string idParam = Request.Params["id"];
+            
             if (idParam != null && Membership.GetUser(Request.Params["id"], false) != null)
             {
                 Profile = UserProfile.GetUserProfile(Request.Params["id"]);
                 UserId = (Guid)(Membership.GetUser(Request.Params["id"], false).ProviderUserKey);
+                ShowEditButtons(false);               
             }
             else
             {
                 Profile = UserProfile.GetUserProfile(User.Identity.Name);
                 UserId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
+                ShowEditButtons(true);
             }
 
             ObjectDataSourceUserProfile.SelectParameters["id"].DefaultValue = UserId.ToString();
             ObjectDataSourceSkillsForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
             ObjectDataSourceFormationForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
-            ObjectDataSourceEXpForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
-            ObjectDataSourceForRecommandations.SelectParameters["userId"].DefaultValue = UserId.ToString();
-            ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + UserId.ToString();
+            ObjectDataSourceProferssionalExpCompanies.SelectParameters["userId"].DefaultValue = UserId.ToString();
+            Image1.ImageUrl = "/ShowImage.ashx?iduser=" + UserId.ToString();
             // Fix cache issues
-            ImageProfile.ImageUrl += "&tmp=" + DateTime.Now;
+            Image1.ImageUrl += "&tmp=" + DateTime.Now;
+            Repeater1.ItemDataBound += new RepeaterItemEventHandler(Repeater1_ItemDataBound);
+            RepeaterFormation.ItemDataBound += new RepeaterItemEventHandler(RepeaterFormation_ItemDataBound);
+            Repeater2.ItemDataBound += new RepeaterItemEventHandler(Repeater2_ItemDataBound);
+        }
+
+        void Repeater2_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            ShowEditionControls(e);
+        }
+
+        void RepeaterFormation_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            ShowEditionControls(e);
+        }
+
+        void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            ShowEditionControls(e);
+        }
+
+      
+
+        private void ShowEditButtons(bool b)
+        {
+            ButtonEditExp.Visible = b;
+            ButtonEditFormation.Visible = b;
+            ButtonEditSkills.Visible = b;            
+        }
+
+        private void ShowEditionControls(RepeaterItemEventArgs e)
+        {
+            string idParam = Request.Params["id"];
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                foreach (Control c in e.Item.Controls)
+                {
+                    if (c is Button)
+                    {
+                        // Grab label
+                        Button btn = c as Button;
+                        if (idParam != null && Membership.GetUser(Request.Params["id"], false) != null)
+                            btn.Visible = false;
+                        else
+                            btn.Visible = true;
+                    }
+                }
+            }    
         }
 
         protected void ButtonEdit_Click(object sender, EventArgs e)
@@ -50,6 +98,7 @@ namespace BindedIn
                 editFormation.Visible = true;
             else if (sender.Equals(ButtonEditExp))
                 editExp.Visible = true;
+
         }
 
 
@@ -104,6 +153,7 @@ namespace BindedIn
                 TextBoxDateDebut.Text,
                 TextBoxDateFin.Text,
                 TextBoxFormationEtablissement.Text,UserId);
+            ObjectDataSourceFormationForUser.Update();
         }
 
         #endregion
@@ -195,6 +245,16 @@ namespace BindedIn
                 TextBoxExpProCompanyAddress.Text,
                 TextBoxExpProCompanyTel.Text,
                 UserId);
+           
+            ObjectDataSourceProferssionalExpCompanies.Update();
+        }
+
+        protected void ButtonDeleteExpPro_Click(object sender, EventArgs e)
+        {
+            Button but = (Button)sender;
+            Business.ProfessionalExpService.Remove(but.CommandArgument, UserId);
+
+            ObjectDataSourceProferssionalExpCompanies.Update();
         }
 
         #endregion
@@ -234,10 +294,14 @@ namespace BindedIn
         protected void ButtonSkills_Click(object sender, EventArgs e)
         {
             Business.SkillService.InsertNewSkill(TextBoxCompeName.Text, TextBoxCompeDescription.Text, RatingNiveau.CurrentRating,UserId);
+            ObjectDataSourceSkillsForUser.Update();
         }
 
         #endregion
 
-
+        protected void createRelation_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(String.Format("Invitation.aspx?id={0}", Request.Params["id"]));
+        }
     }
 }

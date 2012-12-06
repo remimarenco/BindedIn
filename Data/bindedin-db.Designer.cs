@@ -33,6 +33,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_messages_aspnet_userSender", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "messages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.message), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_recommandations_aspnet_recipientUser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "recommandations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.recommandation), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_recommandations_aspnet_senderUser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "recommandations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.recommandation), true)]
+[assembly: EdmRelationshipAttribute("bindedinModel", "FK_relation_status_asked_user", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "relation_status", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.relation_status), true)]
+[assembly: EdmRelationshipAttribute("bindedinModel", "FK_relation_status_asking_user", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "relation_status", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.relation_status), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_user_competence_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "user_competence", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.user_competence), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_user_experienceprofessional_aspnet_Users", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "user_experienceprofessional", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.user_experienceprofessional), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_user_formation_aspuser", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.aspnet_Users), "user_formation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.user_formation), true)]
@@ -41,7 +43,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_formation_ecole", "schools", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.school), "formations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.formation), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_user_formation_formation", "formations", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.formation), "user_formation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.user_formation), true)]
 [assembly: EdmRelationshipAttribute("bindedinModel", "FK_user_experienceprofessional_professional_experience", "professional_experience", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.professional_experience), "user_experienceprofessional", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.user_experienceprofessional), true)]
-[assembly: EdmRelationshipAttribute("bindedinModel", "FK_relation_status_relation_status", "status_name", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.status_name), "relation_status", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Data.relation_status), true)]
+[assembly: EdmRelationshipAttribute("bindedinModel", "FK_relation_status_relation_status", "status_name", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Data.status_name), "relation_status", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Data.relation_status), true)]
 
 #endregion
 
@@ -528,6 +530,38 @@ namespace Data
         /// <summary>
         /// Aucune documentation sur les métadonnées n'est disponible.
         /// </summary>
+        public ObjectSet<v_user_competences> v_user_competences
+        {
+            get
+            {
+                if ((_v_user_competences == null))
+                {
+                    _v_user_competences = base.CreateObjectSet<v_user_competences>("v_user_competences");
+                }
+                return _v_user_competences;
+            }
+        }
+        private ObjectSet<v_user_competences> _v_user_competences;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<v_xp_companies> v_xp_companies
+        {
+            get
+            {
+                if ((_v_xp_companies == null))
+                {
+                    _v_xp_companies = base.CreateObjectSet<v_xp_companies>("v_xp_companies");
+                }
+                return _v_xp_companies;
+            }
+        }
+        private ObjectSet<v_xp_companies> _v_xp_companies;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
         public ObjectSet<vw_aspnet_Applications> vw_aspnet_Applications
         {
             get
@@ -668,22 +702,6 @@ namespace Data
             }
         }
         private ObjectSet<vw_aspnet_WebPartState_User> _vw_aspnet_WebPartState_User;
-    
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        public ObjectSet<v_xp_companies> v_xp_companies
-        {
-            get
-            {
-                if ((_v_xp_companies == null))
-                {
-                    _v_xp_companies = base.CreateObjectSet<v_xp_companies>("v_xp_companies");
-                }
-                return _v_xp_companies;
-            }
-        }
-        private ObjectSet<v_xp_companies> _v_xp_companies;
 
         #endregion
 
@@ -906,6 +924,22 @@ namespace Data
         }
     
         /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet v_user_competences. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddTov_user_competences(v_user_competences v_user_competences)
+        {
+            base.AddObject("v_user_competences", v_user_competences);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet v_xp_companies. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddTov_xp_companies(v_xp_companies v_xp_companies)
+        {
+            base.AddObject("v_xp_companies", v_xp_companies);
+        }
+    
+        /// <summary>
         /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet vw_aspnet_Applications. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
         /// </summary>
         public void AddTovw_aspnet_Applications(vw_aspnet_Applications vw_aspnet_Applications)
@@ -975,14 +1009,6 @@ namespace Data
         public void AddTovw_aspnet_WebPartState_User(vw_aspnet_WebPartState_User vw_aspnet_WebPartState_User)
         {
             base.AddObject("vw_aspnet_WebPartState_User", vw_aspnet_WebPartState_User);
-        }
-    
-        /// <summary>
-        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet v_xp_companies. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
-        /// </summary>
-        public void AddTov_xp_companies(v_xp_companies v_xp_companies)
-        {
-            base.AddObject("v_xp_companies", v_xp_companies);
         }
 
         #endregion
@@ -3429,6 +3455,50 @@ namespace Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_asked_user", "relation_status")]
+        public EntityCollection<relation_status> relation_status
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<relation_status>("bindedinModel.FK_relation_status_asked_user", "relation_status");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<relation_status>("bindedinModel.FK_relation_status_asked_user", "relation_status", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_asking_user", "relation_status")]
+        public EntityCollection<relation_status> relation_status1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<relation_status>("bindedinModel.FK_relation_status_asking_user", "relation_status");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<relation_status>("bindedinModel.FK_relation_status_asking_user", "relation_status", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_user_competence_aspnet_Users", "user_competence")]
         public EntityCollection<user_competence> user_competence
         {
@@ -5648,6 +5718,82 @@ namespace Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_asked_user", "aspnet_Users")]
+        public aspnet_Users aspnet_Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_asked_user", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_asked_user", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Users> aspnet_UsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_asked_user", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_asked_user", "aspnet_Users", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_asking_user", "aspnet_Users")]
+        public aspnet_Users aspnet_Users1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_asking_user", "aspnet_Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_asking_user", "aspnet_Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Users> aspnet_Users1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_asking_user", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Users>("bindedinModel.FK_relation_status_asking_user", "aspnet_Users", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_relation_status", "status_name")]
         public status_name status_name
         {
@@ -5909,33 +6055,17 @@ namespace Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("bindedinModel", "FK_relation_status_relation_status", "relation_status")]
-        public relation_status relation_status
+        public EntityCollection<relation_status> relation_status
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<relation_status>("bindedinModel.FK_relation_status_relation_status", "relation_status").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<relation_status>("bindedinModel.FK_relation_status_relation_status", "relation_status").Value = value;
-            }
-        }
-        /// <summary>
-        /// Aucune documentation sur les métadonnées n'est disponible.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<relation_status> relation_statusReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<relation_status>("bindedinModel.FK_relation_status_relation_status", "relation_status");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<relation_status>("bindedinModel.FK_relation_status_relation_status", "relation_status");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<relation_status>("bindedinModel.FK_relation_status_relation_status", "relation_status", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<relation_status>("bindedinModel.FK_relation_status_relation_status", "relation_status", value);
                 }
             }
         }
@@ -7196,6 +7326,179 @@ namespace Data
         private global::System.DateTime _end_date;
         partial void Onend_dateChanging(global::System.DateTime value);
         partial void Onend_dateChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="bindedinModel", Name="v_user_competences")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class v_user_competences : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet v_user_competences.
+        /// </summary>
+        /// <param name="level">Valeur initiale de la propriété level.</param>
+        /// <param name="user">Valeur initiale de la propriété user.</param>
+        /// <param name="id">Valeur initiale de la propriété id.</param>
+        /// <param name="name">Valeur initiale de la propriété name.</param>
+        /// <param name="description">Valeur initiale de la propriété description.</param>
+        public static v_user_competences Createv_user_competences(global::System.Int32 level, global::System.Guid user, global::System.Int32 id, global::System.String name, global::System.String description)
+        {
+            v_user_competences v_user_competences = new v_user_competences();
+            v_user_competences.level = level;
+            v_user_competences.user = user;
+            v_user_competences.id = id;
+            v_user_competences.name = name;
+            v_user_competences.description = description;
+            return v_user_competences;
+        }
+
+        #endregion
+
+        #region Propriétés primitives
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 level
+        {
+            get
+            {
+                return _level;
+            }
+            set
+            {
+                if (_level != value)
+                {
+                    OnlevelChanging(value);
+                    ReportPropertyChanging("level");
+                    _level = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("level");
+                    OnlevelChanged();
+                }
+            }
+        }
+        private global::System.Int32 _level;
+        partial void OnlevelChanging(global::System.Int32 value);
+        partial void OnlevelChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid user
+        {
+            get
+            {
+                return _user;
+            }
+            set
+            {
+                if (_user != value)
+                {
+                    OnuserChanging(value);
+                    ReportPropertyChanging("user");
+                    _user = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("user");
+                    OnuserChanged();
+                }
+            }
+        }
+        private global::System.Guid _user;
+        partial void OnuserChanging(global::System.Guid value);
+        partial void OnuserChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if (_name != value)
+                {
+                    OnnameChanging(value);
+                    ReportPropertyChanging("name");
+                    _name = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("name");
+                    OnnameChanged();
+                }
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String description
+        {
+            get
+            {
+                return _description;
+            }
+            set
+            {
+                if (_description != value)
+                {
+                    OndescriptionChanging(value);
+                    ReportPropertyChanging("description");
+                    _description = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("description");
+                    OndescriptionChanged();
+                }
+            }
+        }
+        private global::System.String _description;
+        partial void OndescriptionChanging(global::System.String value);
+        partial void OndescriptionChanged();
 
         #endregion
 

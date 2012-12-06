@@ -19,8 +19,13 @@ namespace BindedIn
             if (this.Page.User.Identity.IsAuthenticated)
             {
                 //on affiche le nombre de message non lus
-                //linkMessage.InnerHtml += MessageService.GetStringCountUnreadMessage((Guid)Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
+                string nb = MessageService.GetStringCountUnreadMessage((Guid)Membership.GetUser(this.Page.User.Identity.Name, false).ProviderUserKey);
+                if (nb != "")
+                    linkMessage.InnerHtml = "Message <span class=\"badge badge-important\">" + nb + "</span>";
+                else
+                    linkMessage.InnerHtml = "Message";
             }
+            else linkMessage.Visible = false;
         }
 
         protected void searchButton_Click(object sender, EventArgs e)

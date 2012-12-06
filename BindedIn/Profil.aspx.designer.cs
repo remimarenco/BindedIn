@@ -22,13 +22,13 @@ namespace BindedIn {
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceUserProfile;
         
         /// <summary>
-        /// Contrôle ImageProfile.
+        /// Contrôle Image1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImageProfile;
+        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
         /// Contrôle Repeater3.
@@ -38,6 +38,15 @@ namespace BindedIn {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater Repeater3;
+        
+        /// <summary>
+        /// Contrôle Button3.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button3;
         
         /// <summary>
         /// Contrôle ButtonEditExp.
@@ -256,13 +265,13 @@ namespace BindedIn {
         protected global::System.Web.UI.WebControls.Button ButtonSaveExpPro;
         
         /// <summary>
-        /// Contrôle ObjectDataSourceEXpForUser.
+        /// Contrôle ObjectDataSourceProferssionalExpCompanies.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceEXpForUser;
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceProferssionalExpCompanies;
         
         /// <summary>
         /// Contrôle Repeater1.
@@ -472,24 +481,6 @@ namespace BindedIn {
         protected global::System.Web.UI.WebControls.Button ButtonEditSkills;
         
         /// <summary>
-        /// Contrôle ObjectDataSourceSkillsForUser.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceSkillsForUser;
-        
-        /// <summary>
-        /// Contrôle Repeater2.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater2;
-        
-        /// <summary>
         /// Contrôle editSkills.
         /// </summary>
         /// <remarks>
@@ -580,13 +571,31 @@ namespace BindedIn {
         protected global::System.Web.UI.WebControls.Button ButtonSkills;
         
         /// <summary>
-        /// Contrôle ObjectDataSourceForRecommandations.
+        /// Contrôle ObjectDataSourceSkillsForUser.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceForRecommandations;
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceSkillsForUser;
+        
+        /// <summary>
+        /// Contrôle Repeater2.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater Repeater2;
+        
+        /// <summary>
+        /// Contrôle ObjectDataSourceEXpForUser.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceEXpForUser;
         
         /// <summary>
         /// Contrôle Repeater4.
