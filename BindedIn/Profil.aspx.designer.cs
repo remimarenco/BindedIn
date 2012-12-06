@@ -22,13 +22,13 @@ namespace BindedIn {
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceUserProfile;
         
         /// <summary>
-        /// Contrôle Image1.
+        /// Contrôle ImageProfile.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image ImageProfile;
         
         /// <summary>
         /// Contrôle Repeater3.
@@ -589,13 +589,13 @@ namespace BindedIn {
         protected global::System.Web.UI.WebControls.Repeater Repeater2;
         
         /// <summary>
-        /// Contrôle ObjectDataSourceEXpForUser.
+        /// Contrôle ObjectDataSourceRecommandation.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceEXpForUser;
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceRecommandation;
         
         /// <summary>
         /// Contrôle Repeater4.

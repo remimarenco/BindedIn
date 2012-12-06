@@ -38,6 +38,7 @@ namespace BindedIn
             ObjectDataSourceSkillsForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
             ObjectDataSourceFormationForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
             ObjectDataSourceProferssionalExpCompanies.SelectParameters["userId"].DefaultValue = UserId.ToString();
+            ObjectDataSourceRecommandation.SelectParameters["userId"].DefaultValue = UserId.ToString();
             ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + UserId.ToString();
             // Fix cache issues
             ImageProfile.ImageUrl += "&tmp=" + DateTime.Now;

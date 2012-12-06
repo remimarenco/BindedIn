@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span3">
-                <asp:Image ID="Image1" style="width:140px; height:140px" Runat="server" CssClass="img-polaroid" />
+                <asp:Image ID="ImageProfile" style="width:140px; height:140px" Runat="server" CssClass="img-polaroid" />
             </div>
             <div class="span9">
                 <div class="row-fluid">
@@ -413,20 +413,24 @@
     </div>     
    
    <h2>Recommandations</h2>
-    <div class="well">
-        <div id="Div1">
-            <asp:ObjectDataSource ID="ObjectDataSourceEXpForUser" runat="server" SelectMethod="GetProferssionalExp"
-                    TypeName="Business.ProfessionalExpService">
-                    <SelectParameters>
-                        <asp:Parameter Name="userId" DbType="Guid" DefaultValue="" />
-                    </SelectParameters>
-                </asp:ObjectDataSource>
-                <asp:Repeater ID="Repeater4" runat="server" DataSourceID="ObjectDataSourceEXpForUser">
-                    <ItemTemplate>
-                        <%#Eval("name") %>,
-                        <%#Eval("description") %>
-                    </ItemTemplate>
-                </asp:Repeater>
+    
+            <asp:ObjectDataSource ID="ObjectDataSourceRecommandation" runat="server" SelectMethod="GetRecommandationsPlus"
+                    TypeName="Business.RecomendationService" 
+                DataObjectTypeName="System.Guid" UpdateMethod="GetRecommandationsPlus">
+                <SelectParameters>
+                    <asp:Parameter Name="userId" DbType="Guid" DefaultValue="" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
+            <asp:Repeater ID="Repeater4" runat="server" DataSourceID="ObjectDataSourceRecommandation">
+                <ItemTemplate>
+                    <div class="well">
+                        <div id="Div1">
+                            <%#Eval("senderName")%>,
+                            <%#Eval("message")%>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>            
         </div>
         </div>
