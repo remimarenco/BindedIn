@@ -478,6 +478,7 @@ namespace BindedIn
         protected void deleteRelation_Click(object sender, EventArgs e)
         {
             Business.RelationService.deleteRelation((Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey), (Guid)(Membership.GetUser(Request.Params["id"], false).ProviderUserKey));
+            Response.Redirect(Request.RawUrl);
         }
 
         #endregion
