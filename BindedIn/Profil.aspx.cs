@@ -38,9 +38,10 @@ namespace BindedIn
             ObjectDataSourceSkillsForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
             ObjectDataSourceFormationForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
             ObjectDataSourceProferssionalExpCompanies.SelectParameters["userId"].DefaultValue = UserId.ToString();
-            Image1.ImageUrl = "/ShowImage.ashx?iduser=" + UserId.ToString();
+            ObjectDataSourceRecommandation.SelectParameters["userId"].DefaultValue = UserId.ToString();
+            ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + UserId.ToString();
             // Fix cache issues
-            Image1.ImageUrl += "&tmp=" + DateTime.Now;
+            ImageProfile.ImageUrl += "&tmp=" + DateTime.Now;
             Repeater1.ItemDataBound += new RepeaterItemEventHandler(Repeater1_ItemDataBound);
             RepeaterFormation.ItemDataBound += new RepeaterItemEventHandler(RepeaterFormation_ItemDataBound);
             Repeater2.ItemDataBound += new RepeaterItemEventHandler(Repeater2_ItemDataBound);
