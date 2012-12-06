@@ -426,7 +426,7 @@
                 <ItemTemplate>
                     <div class="well">
                         <div id="Div1">
-                            <div><span class="badge badge-info"><%#Eval("senderName")%></span></div>
+                            <div><a href="<%#Eval("profilLink")%>" ><span class="badge badge-info"><%#Eval("senderName")%></span></a></div>
                             <div class="offset1" style="margin-top:10px;"><%#Eval("message")%></div>
                         </div>
                     </div>
