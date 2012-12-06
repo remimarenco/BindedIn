@@ -15,7 +15,7 @@
                         <div class="row-fluid" style="margin-top:15px;">
                             <strong class="span1" style="text-align:right;">A</strong> 
                             <div class="span11">
-                                <a id="lienDestinataire2" runat="server"><asp:Label ID="destinataireM"  runat="server" /></a>
+                                <a id="lienDestinataire2" runat="server"><asp:Label ID="recipientLabel"  runat="server" /></a>
                             </div>
                         </div>
                         <div class="row-fluid">
