@@ -20,12 +20,19 @@ namespace BindedIn
             editFormation.Visible = false;
             editSkills.Visible = false;
             string idParam = Request.Params["id"];
+            string userIdParam = Request.Params["userId"];
             
             if (idParam != null && Membership.GetUser(Request.Params["id"], false) != null)
             {
                 Profile = UserProfile.GetUserProfile(Request.Params["id"]);
                 UserId = (Guid)(Membership.GetUser(Request.Params["id"], false).ProviderUserKey);
                 ShowEditButtons(false);               
+            }
+            else if (userIdParam != null && Membership.GetUser(Request.Params["userId"], false) != null)
+            {
+                Profile = UserProfile.GetUserProfile(Business.UserService.GetUtilisateurById(Guid.Parse(Request.Params["userId"])).UserName);
+                UserId = Guid.Parse(Request.Params["userId"]);
+                ShowEditButtons(false); 
             }
             else
             {
