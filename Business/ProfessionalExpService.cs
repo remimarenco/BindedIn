@@ -35,6 +35,7 @@ namespace Business
             bindedinEntities bie = SingletonEntities.Instance;
             var retour = from ue in bie.user_experienceprofessional
                          from p in bie.v_xp_companies
+                         orderby p.end_date ascending
                          where ue.user.Equals(userId)
                          where ue.experience_professional.Equals(p.id)
                          select p;
