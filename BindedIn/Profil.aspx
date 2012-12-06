@@ -33,7 +33,7 @@
       -- EXPERIENCE
       --%>
     <div class="row-fluid">
-            <h2 class="span10">Experience professionelle</h2>
+            <h2 class="span10">Recommandations</h2>
         <asp:Button class="btn btn-success span2" ID="ButtonEditExp" runat="server" Text="Ajouter" 
             onclick="ButtonEdit_Click" />
     </div>

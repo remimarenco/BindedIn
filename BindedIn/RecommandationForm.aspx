@@ -10,7 +10,7 @@
                 <a id="lienProfile" href="#" runat="server"> 
                     <div class="media">
                         <a class="pull-left" ID="lienProfile2" runat="server">
-                            <img class="media-object" src="http://placehold.it/64x64">
+                            <asp:Image ID="ImageProfile" class="media-object"  ImageUrl="http://placehold.it/64x64" style="width:64px; height:64px"  CssClass="img-polaroid span3" runat="server" />
                         </a>  
                         <div class="media-body">
                             <b>Je recommande: </b> <br /><asp:Label ID="recipientLabel" runat="server" /> <br />

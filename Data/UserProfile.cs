@@ -10,6 +10,8 @@ namespace Data
 {
     public class UserProfile : ProfileBase
     {
+
+        public string imageUrl { get; set; }
         public static UserProfile GetUserProfile(string username)
         {
             return Create(username) as UserProfile;
