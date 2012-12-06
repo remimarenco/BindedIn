@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Business;
 using Data;
 using System.Web.Security;
 
@@ -34,7 +35,12 @@ namespace BindedIn
             ObjectDataSourceUserProfile.SelectParameters["id"].DefaultValue = UserId.ToString();
             ObjectDataSourceSkillsForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
             ObjectDataSourceFormationForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
+<<<<<<< HEAD
             ObjectDataSourceProferssionalExpCompanies.SelectParameters["userId"].DefaultValue = UserId.ToString();
+=======
+            ObjectDataSourceEXpForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
+            ObjectDataSourceForRecommandations.SelectParameters["userId"].DefaultValue = UserId.ToString();
+>>>>>>> 2e6301913f78b7387c769b5eb96557518a509976
             ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + UserId.ToString();
             // Fix cache issues
             ImageProfile.ImageUrl += "&tmp=" + DateTime.Now;

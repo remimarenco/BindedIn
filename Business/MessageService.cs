@@ -174,6 +174,18 @@ namespace Business
             return countMessage;
         }
 
+        public static string GetStringCountUnreadMessage(Guid userId)
+        {
+            int count = CountUnreadMessage(userId);
+            string re="";
+            if (count > 0)
+            {
+                re = "(" + Convert.ToString(count) + ")";
+            }
+            return re;
+
+        }
+
         //fonction créait une liste de MessagePlusa partir d'une liste de Message
         public static List<MessagePlus> MessageToMessagePlus(List<message> listM,string mode)
         {

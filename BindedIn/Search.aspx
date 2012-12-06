@@ -14,7 +14,7 @@
                         <a href="#" runat="server"> 
                             <div class="media">
                               <a class="pull-left" href="<%# String.Format("Profile.aspx?id={0}", Eval("UserName")) %>">
-                                <img class="media-object" src="http://placehold.it/64x64">
+                                <img class="media-object" src="http://placehold.it/64x64" />
                               </a>  
                               <div class="media-body">
                                    
