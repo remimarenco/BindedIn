@@ -62,7 +62,15 @@ namespace BindedIn
             ShowEditionControls(e);
         }
 
-      
+        private void MessageBox(string message)
+        {
+            if (!string.IsNullOrEmpty(message))
+            {
+                Response.Write("<script type=\"text/javascript\" language=\"javascript\">");
+                Response.Write("alert('" + message + "');");
+                Response.Write("</script>");
+            }
+        }
 
         private void ShowEditButtons(bool b)
         {
@@ -155,16 +163,34 @@ namespace BindedIn
             TextBoxDateFin.Text = string.Empty;
         }
 
+        private bool ValidateFormationFormFields()
+        {
+            if (
+                TextBoxFormationDescription.Text != string.Empty &&
+                TextBoxFormationEtablissement.Text != string.Empty &&
+                TextBoxFormationName.Text != string.Empty &&
+                TextBoxDateDebut.Text != string.Empty &&
+                TextBoxDateFin.Text != string.Empty)
+                return true;
+            else
+                return false;
+        }
+
         protected void ButtonSaveFormation_Click(object sender, EventArgs e)
         {
-            Business.FormationService
-                .InsertNewFormation(TextBoxFormationName.Text,
-                TextBoxFormationDescription.Text,
-                TextBoxDateDebut.Text,
-                TextBoxDateFin.Text,
-                TextBoxFormationEtablissement.Text,UserId);
-            ObjectDataSourceFormationForUser.Update();
-            RazFormationFormFields();
+            if (ValidateFormationFormFields())
+            {
+                Business.FormationService
+                    .InsertNewFormation(TextBoxFormationName.Text,
+                    TextBoxFormationDescription.Text,
+                    TextBoxDateDebut.Text,
+                    TextBoxDateFin.Text,
+                    TextBoxFormationEtablissement.Text, UserId);
+                ObjectDataSourceFormationForUser.Update();
+                RazFormationFormFields();
+            }
+            else
+                MessageBox("Les champs Nom, Description, Etablissement, et les dates de début et fin doivent etre saisies");
         }
 
         protected void ButtonDeleteFormation_Click(object sender, EventArgs e)
@@ -264,19 +290,37 @@ namespace BindedIn
             TextBoxDateDebutEXpPro.Text = string.Empty;
             TextBoxNomExpPro.Text = string.Empty;
         }
-
+        private bool ValidateExpProFormFields()
+        {
+            if (
+                TextBoxExpProCompanyAddress.Text != string.Empty &&
+                TextBoxExpProCompanyName.Text != string.Empty &&
+                TextBoxExpProDescription.Text != string.Empty &&
+                TextBoxDateFinExpPro.Text != string.Empty &&
+                TextBoxDateDebutEXpPro.Text != string.Empty &&
+                TextBoxNomExpPro.Text != string.Empty)
+                return true;
+            else
+                return false;
+        }
         protected void ButtonSaveExpPro_Click(object sender, EventArgs e)
         {
-            Business.ProfessionalExpService.InsertNewProfessionalExp(TextBoxNomExpPro.Text,
-                TextBoxExpProDescription.Text,
-                TextBoxDateDebutEXpPro.Text,TextBoxDateFinExpPro.Text,
-                TextBoxExpProCompanyName.Text,
-                TextBoxExpProCompanyAddress.Text,
-                TextBoxExpProCompanyTel.Text,
-                UserId);
-           
-            ObjectDataSourceProferssionalExpCompanies.Update();
-            RazExpProFormFields();
+            if (ValidateExpProFormFields())
+            {
+                Business.ProfessionalExpService.InsertNewProfessionalExp(TextBoxNomExpPro.Text,
+                    TextBoxExpProDescription.Text,
+                    TextBoxDateDebutEXpPro.Text, TextBoxDateFinExpPro.Text,
+                    TextBoxExpProCompanyName.Text,
+                    TextBoxExpProCompanyAddress.Text,
+                    TextBoxExpProCompanyTel.Text,
+                    UserId);
+
+                ObjectDataSourceProferssionalExpCompanies.Update();
+                RazExpProFormFields();
+            }
+            else
+                MessageBox("Les champs Nom, Description, Société, , adresse, et les dates de début et fin doivent etre saisies");
+                
         }
 
         protected void ButtonDeleteExpPro_Click(object sender, EventArgs e)
@@ -327,11 +371,25 @@ namespace BindedIn
             TextBoxCompeName.Text = string.Empty;          
         }
 
+        private bool ValidateSkillsFormFields()
+        {
+
+            if (TextBoxCompeDescription.Text != string.Empty && TextBoxCompeName.Text != string.Empty)
+                return true;
+            else
+                return false;
+        }
+
         protected void ButtonSkills_Click(object sender, EventArgs e)
         {
-            Business.SkillService.InsertNewSkill(TextBoxCompeName.Text, TextBoxCompeDescription.Text, RatingNiveau.CurrentRating,UserId);
-            ObjectDataSourceSkillsForUser.Update();
-            RazSkillsFormFields();
+            if (ValidateSkillsFormFields())
+            {
+                Business.SkillService.InsertNewSkill(TextBoxCompeName.Text, TextBoxCompeDescription.Text, RatingNiveau.CurrentRating, UserId);
+                ObjectDataSourceSkillsForUser.Update();
+                RazSkillsFormFields();
+            }
+            else
+                MessageBox("Les champs Nom et Description doivent etre saisies");
         }
 
         protected void ButtonDeleteSkills_Click(object sender, EventArgs e)
