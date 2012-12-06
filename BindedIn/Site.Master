@@ -37,7 +37,7 @@
                         <%--REGISTERED--%>    
                         <li><a href="/Relations.aspx" title="Relations"/>Relations</a></li>
                         <li><a href="/Profil.aspx" title="Profil"/>Profil</a></li>
-                       
+                        
                         <li><a ID="A1" href="/MonCompte.aspx"  title="Home" runat="server" >Mon Compte</a></li>
                         <%--END REGISTERED--%>  
                     </LoggedInTemplate> 
@@ -105,10 +105,7 @@
             </div>
         </div>
     </div>            
-     <div class="container">
-        <div id="DivAlertSuccess" class="alert alert-success" runat="server">
-            <asp:Label ID="AlertSuccess" Text="" runat="server"/>
-        </div>        
+     <div class="container">    
         <asp:ContentPlaceHolder ID="MainContent" runat="server"/>        
     </div>
 

@@ -42,6 +42,16 @@ namespace BindedIn
                         //on remplit le corps du message
                         message.Text = r.message;
 
+                        //affichage de l'image
+                        string uId =r.sender.ToString();
+                        ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + uId;
+                        // Fix cache issues
+                        ImageProfile.ImageUrl += "&tmp=" + DateTime.Now;
+
+                        //on remplit les liens
+                        lienDestinataire1.HRef = "Profil.aspx?id=" + u.UserName;
+                        lienDestinataire2.HRef = "Profil.aspx?id=" + u.UserName;
+
                     }
                     else
                     {

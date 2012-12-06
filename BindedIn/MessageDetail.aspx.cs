@@ -28,24 +28,46 @@ namespace BindedIn
 
                     if (m != null)
                     {
-                        //on passe le message a "lu"
-                        MessageService.ReadMessage(m.id);
 
-                        //on recupre le username a partir d'un guid
-                        string username = UserService.GetUtilisateurById(m.sender).UserName;
+                        if (User.Identity.Name == UserService.GetUtilisateurById(m.sender).UserName || User.Identity.Name == UserService.GetUtilisateurById(m.recipient).UserName)
+                        {
+                            if (User.Identity.Name == UserService.GetUtilisateurById(m.recipient).UserName)
+                            {
+                                //on passe le message a "lu"
+                                MessageService.ReadMessage(m.id);
+                            }
 
-                        //on recupere le userprofile a partir du username
-                        UserProfile u= UserProfile.GetUserProfile(username);
+                            //on recupre le username a partir d'un guid
+                            string username = UserService.GetUtilisateurById(m.sender).UserName;
+
+                            //on recupere le userprofile a partir du username
+                            UserProfile u = UserProfile.GetUserProfile(username);
 
 
-                        //on remplit le destinataire
-                        destinataireM.Text = u.FirstName+ " "+u.LastName;
+                            //on remplit le destinataire
+                            destinataireM.Text = u.FirstName + " " + u.LastName;
 
-                        //on remplit le champ objet
-                        objectM.Text = m.@object;
+                            //on remplit le champ objet
+                            objectM.Text = m.@object;
 
-                        //on remplit le corps du message
-                        message.Text = m.message1;
+                            //on remplit le corps du message
+                            message.Text = m.message1;
+
+                            //affichage de l'image
+                            string uId = m.sender.ToString();
+                            ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + uId;
+                            // Fix cache issues
+                            ImageProfile.ImageUrl += "&tmp=" + DateTime.Now;
+
+                            //on remplit les liens
+                            lienDestinataire1.HRef = "Profil.aspx?id=" + u.UserName;
+                            lienDestinataire2.HRef = "Profil.aspx?id=" + u.UserName;
+                        }
+                        else
+                        {
+                            errorMessage("Vous n'avez pas acces à ce message");
+                        }
+
 
                     }
                     else

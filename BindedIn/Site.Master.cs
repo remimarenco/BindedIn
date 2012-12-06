@@ -20,8 +20,10 @@ namespace BindedIn
             {
                 //on affiche le nombre de message non lus
                 string nb = MessageService.GetStringCountUnreadMessage((Guid)Membership.GetUser(this.Page.User.Identity.Name, false).ProviderUserKey);
-                if( nb != "" )
-                    linkMessage.InnerHtml += " <span class=\"badge badge-important\">" + nb + "</span>";
+                if (nb != "")
+                    linkMessage.InnerHtml = "Message <span class=\"badge badge-important\">" + nb + "</span>";
+                else
+                    linkMessage.InnerHtml = "Message";
             }
             else linkMessage.Visible = false;
         }

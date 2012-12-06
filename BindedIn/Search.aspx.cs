@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.Security;
 using System.Web.UI.WebControls;
 using Business;
 using Data;
@@ -23,10 +24,21 @@ namespace BindedIn
             if (keyWords != null)
             {
                 List<UserProfile> listUP = SearchService.SearchUser(keyWords);
+                List<UserProfile> listUP_mod = new List<UserProfile>();
+                Guid userGuid;
 
+                foreach (UserProfile up in listUP)
+                {
+                    userGuid = (Guid)Membership.GetUser(up.UserName, false).ProviderUserKey;
+                    up.imageUrl = "/ShowImage.ashx?iduser=" + userGuid.ToString();
+                    // Fix cache issues
+                    up.imageUrl += "&tmp=" + DateTime.Now;
+                    listUP_mod.Add(up);
+
+                }
                 if (listUP.Count > 0)
                 {
-                    rpt1.DataSource = SearchService.SearchUser(keyWords);
+                    rpt1.DataSource = listUP_mod;
                     rpt1.DataBind();
                 }
                 else

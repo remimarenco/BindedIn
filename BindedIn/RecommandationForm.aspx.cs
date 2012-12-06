@@ -36,6 +36,12 @@ namespace BindedIn
 
                         //on remplit le champ destinataire
                         recipientLabel.Text = u.FirstName + " " + u.LastName;
+
+                        Guid userGuid = (Guid)Membership.GetUser(recId, false).ProviderUserKey;
+                        string uId = userGuid.ToString();
+                        ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + uId;
+                        // Fix cache issues
+                        ImageProfile.ImageUrl += "&tmp=" + DateTime.Now;
                     }
                     else
                     {
