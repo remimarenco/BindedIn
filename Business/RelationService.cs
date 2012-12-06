@@ -96,11 +96,11 @@ namespace Business
             String host = uri.Scheme + Uri.SchemeDelimiter + uri.Host + ":" + uri.Port;
             String linkForInvitation = host + String.Format("/AcceptedInvitation.aspx?id_asking={0}&id_asked={1}", (Guid)(Membership.GetUser(asking_userName, false).ProviderUserKey), (Guid)(Membership.GetUser(asked_username, false).ProviderUserKey));
 
-            messageToSend += String.Format("Voici le lien pour accepter cette invitation : {0}", linkForInvitation);
+            messageToSend += "<br />Voici le lien pour accepter cette invitation : <br /> <a href=\"" + linkForInvitation + " \" class=\"btn\">Accepter la demande</a>";
             messageToSend += "\n";
-            messageToSend += "Sinon ignorez tout simplement ce message";
-            messageToSend += "\nCordialement,";
-            messageToSend += "\nVotre équipe BindedIn";
+            messageToSend += "<br />Sinon ignorez tout simplement ce message";
+            messageToSend += "<br />Cordialement,";
+            messageToSend += "<br />Votre équipe BindedIn";
 
             Business.MessageService.SendMessage((Guid)(Membership.GetUser(asking_userName, false).ProviderUserKey), (Guid)(Membership.GetUser(asked_username, false).ProviderUserKey), obj, messageToSend);
 

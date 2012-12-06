@@ -89,6 +89,10 @@
     <Content Include="Libs\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="Libs\bootstrap\js\bootstrap.js" />
     <Content Include="Libs\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Libs\htmlarea\editor.js" />
+    <Content Include="Libs\htmlarea\example.html" />
+    <Content Include="Libs\htmlarea\license.txt" />
+    <Content Include="Libs\htmlarea\readme.html" />
     <Content Include="Message.aspx" />
     <Content Include="MessageDetail.aspx" />
     <Content Include="MessageForm.aspx" />
