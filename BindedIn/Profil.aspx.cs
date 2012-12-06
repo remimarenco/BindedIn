@@ -142,6 +142,15 @@ namespace BindedIn
                         else
                             btn.Visible = true;
                     }
+                    else if (c is LinkButton)
+                    {
+                        // Grab label
+                        LinkButton btn = c as LinkButton;
+                        if (!self)
+                            btn.Visible = false;
+                        else
+                            btn.Visible = true;
+                    }
                 }
             }    
         }

@@ -408,9 +408,7 @@
                     <div class="row-fluid">
                     <div class="span11"><span class="badge badge-success"><%# Eval("level") %>/5</span> <%# Eval("name") %></div>
                     <div class="btn-toolbar span1" style="margin:0px;">
-                        <div class="btn-group"> 
-                           <%-- <asp:HyperLink ID="HyperLink1" runat="server" class="btn btn-mini btn-danger" Text='<%#Eval("id") %>' onServerClick="ButtonDeleteSkills_Click"><i class="icon-remove"></i></asp:HyperLink> --%>                      
-                            <%--<a href="" class="btn btn-mini btn-danger" ID="Button2" runat="server" onServerClick="ButtonDeleteSkills_Click"><i class="icon-remove"></i></a>--%>
+                        <div class="btn-group">                           
                             <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-mini btn-danger" CommandArgument='<%#Eval("id") %>' OnClick="ButtonDeleteSkills_Click"><i class="icon-remove"></i></asp:LinkButton>
                         </div>
                     </div>
