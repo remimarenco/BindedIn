@@ -27,28 +27,43 @@ namespace BindedIn
                 Profile = UserProfile.GetUserProfile(Request.Params["id"]);
                 UserId = (Guid)(Membership.GetUser(Request.Params["id"], false).ProviderUserKey);
                 ShowEditButtons(false);
-                if(Business.RelationService.isInRelationWith(Request.Params["id"]))
+                if(Business.RelationService.isInRelationWith(Request.Params["id"]) == 3)
                 {
-                    // TODO : Faire la suppression de relation
-                    connectionButton.Visible = false;
+                    showConnectionButton(deconnectionButton);
+                }
+                else if (Business.RelationService.isInRelationWith(Request.Params["id"]) == 1)
+                {
+                    showConnectionButton(waitingButton);
                 }
                 else
                 {
-                    connectionButton.Visible = true;
+                    showConnectionButton(connectionButton);
                 }
             }
             else if (userIdParam != null && Membership.GetUser(Request.Params["userId"], false) != null)
             {
                 Profile = UserProfile.GetUserProfile(Business.UserService.GetUtilisateurById(Guid.Parse(Request.Params["userId"])).UserName);
                 UserId = Guid.Parse(Request.Params["userId"]);
-                ShowEditButtons(false); 
+                ShowEditButtons(false);
+                if (Business.RelationService.isInRelationWith(Request.Params["id"]) == 3)
+                {
+                    showConnectionButton(deconnectionButton);
+                }
+                else if (Business.RelationService.isInRelationWith(Request.Params["id"]) == 1)
+                {
+                    showConnectionButton(waitingButton);
+                }
+                else
+                {
+                    showConnectionButton(connectionButton);
+                }
             }
             else
             {
                 Profile = UserProfile.GetUserProfile(User.Identity.Name);
                 UserId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
                 ShowEditButtons(true);
-                connectionButton.Visible = false;
+                showConnectionButton(null);
             }
 
             ObjectDataSourceUserProfile.SelectParameters["id"].DefaultValue = UserId.ToString();
@@ -79,7 +94,17 @@ namespace BindedIn
             ShowEditionControls(e);
         }
 
-      
+        void showConnectionButton(Button buttonToShow)
+        {
+            connectionButton.Visible = false;
+            deconnectionButton.Visible = false;
+            waitingButton.Visible = false;
+
+            if (buttonToShow != null)
+            {
+                buttonToShow.Visible = true;
+            }
+        }
 
         private void ShowEditButtons(bool b)
         {
@@ -366,6 +391,11 @@ namespace BindedIn
         protected void createRelation_Click(object sender, EventArgs e)
         {
             Response.Redirect(String.Format("Invitation.aspx?id={0}", Request.Params["id"]));
+        }
+
+        protected void deleteRelation_Click(object sender, EventArgs e)
+        {
+            Business.RelationService.deleteRelation((Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey), (Guid)(Membership.GetUser(Request.Params["id"], false).ProviderUserKey));
         }
 
         #endregion
