@@ -27,7 +27,7 @@
                         <ItemTemplate>  
                             <div class="span9">
                                 <h1><%#Eval("FirstName") %> <%#Eval("LastName") %></h1>
-                                 <div id="messages_links">
+                                 <div id="messages_links" runat="server">
                                     <a href='<%# String.Format("MessageForm.aspx?id={0}", Eval("UserName")) %>' runat="server"> <i class=" icon-envelope"></i>Envoyer un message</a><br />
                                     <a href='<%# String.Format("RecommandationForm.aspx?id={0}", Eval("UserName")) %>' runat="server"> <i class="icon-thumbs-up"></i>Recommander cette personne</a>
                                 </div>
@@ -38,6 +38,9 @@
                 <div class="row-fluid">
                     <asp:Button ID="connectionButton" Text="Se connecter" runat="server" CssClass="btn btn-primary" 
                         onclick="createRelation_Click"  />
+                    <asp:Button ID="deconnectionButton" Text="Se déconnecter" runat="server" CssClass="btn btn-danger" 
+                        onclick="deleteRelation_Click"  />
+                    <asp:Button ID="waitingButton" Text="En cours" runat="server" CssClass="btn btn-success disabled" />
                 </div>
             </div>
     </div>  
@@ -405,9 +408,7 @@
                     <div class="row-fluid">
                     <div class="span11"><span class="badge badge-success"><%# Eval("level") %>/5</span> <%# Eval("name") %></div>
                     <div class="btn-toolbar span1" style="margin:0px;">
-                        <div class="btn-group"> 
-                           <%-- <asp:HyperLink ID="HyperLink1" runat="server" class="btn btn-mini btn-danger" Text='<%#Eval("id") %>' onServerClick="ButtonDeleteSkills_Click"><i class="icon-remove"></i></asp:HyperLink> --%>                      
-                            <%--<a href="" class="btn btn-mini btn-danger" ID="Button2" runat="server" onServerClick="ButtonDeleteSkills_Click"><i class="icon-remove"></i></a>--%>
+                        <div class="btn-group">                           
                             <asp:LinkButton ID="LinkButton1" runat="server" class="btn btn-mini btn-danger" CommandArgument='<%#Eval("id") %>' OnClick="ButtonDeleteSkills_Click"><i class="icon-remove"></i></asp:LinkButton>
                         </div>
                     </div>

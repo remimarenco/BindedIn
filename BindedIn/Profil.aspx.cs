@@ -28,14 +28,17 @@ namespace BindedIn
                 Profile = UserProfile.GetUserProfile(Request.Params["id"]);
                 UserId = (Guid)(Membership.GetUser(Request.Params["id"], false).ProviderUserKey);
                 ShowEditButtons(false);
-                if(Business.RelationService.isInRelationWith(Request.Params["id"]))
+                if(Business.RelationService.isInRelationWith(Request.Params["id"]) == 3)
                 {
-                    // TODO : Faire la suppression de relation
-                    connectionButton.Visible = false;
+                    showConnectionButton(deconnectionButton);
+                }
+                else if (Business.RelationService.isInRelationWith(Request.Params["id"]) == 1)
+                {
+                    showConnectionButton(waitingButton);
                 }
                 else
                 {
-                    connectionButton.Visible = true;
+                    showConnectionButton(connectionButton);
                 }
                 self = false;
             }
@@ -44,6 +47,20 @@ namespace BindedIn
                 Profile = UserProfile.GetUserProfile(Business.UserService.GetUtilisateurById(Guid.Parse(Request.Params["userId"])).UserName);
                 UserId = Guid.Parse(Request.Params["userId"]);
                 ShowEditButtons(false);
+
+                if (Business.RelationService.isInRelationWith(Request.Params["id"]) == 3)
+                {
+                    showConnectionButton(deconnectionButton);
+                }
+                else if (Business.RelationService.isInRelationWith(Request.Params["id"]) == 1)
+                {
+                    showConnectionButton(waitingButton);
+                }
+                else
+                {
+                    showConnectionButton(connectionButton);
+                }
+
                 self = false;
             }
             else
@@ -51,6 +68,7 @@ namespace BindedIn
                 Profile = UserProfile.GetUserProfile(User.Identity.Name);
                 UserId = (Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey);
                 ShowEditButtons(true);
+                showConnectionButton(null);
                 connectionButton.Visible = false;
                 self = true;
             }
@@ -84,23 +102,21 @@ namespace BindedIn
             ShowEditionControls(e);
         }
 
+        void showConnectionButton(Button buttonToShow)
+        {
+            connectionButton.Visible = false;
+            deconnectionButton.Visible = false;
+            waitingButton.Visible = false;
+
+            if (buttonToShow != null)
+            {
+                buttonToShow.Visible = true;
+            }
+        }
+
         void Repeater3_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                foreach (Control c in e.Item.Controls)
-                {
-                    if (c is HyperLink)
-                    {
-                        // Grab label
-                        HyperLink btn = c as HyperLink;
-                        if (self)
-                            btn.Visible = false;
-                        else
-                            btn.Visible = true;
-                    }
-                }
-            }    
+            e.Item.FindControl("messages_links").Visible = (!self);
         }      
 
         private void ShowEditButtons(bool b)
@@ -126,8 +142,27 @@ namespace BindedIn
                         else
                             btn.Visible = true;
                     }
+                    else if (c is LinkButton)
+                    {
+                        // Grab label
+                        LinkButton btn = c as LinkButton;
+                        if (!self)
+                            btn.Visible = false;
+                        else
+                            btn.Visible = true;
+                    }
                 }
             }    
+        }
+
+        private void MessageBox(string message)
+        {
+            if (!string.IsNullOrEmpty(message))
+            {
+                Response.Write("<script type=\"text/javascript\" language=\"javascript\">");
+                Response.Write("alert('" + message + "');");
+                Response.Write("</script>");
+            }
         }
 
         protected void ButtonEdit_Click(object sender, EventArgs e)
@@ -194,18 +229,35 @@ namespace BindedIn
             TextBoxDateFin.Text = string.Empty;
         }
 
-        protected void ButtonSaveFormation_Click(object sender, EventArgs e)
+        private bool ValidateFormationFormFields()
         {
-            Business.FormationService
-                .InsertNewFormation(TextBoxFormationName.Text,
-                TextBoxFormationDescription.Text,
-                TextBoxDateDebut.Text,
-                TextBoxDateFin.Text,
-                TextBoxFormationEtablissement.Text,UserId);
-            ObjectDataSourceFormationForUser.Update();
-            RazFormationFormFields();
+            if (
+                TextBoxFormationDescription.Text != string.Empty &&
+                TextBoxFormationEtablissement.Text != string.Empty &&
+                TextBoxFormationName.Text != string.Empty &&
+                TextBoxDateDebut.Text != string.Empty &&
+                TextBoxDateFin.Text != string.Empty)
+                return true;
+            else
+                return false;
         }
 
+        protected void ButtonSaveFormation_Click(object sender, EventArgs e)
+        {
+            if (ValidateFormationFormFields())
+            {
+                Business.FormationService
+                    .InsertNewFormation(TextBoxFormationName.Text,
+                    TextBoxFormationDescription.Text,
+                    TextBoxDateDebut.Text,
+                    TextBoxDateFin.Text,
+                    TextBoxFormationEtablissement.Text, UserId);
+                ObjectDataSourceFormationForUser.Update();
+                RazFormationFormFields();
+            }
+            else
+                MessageBox("Les champs Nom, Description, Etablissement, et les dates de début et fin doivent etre saisies");
+        }
         protected void ButtonDeleteFormation_Click(object sender, EventArgs e)
         {
             Button but = (Button)sender;
@@ -304,18 +356,37 @@ namespace BindedIn
             TextBoxNomExpPro.Text = string.Empty;
         }
 
+        private bool ValidateExpProFormFields()
+        {
+            if (
+                TextBoxExpProCompanyAddress.Text != string.Empty &&
+                TextBoxExpProCompanyName.Text != string.Empty &&
+                TextBoxExpProDescription.Text != string.Empty &&
+                TextBoxDateFinExpPro.Text != string.Empty &&
+                TextBoxDateDebutEXpPro.Text != string.Empty &&
+                TextBoxNomExpPro.Text != string.Empty)
+                return true;
+            else
+                return false;
+        }
         protected void ButtonSaveExpPro_Click(object sender, EventArgs e)
         {
-            Business.ProfessionalExpService.InsertNewProfessionalExp(TextBoxNomExpPro.Text,
-                TextBoxExpProDescription.Text,
-                TextBoxDateDebutEXpPro.Text,TextBoxDateFinExpPro.Text,
-                TextBoxExpProCompanyName.Text,
-                TextBoxExpProCompanyAddress.Text,
-                TextBoxExpProCompanyTel.Text,
-                UserId);
-           
-            ObjectDataSourceProferssionalExpCompanies.Update();
-            RazExpProFormFields();
+            if (ValidateExpProFormFields())
+            {
+                Business.ProfessionalExpService.InsertNewProfessionalExp(TextBoxNomExpPro.Text,
+                    TextBoxExpProDescription.Text,
+                    TextBoxDateDebutEXpPro.Text, TextBoxDateFinExpPro.Text,
+                    TextBoxExpProCompanyName.Text,
+                    TextBoxExpProCompanyAddress.Text,
+                    TextBoxExpProCompanyTel.Text,
+                    UserId);
+
+                ObjectDataSourceProferssionalExpCompanies.Update();
+                RazExpProFormFields();
+            }
+            else
+                MessageBox("Les champs Nom, Description, Société, , adresse, et les dates de début et fin doivent etre saisies");
+
         }
 
         protected void ButtonDeleteExpPro_Click(object sender, EventArgs e)
@@ -366,11 +437,25 @@ namespace BindedIn
             TextBoxCompeName.Text = string.Empty;          
         }
 
+        private bool ValidateSkillsFormFields()
+        {
+
+            if (TextBoxCompeDescription.Text != string.Empty && TextBoxCompeName.Text != string.Empty)
+                return true;
+            else
+                return false;
+        }
+
         protected void ButtonSkills_Click(object sender, EventArgs e)
         {
-            Business.SkillService.InsertNewSkill(TextBoxCompeName.Text, TextBoxCompeDescription.Text, RatingNiveau.CurrentRating,UserId);
-            ObjectDataSourceSkillsForUser.Update();
-            RazSkillsFormFields();
+            if (ValidateSkillsFormFields())
+            {
+                Business.SkillService.InsertNewSkill(TextBoxCompeName.Text, TextBoxCompeDescription.Text, RatingNiveau.CurrentRating, UserId);
+                ObjectDataSourceSkillsForUser.Update();
+                RazSkillsFormFields();
+            }
+            else
+                MessageBox("Les champs Nom et Description doivent etre saisies");
         }
 
         protected void ButtonDeleteSkills_Click(object sender, EventArgs e)
@@ -388,6 +473,11 @@ namespace BindedIn
         protected void createRelation_Click(object sender, EventArgs e)
         {
             Response.Redirect(String.Format("Invitation.aspx?id={0}", Request.Params["id"]));
+        }
+
+        protected void deleteRelation_Click(object sender, EventArgs e)
+        {
+            Business.RelationService.deleteRelation((Guid)(Membership.GetUser(User.Identity.Name, false).ProviderUserKey), (Guid)(Membership.GetUser(Request.Params["id"], false).ProviderUserKey));
         }
 
         #endregion
