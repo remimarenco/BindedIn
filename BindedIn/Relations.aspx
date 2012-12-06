@@ -33,7 +33,9 @@
                                         <asp:Image ImageUrl='<%#Eval("imageUrl") %>' CssClass="img-polaroid" Width="140px" Height="140px" runat="server" />
                                     </div>
                                     <div class="span8">
-                                        <p><%#Eval("Lastname") %>, <%#Eval("Firstname") %></p>
+                                        <a href="<%#String.Format("Profil.aspx?id={0}",Eval("UserName")) %>" >
+                                            <%#Eval("Lastname") %>, <%#Eval("Firstname") %>
+                                        </a>
                                     </div>
                                 </div>
                             </ItemTemplate>
@@ -54,7 +56,9 @@
                                             <asp:Image ID="Image1" ImageUrl='<%#Eval("imageUrl") %>' CssClass="img-polaroid" Width="28px" Height="28px" runat="server" />
                                         </div>
                                         <div class="span8">
-                                            <p><%#Eval("Lastname") %>, <%#Eval("Firstname") %></p>
+                                            <a href="<%#String.Format("Profil.aspx?id={0}",Eval("UserName")) %>" >
+                                                <%#Eval("Lastname") %>, <%#Eval("Firstname") %>
+                                            </a>
                                         </div>
                                     </div>
                                 </li>
