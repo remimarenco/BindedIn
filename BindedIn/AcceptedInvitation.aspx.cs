@@ -23,6 +23,8 @@ namespace BindedIn
 
             linkUserAsking.PostBackUrl = String.Format("Profil.aspx?id={0}", Membership.GetUser(Guid.Parse(idAskingUser)).UserName);
             linkUserAsking.Text = String.Format("{0} {1}", asking_user.FirstName, asking_user.LastName);
+
+
         }
     }
 }

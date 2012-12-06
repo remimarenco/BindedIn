@@ -35,7 +35,7 @@ namespace BindedIn
             ObjectDataSourceUserProfile.SelectParameters["id"].DefaultValue = UserId.ToString();
             ObjectDataSourceSkillsForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
             ObjectDataSourceFormationForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
-            ObjectDataSourceEXpForUser.SelectParameters["userId"].DefaultValue = UserId.ToString();
+            ObjectDataSourceProferssionalExpCompanies.SelectParameters["userId"].DefaultValue = UserId.ToString();
             ImageProfile.ImageUrl = "/ShowImage.ashx?iduser=" + UserId.ToString();
             // Fix cache issues
             ImageProfile.ImageUrl += "&tmp=" + DateTime.Now;
@@ -49,6 +49,7 @@ namespace BindedIn
                 editFormation.Visible = true;
             else if (sender.Equals(ButtonEditExp))
                 editExp.Visible = true;
+
         }
 
 
@@ -103,6 +104,7 @@ namespace BindedIn
                 TextBoxDateDebut.Text,
                 TextBoxDateFin.Text,
                 TextBoxFormationEtablissement.Text,UserId);
+            ObjectDataSourceFormationForUser.Update();
         }
 
         #endregion
@@ -194,6 +196,16 @@ namespace BindedIn
                 TextBoxExpProCompanyAddress.Text,
                 TextBoxExpProCompanyTel.Text,
                 UserId);
+           
+            ObjectDataSourceProferssionalExpCompanies.Update();
+        }
+
+        protected void ButtonDeleteExpPro_Click(object sender, EventArgs e)
+        {
+            Button but = (Button)sender;
+            Business.ProfessionalExpService.Remove(but.CommandArgument, UserId);
+
+            ObjectDataSourceProferssionalExpCompanies.Update();
         }
 
         #endregion
@@ -233,6 +245,7 @@ namespace BindedIn
         protected void ButtonSkills_Click(object sender, EventArgs e)
         {
             Business.SkillService.InsertNewSkill(TextBoxCompeName.Text, TextBoxCompeDescription.Text, RatingNiveau.CurrentRating,UserId);
+            ObjectDataSourceSkillsForUser.Update();
         }
 
         #endregion

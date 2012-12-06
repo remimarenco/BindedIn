@@ -31,6 +31,48 @@
           <EntitySet Name="user_competence" EntityType="bindedinModel.Store.user_competence" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="user_experienceprofessional" EntityType="bindedinModel.Store.user_experienceprofessional" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="user_formation" EntityType="bindedinModel.Store.user_formation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="v_formation_schools" EntityType="bindedinModel.Store.v_formation_schools" store:Type="Views" store:Schema="dbo" store:Name="v_formation_schools">
+            <DefiningQuery>SELECT 
+      [v_formation_schools].[id] AS [id], 
+      [v_formation_schools].[name] AS [name], 
+      [v_formation_schools].[description] AS [description], 
+      [v_formation_schools].[Expr1] AS [Expr1]
+      FROM [dbo].[v_formation_schools] AS [v_formation_schools]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_formation_schools1" EntityType="bindedinModel.Store.v_formation_schools1" store:Type="Views" store:Schema="dbo" store:Name="v_formation_schools1">
+            <DefiningQuery>SELECT 
+      [v_formation_schools1].[id] AS [id], 
+      [v_formation_schools1].[name_formation] AS [name_formation], 
+      [v_formation_schools1].[desc_formation] AS [desc_formation], 
+      [v_formation_schools1].[name_school] AS [name_school], 
+      [v_formation_schools1].[desc_school] AS [desc_school], 
+      [v_formation_schools1].[user] AS [user], 
+      [v_formation_schools1].[beginning_date] AS [beginning_date], 
+      [v_formation_schools1].[end_date] AS [end_date]
+      FROM [dbo].[v_formation_schools1] AS [v_formation_schools1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_user_competences" EntityType="bindedinModel.Store.v_user_competences" store:Type="Views" store:Schema="dbo" store:Name="v_user_competences">
+            <DefiningQuery>SELECT 
+      [v_user_competences].[level] AS [level], 
+      [v_user_competences].[user] AS [user], 
+      [v_user_competences].[id] AS [id], 
+      [v_user_competences].[name] AS [name], 
+      [v_user_competences].[description] AS [description]
+      FROM [dbo].[v_user_competences] AS [v_user_competences]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_xp_companies" EntityType="bindedinModel.Store.v_xp_companies" store:Type="Views" store:Schema="dbo" store:Name="v_xp_companies">
+            <DefiningQuery>SELECT 
+      [v_xp_companies].[id] AS [id], 
+      [v_xp_companies].[name_xp] AS [name_xp], 
+      [v_xp_companies].[desc_xp] AS [desc_xp], 
+      [v_xp_companies].[name_company] AS [name_company], 
+      [v_xp_companies].[adresse] AS [adresse], 
+      [v_xp_companies].[telephone] AS [telephone], 
+      [v_xp_companies].[user] AS [user], 
+      [v_xp_companies].[beginning_date] AS [beginning_date], 
+      [v_xp_companies].[end_date] AS [end_date]
+      FROM [dbo].[v_xp_companies] AS [v_xp_companies]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_aspnet_Applications" EntityType="bindedinModel.Store.vw_aspnet_Applications" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_Applications">
             <DefiningQuery>SELECT 
       [vw_aspnet_Applications].[ApplicationName] AS [ApplicationName], 
@@ -185,6 +227,14 @@
           <AssociationSet Name="FK_recommandations_aspnet_senderUser" Association="bindedinModel.Store.FK_recommandations_aspnet_senderUser">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="recommandations" EntitySet="recommandations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relation_status_asked_user" Association="bindedinModel.Store.FK_relation_status_asked_user">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="relation_status" EntitySet="relation_status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relation_status_asking_user" Association="bindedinModel.Store.FK_relation_status_asking_user">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="relation_status" EntitySet="relation_status" />
           </AssociationSet>
           <AssociationSet Name="FK_relation_status_relation_status" Association="bindedinModel.Store.FK_relation_status_relation_status">
             <End Role="status_name" EntitySet="status_name" />
@@ -475,6 +525,84 @@
           <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="user" Type="uniqueidentifier" Nullable="false" />
           <Property Name="formation" Type="int" Nullable="false" />
+          <Property Name="beginning_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+      Avertissement 6002: La table/vue « bindedin.dbo.v_formation_schools » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+      -->
+        <EntityType Name="v_formation_schools">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="description" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Expr1" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+      Avertissement 6002: La table/vue « bindedin.dbo.v_formation_schools1 » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+      -->
+        <EntityType Name="v_formation_schools1">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name_formation" />
+            <PropertyRef Name="desc_formation" />
+            <PropertyRef Name="name_school" />
+            <PropertyRef Name="desc_school" />
+            <PropertyRef Name="user" />
+            <PropertyRef Name="beginning_date" />
+            <PropertyRef Name="end_date" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name_formation" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="desc_formation" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="name_school" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="desc_school" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="user" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="beginning_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+      Avertissement 6002: La table/vue « bindedin.dbo.v_user_competences » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+      -->
+        <EntityType Name="v_user_competences">
+          <Key>
+            <PropertyRef Name="level" />
+            <PropertyRef Name="user" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="description" />
+          </Key>
+          <Property Name="level" Type="int" Nullable="false" />
+          <Property Name="user" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+      Avertissement 6002: La table/vue « bindedin.dbo.v_xp_companies » n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.
+      -->
+        <EntityType Name="v_xp_companies">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name_xp" />
+            <PropertyRef Name="desc_xp" />
+            <PropertyRef Name="name_company" />
+            <PropertyRef Name="user" />
+            <PropertyRef Name="beginning_date" />
+            <PropertyRef Name="end_date" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name_xp" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="desc_xp" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="name_company" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="adresse" Type="nvarchar" MaxLength="50" />
+          <Property Name="telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="user" Type="uniqueidentifier" Nullable="false" />
           <Property Name="beginning_date" Type="date" Nullable="false" />
           <Property Name="end_date" Type="date" Nullable="false" />
         </EntityType>
@@ -834,15 +962,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_relation_status_asked_user">
+          <End Role="aspnet_Users" Type="bindedinModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="relation_status" Type="bindedinModel.Store.relation_status" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="relation_status">
+              <PropertyRef Name="asked_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relation_status_asking_user">
+          <End Role="aspnet_Users" Type="bindedinModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="relation_status" Type="bindedinModel.Store.relation_status" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="relation_status">
+              <PropertyRef Name="asking_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_relation_status_relation_status">
           <End Role="status_name" Type="bindedinModel.Store.status_name" Multiplicity="1" />
-          <End Role="relation_status" Type="bindedinModel.Store.relation_status" Multiplicity="0..1" />
+          <End Role="relation_status" Type="bindedinModel.Store.relation_status" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="status_name">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="relation_status">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="status" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1317,6 +1469,10 @@
           <EntitySet Name="user_competence" EntityType="bindedinModel.user_competence" />
           <EntitySet Name="user_experienceprofessional" EntityType="bindedinModel.user_experienceprofessional" />
           <EntitySet Name="user_formation" EntityType="bindedinModel.user_formation" />
+          <EntitySet Name="v_formation_schools" EntityType="bindedinModel.v_formation_schools" />
+          <EntitySet Name="v_formation_schools1" EntityType="bindedinModel.v_formation_schools1" />
+          <EntitySet Name="v_user_competences" EntityType="bindedinModel.v_user_competences" />
+          <EntitySet Name="v_xp_companies" EntityType="bindedinModel.v_xp_companies" />
           <EntitySet Name="vw_aspnet_Applications" EntityType="bindedinModel.vw_aspnet_Applications" />
           <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="bindedinModel.vw_aspnet_MembershipUsers" />
           <EntitySet Name="vw_aspnet_Profiles" EntityType="bindedinModel.vw_aspnet_Profiles" />
@@ -1381,6 +1537,14 @@
           <AssociationSet Name="FK_recommandations_aspnet_senderUser" Association="bindedinModel.FK_recommandations_aspnet_senderUser">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="recommandations" EntitySet="recommandations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relation_status_asked_user" Association="bindedinModel.FK_relation_status_asked_user">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="relation_status" EntitySet="relation_status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_relation_status_asking_user" Association="bindedinModel.FK_relation_status_asking_user">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="relation_status" EntitySet="relation_status" />
           </AssociationSet>
           <AssociationSet Name="FK_user_competence_aspnet_Users" Association="bindedinModel.FK_user_competence_aspnet_Users">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
@@ -1543,6 +1707,8 @@
           <NavigationProperty Name="messages1" Relationship="bindedinModel.FK_messages_aspnet_userSender" FromRole="aspnet_Users" ToRole="messages" />
           <NavigationProperty Name="recommandations" Relationship="bindedinModel.FK_recommandations_aspnet_recipientUser" FromRole="aspnet_Users" ToRole="recommandations" />
           <NavigationProperty Name="recommandations1" Relationship="bindedinModel.FK_recommandations_aspnet_senderUser" FromRole="aspnet_Users" ToRole="recommandations" />
+          <NavigationProperty Name="relation_status" Relationship="bindedinModel.FK_relation_status_asked_user" FromRole="aspnet_Users" ToRole="relation_status" />
+          <NavigationProperty Name="relation_status1" Relationship="bindedinModel.FK_relation_status_asking_user" FromRole="aspnet_Users" ToRole="relation_status" />
           <NavigationProperty Name="user_competence" Relationship="bindedinModel.FK_user_competence_aspnet_Users" FromRole="aspnet_Users" ToRole="user_competence" />
           <NavigationProperty Name="user_experienceprofessional" Relationship="bindedinModel.FK_user_experienceprofessional_aspnet_Users" FromRole="aspnet_Users" ToRole="user_experienceprofessional" />
           <NavigationProperty Name="user_formation" Relationship="bindedinModel.FK_user_formation_aspuser" FromRole="aspnet_Users" ToRole="user_formation" />
@@ -1664,6 +1830,8 @@
           <Property Name="asked_user" Type="Guid" Nullable="false" />
           <Property Name="status" Type="Int32" Nullable="false" />
           <Property Name="asked_date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="bindedinModel.FK_relation_status_asked_user" FromRole="relation_status" ToRole="aspnet_Users" />
+          <NavigationProperty Name="aspnet_Users1" Relationship="bindedinModel.FK_relation_status_asking_user" FromRole="relation_status" ToRole="aspnet_Users" />
           <NavigationProperty Name="status_name" Relationship="bindedinModel.FK_relation_status_relation_status" FromRole="relation_status" ToRole="status_name" />
         </EntityType>
         <EntityType Name="school">
@@ -1727,6 +1895,72 @@
           <Property Name="end_date" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="aspnet_Users" Relationship="bindedinModel.FK_user_formation_aspuser" FromRole="user_formation" ToRole="aspnet_Users" />
           <NavigationProperty Name="formation1" Relationship="bindedinModel.FK_user_formation_formation" FromRole="user_formation" ToRole="formations" />
+        </EntityType>
+        <EntityType Name="v_formation_schools">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="description" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Expr1" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="v_formation_schools1">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name_formation" />
+            <PropertyRef Name="desc_formation" />
+            <PropertyRef Name="name_school" />
+            <PropertyRef Name="desc_school" />
+            <PropertyRef Name="user" />
+            <PropertyRef Name="beginning_date" />
+            <PropertyRef Name="end_date" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name_formation" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="desc_formation" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="name_school" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="desc_school" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="user" Type="Guid" Nullable="false" />
+          <Property Name="beginning_date" Type="DateTime" Nullable="false" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_user_competences">
+          <Key>
+            <PropertyRef Name="level" />
+            <PropertyRef Name="user" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="description" />
+          </Key>
+          <Property Name="level" Type="Int32" Nullable="false" />
+          <Property Name="user" Type="Guid" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="v_xp_companies">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name_xp" />
+            <PropertyRef Name="desc_xp" />
+            <PropertyRef Name="name_company" />
+            <PropertyRef Name="user" />
+            <PropertyRef Name="beginning_date" />
+            <PropertyRef Name="end_date" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name_xp" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="desc_xp" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="name_company" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="adresse" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="telephone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="user" Type="Guid" Nullable="false" />
+          <Property Name="beginning_date" Type="DateTime" Nullable="false" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" />
         </EntityType>
         <EntityType Name="vw_aspnet_Applications">
           <Key>
@@ -2033,6 +2267,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_relation_status_asked_user">
+          <End Role="aspnet_Users" Type="bindedinModel.aspnet_Users" Multiplicity="1" />
+          <End Role="relation_status" Type="bindedinModel.relation_status" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="relation_status">
+              <PropertyRef Name="asked_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_relation_status_asking_user">
+          <End Role="aspnet_Users" Type="bindedinModel.aspnet_Users" Multiplicity="1" />
+          <End Role="relation_status" Type="bindedinModel.relation_status" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="relation_status">
+              <PropertyRef Name="asking_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_user_competence_aspnet_Users">
           <End Role="aspnet_Users" Type="bindedinModel.aspnet_Users" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -2137,13 +2395,13 @@
         </Association>
         <Association Name="FK_relation_status_relation_status">
           <End Role="status_name" Type="bindedinModel.status_name" Multiplicity="1" />
-          <End Role="relation_status" Type="bindedinModel.relation_status" Multiplicity="0..1" />
+          <End Role="relation_status" Type="bindedinModel.relation_status" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="status_name">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="relation_status">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="status" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2439,6 +2697,56 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_formation_schools">
+            <EntityTypeMapping TypeName="bindedinModel.v_formation_schools">
+              <MappingFragment StoreEntitySet="v_formation_schools">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_formation_schools1">
+            <EntityTypeMapping TypeName="bindedinModel.v_formation_schools1">
+              <MappingFragment StoreEntitySet="v_formation_schools1">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_formation" ColumnName="name_formation" />
+                <ScalarProperty Name="desc_formation" ColumnName="desc_formation" />
+                <ScalarProperty Name="name_school" ColumnName="name_school" />
+                <ScalarProperty Name="desc_school" ColumnName="desc_school" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_user_competences">
+            <EntityTypeMapping TypeName="bindedinModel.v_user_competences">
+              <MappingFragment StoreEntitySet="v_user_competences">
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_xp_companies">
+            <EntityTypeMapping TypeName="bindedinModel.v_xp_companies">
+              <MappingFragment StoreEntitySet="v_xp_companies">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_xp" ColumnName="name_xp" />
+                <ScalarProperty Name="desc_xp" ColumnName="desc_xp" />
+                <ScalarProperty Name="name_company" ColumnName="name_company" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="beginning_date" ColumnName="beginning_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vw_aspnet_Applications">
             <EntityTypeMapping TypeName="bindedinModel.vw_aspnet_Applications">
               <MappingFragment StoreEntitySet="vw_aspnet_Applications">
@@ -2569,188 +2877,194 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="bindedin-db">
-        <EntityTypeShape EntityType="bindedinModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="19.25" Height="2.5571907552083317" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.aspnet_Membership" Width="1.5" PointX="8.25" PointY="23.5" Height="5.4417122395833317" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.aspnet_Paths" Width="1.5" PointX="3" PointY="11.5" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="10.25" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="12.875" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.aspnet_Profile" Width="1.5" PointX="5.25" PointY="25" Height="2.172587890624996" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.aspnet_Roles" Width="1.5" PointX="3" PointY="22" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="4.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.aspnet_Users" Width="1.5" PointX="3" PointY="28.75" Height="4.480205078124996" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.aspnet_UsersInRoles" Width="1.5" PointX="5.25" PointY="22.375" Height="1.595683593749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="4.75" Height="3.9033007812500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.company" Width="1.5" PointX="3.75" PointY="41" Height="1.9802864583333246" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.competence" Width="1.5" PointX="6" PointY="38.125" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.formation" Width="1.5" PointX="9" PointY="18.875" Height="2.172587890624996" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.Image" Width="1.5" PointX="5.25" PointY="28" Height="2.1725878906250031" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.message" Width="1.5" PointX="5.25" PointY="30.875" Height="3.1340950520833388" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.professional_experience" Width="1.5" PointX="6" PointY="40.875" Height="2.172587890624996" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.recommandation" Width="1.5" PointX="5.25" PointY="34.75" Height="2.172587890624996" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.relation_status" Width="1.5" PointX="3" PointY="0.875" Height="2.1725878906250031" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.school" Width="1.5" PointX="6.75" PointY="19.125" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.status_name" Width="1.5" PointX="0.75" PointY="1.25" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.sysdiagram" Width="1.5" PointX="4.75" PointY="4.75" Height="1.9802864583333282" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.user_competence" Width="1.5" PointX="8.25" PointY="29.875" Height="2.1725878906250102" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.user_experienceprofessional" Width="1.5" PointX="8.25" PointY="32.875" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.user_formation" Width="1.5" PointX="11.25" PointY="29.875" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Applications" Width="1.5" PointX="5.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="6.75" PointY="3.75" Height="5.4417122395833246" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Profiles" Width="1.5" PointX="7.75" PointY="0.75" Height="1.5956835937500102" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Roles" Width="1.5" PointX="8.75" PointY="3.75" Height="1.9802864583333246" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Users" Width="1.5" PointX="8.75" PointY="6.75" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_UsersInRoles" Width="1.5" PointX="9.75" PointY="0.75" Height="1.4033821614583246" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="10.75" PointY="3.75" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="10.75" PointY="6.75" Height="1.5956835937500102" IsExpanded="true" />
-        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="7.75" PointY="10.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="21.125" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.aspnet_Membership" Width="1.5" PointX="8.25" PointY="25.5" Height="5.4417122395833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.aspnet_Paths" Width="1.5" PointX="3" PointY="13.25" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="12.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="14.625" Height="2.1725878906249978" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.aspnet_Profile" Width="1.5" PointX="5.25" PointY="26.875" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.aspnet_Roles" Width="1.5" PointX="3" PointY="23.75" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.aspnet_Users" Width="1.5" PointX="3" PointY="30.375" Height="4.8648079427083388" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.aspnet_UsersInRoles" Width="1.5" PointX="5.25" PointY="24.125" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="0.75" Height="3.9033007812500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.company" Width="1.5" PointX="6.75" PointY="39.875" Height="1.9802864583333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.competence" Width="1.5" PointX="6" PointY="45.875" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.formation" Width="1.5" PointX="9" PointY="20.75" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.Image" Width="1.5" PointX="5.25" PointY="29.75" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.message" Width="1.5" PointX="5.25" PointY="32.75" Height="3.1340950520833388" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.professional_experience" Width="1.5" PointX="9" PointY="39.75" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.recommandation" Width="1.5" PointX="5.25" PointY="36.625" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.relation_status" Width="1.5" PointX="8.25" PointY="32.5" Height="2.5571907552083388" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.school" Width="1.5" PointX="6.75" PointY="20.875" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.status_name" Width="1.5" PointX="6" PointY="43" Height="1.5956835937500102" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.sysdiagram" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333282" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.user_competence" Width="1.5" PointX="8.25" PointY="36.75" Height="2.1725878906250102" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.user_experienceprofessional" Width="1.5" PointX="11.25" PointY="31.625" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.user_formation" Width="1.5" PointX="11.25" PointY="27.625" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.v_formation_schools" Width="1.5" PointX="4.75" PointY="3.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.v_formation_schools1" Width="1.5" PointX="0.75" PointY="5.75" Height="2.5571907552083246" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.v_user_competences" Width="1.5" PointX="6.75" PointY="0.75" Height="1.9802864583333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.v_xp_companies" Width="1.5" PointX="2.75" PointY="6.75" Height="2.7494921875000102" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Applications" Width="1.5" PointX="6.75" PointY="3.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="7.75" PointY="6.75" Height="5.4417122395833246" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Profiles" Width="1.5" PointX="4.75" PointY="6.75" Height="1.5956835937500102" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Roles" Width="1.5" PointX="8.75" PointY="0.75" Height="1.9802864583333246" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_Users" Width="1.5" PointX="9.75" PointY="3.75" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_UsersInRoles" Width="1.5" PointX="4.75" PointY="9.75" Height="1.4033821614583246" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_WebPartState_Paths" Width="1.5" PointX="9.75" PointY="7.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_WebPartState_Shared" Width="1.5" PointX="10.75" PointY="0.75" Height="1.5956835937500102" IsExpanded="true" />
+        <EntityTypeShape EntityType="bindedinModel.vw_aspnet_WebPartState_User" Width="1.5" PointX="9.75" PointY="10.75" Height="1.7879850260416674" IsExpanded="true" />
         <AssociationConnector Association="bindedinModel.FK__aspnet_Me__Appli__59063A47" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.5" PointY="21.807190755208332" />
-          <ConnectorPoint PointX="1.5" PointY="27.586293945312498" />
-          <ConnectorPoint PointX="1.8229191666666667" PointY="27.586293945312498" />
-          <ConnectorPoint PointX="1.9895858333333332" PointY="27.586293945312498" />
-          <ConnectorPoint PointX="3.6666666666666665" PointY="27.586293945312498" />
-          <ConnectorPoint PointX="3.8333333333333335" PointY="27.586293945312498" />
-          <ConnectorPoint PointX="8.25" PointY="27.586293945312498" />
+          <ConnectorPoint PointX="1.5" PointY="23.682190755208332" />
+          <ConnectorPoint PointX="1.5" PointY="26.494944661458334" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="26.494944661458334" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="26.494944661458334" />
+          <ConnectorPoint PointX="8.25" PointY="26.494944661458334" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK__aspnet_Pa__Appli__123EB7A3" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.5" PointY="19.25" />
-          <ConnectorPoint PointX="1.5" PointY="12.682444661458334" />
-          <ConnectorPoint PointX="3" PointY="12.682444661458334" />
+          <ConnectorPoint PointX="1.5" PointY="21.125" />
+          <ConnectorPoint PointX="1.5" PointY="14.432444661458334" />
+          <ConnectorPoint PointX="3" PointY="14.432444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK__aspnet_Ro__Appli__7B5B524B" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="20.528595377604166" />
-          <ConnectorPoint PointX="3.75" PointY="20.528595377604166" />
-          <ConnectorPoint PointX="3.75" PointY="22" />
+          <ConnectorPoint PointX="2.25" PointY="22.403595377604166" />
+          <ConnectorPoint PointX="3.75" PointY="22.403595377604166" />
+          <ConnectorPoint PointX="3.75" PointY="23.75" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK__aspnet_Us__Appli__44FF419A" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.9062525" PointY="21.807190755208332" />
-          <ConnectorPoint PointX="1.9062525" PointY="30.990102539062498" />
-          <ConnectorPoint PointX="3" PointY="30.990102539062498" />
+          <ConnectorPoint PointX="1.9062525" PointY="23.682190755208332" />
+          <ConnectorPoint PointX="1.9062525" PointY="32.807403971354169" />
+          <ConnectorPoint PointX="3" PointY="32.807403971354169" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK__aspnet_Me__UserI__59FA5E80" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="30.990102539062498" />
-          <ConnectorPoint PointX="4.666666666666667" PointY="30.990102539062498" />
-          <ConnectorPoint PointX="4.833333333333333" PointY="30.990102539062498" />
-          <ConnectorPoint PointX="5" PointY="30.990102539062498" />
-          <ConnectorPoint PointX="5" PointY="30.625" />
-          <ConnectorPoint PointX="7.072916666666667" PointY="30.625" />
-          <ConnectorPoint PointX="7.239583333333333" PointY="30.625" />
-          <ConnectorPoint PointX="7.666666666666667" PointY="30.625" />
-          <ConnectorPoint PointX="7.833333333333333" PointY="30.625" />
-          <ConnectorPoint PointX="8" PointY="30.625" />
-          <ConnectorPoint PointX="8" PointY="29.625" />
-          <ConnectorPoint PointX="9" PointY="29.625" />
-          <ConnectorPoint PointX="9" PointY="28.941712239583332" />
+          <ConnectorPoint PointX="4.5" PointY="32.807403971354169" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="32.807403971354169" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="32.807403971354169" />
+          <ConnectorPoint PointX="5" PointY="32.807403971354169" />
+          <ConnectorPoint PointX="5" PointY="32.25" />
+          <ConnectorPoint PointX="9" PointY="32.25" />
+          <ConnectorPoint PointX="9" PointY="30.941712239583332" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK__aspnet_Pe__PathI__19DFD96B" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="11.768992513020834" />
-          <ConnectorPoint PointX="5.25" PointY="11.768992513020834" />
+          <ConnectorPoint PointX="4.5" PointY="13.581492513020834" />
+          <ConnectorPoint PointX="5.25" PointY="13.581492513020834" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK__aspnet_Pe__PathI__1F98B2C1" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="13.369944661458334" />
-          <ConnectorPoint PointX="5.25" PointY="13.369944661458334" />
+          <ConnectorPoint PointX="4.5" PointY="15.119944661458334" />
+          <ConnectorPoint PointX="5.25" PointY="15.119944661458334" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK__aspnet_Pr__UserI__6FE99F9F" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.75" PointY="28.75" />
-          <ConnectorPoint PointX="3.75" PointY="26.086293945312498" />
-          <ConnectorPoint PointX="5.25" PointY="26.086293945312498" />
+          <ConnectorPoint PointX="3.75" PointY="30.375" />
+          <ConnectorPoint PointX="3.75" PointY="27.961293945312498" />
+          <ConnectorPoint PointX="5.25" PointY="27.961293945312498" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK__aspnet_Us__RoleI__02084FDA" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="23.172841796874998" />
-          <ConnectorPoint PointX="5.25" PointY="23.172841796874998" />
+          <ConnectorPoint PointX="4.5" PointY="24.922841796874998" />
+          <ConnectorPoint PointX="5.25" PointY="24.922841796874998" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_Image_aspnet_Users" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="29.4612939453125" />
-          <ConnectorPoint PointX="5.25" PointY="29.4612939453125" />
+          <ConnectorPoint PointX="4.5" PointY="31.1487939453125" />
+          <ConnectorPoint PointX="5.25" PointY="31.1487939453125" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_messages_aspnet_userRecipient" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="32.172653808593751" />
-          <ConnectorPoint PointX="4.666666666666667" PointY="32.172653808593751" />
-          <ConnectorPoint PointX="4.833333333333333" PointY="32.172653808593751" />
-          <ConnectorPoint PointX="5.25" PointY="32.172653808593751" />
+          <ConnectorPoint PointX="4.5" PointY="34.086105957031251" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="34.086105957031251" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="34.086105957031251" />
+          <ConnectorPoint PointX="5.25" PointY="34.086105957031251" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_messages_aspnet_userSender" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="31.581378173828124" />
-          <ConnectorPoint PointX="4.666666666666667" PointY="31.581378173828124" />
-          <ConnectorPoint PointX="4.833333333333333" PointY="31.581378173828124" />
-          <ConnectorPoint PointX="5.25" PointY="31.581378173828124" />
+          <ConnectorPoint PointX="4.5" PointY="33.446754964192706" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="33.446754964192706" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="33.446754964192706" />
+          <ConnectorPoint PointX="5.25" PointY="33.446754964192706" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_recommandations_aspnet_recipientUser" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.75" PointY="33.230205078124996" />
-          <ConnectorPoint PointX="3.75" PointY="35.8362939453125" />
-          <ConnectorPoint PointX="5.25" PointY="35.8362939453125" />
+          <ConnectorPoint PointX="3.75" PointY="35.239807942708339" />
+          <ConnectorPoint PointX="3.75" PointY="37.7112939453125" />
+          <ConnectorPoint PointX="5.25" PointY="37.7112939453125" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_recommandations_aspnet_senderUser" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.1562525" PointY="33.230205078124996" />
-          <ConnectorPoint PointX="4.1562525" PointY="35.261894472656252" />
-          <ConnectorPoint PointX="5.25" PointY="35.261894472656252" />
+          <ConnectorPoint PointX="4.1562525" PointY="35.239807942708339" />
+          <ConnectorPoint PointX="4.1562525" PointY="37.136894472656252" />
+          <ConnectorPoint PointX="5.25" PointY="37.136894472656252" />
+        </AssociationConnector>
+        <AssociationConnector Association="bindedinModel.FK_relation_status_asked_user" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="32.591201985677088" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="32.591201985677088" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="32.591201985677088" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="32.591201985677088" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="32.591201985677088" />
+          <ConnectorPoint PointX="8.25" PointY="32.591201985677088" />
+        </AssociationConnector>
+        <AssociationConnector Association="bindedinModel.FK_relation_status_asking_user" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="34.69420894986979" />
+          <ConnectorPoint PointX="4.75" PointY="34.69420894986979" />
+          <ConnectorPoint PointX="4.75" PointY="32.375" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="32.375" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="32.375" />
+          <ConnectorPoint PointX="8.6250004999999987" PointY="32.375" />
+          <ConnectorPoint PointX="8.6250004999999987" PointY="32.5" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_competence_aspnet_Users" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="30.3675439453125" />
-          <ConnectorPoint PointX="7.666666666666667" PointY="30.3675439453125" />
-          <ConnectorPoint PointX="7.833333333333333" PointY="30.3675439453125" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="30.3675439453125" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="30.3675439453125" />
-          <ConnectorPoint PointX="8.25" PointY="30.3675439453125" />
+          <ConnectorPoint PointX="3.3437475" PointY="35.239807942708339" />
+          <ConnectorPoint PointX="3.3437475" PointY="38.891337890625" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="38.891337890625" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="38.891337890625" />
+          <ConnectorPoint PointX="8.25" PointY="38.891337890625" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_experienceprofessional_aspnet_Users" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.3437475" PointY="33.230205078124996" />
-          <ConnectorPoint PointX="3.3437475" PointY="34.379547526041669" />
-          <ConnectorPoint PointX="3.6666666666666665" PointY="34.379547526041669" />
-          <ConnectorPoint PointX="3.8333333333333335" PointY="34.379547526041669" />
-          <ConnectorPoint PointX="4.0729191666666669" PointY="34.379547526041669" />
-          <ConnectorPoint PointX="4.2395858333333329" PointY="34.379547526041669" />
-          <ConnectorPoint PointX="7.072916666666667" PointY="34.379547526041669" />
-          <ConnectorPoint PointX="7.239583333333333" PointY="34.379547526041669" />
-          <ConnectorPoint PointX="8.25" PointY="34.379547526041669" />
+          <ConnectorPoint PointX="4.5" PointY="32.055043945312505" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="32.055043945312505" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="32.055043945312505" />
+          <ConnectorPoint PointX="10.072916666666666" PointY="32.055043945312505" />
+          <ConnectorPoint PointX="10.239583333333334" PointY="32.055043945312505" />
+          <ConnectorPoint PointX="11.25" PointY="32.055043945312505" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_formation_aspuser" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="32.732681443359368" />
-          <ConnectorPoint PointX="4.75" PointY="32.732681443359368" />
-          <ConnectorPoint PointX="4.75" PointY="30.75" />
-          <ConnectorPoint PointX="4.916666666666667" PointY="30.75" />
-          <ConnectorPoint PointX="5.083333333333333" PointY="30.75" />
-          <ConnectorPoint PointX="7.072916666666667" PointY="30.75" />
-          <ConnectorPoint PointX="7.239583333333333" PointY="30.75" />
-          <ConnectorPoint PointX="7.75" PointY="30.75" />
-          <ConnectorPoint PointX="7.75" PointY="29.375" />
-          <ConnectorPoint PointX="8.9166666666666661" PointY="29.375" />
-          <ConnectorPoint PointX="9.0833333333333339" PointY="29.375" />
-          <ConnectorPoint PointX="10.072916666666666" PointY="29.375" />
-          <ConnectorPoint PointX="10.239583333333334" PointY="29.375" />
-          <ConnectorPoint PointX="12" PointY="29.375" />
-          <ConnectorPoint PointX="12" PointY="29.875" />
+          <ConnectorPoint PointX="4.156252" PointY="30.375" />
+          <ConnectorPoint PointX="4.156252" PointY="29.297587890624996" />
+          <ConnectorPoint PointX="8" PointY="29.297587890624996" />
+          <ConnectorPoint PointX="8" PointY="31.191712239583332" />
+          <ConnectorPoint PointX="8.9166666666666661" PointY="31.191712239583332" />
+          <ConnectorPoint PointX="9.0833333333333339" PointY="31.191712239583332" />
+          <ConnectorPoint PointX="10.875" PointY="31.191712239583332" />
+          <ConnectorPoint PointX="10.875" PointY="28.807444661458334" />
+          <ConnectorPoint PointX="11.25" PointY="28.807444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_professional_experience_company" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="41.990143229166662" />
-          <ConnectorPoint PointX="6" PointY="41.990143229166662" />
+          <ConnectorPoint PointX="8.25" PointY="40.865143229166662" />
+          <ConnectorPoint PointX="8.4166666666666661" PointY="40.865143229166662" />
+          <ConnectorPoint PointX="8.7083333333333339" PointY="40.865143229166662" />
+          <ConnectorPoint PointX="9" PointY="40.865143229166662" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_competence_user_competence" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.15625" PointY="38.125" />
-          <ConnectorPoint PointX="7.15625" PointY="30.527524472656246" />
-          <ConnectorPoint PointX="7.666666666666667" PointY="30.527524472656246" />
-          <ConnectorPoint PointX="7.833333333333333" PointY="30.527524472656246" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="30.527524472656246" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="30.527524472656246" />
-          <ConnectorPoint PointX="8.25" PointY="30.527524472656246" />
+          <ConnectorPoint PointX="7.5" PointY="46.768992513020834" />
+          <ConnectorPoint PointX="8.625" PointY="46.768992513020834" />
+          <ConnectorPoint PointX="8.625" PointY="38.92258789062501" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_formation_ecole" ManuallyRouted="false">
-          <ConnectorPoint PointX="8.25" PointY="20.018992513020834" />
-          <ConnectorPoint PointX="9" PointY="20.018992513020834" />
+          <ConnectorPoint PointX="8.25" PointY="21.768992513020834" />
+          <ConnectorPoint PointX="9" PointY="21.768992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_formation_formation" ManuallyRouted="false">
-          <ConnectorPoint PointX="10.15625" PointY="21.047587890624996" />
-          <ConnectorPoint PointX="10.15625" PointY="32.174988606770839" />
-          <ConnectorPoint PointX="11.25" PointY="32.174988606770839" />
+          <ConnectorPoint PointX="10.5" PointY="21.836293945312498" />
+          <ConnectorPoint PointX="12" PointY="21.836293945312498" />
+          <ConnectorPoint PointX="12" PointY="27.625" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_user_experienceprofessional_professional_experience" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="41.9612939453125" />
-          <ConnectorPoint PointX="9" PointY="41.9612939453125" />
-          <ConnectorPoint PointX="9" PointY="35.239889322916667" />
+          <ConnectorPoint PointX="10.15625" PointY="39.75" />
+          <ConnectorPoint PointX="10.15625" PointY="31.808769472656259" />
+          <ConnectorPoint PointX="11.25" PointY="31.808769472656259" />
         </AssociationConnector>
         <AssociationConnector Association="bindedinModel.FK_relation_status_relation_status" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="2.0478417968750016" />
-          <ConnectorPoint PointX="3" PointY="2.0478417968750016" />
+          <ConnectorPoint PointX="6.75" PointY="43" />
+          <ConnectorPoint PointX="6.75" PointY="42.105286458333325" />
+          <ConnectorPoint PointX="8.5" PointY="42.105286458333325" />
+          <ConnectorPoint PointX="8.5" PointY="39.17258789062501" />
+          <ConnectorPoint PointX="8" PointY="39.17258789062501" />
+          <ConnectorPoint PointX="8" PointY="33.855448370442708" />
+          <ConnectorPoint PointX="8.25" PointY="33.855448370442708" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

@@ -29,6 +29,19 @@ namespace Business
             return retour.ToList();
         }
 
+        public static List<v_user_competences> GetSkillsUser(Guid userId)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+            var retour = from uc in bie.user_competence
+                         from c in bie.v_user_competences
+                         orderby c.level descending, c.name ascending
+                         where uc.user.Equals(userId)
+                         where uc.competence.Equals(c.id)
+                         select c;
+
+            return retour.ToList();
+        }
+
         public static void InsertNewSkill(String name, String description, int level,Guid userId)
         {
             bindedinEntities bie = SingletonEntities.Instance;
