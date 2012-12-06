@@ -76,7 +76,7 @@ namespace Business
 
             Uri uri = HttpContext.Current.Request.Url;
             String host = uri.Scheme + Uri.SchemeDelimiter + uri.Host + ":" + uri.Port;
-            String linkForInvitation = host + String.Format("/AcceptedInvitation.aspx?id_asked={0}&id_asking={1}", (Guid)(Membership.GetUser(asking_userName, false).ProviderUserKey), (Guid)(Membership.GetUser(asked_username, false).ProviderUserKey));
+            String linkForInvitation = host + String.Format("/AcceptedInvitation.aspx?id_asking={0}&id_asked={1}", (Guid)(Membership.GetUser(asking_userName, false).ProviderUserKey), (Guid)(Membership.GetUser(asked_username, false).ProviderUserKey));
 
             messageToSend += String.Format("Voici le lien pour accepter cette invitation : {0}", linkForInvitation);
             messageToSend += "\n";
@@ -85,6 +85,35 @@ namespace Business
             messageToSend += "\nVotre équipe BindedIn";
 
             Business.MessageService.SendMessage((Guid)(Membership.GetUser(asking_userName, false).ProviderUserKey), (Guid)(Membership.GetUser(asked_username, false).ProviderUserKey), obj, messageToSend);
+
+            bindedinEntities bie = SingletonEntities.Instance;
+
+            relation_status newRelation = new relation_status();
+            newRelation.status = 1;
+            newRelation.asked_date = DateTime.Now;
+            newRelation.asked_user = (Guid)(Membership.GetUser(asked_username, false).ProviderUserKey);
+            newRelation.asking_user = (Guid)(Membership.GetUser(asking_userName, false).ProviderUserKey);
+
+            bie.relation_status.AddObject(newRelation);
+            bie.SaveChanges();
+
+            return true;
+        }
+
+        public static Boolean updateRelation(Guid askedUser, Guid askingUser)
+        {
+            bindedinEntities bie = SingletonEntities.Instance;
+
+            var relation = from r in bie.relation_status
+                           where r.asking_user == askingUser
+                           where r.asked_user == askedUser
+                           select r;
+
+            relation_status relationTrouve = relation.First();
+
+            relationTrouve.status = 3;
+
+            bie.SaveChanges();
 
             return true;
         }

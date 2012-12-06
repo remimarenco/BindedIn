@@ -18,7 +18,7 @@
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span3">
-                <asp:Image ID="Image1" style="width:140px; height:140px" Runat="server" CssClass="img-polaroid" />
+                <asp:Image ID="ImageProfile" style="width:140px; height:140px" Runat="server" CssClass="img-polaroid" />
             </div>
             <div class="span9">
                 <div class="row-fluid">
