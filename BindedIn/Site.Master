@@ -105,8 +105,11 @@
             </div>
         </div>
     </div>            
-     <div class="container">        
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>        
+     <div class="container">
+        <div id="DivAlertSuccess" class="alert alert-success" runat="server">
+            <asp:Label ID="AlertSuccess" Text="" runat="server"/>
+        </div>        
+        <asp:ContentPlaceHolder ID="MainContent" runat="server"/>        
     </div>
 
     <div class="footer">  

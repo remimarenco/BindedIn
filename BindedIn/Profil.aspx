@@ -15,20 +15,29 @@
             <asp:Parameter DbType="Guid" Name="id" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    <div class="row">
-        <asp:Image ID="ImageProfile" style="width:140px; height:140px" Runat="server" CssClass="img-polaroid span3" />
-        <asp:Repeater ID="Repeater3" runat="server" DataSourceID="ObjectDataSourceUserProfile">  
-            <ItemTemplate>  
-                <span class="span9">
-                    <h1> <%#Eval("FirstName") %> <%#Eval("LastName") %> </h1>
-                     <br /><a href="<%# String.Format("MessageForm.aspx?id={0}", Eval("UserName")) %>" > <i class=" icon-envelope"></i>Envoyer un message</a>
-                <br /><a href="<%# String.Format("RecommandationForm.aspx?id={0}", Eval("UserName")) %>" > <i class="icon-thumbs-up"></i>Recommander cette personne</a>
-                </span>
-            </ItemTemplate>
-        </asp:Repeater>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">
+                <asp:Image ID="Image1" style="width:140px; height:140px" Runat="server" CssClass="img-polaroid" />
+            </div>
+            <div class="span9">
+                <div class="row-fluid">
+                    <asp:Repeater ID="Repeater3" runat="server" DataSourceID="ObjectDataSourceUserProfile">  
+                        <ItemTemplate>  
+                            <span class="span9">
+                                <h1> <%#Eval("FirstName") %> <%#Eval("LastName") %> </h1>
+                                 <br /><a href="<%# String.Format("MessageForm.aspx?id={0}", Eval("UserName")) %>" > <i class=" icon-envelope"></i>Envoyer un message</a>
+                            <br /><a href="<%# String.Format("RecommandationForm.aspx?id={0}", Eval("UserName")) %>" > <i class="icon-thumbs-up"></i>Recommander cette personne</a>
+                            </span>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+                <div class="row-fluid">
+                    <asp:Button ID="Button3" Text="Se connecter" runat="server" CssClass="btn btn-primary" 
+                        onclick="createRelation_Click"  />
+                </div>
+            </div>
     </div>
-
-    <div class="row-fluid">
         
         
     <%-- 
