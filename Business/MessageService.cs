@@ -180,7 +180,7 @@ namespace Business
             string re="";
             if (count > 0)
             {
-                re = "(" + Convert.ToString(count) + ")";
+                re = Convert.ToString(count);
             }
             return re;
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Data;
 using System.Web.Security;
+using System.Web;
 
 namespace Business
 {
@@ -63,10 +64,29 @@ namespace Business
             return listFarFromOneRelations;
         }
 
-        public static Boolean SendInvitation()
+        public static Boolean SendInvitation(String asking_userName, String asked_username, String message)
         {
+            UserProfile loggedInProfile = UserProfile.GetUserProfile(asking_userName);
 
-            return false;
+            String obj = String.Format("{0} {1} veut vous inviter dans son réseau !", loggedInProfile.FirstName, loggedInProfile.LastName);
+
+            String messageToSend = message;
+
+            messageToSend += "\n";
+
+            Uri uri = HttpContext.Current.Request.Url;
+            String host = uri.Scheme + Uri.SchemeDelimiter + uri.Host + ":" + uri.Port;
+            String linkForInvitation = host + String.Format("/AcceptedInvitation.aspx?id_asked={0}&id_asking={1}", (Guid)(Membership.GetUser(asking_userName, false).ProviderUserKey), (Guid)(Membership.GetUser(asked_username, false).ProviderUserKey));
+
+            messageToSend += String.Format("Voici le lien pour accepter cette invitation : {0}", linkForInvitation);
+            messageToSend += "\n";
+            messageToSend += "Sinon ignorez tout simplement ce message";
+            messageToSend += "\nCordialement,";
+            messageToSend += "\nVotre équipe BindedIn";
+
+            Business.MessageService.SendMessage((Guid)(Membership.GetUser(asking_userName, false).ProviderUserKey), (Guid)(Membership.GetUser(asked_username, false).ProviderUserKey), obj, messageToSend);
+
+            return true;
         }
     }
 }

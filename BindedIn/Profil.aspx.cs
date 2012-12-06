@@ -299,8 +299,9 @@ namespace BindedIn
 
         #endregion
 
-      
-
-
+        protected void createRelation_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(String.Format("Invitation.aspx?id={0}", Request.Params["id"]));
+        }
     }
 }
